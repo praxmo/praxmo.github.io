@@ -113,3 +113,4 @@ var TxtType = function(el, toRotate, period) {
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #03A9F4}";
         document.body.appendChild(css);
     };
+    

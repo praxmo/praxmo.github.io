@@ -140,6 +140,7 @@ html {
 .fh5co-hero-inner .btn-bar {
   text-align:left;
 }
+
 .fh5co-hero-inner .features-btn-first {
   font-size: 15px;
   padding: 8px 13px;
@@ -148,6 +149,16 @@ html {
   color: #fff;
   margin:0
 }
+
+.features-btn-more {
+  font-size: 15px;
+  padding: 8px 13px;
+  font-weight: 400;
+  background: #fff;
+  color: #03A9F4;
+  margin:15px 0 0 0;
+}
+
 .fh5co-hero-inner .smartphone {
   position:absolute;
   width:100%;
@@ -164,6 +175,8 @@ html {
   height: 650px; /* 800 */
   box-shadow: 1px 1px 10px #9E9E9E;
   border-radius: 45px;
+  background-color: #ffffff;
+  overflow: hidden;
 }
 
 /* ==========================================================================================================
@@ -176,7 +189,7 @@ html {
   overflow: hidden;
 }
 .fh5co-advantages-outer .span-perfect {
-  color: #648cff;
+  color: #03A9F4;
   text-transform: uppercase;
   font-size: 27px;
   letter-spacing: 1px;
@@ -202,7 +215,7 @@ html {
   padding-right: 20px;
   position: relative;
   top: 1px;
-  color: #648cff;
+  color: #03A9F4;
 }
 .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-title {
   float: left;
@@ -234,7 +247,7 @@ html {
   padding: 70px;
 }
 .fh5co-slider-outer h1 {
-  color: #648cff;
+  color: #03A9F4;
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 600;
@@ -295,7 +308,7 @@ html {
   position: relative;
 }
 .fh5co-features-outer .sm-6-content h1 {
-  color: #648cff;
+  color: #03A9F4;
   text-transform: uppercase;
   font-size: 25px;
   font-weight: 600;
@@ -443,15 +456,15 @@ html {
    ========================================================================================================== */
 .fh5co-reviews-outer {
   width: 100%;
-  height: 400px;
-  padding: 70px;
-  margin-top: 100px;
+  /*height: 400px;*/
+  padding: 70px 70px 0 70px;
+  margin-top: 60px;
 }
 .fh5co-reviews-outer .fh5co-reviews-inner {
   margin-top: 100px;
 }
 .fh5co-reviews-outer > h1 {
-  color: #648cff;
+  color: #03A9F4;
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 600;
@@ -477,8 +490,8 @@ html {
 .fh5co-bottom-outer {
   width: 100%;
   height: 572px;
-  background: url("../img/download-section-bg.jpg") no-repeat center;
-  margin-top: 120px;
+  background: url("../img/download-section-bg.png") no-repeat center;
+  margin-top: 0px;
   overflow-x: hidden;
 }
 .fh5co-bottom-outer .fh5co-bottom-inner {
@@ -515,7 +528,7 @@ html {
   width: 100%;
   padding: 50px;
   height: 250px;
-  background: #2e3149;
+  background: #00264e;
   overflow: hidden;
 }
 .footer-outer .footer-inner {
@@ -1210,4 +1223,25 @@ html {
   
 .icon-filter {
   filter: invert(66%) sepia(78%) saturate(5056%) hue-rotate(168deg) brightness(100%) contrast(99%);
+}
+
+
+
+/* ==========================================================================================================
+								CUSTOMERS / PARTNERS
+   ========================================================================================================== */
+  
+.slide {
+  display:inline-block;
+}
+.slide img {
+  width: 80px;
+  filter:grayscale(1);
+  margin:15px;
+}
+.slide.x2 img {
+  width: 160px;
+}
+.slide.o5 img {
+  opacity: .5;
 }
