@@ -295,7 +295,7 @@ html {
 .fh5co-features-outer {
   width: 100%;
   height: auto;
-  margin-top: -180px;
+  margin-top: 0;
 }
 .fh5co-features-outer .col-sm-6 {
   margin-top: 80px;
@@ -742,7 +742,7 @@ html {
   }
 
   .fh5co-features-outer {
-    margin-top: -100px;
+    margin-top: -30px;
   }
 
   .fh5co-features-outer .sm-6-content p {
