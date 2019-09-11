@@ -11,6 +11,20 @@ html {
     overflow-x: hidden;
 }
 
+.fh5co-hero-inner .printout {
+    display: block;
+    margin: 0 0 10px;
+    font-size: .9em;
+}
+
+.special {
+    /*
+    color: #03A9F4;
+    font-size:1.1em;
+    font-weight:bold;
+    */
+}
+
 .download-btn-first {
     background: #f7f7f7;
 }
@@ -214,6 +228,7 @@ html {
     text-align: center;
     display: block;
     margin-top: 40px;
+    margin-bottom:30px;
 }
 
 .fh5co-advantages-outer small {
@@ -225,7 +240,11 @@ html {
     margin-top: 0px;
 }
 
-.fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-image {
+.fh5co-advantages-outer .fh5co-advantages-grid-columns .differentiator {
+    margin-top:40px;
+}
+
+.fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-image {
     width: 22%;
     float: left;
     padding-right: 20px;
@@ -234,13 +253,13 @@ html {
     color: #03A9F4;
 }
 
-.fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-title {
+.fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-title {
     float: left;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 300;
 }
 
-.fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-desc {
+.fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-desc {
     /*float: right;*/
     font-size: 14px;
     /*padding-right: 7%;*/
@@ -693,6 +712,241 @@ html {
     margin-left: 10px;
 }
 
+
+/* ==========================================================================================================
+										TYPING
+   ========================================================================================================== */
+.typewriter {
+    display:none;
+    text-align:left;
+}
+
+.typewrite > .wrap {
+    border-right: 0.08em solid #03A9F4;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #03A9F4;
+    animation: blink-caret .75s step-end infinite;
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: #03A9F4;
+    }
+}
+
+/* ==========================================================================================================
+										GREEKING
+   ========================================================================================================== */
+
+.greek-box {
+    /*background: rgba(50,50,50,.03);
+    width: 300px;*/
+    padding: .3em;
+    text-align: justify;
+    color: rgba(0, 0, 0, .01);
+    margin: .5em;
+    font-size: .8em;
+    margin-left: 40px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.greek {
+    background: rgba(50, 50, 55, .15);
+    line-height: 1.75em;
+}
+
+.connector {
+    position: absolute;
+    left: -30px;
+    top: 10px;
+    width: 24px;
+}
+
+.greek.action {
+    margin-top: 20px;
+    display: inline-block;
+    width: 33%;
+    position: relative;
+    margin-right: 2%;
+    border-radius: 2px;
+    height: 2em
+}
+
+.greek.action.success:after {
+    content: '';
+    height: 24px;
+    width: 24px;
+    background: url(https://intwixt.io/img/check.png) no-repeat;
+    position: absolute;
+    margin-left: 0px;
+    background-size: 21px;
+    margin-top: 2px;
+    opacity: .5;
+}
+
+.greek.action.fail:after {
+    content: '';
+    height: 24px;
+    width: 24px;
+    background: url(https://intwixt.io/img/cancel.png) no-repeat;
+    position: absolute;
+    margin-left: 0px;
+    background-size: 21px;
+    margin-top: 2px;
+    opacity: .5;
+}
+
+.greeking-simulator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    padding: 50px 24px 30px 24px;
+}
+
+.greeking-scroller {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================================================
+								ICONS - (Turns every black icon into the desired HEX using a CSS filter)
+   ========================================================================================================== */
+
+.icon-filter {
+    filter: invert(66%) sepia(78%) saturate(5056%) hue-rotate(168deg) brightness(100%) contrast(99%);
+}
+
+/* ==========================================================================================================
+								CUSTOMERS / PARTNERS
+   ========================================================================================================== */
+
+.slide {
+    display: inline-block;
+}
+
+.slide img {
+    width: 80px;
+    filter: grayscale(1);
+    margin: 15px;
+}
+
+.slide.x2 img {
+    width: 160px;
+}
+
+.slide.o5 img {
+    opacity: .5;
+}
+/* ==========================================================================================================
+								        QUOTES
+   ========================================================================================================== */
+
+.quotes {
+    position: relative;
+    max-width: 500px;
+    list-style-type: none;
+    text-align: center;
+    margin: 80px 0;
+    padding: 0
+}
+
+.quotes li {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: transparent;
+    text-align: center;
+    padding: 1em;
+    border-radius: 0.25em;
+    opacity: 0;
+    font-size:1.7em;
+    color:#666;
+}
+
+.quotes li:before, .quotes li:after {
+    /*
+    content: '"';
+    font-size: 6em;
+    margin: 6px 0;
+    top: 30px;
+    position: relative;
+    font-family: "Lato", "sans-serif";
+    */
+}
+
+.quotes li:last-child {
+    position: relative
+}
+
+/*
+.quotes li:after {
+    position:absolute; content:""; display:block; width:0; height:0; top:1.75em; left:-0.75em;
+    border-top:0.75em solid transparent;
+    border-bottom:0.75em solid transparent;
+    border-right:0.75em solid #ddd
+}
+*/
+.quotes span {
+    display: block;
+    text-align: right;
+    margin-right: 5%;
+    font-size: 75%;
+    font-style: italic;
+    color: #999
+}
+
+/* animation timing  =  animation:quote [total duration in secs] [increment by duration of each animation] infinite; */
+.quotes li:nth-child(1) {
+    -webkit-animation: quote 25s 0s infinite;
+    animation: quote 25s 0s infinite
+}
+
+.quotes li:nth-child(2) {
+    -webkit-animation: quote 25s 5s infinite;
+    animation: quote 25s 5s infinite
+}
+
+.quotes li:nth-child(3) {
+    -webkit-animation: quote 25s 10s infinite;
+    animation: quote 25s 10s infinite
+}
+
+.quotes li:nth-child(4) {
+    -webkit-animation: quote 25s 15s infinite;
+    animation: quote 25s 15s infinite
+}
+
+.quotes li:nth-child(5) {
+    -webkit-animation: quote 25s 20s infinite;
+    animation: quote 25s 20s infinite
+}
+
+@-webkit-keyframes quote { /* whole numbers only - round steps to nearest % */
+    0%   { opacity:0 }
+    5%   { opacity:1 } /* (step 2 % = 100% / total quotes x .25) */
+    15%  { opacity:1 } /* (step 3 % = 100% / total quotes x .75) */
+    20%  { opacity:0 } /* (step 4 % = 100% / total quotes) */
+}
+@keyframes quote { /* whole numbers only - round steps to nearest % */
+    0%   { opacity:0 }
+    5%   { opacity:1 } /* (step 2 % = 100% / total quotes x .25) */
+    15%  { opacity:1 } /* (step 3 % = 100% / total quotes x .75) */
+    20%  { opacity:0 } /* (step 4 % = 100% / total quotes) */
+}
+
 /* ==========================================================================================================
                                        RESPONSIVE STYLING
   ========================================================================================================== */
@@ -739,6 +993,18 @@ html {
 }
 
 @media screen and (max-width: 993px) {
+    .quotes {
+        display:none !important;
+    }
+
+    .typewriter {
+        display:block !important;
+    }
+
+    .printout {
+        display:none !important;
+    }
+
     .remainder {
         display: inline-block;
     }
@@ -771,17 +1037,17 @@ html {
         margin-left: auto;
         margin-right: auto;
         top: 170px;
-        margin-top: 110px;
+        margin-top: 90px;
         width: 288px; /* 500 */
         height: 460px; /* 800 */
     }
 
     .fh5co-advantages-outer {
-        margin-top: 50px;
+        margin-top: 0;
         padding-bottom: 0;
     }
 
-    .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-image {
+    .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-image {
         width: 56px;
         float: none;
         display: block;
@@ -792,12 +1058,12 @@ html {
         top: 1px;
     }
 
-    .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-title {
+    .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-title {
         float: none;
         text-align: center;
     }
 
-    .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-3 .grid-desc {
+    .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-desc {
         float: none;
         width: 95%;
         text-align: center;
@@ -972,7 +1238,7 @@ html {
         margin-top: 40px;
     }
 
-    .fh5co-advantages-grid-columns .col-sm-3 {
+    .fh5co-advantages-grid-columns .col-sm-6 {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         width: 100%;
@@ -1185,137 +1451,4 @@ html {
         width: 100%;
         text-align: center;
     }
-}
-
-/* ==========================================================================================================
-										TYPING
-   ========================================================================================================== */
-.typewrite > .wrap {
-    border-right: 0.08em solid #03A9F4;
-    font-weight: bold;
-    font-size: 1.1em;
-    color: #03A9F4;
-    animation: blink-caret .75s step-end infinite;
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent
-    }
-    50% {
-        border-color: #03A9F4;
-    }
-}
-
-/* ==========================================================================================================
-										GREEKING
-   ========================================================================================================== */
-
-.greek-box {
-    /*background: rgba(50,50,50,.03);
-    width: 300px;*/
-    padding: .3em;
-    text-align: justify;
-    color: rgba(0, 0, 0, .01);
-    margin: .5em;
-    font-size: .8em;
-    margin-left: 40px;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.greek {
-    background: rgba(50, 50, 55, .15);
-    line-height: 1.75em;
-}
-
-.connector {
-    position: absolute;
-    left: -30px;
-    top: 10px;
-    width: 24px;
-}
-
-.greek.action {
-    margin-top: 20px;
-    display: inline-block;
-    width: 33%;
-    position: relative;
-    margin-right: 2%;
-    border-radius: 2px;
-    height: 2em
-}
-
-.greek.action.success:after {
-    content: '';
-    height: 24px;
-    width: 24px;
-    background: url(https://intwixt.io/img/check.png) no-repeat;
-    position: absolute;
-    margin-left: 0px;
-    background-size: 21px;
-    margin-top: 2px;
-    opacity: .5;
-}
-
-.greek.action.fail:after {
-    content: '';
-    height: 24px;
-    width: 24px;
-    background: url(https://intwixt.io/img/cancel.png) no-repeat;
-    position: absolute;
-    margin-left: 0px;
-    background-size: 21px;
-    margin-top: 2px;
-    opacity: .5;
-}
-
-.greeking-simulator {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    width: 100%;
-    padding: 50px 24px 30px 24px;
-}
-
-.greeking-scroller {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-/* ==========================================================================================================
-								ICONS - (Turns every black icon into the desired HEX using a CSS filter)
-   ========================================================================================================== */
-
-.icon-filter {
-    filter: invert(66%) sepia(78%) saturate(5056%) hue-rotate(168deg) brightness(100%) contrast(99%);
-}
-
-/* ==========================================================================================================
-								CUSTOMERS / PARTNERS
-   ========================================================================================================== */
-
-.slide {
-    display: inline-block;
-}
-
-.slide img {
-    width: 80px;
-    filter: grayscale(1);
-    margin: 15px;
-}
-
-.slide.x2 img {
-    width: 160px;
-}
-
-.slide.o5 img {
-    opacity: .5;
 }
