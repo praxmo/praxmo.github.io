@@ -869,10 +869,10 @@ html {
     right: 0;
     background: transparent;
     text-align: center;
-    padding: 1em;
+    padding: 1em 0;
     border-radius: 0.25em;
     opacity: 0;
-    font-size:1.7em;
+    font-size:1.65em;
     color:#666;
 }
 
