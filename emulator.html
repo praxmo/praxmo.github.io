@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intwixt | AI-enabled Slack Workflows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Run AI-enabled workflows directly in Slack"/>
+    <meta name="keywords" content="BPM, Slack, Workflow, Business Process"/>
+    <meta name="author" content="info@intwixt.com"/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        form {
+            padding:40px 0;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        .title_label {
+            margin-top:20px;
+            font-size:1.75em;
+        }
+
+        .instructions_label {
+            border-radius: 3px;
+            color: #33C3F0;
+        }
+
+        .form_button {
+            float: right;
+            color:#ffffff;
+            background-color:#33C3F0;
+            border-color:#33C3F0;
+            margin-left:10px;
+            padding:0 20px;
+            border-radius:2px;
+        }
+        .submit_button {
+
+        }
+        .cancel_button, .reset_button {
+            color:#33C3F0;
+            background-color:transparent;
+        }
+
+        .form_button:focus,
+        .form_button:active {
+            border-color:#33C3F0;
+        }
+
+        input[type=text], input[type=password], input[type=range], textarea, select {
+            width:100% !important;
+            padding: 8px;
+        }
+
+        select[multiple] {
+            min-height:70px;
+        }
+
+        input, textarea, select, fieldset {
+            margin-bottom:0;
+            border: solid 1px #888;
+            border-radius: 4px;
+        }
+
+        .fielddef {
+            margin-bottom: 1.75rem;
+        }
+
+        .fielddef .tip {
+
+        }
+
+        .fielddef.radio label {
+            margin-right:10px;
+        }
+
+        .fielddef > * .error {
+            display:block;
+            color:#8b0000;
+            margin-top:5px;
+        }
+
+        .fielddef > * .error {
+            border-left:solid 2px #8b0000;
+            padding-left:4px;
+            background-color:#fbf4f7;
+        }
+
+        form.error .form_button {
+            float: right;
+            color:#ffffff;
+            background-color:#8b0000;
+            border-color:#8b0000;
+            margin-left:10px;
+            padding:0 20px;
+        }
+
+        form.error .cancel_button, form.error .reset_button {
+            color:#8b0000;
+            background-color:transparent;
+        }
+
+    </style>
+</head>
+
+<body class="container">
+
+<div id="app" v-cloak>
+    <h1 class="title_label">{{ config.title_label }}</h1>
+
+    <p v-if="config.instructions_label"
+       class="instructions_label">{{ config.instructions_label }}</p>
+
+    <form v-bind:class="{ error: has_error }">
+        <ixt-field v-for="(datum, datum_id) in model"  v-bind:key="datum.id" :fielddef.sync="datum" :tft="template_for_type"></ixt-field>
+        <div class="button_bar">
+            <button v-if="config.submit_label"
+                    v-on:click.prevent="submit"
+                    class="submit_button form_button">{{ config.submit_label }}
+            </button>
+            <button v-if="config.cancel_label"
+                    v-on:click.prevent="cancel"
+                    class="cancel_button form_button">{{ config.cancel_label }}
+            </button>
+            <button v-if="config.reset_label"
+                    v-on:click.prevent="reset"
+                    class="reset_button form_button">{{ config.reset_label }}
+            </button>
+        </div>
+    </form>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+  var example = {
+    model: [
+      {
+        "id": "ssn",
+        "title": "First name",
+        "data_type": "string",
+        "required": true,
+        "value": "Anu",
+        "field_type": "textbox",
+        "constraints": {"$or": {$match: "^\\d{10}$"}}
+      },
+      {
+        "id": "first",
+        "title": "Password",
+        "tip": "Must be between 8 and 25 characters",
+        "data_type": "string",
+        "required": true,
+        "value": "pass123",
+        "field_type": "password",
+        "constraints": {"$gtlen": 7, "$ltlen": 26}
+      },
+      {
+        "id": "mi",
+        "title": "Comments",
+        "data_type": "string",
+        "content_type": "text/paragraph",
+        "field_type": "textbox"
+      },
+      {
+        "id": "last",
+        "title": "I agree to these terms",
+        "field_type": "radio",
+        "data_type": "string",
+        "data": [
+          {"id": "yes", "title": "Yes"},
+          {"id": "no", "title": "No"}
+        ],
+        "constraints": {"$neq": "no"}
+      },
+      {
+        "id": "tax_rate",
+        "title": "Tax Rate",
+        "tip": "Expressed as a decimal value between 0 and 1",
+        "data_type": "number",
+        "value": 0.0935,
+        "field_type": "textbox"
+      },
+      {
+        "id": "date",
+        "title": "Date",
+        "tip": "Choose the inception date",
+        "data_type": "string",
+        "required": true,
+        "field_type": "date"
+      },
+      {
+        "id": "show_tax",
+        "title": "Show Tax",
+        "tip": "If true, show subtotal and tax when calculating the total",
+        "field_type": "select",
+        "data_type": "boolean",
+        "data": [
+          {"id": true, "title": "True"},
+          {"id": false, "title": "False"}
+        ]
+      },
+      {
+        "id": "checkbox",
+        "title": "Do you agree",
+        "subtitle": "Yes, very much",
+        "tip": "Tell us what you think",
+        "field_type": "checkbox",
+        "data_type": "boolean",
+        "required": true,
+        "example": true,
+        "data": [
+          {"id": true, "title": "Yes"},
+          {"id": false, "title": "No"}
+        ]
+      },
+      {
+        "id": "primary",
+        "title": "Primary Colors",
+        "tip": "Which do you find appealing?",
+        "field_type": "multiselect",
+        "data_type": "string",
+        "value": ["red"],
+        "data": [
+          {"id": "red", "title": "Red"},
+          {"id": "yellow", "title": "Yellow"},
+          {"id": "blue", "title": "Blue"}
+        ],
+        "constraints": {"$GTE": 1, "$LTE": 2}
+      },
+      {
+        "id": "range",
+        "title": "Range",
+        "tip": "Choose a range",
+        "data_type": "string",
+        "required": true,
+        "value": "23",
+        "field_type": "range"
+      },
+      {
+        "id": "color",
+        "title": "Color",
+        "tip": "Choose a color",
+        "data_type": "string",
+        "required": true,
+        "field_type": "color"
+      },
+      {
+        "id": "html",
+        "title": "<div><h2>html</h2><h3>content</h3><p>yo!</p></div>",
+        "data_type": "string",
+        "field_type": "html"
+      }
+    ],
+    config: {
+      title_label: "Transaction Details",
+      instructions_label: "Please complete all fields below",
+      submit_label: "Submit",
+      reset_label: "Reset",
+      cancel_label: "Cancel"
+    }
+  };
+
+  /**
+   * called when data is emitted by the containing page
+   */
+  function on_data(data) {
+    new Vue({
+      el: '#app',
+      data: data,
+      beforeCreate:function() {
+        data._data = {};
+        data.has_error = false;
+        _(data.model).each(function (datum, datum_id) {
+          if(datum.constraints && typeof(datum.constraints) == "string") {
+            datum.constraints = JSON.parse(datum.constraints);
+          }
+          datum.error = "";
+          if (datum.value == undefined) {
+            var match;
+            _(datum.data).each(function (datum) {
+              if (datum.id === "no" || datum.id === "false" || datum.id === false || datum.id == "No") {
+                match = datum.value = datum.id;
+              }
+            });
+            if (match == undefined) {
+              datum.value = datum.data && datum.data["0"] && datum.data["0"].id;
+            }
+            datum.value = "";
+          }
+          data._data[datum.id] = datum.value;
+        });
+      },
+      watch: {
+        selected: function (val, oldVal) {
+          this.recalculate(val);
+        }
+      },
+      components: {
+        'ixt-field': {
+          props: ['fielddef', 'tft'],
+          template: '<div :id="fielddef.id" class="fielddef" :class="fielddef.field_type"><div v-bind:class="{ error: fielddef.error }">' +
+          '  <div v-if="fielddef.field_type != \'html\'" class="title">' +
+          '    {{ fielddef.title }}' +
+          '    <span v-if="fielddef.required" class="required">*</span>' +
+          '  </div> ' +
+          '  <div :is="tft(fielddef)" :fielddef.sync="fielddef"> </div>' +
+          '  <small class="tip">{{ fielddef.tip }}</small> ' +
+          '  <small v-if="fielddef.error" class="error">{{ fielddef.error }}</small></div>' +
+          '</div>',
+          components: {
+            'ixt-textbox': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <input type="text" v-model="fielddef.value">' +
+              '</div>'
+            },
+            'ixt-password': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <input type="password" v-model="fielddef.value">' +
+              '</div>'
+            },
+            'ixt-html': {
+              props: ['fielddef'],
+              template: '<div v-html="fielddef.title"></div>'
+            },
+            'ixt-range': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <input type="range" v-model="fielddef.value">' +
+              '</div>'
+            },
+            'ixt-color': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <input type="color" v-model="fielddef.value">' +
+              '</div>'
+            },
+            'ixt-date': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <input type="date" v-model="fielddef.value">' +
+              '</div>'
+            },
+            'ixt-select': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <select v-model="fielddef.value">' +
+              '    <option v-for="option in fielddef.data" :value="option.id">' +
+              '      {{ option.title }} ' +
+              '    </option>' +
+              '  </select>' +
+              '</div>'
+            },
+            'ixt-radio': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <label v-for="option in fielddef.data">' +
+              '    <input type="radio" v-model="fielddef.value" :value="option.id"> {{ option.title }} ' +
+              '  </label>' +
+              '</div>'
+            },
+            'ixt-multiselect': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <select v-model="fielddef.value" multiple>' +
+              '    <option v-for="option in fielddef.data" :value="option.id">' +
+              '      {{ option.title }} ' +
+              '    </option>' +
+              '  </select>' +
+              '</div>'
+            },
+            'ixt-textarea': {
+              props: ['fielddef'],
+              template: '<div>' +
+              '  <textarea v-model="fielddef.value">' +
+              '  </textarea>' +
+              '</div>'
+            },
+            'ixt-checkbox': {
+              props: ['fielddef'],
+              template: '<label>' +
+              '  <input type="checkbox" v-model="fielddef.value"> {{ text_for_check(fielddef) }}' +
+              '</label>',
+              methods: {
+                text_for_check: function (fielddef) {
+                  var label = fielddef.subtitle || fielddef.title;
+                  _(fielddef.data).each(function (datum) {
+                    if (datum.id) {
+                      label = datum.title;
+                    }
+                  });
+                  return label;
+                }
+              }
+            }
+          }
+        }
+      },
+      methods: {
+        template_for_type: function (fielddef) {
+          var type = fielddef.field_type;
+          if ((type == "textbox" && fielddef.content_type == "text/paragraph") || type == "textarea") {
+            return "ixt-textarea";
+          } else if (type == "textbox" || type == "text") {
+            return "ixt-textbox";
+          } else if (type == "checkgroup") {
+            return "ixt-multiselect";
+          }
+          return "ixt-" + type;
+        },
+        reset: function () {
+          this.$data.has_error = false;
+          var model = this.$data.model;
+          var _data = this.$data._data;
+          _(model).each(function (fielddef) {
+            fielddef.value = _data[fielddef.id];
+            fielddef.error = "";
+          })
+        },
+        submit: function () {
+          this.$data.has_error = false;
+          if (this.$root.validate(this.$data.model)) {
+            var alldata = JSON.parse(JSON.stringify(this.$data));
+            var _data = alldata.model;
+            var data = {};
+            var my = this;
+            _(_data).each(function (_datum) {
+              data[_datum.id] = my.$root.coerce(_datum);
+            });
+            console.log(JSON.stringify({data: data}, null, "  "));
+            intwixt.emitData({data: data});
+          } else {
+            this.$data.has_error = true;
+          }
+        },
+        cancel: function () {
+          intwixt.emitData({cancel:true});
+        },
+        is_empty: function (value) {
+          return value === "" || value === null || value === undefined;
+        },
+        //iterate all field to check for validation errors
+        validate: function (fielddefs) {
+          var b_valid = true;
+          var my = this;
+          _(fielddefs).each(function (fielddef) {
+            fielddef.error = undefined;
+            var errors = [];
+            if (fielddef.required && my.$root.is_empty(fielddef.value)) {
+              fielddef.error = "This field is required";
+              b_valid = false;
+            } else if (!my.$root.validate_one(fielddef, fielddef.constraints, false, errors)) {
+              fielddef.error = errors.join("; ");
+              b_valid = false;
+            }
+          });
+          return b_valid;
+        },
+        validate_one: function (fielddef, constraints, is_or, errors) {
+          var b_valid = true;
+          var my = this;
+          if (is_or) {
+            //$or
+            var b_any = false;
+            var temp_errors = [];
+            _(constraints).each(function (constraint, key) {
+              if (!b_any) {
+                if (my.$root.validators(key, fielddef.value, constraint)) {
+                  b_any = true;
+                } else {
+                  temp_errors.push(my.reporters(key, constraint));
+                }
+              }
+            });
+            if (!b_any) {
+              errors.push("At least one of the following must be true: " + temp_errors.join("; "));
+            }
+            b_valid = b_any;
+          } else if (constraints && constraints instanceof Object) {
+            //$and
+            _(constraints).each(function (constraint, key) {
+              if (key == "$or" && !my.$root.validate_one(fielddef, constraint, true, errors)) {
+                b_valid = false;
+              } else if (key == "$and" && !my.$root.validate_one(fielddef, constraint, false, errors)) {
+                b_valid = false;
+              } else if (b_valid && key != "$and" && key != "$or" && !my.$root.validators(key, fielddef.value, constraint)) {
+                b_valid = false;
+                errors.push(my.reporters(key, constraint));
+              }
+            });
+          }
+          return b_valid;
+        },
+        validators: function (type, value, test_value) {
+          var filters = {
+            "$ltlen": function (value, test_value) {
+              if (filters["$empty"](value)) {
+                //empty values are considered zero-length
+                return true;
+              } else {
+                return (value + "").length < test_value;
+              }
+            },
+            "$gtlen": function (value, test_value) {
+              if (filters["$empty"](value)) {
+                //empty values are never longer than any valid length test
+                return false;
+              } else {
+                return (value + "").length > test_value;
+              }
+            },
+            "$lte": function (value, test_value) {
+              return (!isNaN(value) && !isNaN(test_value)) ? value - 0 <= test_value - 0 : value <= test_value;
+            },
+            "$lt": function (value, test_value) {
+              return (!isNaN(value) && !isNaN(test_value)) ? value - 0 < test_value - 0 : value < test_value;
+            },
+            "$gte": function (value, test_value) {
+              return (!isNaN(value) && !isNaN(test_value)) ? value - 0 >= test_value - 0 : value >= test_value;
+            },
+            "$gt": function (value, test_value) {
+              return (!isNaN(value) && !isNaN(test_value)) ? value - 0 > test_value - 0 : value > test_value;
+            },
+            "$eq": function (value, test_value) {
+              return (value + "").toUpperCase() == (test_value + "").toUpperCase() || (value == null && test_value == null);
+            },
+            "$neq": function (value, test_value) {
+              return !((value + "").toUpperCase() == (test_value + "").toUpperCase() || (value == null && test_value == null));
+            },
+            "$nempty": function (value) {
+              return value != "" && value != null && typeof(value) != "undefined";
+            },
+            "$empty": function (value) {
+              return value == "" || value == null || typeof(value) == "undefined";
+            },
+            "$contains": function (value, test_value) {
+              return (value + "").toUpperCase().indexOf((test_value + "").toUpperCase()) > -1;
+            },
+            "$ncontains": function (value, test_value) {
+              return (value + "").toUpperCase().indexOf((test_value + "").toUpperCase()) == -1;
+            },
+            "$sw": function (value, test_value) {
+              if (String.prototype.startsWith) {
+                return (value + "").toUpperCase().startsWith((test_value + "").toUpperCase());
+              } else {
+                return value instanceof String &&
+                  test_value instanceof String &&
+                  value &&
+                  value.length >= test_value.length &&
+                  value.substring(0, test_value.length) == test_value;
+              }
+            },
+            "$ew": function (value, test_value) {
+              if (String.prototype.endsWith) {
+                return (value + "").toUpperCase().endsWith((test_value + "").toUpperCase());
+              } else {
+                return value instanceof String &&
+                  test_value instanceof String &&
+                  value &&
+                  value.length >= test_value.length &&
+                  value.substring(value.length - test_value.length) == test_value;
+              }
+            },
+            "$nsw": function (value, test_value) {
+              return !filters["$sw"](value, test_value);
+            },
+            "$new": function (value, test_value) {
+              return !filters["$ew"](value, test_value);
+            },
+            "$match": function (value, test_value) {
+              try {
+                var reg = new RegExp(test_value);
+                return (value + "").match(reg) != null;
+              } catch (e) {
+                return false;
+              }
+            },
+            "$nmatch": function (value, test_value) {
+              try {
+                var reg = new RegExp(test_value);
+                return (value + "").match(reg) == null;
+              } catch (e) {
+                return true;
+              }
+            },
+            //these methods (capitalized) operate on collections (array) as input for testing
+            "$LTE": function (value, test_value) {
+              return filters["$LENGTH"](value) <= test_value;
+            },
+            "$LT": function (value, test_value) {
+              return filters["$LENGTH"](value) < test_value;
+            },
+            "$GTE": function (value, test_value) {
+              return filters["$LENGTH"](value) >= test_value;
+            },
+            "$GT": function (value, test_value) {
+              return filters["$LENGTH"](value) > test_value;
+            },
+            "$NEMPTY": function (value) {
+              return value && ((value instanceof Array && value.length) || (value instanceof Object && Object.keys(value).length))
+            },
+            "$EMPTY": function (value) {
+              return value && ((value instanceof Array && !value.length) || (value instanceof Object && !Object.keys(value).length))
+            },
+            "$LENGTH": function (value) {
+              return value && ((value instanceof Array && value.length) || (value instanceof Object && Object.keys(value).length)) || 0;
+            }
+          };
+          //if the validator type is unknown, the test will fail; the reporter will then show why
+          return filters[type] && filters[type](value, test_value);
+        },
+        reporters: function (type, value) {
+          function s(value) {
+            return value == 1 ? "" : "s";
+          }
+
+          var filters = {
+            "$ltlen": function (value) {
+              return "Must be fewer than " + value + " character" + s(value) + " long";
+            },
+            "$gtlen": function (value) {
+              return "Must be more than " + value + " character" + s(value) + " long";
+            },
+            "$lte": function (value) {
+              return "Must be less than or equal to " + value;
+            },
+            "$lt": function (value) {
+              return "Must be less than " + value;
+            },
+            "$gte": function (value) {
+              return "Must be greater than or equal to " + value;
+            },
+            "$gt": function (value) {
+              return "Must be greater than " + value;
+            },
+            "$eq": function (value) {
+              return "Must be " + value;
+            },
+            "$neq": function (value) {
+              return "Must not be " + value;
+            },
+            "$nempty": function (value) {
+              return "Must not be empty";
+            },
+            "$empty": function (value) {
+              return "Must be empty";
+            },
+            "$contains": function (value) {
+              return "Must contain " + value;
+            },
+            "$ncontains": function (value) {
+              return "Must not contain " + value;
+            },
+            "$sw": function (value) {
+              return "Must start with " + value;
+            },
+            "$ew": function (value) {
+              return "Must end with " + value;
+            },
+            "$nsw": function (value) {
+              return "Must not start with " + value;
+            },
+            "$new": function (value) {
+              return "Must not end with " + value;
+            },
+            "$match": function (value) {
+              return "Must match the expression " + value;
+
+            },
+            "$nmatch": function (value) {
+              return "Must not match the expression " + value;
+
+            },
+            //these methods (capitalized) operate on collections (array) as input for testing
+            "$LTE": function (value) {
+              return "Select no more than " + value + " item" + s(value);
+            },
+            "$LT": function (value) {
+              return "Select fewer than " + value + " item" + s(value);
+            },
+            "$GTE": function (value) {
+              return "Select at least " + value + " item" + s(value);
+            },
+            "$GT": function (value) {
+              return "Select more than " + value + " item" + s(value);
+            },
+            "$NEMPTY": function () {
+              return "Select at least one datum";
+            },
+            "$EMPTY": function () {
+              return "Do not select any data";
+            },
+            "$LENGTH": function (value) {
+              return "Select exactly " + value + " item" + s(value);
+            }
+          };
+          //if the type is unknown, allow the test to pass
+          if (filters[type]) {
+            return filters[type](value);
+          } else {
+            return "Unknown constraint [ " + type + " ]";
+          }
+
+        },
+        coerce: function (field_def) {
+          var val = field_def.value;
+          if (!field_def) {
+            field_def = {};
+          }
+          var type = typeof(val);
+          if (field_def.field_type == "multiselect" || field_def.field_type == "checkgroup") {
+            return (val instanceof Array) ? val : [];
+          } else if (field_def.data_type == "number") {
+            if (val == "") {
+              return undefined;
+            } else if (!isNaN(val)) {
+              return Number(val);
+            } else {
+              return undefined;
+            }
+          } else if (field_def.data_type == "boolean" && type != "boolean") {
+            if (
+              (type == "string" && val.toLowerCase() == "false") ||
+              (type == "string" && val.toLowerCase() == "null") ||
+              (!isNaN(val) && Number(val) == 0) ||
+              (!val)
+            ) {
+              return false;
+            } else {
+              return true;
+            }
+          } else if (val === "") {
+            return undefined;
+          } else if ((!field_def.data_type || field_def.data_type == "string") && type != "string") {
+            return (val != null && type != "undefined") ? val + "" : val;
+          }
+          return val;
+        },
+        to_fixed: function (val) {
+          try {
+            if (!isNaN(val)) {
+              var decimals = isNaN(2) ? 0 : Math.min(10, 2);
+              return Number(Math.round(Number(val) + 'e' + decimals) + 'e-' + decimals).toFixed(decimals);
+            }
+          } catch (e) {
+            console.log("to_fixed error");
+          }
+        }
+      },
+      computed: {}
+    });
+  }
+
+  on_data(example);
+
+</script>
+</body>
