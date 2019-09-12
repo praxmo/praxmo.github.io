@@ -98,6 +98,46 @@
     width:100%;
 }
 
+.main .chrome {
+    display:none;
+    text-align:center;
+    position: relative;
+}
+
+.main .chrome .signal {
+    position: absolute;
+    left:8px;
+    top:4px;
+    font-size:.7em;
+    color:#888888;
+}
+
+.main .chrome .wifi {
+    position: absolute;
+    left:26px;
+    top:4px;
+    font-size:.7em;
+    color:#888888;
+}
+
+.main .chrome .time {
+    position: relative;
+    font-size:.7em;
+    color:#888888;
+}
+
+.main .chrome .battery {
+    position: absolute;
+    right:8px;
+    top:4px;
+    font-size:.8em;
+    color:#888888;
+}
+.main .chrome .battery .fas {
+    font-size:.9em;
+    color:#3ea53ea6
+}
+
 .main .info {
     height:70px;
     min-height:70px;
@@ -108,10 +148,46 @@
     position:relative;
 }
 
+.main .info .channel_profile {
+    display: block;
+}
+
 .main .info label {
     font-weight:bold;
-    font-size:1.2em;
+    font-size:1.1em;
     margin-bottom:0;
+    padding-left:14px;
+}
+
+.main .info label.public::before {
+    position:absolute;
+    left:20px;
+    top:10px;
+    content:'#';
+    font-size:1em;
+}
+
+.main .info label.private::before {
+    position:absolute;
+    left:20px;
+    top:13px;
+    font-weight:900;
+    font-family: "Font Awesome 5 Free";
+    content:'\f023';
+    font-size:.7em;
+    opacity:.8;
+}
+
+.main .info label.app.a1::before {
+    position:absolute;
+    left:18px;
+    top:14px;
+    content:' ';
+    background-image: url('/img/avatars/a1.png');
+    background-size: 13px;
+    display: inline-block;
+    width:13px;
+    height:13px;
 }
 
 .main .info .star {
@@ -123,7 +199,7 @@
 .main .info .members {
     font-size:.8em;
     color:#cccccc;
-    margin-right:00px;
+    margin-right:0px;
     border-left:solid 1px;
     padding-left:10px;
 }
@@ -243,4 +319,59 @@
     left:28px;
     top:16px;
     opacity: .5;
+}
+
+
+@media screen and (max-width: 520px) {
+
+    .slack {
+        box-shadow:none;
+        border: solid 1px #888888
+    }
+
+    .slack .chrome {
+        display: block;
+        height:20px;
+    }
+
+    .slack .main .info {
+        height:30px;
+        min-height:30px;
+        max-height:30px;
+        font-size:.8em;
+        padding: 2px 0 0 28px;
+    }
+
+    .slack .main .info .icon {
+        background-image: url(https://my.intwixt.com/stars/Slack.1/image_96);
+        background-size: 16px 16px;
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .slack .main .info .channel_profile {
+        display: none;
+    }
+
+    .main .info label {
+        padding-left: 0;
+    }
+
+    .main .info label.public::before {
+        display: none;
+    }
+
+    .main .info label.private::before {
+        display: none;
+    }
+
+    .main .info label.app::before {
+        display: none;
+    }
 }

@@ -71,9 +71,9 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-items-right ml-auto mr-auto">
-                    <li class="nav-item">
+                    <!-- li class="nav-item">
                         <a class="nav-link" href="#" onclick="$('#fh5co-differentiators').goTo();return false;">Differentiators</a>
-                    </li>
+                    </li -->
                     <li class="nav-item">
                         <a class="nav-link" href="/solutions">Solutions</a>
                     </li>
@@ -95,11 +95,11 @@
         <div class="container fh5co-hero-inner">
             <h1 class="animated fadeIn wow" data-wow-delay="0.4s">AI-enabled Slack Workflows</h1>
             <p class="printout animated fadeIn wow" data-wow-delay="0.4s">
-                Run <span class="special">sophisticated</span> business processes directly in Slack.
+                Run <span class="special">conversational</span> business processes directly in Slack.
             </p>
             <p class="animated fadeIn wow typewriter" data-wow-delay="0.5s">Run
                 <span class="typewrite" data-period="1000"
-                      data-type='[ "sophisticated", "long-running", "multi-user", "cross-channel", "evolving", "AI-enhanced" ]'>
+                      data-type='[ "sophisticated", "stateful", "multi-user", "cross-channel", "conversational", "AI-enhanced" ]'>
                 <span class="wrap"></span>
               </span> business processes <span class="remainder">directly in Slack.</span>
             </p>
@@ -262,9 +262,16 @@ Through declarative application construction in our highly scalable environment 
                             </div>
                         </div>
                         <div class="main">
+                            <div class="chrome">
+                                <span class="signal"><i class="fas fa-signal"></i></span>
+                                <span class="wifi"><i class="fas fa-wifi"></i></span>
+                                <span class="time">3:27 PM</span>
+                                <span class="battery"><small>75%</small>&nbsp;&nbsp;<i class="fas fa-battery-three-quarters"></i></span>
+                            </div>
                             <div class="info">
-                                <label>{{channels[activeChannelId].title}}</label>
-                                <div>
+                                <span class="icon"></span>
+                                <label v-bind:class="[channels[activeChannelId].id, { app: channels[activeChannelId].is_dm }, { private: channels[activeChannelId].private && !channels[activeChannelId].is_dm }, { public: !channels[activeChannelId].private }]">{{channels[activeChannelId].title}}</label>
+                                <div class="channel_profile">
                                     <span class="star"><i class="far fa-star"></i></span>
                                     <span class="members"><i class="fas fa-user"></i> {{channels[activeChannelId].members}}</span>
                                     <span class="pins"><i class="fas fa-thumbtack"></i> {{channels[activeChannelId].pins}}</span>
@@ -307,9 +314,11 @@ Through declarative application construction in our highly scalable environment 
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1 class="large-factor">Document Approval</h1>
                     <p>An experienced and disciplined approach to document management is essential. Reviewing business, legal, and technical documents in a more structured, process-driven manner from within Slack needs to be conversational, stateful, transparent and fast. </p>
-                    <span class="circle circle-first active"><i class="fas fa-info-circle fa-3x"></i></span>
-                    <span class="circle circle-middle"><img src="https://my.intwixt.com/stars/Box.1/image_96"></span>
-                    <span class="circle circle-last"><img src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
+                    <span class="circle" title="Submit Document"><i class="fas fa-user"></i></span>
+                    <span class="circle"><img src="https://my.intwixt.com/stars/Box.1/image_96"></span>
+                    <span class="circle" title="Resubmit Rejection"><i class="fas fa-user-friends"></i></span>
+                    <span class="circle" title="Approver Level 2"><i class="fas fa-users"></i></span>
+                    <span class="circle"><img src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
                 </div>
 
 
