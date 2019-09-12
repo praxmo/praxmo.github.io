@@ -33,6 +33,8 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
     <!-- Theme style  -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="emulator/css/slack.css">
 
     <!-- Analytics -->
     <script>(function (i, s, o, g, r, a, m) {
@@ -226,44 +228,112 @@ Through declarative application construction in our highly scalable environment 
 
             <div class="row fh5co-features-grid-columns">
 
-                <div class="col-sm-6 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <div class="col-sm-image-container">
-                        <img class="img-float-left" src="img/smartphone-1.png" alt="smartphone-1">
-                        <span class="span-new">NEW</span>
-                        <span class="span-free">Free</span>
+                <div class="col-sm-9 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
+
+                    <div id="slack" class="slack" v-cloak>
+                        <div class="sidebar">
+                            <div class="workspace_selector">
+                                {{workspace.title}} <span class="carat"><i class="fas fa-angle-down"></i></span>
+                            </div>
+                            <div class="active_user">
+                                {{users[activeUserId].title}}
+                            </div>
+                            <div class="label">Channels</div>
+                            <div v-for="(channel, channel_id) in channels"
+                                 v-if="!channel.is_dm"
+                                 v-on:click="setActiveChannel(channel.id)"
+                                 v-bind:class="['channel', { active: activeChannelId === channel.id }, { private: channel.private }]"
+                                 v-bind:key="channel.id">
+                                {{channel.title}}
+                            </div>
+                            <div class="label">Apps</div>
+                            <div v-for="(channel, channel_id) in channels"
+                                 v-if="channel.is_dm"
+                                 v-on:click="setActiveChannel(channel.id)"
+                                 v-bind:class="['channel', 'app', { active: activeChannelId === channel.id }]"
+                                 v-bind:key="channel.id">
+                                {{channel.title}}
+                            </div>
+                        </div>
+                        <div class="main">
+                            <div class="info">
+                                <label>{{channels[activeChannelId].title}}</label>
+                                <div>
+                                    <span class="star"><i class="far fa-star"></i></span>
+                                    <span class="members"><i class="fas fa-user"></i> {{channels[activeChannelId].members}}</span>
+                                    <span class="pins"><i class="fas fa-thumbtack"></i> {{channels[activeChannelId].pins}}</span>
+                                    <span class="more"><i class="fas fa-ellipsis-v"></i></span>
+                                </div>
+                            </div>
+                            <div class="messages">
+                                <div v-for="(message, message_id) in channels[activeChannelId].messages"
+                                     class="message"
+                                     v-bind:key="message.id">
+                                    <img class="avatar" :src="'/img/avatars/' + users[message.author].avatar">
+                                    <div class="data">
+                                        <div class="metadata">
+                                            <span class="author">{{users[message.author].title}}</span> <span class="timestamp">{{message.timestamp}}</span>
+                                        </div>
+                                        <div class="text" v-html="message.text"></div>
+                                        <p v-if="message.actions" class="actions">
+                                            <button v-for="(action, action_id) in message.actions"
+                                                    v-bind:key="action.id"
+                                                    v-on:click="act(channels[activeChannelId], message, action)"
+                                                    :class='action.style'>{{action.title}}</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <i class="fas fa-paperclip"></i>
+                                <input type="text"
+                                       v-model="input"
+                                       :placeholder="'Message ' + channels[activeChannelId].title"
+                                       v-on:keyup.enter="send_message">
+                            </div>
+                        </div>
+                        <div class="overlay">
+
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6 in-order-2 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
+                <div class="col-sm-3 in-order-2 sm-3-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1>DOCUMENT MANAGEMENT</h1>
                     <p>An experienced and disciplined approach to document management is essential. Reviewing business, legal, and technical documents in a more structured, process-driven manner from within Slack needs to be conversational, stateful, transparent and fast. </p>
-                    <span class="circle circle-first"><i class="fab fa-instagram"></i></span>
-                    <span class="circle circle-middle"><i class="fab fa-facebook"></i></span>
-                    <span class="circle circle-last"><i class="fab fa-twitter"></i></span>
+                    <span class="circle circle-first"><img style="width:32px;" src="https://my.intwixt.com/stars/Box.1/image_96"></span>
+                    <span class="circle circle-middle"><img style="width:32px;" src="https://my.intwixt.com/stars/DynamoDB.1/image_96"></span>
+                    <span class="circle circle-last"><img style="width:32px;" src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
                 </div>
 
-                <div class="col-sm-6 in-order-3 sm-6-content wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <h1>CUSTOMER RELATIONSHIP MANAGEMENT</h1>
-                    <p> Opportunity management can be enhanced across the enterprise while leveraging Slack collaboration 
-                        capabilities; information, claiming and approvals on sales leads or opportunities, along with other 
-                        supporting information, can be directly managed in Slack.  </p>
-                    <span class="circle circle-first"><i class="fas fa-star"></i></span>
-                    <span class="circle circle-middle"><i class="far fa-star"></i></span>
-                    <span class="circle circle-last"><i class="far fa-thumbs-up"></i></span>
-                </div>
+                <div style="margin-top:200px;" class="row fh5co-features-grid-columns">
+                    <div class="col-sm-3 in-order-3 sm-3-content wow animated fadeInLeft" data-wow-delay="0.22s">
+                        <h1>CUSTOMER RELATIONSHIP MANAGEMENT</h1>
+                        <p> Opportunity management can be enhanced across the enterprise while leveraging Slack
+                            collaboration
+                            capabilities; information, claiming and approvals on sales leads or opportunities, along
+                            with other
+                            supporting information, can be directly managed in Slack. </p>
+                        <span class="circle circle-first"><img style="width:32px;" src="https://my.intwixt.com/stars/HubSpot.1/image_96"></span>
+                        <span class="circle circle-middle"><i class="far fa-star"></i></span>
+                        <span class="circle circle-last"><i class="far fa-thumbs-up"></i></span>
+                    </div>
 
-                <div class="col-sm-6 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
-                    <img class="img-float-right" src="img/smartphone-2.png" alt="smartphone-2">
-                </div>
-
-                <div class="col-sm-6 in-order-5 wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <div class="col-sm-image-container">
-                        <img class="img-float-left" src="img/smartphone-2.png" alt="smartphone-3">
-                        <span class="span-data">DATA</span>
-                        <span class="span-percent">100%</span>
+                    <div class="col-sm-9 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
+                        <img class="img-float-right" src="img/smartphone-2.png" alt="smartphone-2">
                     </div>
                 </div>
-                <div class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
+
+
+                <div class="col-sm-9 in-order-5 wow animated fadeInLeft" data-wow-delay="0.22s">
+                    <div class="col-sm-image-container">
+                        <img class="img-float-left" src="img/smartphone-2.png" alt="smartphone-3">
+                        <!-- span class="span-data">DATA</span>
+                        <span class="span-percent">100%</span -->
+                    </div>
+                </div>
+
+                <div class="col-sm-3 in-order-6 sm-3-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1>Employee Onboarding</h1>
                     <p>Employee onboarding process is a key to success for your organization’s new hires. The entire process spans across many systems, people and time. Starting with 
                     proper permission handling for access rights to signing additional paperwork to purchasing hardware and software licenses, including 
@@ -273,7 +343,7 @@ Through declarative application construction in our highly scalable environment 
                     <span class="circle circle-last"><i class="fab fa-github"></i></span>
 
                 </div>
-                <div class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
+                <!-- div class="col-sm-6 in-order-6 sm-6-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1>CUSTOMER SUCCCESS</h1>
                     <p>Alerting the entire team in Slack that a customer escalated is not enough. The respective account executive 
                     has to be informed, the ticket has to be claimed in time, insights from past tickets, similar tickets, other documents
@@ -283,7 +353,7 @@ from Slack.</p>
                     <span class="circle circle-middle"><i class="fas fa-forward"></i></span>
                     <span class="circle circle-last"><i class="fab fa-github"></i></span>
 
-                </div>
+                </div -->
 
 
             </div> <!-- row -->
@@ -433,10 +503,214 @@ from Slack.</p>
 
 </div> <!-- main page wrapper -->
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/owl.carousel.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+
+  /**
+   *
+   * a data-driven emulator for slack; the static test model
+   */
+  var slack_data = {
+    //workspace
+    workspace: {
+      id: "w1",
+      title: "intwixt"
+    },
+    //active user
+    activeUserId: "u1",
+    users: {
+      a1: {
+        id:"a1",
+        title: "Unboxed",
+        avatar: "a1.png"
+      },
+      u1: {
+        id:"u1",
+        title: "Luke",
+        avatar: "u1.png"
+      },
+      u2: {
+        id:"u2",
+        title: "Thomas",
+        avatar: "u2.png"
+      },
+      u3: {
+        id:"u3",
+        title: "Sabin",
+        avatar: "u3.png"
+      }
+    },
+    //active channel
+    activeChannelId: 'c1',
+    //all channels
+    channels: {
+      c1: {
+        id: "c1",
+        title: "reviewers",
+        private: true,
+        members: 17,
+        pins: 8,
+        description: "First-level document review",
+        unread: 2,
+        //all messages for this channel
+        messages: {
+          "c1m1": {
+            id: "c1m1",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons.",
+            actions: {
+              submit: {
+                id: "submit",
+                title: "Submit",
+                style: "primary"
+              },
+              cancel: {
+                id: "cancel",
+                title: "Cancel",
+                style: "danger"
+              }
+            }
+          }
+        }
+      },
+      c2: {
+        id: "c2",
+        title: "general",
+        private: false,
+        unread: 0,
+        members: 290,
+        pins: 12,
+        description: "Company-wide, non-critical announcements.",
+        //all messages for this channel
+        messages: {
+          "c2m1": {
+            id: "c2m1",
+            author: "u1",
+            timestamp: "9:21 AM",
+            text: "😊 Some content <b>markup</b>."
+          },
+          "c2m2": {
+            id: "c2m2",
+            author: "u2",
+            timestamp: "9:21 AM",
+            text: "<b>Styling stuff here!!</b>.",
+            actions: {
+              ok: {
+                id: "ok",
+                title: "OK",
+                style: "primary"
+              }
+            }
+          },
+          "c2m3": {
+            id: "c2m3",
+            author: "u3",
+            timestamp: "9:21 AM",
+            text: "This is a regular message with nothing special to add."
+          }
+        }
+      },
+      a1: {
+        id: "a1",
+        is_dm: true,
+        title: "Unboxed",
+        avatar: "a1.png",
+        private: true,
+        //all messages for this channel
+        messages: {
+          "a1m1": {
+            id: "a1m1",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons.",
+            actions: {
+              submit: {
+                id: "submit",
+                title: "Submit",
+                style: "primary"
+              },
+              cancel: {
+                id: "cancel",
+                title: "Cancel",
+                style: "danger"
+              }
+            }
+          },
+          "a1m2": {
+            id: "a1m2",
+            author: "u2",
+            timestamp: "9:21 AM",
+            text: "<b>Styling stuff here!!</b>. <img class='image' src=''>"
+          }
+        }
+      }
+    },
+    //text input value (used for submitting new content)
+    input:""
+  };
+
+
+  var view = new Vue({
+    el: '#slack',
+    data: slack_data,
+    computed: {
+      activeChannelIdComponent: function () {
+        return 'tab-' + this.activeChannelId.toLowerCase()
+      }
+    },
+    methods: {
+      addItem: function() {
+        this.items.push("Item #"+this.items.length);
+        this.scrollToEnd();
+      },
+      scrollToEnd: function() {
+        var container = this.$el.querySelector(".messages");
+        Vue.nextTick(function() {
+          container.scrollTop = container.scrollHeight + 1000;
+        });
+      },
+      setActiveChannel: function(channel_id) {
+        this.activeChannelId = channel_id;
+        this.scrollToEnd();
+      },
+      send_message: function() {
+        var target = this.channels[this.activeChannelId].messages;
+        var timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+        var id = this.activeChannelId + "m" + new Date();
+        target[id] = {
+          id: id,
+          author: this.activeUserId,
+          timestamp: timestamp,
+          text: this.input
+        };
+        //clear out text
+        this.input = "";
+        this.scrollToEnd();
+      },
+      act: function(channel, message, action) {
+        var my = this;
+        setTimeout(function() {
+          var text = "✔️ You clicked the "  + action.id.toUpperCase() + " button.!";
+          my.update_message(channel.id, message.id, text);
+        },150);
+      },
+      update_message: function(channel_id, message_id, text) {
+        var target = this.channels[this.activeChannelId].messages[message_id];
+        delete target.actions;
+        target.timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+        target.text = text;
+      }
+    }
+  });
+
+</script>
+
 </body>
 </html>

@@ -1,0 +1,243 @@
+
+
+[v-cloak] {
+    display: none;
+}
+
+.slack {
+    width:612px;
+    height:400px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    font-family: "Lato", "sans-serif";
+    font-weight: 300;
+    margin-top:80px;
+    border-radius:8px;
+    box-shadow: -5px -5px 20px #888888;
+    overflow:hidden;
+}
+
+.sidebar {
+    width:150px;
+    max-width:150px;
+    min-width:150px;
+    background-color:#4a184b;
+    color:#ffffff;
+    padding:10px 0;
+    overflow:hidden;
+    cursor:default;
+}
+
+.sidebar .workspace_selector {
+    font-weight:bold;
+    font-size:1.2em;
+    padding:0 20px;
+}
+.sidebar .workspace_selector .carat {
+    font-weight: normal;
+    font-size: .6em;
+    vertical-align: super;
+    color: #ccc;
+    margin-left: 4px;
+    top: 4px;
+    position: relative;
+}
+
+.sidebar .label {
+    font-weight:bold;
+    margin-top:20px;
+    padding:4px 20px;
+}
+
+.channel, .active_user {
+    padding:4px 20px 4px 38px;
+    position: relative;
+    cursor:pointer;
+}
+
+.channel::before {
+    position:absolute;
+    left:22px;
+    top:8px;
+    content:'#';
+    font-size:.8em;
+    color:#dddddd;
+}
+
+.channel.app::before, .sidebar .active_user::before {
+    position:absolute;
+    left:18px;
+    top:-8px;
+    content: '•';
+    font-size:1.8em;
+    color:#2bac76;
+}
+
+.channel.private::before {
+    position:absolute;
+    left:22px;
+    top:11px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content:'\f023';
+    font-size:.6em;
+    color:#dddddd;
+}
+
+.channel.active {
+    font-weight:300;
+    background-color:#1064a3;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius:0 8px 8px 0;
+    width:100%;
+}
+
+.main .info {
+    height:70px;
+    min-height:70px;
+    max-height:70px;
+    padding:8px 20px 2px 20px;
+    border-bottom: solid 1px #cccccc;
+    cursor:default;
+    position:relative;
+}
+
+.main .info label {
+    font-weight:bold;
+    font-size:1.2em;
+    margin-bottom:0;
+}
+
+.main .info .star {
+    font-size:.8em;
+    color:#cccccc;
+    margin-right:10px;
+}
+
+.main .info .members {
+    font-size:.8em;
+    color:#cccccc;
+    margin-right:00px;
+    border-left:solid 1px;
+    padding-left:10px;
+}
+
+.main .info .pins {
+    font-size:.8em;
+    color:#cccccc;
+    margin-left:10px;
+    border-left:solid 1px;
+    padding-left:10px;
+
+}
+
+.main .info .more {
+    font-size:1.1em;
+    color:#888888;
+    position:absolute;
+    right:20px;
+    top:24px;
+}
+
+.main .messages {
+    flex:1;
+    padding:200px 20px 20px 20px;
+    width:100%;
+    overflow:auto;
+}
+
+.main .message {
+    width:100%;
+    margin-top:16px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.main .message .avatar {
+    float:left;
+    width:32px;
+    height:32px;
+    border-radius:4px;
+}
+
+.main .message .data {
+    flex:1;
+    padding-left:16px;
+}
+
+.main .message .data .metadata * {
+    margin-right:8px;
+}
+
+.main .message .data .metadata .author {
+    font-weight:bold;
+    font-family: sans-serif;
+}
+
+.main .message .data .timestamp {
+    color:#aaaaaa;
+    font-size:.7em;
+}
+
+.main .message .text {
+    width:100%;
+    font-size:.9em;
+    font-weight:300;
+}
+
+.main .message .actions {
+    width:100%;
+    font-size:.9em;
+    font-weight:300;
+}
+
+.main .message .text .image {
+    display:block;
+    max-height:200px;
+}
+
+.main .message .text p, .main .message .actions {
+    margin-top:10px;
+    margin-bottom:0;
+}
+
+.main .message button {
+    border: solid 1px #888888;
+    border-radius: 4px;
+    background:#ffffff;
+    margin-right:10px;
+    min-width:80px;
+}
+
+.main .message button.primary {
+    color:green;
+}
+
+.main .message button.danger {
+    color:red;
+}
+
+.main .input {
+    height:40px;
+    padding:4px 20px 10px 20px;
+    position:relative;
+}
+.main .input input {
+    border:solid 1px #888888;
+    border-radius:6px;
+    width:100%;
+    padding-left:30px;
+}
+.main .input .fa-paperclip {
+    position:absolute;
+    left:28px;
+    top:10px;
+    opacity: .5;
+}

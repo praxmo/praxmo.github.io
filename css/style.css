@@ -350,12 +350,12 @@ html {
     height: 550px;
 }
 
-.fh5co-features-outer .sm-6-content {
-    margin-top: 250px;
+.fh5co-features-outer .sm-3-content {
+    margin-top: 110px;
     position: relative;
 }
 
-.fh5co-features-outer .sm-6-content h1 {
+.fh5co-features-outer .sm-3-content h1 {
     color: #03A9F4;
     text-transform: uppercase;
     font-size: 25px;
@@ -363,20 +363,20 @@ html {
     margin-bottom: 20px;
 }
 
-.fh5co-features-outer .sm-6-content p {
+.fh5co-features-outer .sm-3-content p {
     color: #111;
     font-weight: 500;
     font-size: 14.5px;
     line-height: 1.8em;
-    width: 450px;
+    width: 225px;
 }
 
-.fh5co-features-outer .col-sm-6 .col-sm-image-container {
+.fh5co-features-outer .col-sm-3 .col-sm-image-container {
     position: relative;
     width: 300px;
 }
 
-.fh5co-features-outer .col-sm-6 .span-new {
+.fh5co-features-outer .col-sm-3 .span-new {
     color: #fff;
     background: #fcec64;
     padding: 18px;
@@ -394,7 +394,7 @@ html {
     top: 140px;
 }
 
-.fh5co-features-outer .col-sm-6 .span-free {
+.fh5co-features-outer .col-sm-3 .span-free {
     color: #fff;
     background: #6ca3ff;
     padding: 18px;
@@ -412,7 +412,7 @@ html {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-6 .span-data {
+.fh5co-features-outer .col-sm-3 .span-data {
     color: #7e8c91;
     background: #b8faee;
     padding: 20px;
@@ -449,7 +449,7 @@ html {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-6 .circle {
+.fh5co-features-outer .col-sm-3 .circle {
     color: #c3cfe5;
     border: 1px solid #ededed;
     background: #fff;
@@ -467,7 +467,7 @@ html {
     box-shadow: 0 0 0 5px #f9f9f9;
 }
 
-.fh5co-features-outer .col-sm-6 .circle-first {
+.fh5co-features-outer .col-sm-3 .circle-first {
     width: 35px;
     display: inline-block;
     line-height: 30px;
@@ -481,7 +481,7 @@ html {
     font-weight: 600;
 }
 
-.fh5co-features-outer .col-sm-6 .circle-middle {
+.fh5co-features-outer .col-sm-3 .circle-middle {
     width: 35px;
     display: inline-block;
     line-height: 30px;
@@ -495,7 +495,7 @@ html {
     font-weight: 600;
 }
 
-.fh5co-features-outer .col-sm-6 .circle-last {
+.fh5co-features-outer .col-sm-3 .circle-last {
     width: 35px;
     display: inline-block;
     line-height: 30px;
