@@ -282,7 +282,7 @@ html {
 .fh5co-slider-outer {
     width: 100%;
     height: auto;
-    padding: 70px;
+    padding: 40px 40px 0;
 }
 
 .fh5co-slider-outer h1 {
@@ -849,7 +849,16 @@ html {
     padding: 0
 }
 
-.quotes li {
+.quoted {
+    position: relative;
+    max-width: 800px;
+    list-style-type: none;
+    text-align: center;
+    margin: 80px auto 0;
+    padding: 0
+}
+
+.quotes li, .quoted li  {
     position: absolute;
     left: 0;
     right: 0;
@@ -862,30 +871,16 @@ html {
     color:#666;
 }
 
-.quotes li:before, .quotes li:after {
-    /*
-    content: '"';
-    font-size: 6em;
-    margin: 6px 0;
-    top: 30px;
-    position: relative;
-    font-family: "Lato", "sans-serif";
-    */
+.quoted li.show {
+    opacity:1;
+    position:relative;
 }
 
 .quotes li:last-child {
     position: relative
 }
 
-/*
-.quotes li:after {
-    position:absolute; content:""; display:block; width:0; height:0; top:1.75em; left:-0.75em;
-    border-top:0.75em solid transparent;
-    border-bottom:0.75em solid transparent;
-    border-right:0.75em solid #ddd
-}
-*/
-.quotes span {
+.quotes span, .quoted span  {
     display: block;
     text-align: right;
     margin-right: 5%;
@@ -895,27 +890,27 @@ html {
 }
 
 /* animation timing  =  animation:quote [total duration in secs] [increment by duration of each animation] infinite; */
-.quotes li:nth-child(1) {
+.quotes.cycle li:nth-child(1) {
     -webkit-animation: quote 25s 0s infinite;
     animation: quote 25s 0s infinite
 }
 
-.quotes li:nth-child(2) {
+.quotes.cycle li:nth-child(2) {
     -webkit-animation: quote 25s 5s infinite;
     animation: quote 25s 5s infinite
 }
 
-.quotes li:nth-child(3) {
+.quotes.cycle li:nth-child(3) {
     -webkit-animation: quote 25s 10s infinite;
     animation: quote 25s 10s infinite
 }
 
-.quotes li:nth-child(4) {
+.quotes.cycle li:nth-child(4) {
     -webkit-animation: quote 25s 15s infinite;
     animation: quote 25s 15s infinite
 }
 
-.quotes li:nth-child(5) {
+.quotes.cycle li:nth-child(5) {
     -webkit-animation: quote 25s 20s infinite;
     animation: quote 25s 20s infinite
 }
