@@ -371,7 +371,7 @@
         display: none;
     }
 
-    .main .info label.app::before {
+    .main .info label.app.a1::before {
         display: none;
     }
 }
