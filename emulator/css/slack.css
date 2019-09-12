@@ -233,7 +233,10 @@
     border:solid 1px #888888;
     border-radius:6px;
     width:100%;
-    padding-left:30px;
+    padding:6px 30px 6px 30px;
+}
+.main .input input::placeholder {
+    color: #888888;
 }
 .main .input .fa-paperclip {
     position:absolute;

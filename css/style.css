@@ -350,12 +350,12 @@ html {
     height: 550px;
 }
 
-.fh5co-features-outer .sm-3-content {
+.fh5co-features-outer .sm-4-content {
     margin-top: 110px;
     position: relative;
 }
 
-.fh5co-features-outer .sm-3-content h1 {
+.fh5co-features-outer .sm-4-content h1 {
     color: #03A9F4;
     text-transform: uppercase;
     font-size: 25px;
@@ -363,20 +363,20 @@ html {
     margin-bottom: 20px;
 }
 
-.fh5co-features-outer .sm-3-content p {
+.fh5co-features-outer .sm-4-content p {
     color: #111;
     font-weight: 500;
     font-size: 14.5px;
     line-height: 1.8em;
-    width: 225px;
+    width: 100%
 }
 
-.fh5co-features-outer .col-sm-3 .col-sm-image-container {
+.fh5co-features-outer .col-sm-4 .col-sm-image-container {
     position: relative;
     width: 300px;
 }
 
-.fh5co-features-outer .col-sm-3 .span-new {
+.fh5co-features-outer .col-sm-4 .span-new {
     color: #fff;
     background: #fcec64;
     padding: 18px;
@@ -394,7 +394,7 @@ html {
     top: 140px;
 }
 
-.fh5co-features-outer .col-sm-3 .span-free {
+.fh5co-features-outer .col-sm-4 .span-free {
     color: #fff;
     background: #6ca3ff;
     padding: 18px;
@@ -412,7 +412,7 @@ html {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-3 .span-data {
+.fh5co-features-outer .col-sm-4 .span-data {
     color: #7e8c91;
     background: #b8faee;
     padding: 20px;
@@ -449,14 +449,14 @@ html {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-3 .circle {
+.fh5co-features-outer .col-sm-4 .circle {
     color: #c3cfe5;
     border: 1px solid #ededed;
     background: #fff;
     padding: 10px;
-    width: 35px;
     display: inline-block;
     line-height: 30px;
+    width: 30px;
     height: 30px;
     text-align: center;
     border-radius: 50%;
@@ -464,50 +464,35 @@ html {
     box-sizing: initial;
     position: absolute;
     font-weight: 600;
-    box-shadow: 0 0 0 5px #f9f9f9;
+    box-shadow: 0px 0px 8px #c8c8c8;
+    cursor:pointer;
 }
 
-.fh5co-features-outer .col-sm-3 .circle-first {
-    width: 35px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
-    position: absolute;
-    margin-left: 0px;
-    font-weight: 600;
+.fh5co-features-outer .col-sm-4 .active {
+    border-color:#03a9f4ab;
+    box-shadow: 0 0 8px #03a9f4ab;
 }
 
-.fh5co-features-outer .col-sm-3 .circle-middle {
-    width: 35px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
-    position: absolute;
-    margin-left: 50px;
-    font-weight: 600;
+.fh5co-features-outer .col-sm-4 .circle-first {
+    margin-left: 0;
 }
 
-.fh5co-features-outer .col-sm-3 .circle-last {
-    width: 35px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
-    position: absolute;
-    margin-left: 100px;
-    font-weight: 600;
+.fh5co-features-outer .col-sm-4 .circle-middle {
+    margin-left: 60px;
 }
+
+.fh5co-features-outer .col-sm-4 .circle-last {
+    margin-left: 120px;
+}
+
+.circle .fas, .circle .fab {
+    font-size: 2.2em;
+}
+
+.circle img {
+    width: 32px;
+}
+
 
 /* ==========================================================================================================
 										REVIEWS
@@ -986,14 +971,17 @@ html {
     }
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
-        /*position: absolute;
-        right: -15px;
-        top: 200px;
-        height: 550px;*/
+
     }
+
+    .fh5co-features-outer .sm-4-content p {
+        width:100%;
+    }
+
 }
 
 @media screen and (max-width: 993px) {
+
     .quotes {
         display:none !important;
     }
@@ -1078,8 +1066,8 @@ html {
         margin-top: -30px;
     }
 
-    .fh5co-features-outer .sm-6-content p {
-        width: 100%;
+    .fh5co-features-outer .sm-4-content p {
+        width:100%;
     }
 
     .footer-outer .footer-nav ul li {
