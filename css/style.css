@@ -355,7 +355,11 @@ html {
     position: relative;
 }
 
-.fh5co-features-outer .sm-4-content h1 {
+.small-factor {
+    display:none;
+}
+
+.fh5co-features-outer .sm-4-content h1, h1.small-factor {
     color: #03A9F4;
     text-transform: uppercase;
     font-size: 25px;
@@ -873,7 +877,21 @@ html {
 
 .quoted li.show {
     opacity:1;
-    position:relative;
+    position: relative;
+}
+
+.quoted li .text:first-letter {
+    float: left;
+    font-size: 2em;
+    margin: 5px;
+}
+
+.quoted li .text::before {
+    content: open-quote;
+}
+
+.quoted li .text::after {
+    content: close-quote;
 }
 
 .quotes li:last-child {
@@ -886,7 +904,7 @@ html {
     margin-right: 5%;
     font-size: 75%;
     font-style: italic;
-    color: #999
+    color: #999;
 }
 
 /* animation timing  =  animation:quote [total duration in secs] [increment by duration of each animation] infinite; */
@@ -1057,6 +1075,20 @@ html {
         margin-top: 0px;
     }
 
+    .small-factor {
+        display: block;
+        margin:40px 0 0 !important;
+    }
+
+    .slack {
+        margin-top: 30px !important;
+        width: 690px !important;
+    }
+
+    .large-factor {
+        display: none;
+    }
+
     .fh5co-features-outer {
         margin-top: -30px;
     }
@@ -1135,7 +1167,7 @@ html {
     }
 
     .fh5co-features-outer .sm-4-content {
-        margin-top: 60px;
+        margin-top: 40px;
         position: relative;
         width:100%;
         max-width:100%;
@@ -1191,6 +1223,10 @@ html {
         padding: 0;
         border-color: transparent;
         font-weight: bold;
+    }
+
+    .slack {
+        width: 510px !important;
     }
 
     .fh5co-hero-inner .features-btn-first {
@@ -1433,5 +1469,13 @@ html {
         display: block;
         width: 100%;
         text-align: center;
+    }
+
+    .slack {
+        width: 100% !important;
+    }
+
+    .slack .sidebar {
+        display: none;
     }
 }
