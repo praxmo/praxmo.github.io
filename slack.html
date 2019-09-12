@@ -69,9 +69,14 @@
             font-size:1.2em;
             padding:0 20px;
         }
-
-        .sidebar .active_user {
-            padding:0 20px;
+        .sidebar .workspace_selector .carat {
+            font-weight: normal;
+            font-size: .6em;
+            vertical-align: super;
+            color: #ccc;
+            margin-left: 4px;
+            top: 4px;
+            position: relative;
         }
 
         .sidebar .label {
@@ -80,8 +85,8 @@
             padding:4px 20px;
         }
 
-        .channel {
-            padding:4px 40px;
+        .channel, .active_user {
+            padding:4px 20px 4px 38px;
             position: relative;
             cursor:pointer;
         }
@@ -89,26 +94,30 @@
         .channel::before {
             position:absolute;
             left:22px;
-            top:4px;
+            top:8px;
             content:'#';
+            font-size:.8em;
+            color:#dddddd;
         }
 
-        .channel.app {
-            content: attr(data-line);
+        .channel.app::before, .sidebar .active_user::before {
+            position:absolute;
+            left:18px;
+            top:-8px;
+            content: '•';
+            font-size:1.8em;
+            color:#2bac76;
         }
 
-        .channel.app::before {
-            content: attr(data-avatar);
-        }
-
-        .channel.private {
-
-        }
         .channel.private::before {
             position:absolute;
             left:22px;
-            top:4px;
-            content:'🔒';
+            top:11px;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content:'\f023';
+            font-size:.6em;
+            color:#dddddd;
         }
 
         .channel.active {
@@ -130,8 +139,9 @@
             max-height:70px;
             padding:8px 20px 2px 20px;
             border-bottom: solid 1px #cccccc;
+            cursor:default;
+            position:relative;
         }
-
 
         .main .info label {
             font-weight:bold;
@@ -144,6 +154,7 @@
             color:#cccccc;
             margin-right:10px;
         }
+
         .main .info .members {
             font-size:.8em;
             color:#cccccc;
@@ -151,6 +162,7 @@
             border-left:solid 1px;
             padding-left:10px;
         }
+
         .main .info .pins {
             font-size:.8em;
             color:#cccccc;
@@ -160,10 +172,19 @@
 
         }
 
+        .main .info .more {
+            font-size:1.1em;
+            color:#888888;
+            position:absolute;
+            right:20px;
+            top:24px;
+        }
+
         .main .messages {
             flex:1;
-            padding:20px;
+            padding:200px 20px 20px 20px;
             width:100%;
+            overflow:auto;
         }
 
         .main .message {
@@ -186,9 +207,13 @@
             padding-left:16px;
         }
 
-        .main .message .data .metadata {
-            font-weight:bold;
+        .main .message .data .metadata * {
             margin-right:8px;
+        }
+
+        .main .message .data .metadata .author {
+            font-weight:bold;
+            font-family: sans-serif;
         }
 
         .main .message .data .timestamp {
@@ -199,9 +224,21 @@
         .main .message .text {
             width:100%;
             font-size:.9em;
+            font-weight:300;
         }
 
-        .main .message .text p {
+        .main .message .actions {
+            width:100%;
+            font-size:.9em;
+            font-weight:300;
+        }
+
+        .main .message .text .image {
+            display:block;
+            max-height:200px;
+        }
+
+        .main .message .text p, .main .message .actions {
             margin-top:10px;
             margin-bottom:0;
         }
@@ -231,6 +268,7 @@
             border:solid 1px #888888;
             border-radius:6px;
             width:100%;
+            padding-left:30px;
         }
         .main .input .fa-paperclip {
             position:absolute;
@@ -247,7 +285,7 @@
 <div id="slack" class="slack" v-cloak>
     <div class="sidebar">
         <div class="workspace_selector">
-            {{workspace.title}}
+            {{workspace.title}} <span class="carat"><i class="fas fa-angle-down"></i></span>
         </div>
         <div class="active_user">
             {{users[activeUserId].title}}
@@ -255,7 +293,7 @@
         <div class="label">Channels</div>
         <div v-for="(channel, channel_id) in channels"
              v-if="!channel.is_dm"
-             v-on:click="activeChannelId = channel.id"
+             v-on:click="setActiveChannel(channel.id)"
              v-bind:class="['channel', { active: activeChannelId === channel.id }, { private: channel.private }]"
              v-bind:key="channel.id">
             {{channel.title}}
@@ -263,7 +301,7 @@
         <div class="label">Apps</div>
         <div v-for="(channel, channel_id) in channels"
              v-if="channel.is_dm"
-             v-on:click="activeChannelId = channel.id"
+             v-on:click="setActiveChannel(channel.id)"
              v-bind:class="['channel', 'app', { active: activeChannelId === channel.id }]"
              v-bind:key="channel.id">
             {{channel.title}}
@@ -276,6 +314,7 @@
                 <span class="star"><i class="far fa-star"></i></span>
                 <span class="members"><i class="fas fa-user"></i> {{channels[activeChannelId].members}}</span>
                 <span class="pins"><i class="fas fa-thumbtack"></i> {{channels[activeChannelId].pins}}</span>
+                <span class="more"><i class="fas fa-ellipsis-v"></i></span>
             </div>
         </div>
         <div class="messages">
@@ -288,12 +327,21 @@
                         <span class="author">{{users[message.author].title}}</span> <span class="timestamp">{{message.timestamp}}</span>
                     </div>
                     <div class="text" v-html="message.text"></div>
+                    <p v-if="message.actions" class="actions">
+                        <button v-for="(action, action_id) in message.actions"
+                                v-bind:key="action.id"
+                                v-on:click="act(channels[activeChannelId], message, action)"
+                                :class='action.style'>{{action.title}}</button>
+                    </p>
                 </div>
             </div>
         </div>
         <div class="input">
             <i class="fas fa-paperclip"></i>
-            <input type="text">
+            <input type="text"
+                   v-model="input"
+                   :placeholder="'Message ' + channels[activeChannelId].title"
+                   v-on:keyup.enter="send_message">
         </div>
     </div>
     <div class="overlay">
@@ -351,14 +399,26 @@
         description: "First-level document review",
         unread: 2,
         //all messages for this channel
-        messages: [
-          {
-            id: "c1.m1",
+        messages: {
+          "c1m1": {
+            id: "c1m1",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons:<p><button class='primary'>Submit</button><button class='danger'>Cancel</button></p>"
+            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons.",
+            actions: {
+              submit: {
+                id: "submit",
+                title: "Submit",
+                style: "primary"
+              },
+              cancel: {
+                id: "cancel",
+                title: "Cancel",
+                style: "danger"
+              }
+            }
           }
-        ]
+        }
       },
       c2: {
         id: "c2",
@@ -369,47 +429,128 @@
         pins: 12,
         description: "Company-wide, non-critical announcements.",
         //all messages for this channel
-        messages: [
-          {
-            id: "c2.m1",
+        messages: {
+          "c2m1": {
+            id: "c2m1",
             author: "u1",
             timestamp: "9:21 AM",
             text: "😊 Some content <b>markup</b>."
           },
-          {
-            id: "c2.m2",
+          "c2m2": {
+            id: "c2m2",
             author: "u2",
             timestamp: "9:21 AM",
-            text: "<b>Styling stuff here!!</b>. <p><button class='primary'>OK</button></p>"
+            text: "<b>Styling stuff here!!</b>.",
+            actions: {
+              ok: {
+                id: "ok",
+                title: "OK",
+                style: "primary"
+              }
+            }
           },
-          {
-            id: "c2.m3",
+          "c2m3": {
+            id: "c2m3",
             author: "u3",
             timestamp: "9:21 AM",
             text: "This is a regular message with nothing special to add."
           }
-        ]
+        }
       },
       a1: {
         id: "a1",
         is_dm: true,
         title: "Unboxed",
         avatar: "a1.png",
-        private: true
+        private: true,
+        //all messages for this channel
+        messages: {
+          "a1m1": {
+            id: "a1m1",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons.",
+            actions: {
+              submit: {
+                id: "submit",
+                title: "Submit",
+                style: "primary"
+              },
+              cancel: {
+                id: "cancel",
+                title: "Cancel",
+                style: "danger"
+              }
+            }
+          },
+          "a1m2": {
+            id: "a1m2",
+            author: "u2",
+            timestamp: "9:21 AM",
+            text: "<b>Styling stuff here!!</b>. <img class='image' src=''>"
+          }
+        }
       }
-    }
+    },
+    //text input value (used for submitting new content)
+    input:""
   };
 
 
-  new Vue({
+  var view = new Vue({
     el: '#slack',
     data: slack_data,
     computed: {
       activeChannelIdComponent: function () {
         return 'tab-' + this.activeChannelId.toLowerCase()
       }
+    },
+    methods: {
+      addItem: function() {
+        this.items.push("Item #"+this.items.length);
+        this.scrollToEnd();
+      },
+      scrollToEnd: function() {
+        var container = this.$el.querySelector(".messages");
+        Vue.nextTick(function() {
+          container.scrollTop = container.scrollHeight + 1000;
+        });
+      },
+      setActiveChannel: function(channel_id) {
+        this.activeChannelId = channel_id;
+        this.scrollToEnd();
+      },
+      send_message: function() {
+        var target = this.channels[this.activeChannelId].messages;
+        var timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+        var id = this.activeChannelId + "m" + new Date();
+        target[id] = {
+          id: id,
+          author: this.activeUserId,
+          timestamp: timestamp,
+          text: this.input
+        };
+        //clear out text
+        this.input = "";
+        this.scrollToEnd();
+      },
+      act: function(channel, message, action) {
+        var my = this;
+        setTimeout(function() {
+          var text = "✔️ You clicked the "  + action.id.toUpperCase() + " button.!";
+          my.update_message(channel.id, message.id, text);
+        },150);
+      },
+      update_message: function(channel_id, message_id, text) {
+        var target = this.channels[this.activeChannelId].messages[message_id];
+        delete target.actions;
+        target.timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+        target.text = text;
+      }
     }
   });
+
+  console.log(view.scrollToEnd());
 
 
 </script>
