@@ -156,6 +156,11 @@ examples.document = new Vue({
       return 'tab-' + this.activeChannelId.toLowerCase()
     }
   },
+  mounted: function () {
+    this.$nextTick(function () {
+      this.scrollToEnd();
+    });
+  },
   methods: {
     addItem: function() {
       this.items.push("Item #"+this.items.length);

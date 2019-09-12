@@ -225,7 +225,7 @@
 }
 
 .main .input {
-    height:40px;
+    height:52px;
     padding:4px 20px 10px 20px;
     position:relative;
 }
@@ -241,6 +241,6 @@
 .main .input .fa-paperclip {
     position:absolute;
     left:28px;
-    top:10px;
+    top:16px;
     opacity: .5;
 }
