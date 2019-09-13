@@ -797,7 +797,7 @@ html {
     position: relative;
     height: 100%;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden; /* change to auto if necessary for the demo */
     overflow-x: hidden;
 }
 
@@ -977,10 +977,6 @@ html {
 
     }
 
-    .slack {
-        width: 560px !important;
-    }
-
     .fh5co-features-outer .sm-4-content p {
         width:100%;
     }
@@ -1072,11 +1068,6 @@ html {
     .small-factor {
         display: block;
         margin:40px 0 0 !important;
-    }
-
-    .slack {
-        margin-top: 30px !important;
-        width: 690px !important;
     }
 
     .large-factor {
@@ -1217,10 +1208,6 @@ html {
         padding: 0;
         border-color: transparent;
         font-weight: bold;
-    }
-
-    .slack {
-        width: 510px !important;
     }
 
     .fh5co-hero-inner .features-btn-first {
@@ -1442,7 +1429,7 @@ html {
     }
 
     .fh5co-advantages-outer {
-        padding: 0px;
+        padding: 0;
         height: auto;
         width: 100%;
         overflow: hidden;
@@ -1464,11 +1451,4 @@ html {
         text-align: center;
     }
 
-    .slack {
-        width: 100% !important;
-    }
-
-    .slack .sidebar {
-        display: none;
-    }
 }

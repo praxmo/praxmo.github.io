@@ -4,19 +4,81 @@
     display: none;
 }
 
-.slack {
+.runner {
     width:612px;
     height:400px;
+    margin-top:80px;
+    border-radius:8px;
+    box-shadow: -5px -5px 20px #888888;
+    overflow:hidden;
+    display:block;
+    position: relative;
+}
+
+/** panels slide back-and-forth and should be absolutely positioned **/
+.panel {
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:100%;
+    top:0;
+}
+
+.panel.active {
+    /* apply this style to slide left */
+    left:0;
+}
+
+.panel.deactivating {
+    /* apply this style to slide left out of view */
+    left:-100%;
+}
+
+.panel.deactivated {
+    /* apply this style after the element has been moved out of view */
+    left:100%;
+    visibility: hidden;
+}
+
+.panel .slack {
+    position: relative;
+    width:100%;
+    height:100%;
     display: flex;
     flex-direction: row;
     align-items: stretch;
     font-family: "Lato", "sans-serif";
     font-weight: 300;
-    margin-top:80px;
-    border-radius:8px;
-    box-shadow: -5px -5px 20px #888888;
-    overflow:hidden;
 }
+
+/* used to simulate uploading files and other activities that overlay the slack emulator UI */
+.panel .slack_overlay {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    display: block;
+    background-color:#888888;
+    color:#ffffff;
+    cursor:default;
+    opacity: 0;
+    z-index: -1;
+}
+
+.panel .slack_overlay.active {
+    opacity:.75;
+    z-index: 2;
+}
+
+
+.panel .slack_overlay .play {
+    margin-top:20%;
+    text-align:center;
+    cursor:pointer;
+}
+
+
 
 .sidebar {
     width:150px;
@@ -322,11 +384,60 @@
 }
 
 
+/* FLOW RENDERING CSS (Intwixt Graph Visualization) */
+
+.phone_canvas_container {
+    width:100%;
+    height:100%;
+    padding:30px 20px 20px 20px;
+}
+
+canvas {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1200px) {
+
+    .runner {
+        width: 560px !important;
+    }
+
+}
+
+
+@media screen and (max-width: 993px) {
+
+    .runner {
+        margin-top: 30px !important;
+        width: 690px !important;
+    }
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .runner {
+        width: 490px !important;
+    }
+}
+
+
 @media screen and (max-width: 520px) {
 
-    .slack {
+    .runner {
+        width:100% !important;
         box-shadow:none;
         border: solid 1px #888888
+    }
+
+    .slack .sidebar {
+        display: none;
     }
 
     .slack .chrome {
@@ -359,19 +470,19 @@
         display: none;
     }
 
-    .main .info label {
+    .slack .main .info label {
         padding-left: 0;
     }
 
-    .main .info label.public::before {
+    .slack .main .info label.public::before {
         display: none;
     }
 
-    .main .info label.private::before {
+    .slack .main .info label.private::before {
         display: none;
     }
 
-    .main .info label.app.a1::before {
+    .slack .main .info label.app.a1::before {
         display: none;
     }
 }
