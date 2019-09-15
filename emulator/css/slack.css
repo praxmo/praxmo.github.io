@@ -5,7 +5,7 @@
 }
 
 .runner {
-    width:612px;
+    width:680px;
     height:400px;
     margin-top:80px;
     border-radius:8px;
@@ -128,13 +128,16 @@
 }
 
 .channel.app::before, .sidebar .active_user::before {
-    position:absolute;
-    left:18px;
-    top:-6px;
-    content: '•';
-    font-family:'sans-serif';
-    font-size:1.8em;
-    color:#2bac76;
+    position: absolute;
+    left: 22px;
+    top: 12px;
+    content: '';
+    font-family: 'sans-serif';
+    font-size: 1.8em;
+    background-color: #2bac76;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
 }
 
 .channel.private::before {
