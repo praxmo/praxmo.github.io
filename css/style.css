@@ -621,7 +621,7 @@ a:hover {
 .fh5co-features-outer {
     width: 100%;
     height: auto;
-    padding-top: 0;
+    padding-top: 40px;
 }
 
 .fh5co-features-outer .col-sm-6 {
