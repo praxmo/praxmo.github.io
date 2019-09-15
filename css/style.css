@@ -239,10 +239,10 @@ a:hover {
     font-size: 42px;
 }
 
-.fh5co-advantages-outer .second-title {
+.second-title {
     text-align: center;
     display: block;
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom:30px;
 }
 
@@ -276,10 +276,7 @@ a:hover {
 }
 
 .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-desc {
-    /*float: right;*/
-    font-size: 14px;
-    /*padding-right: 7%;*/
-    /*width: 70%;*/
+    font-size: 16px;
     color: #666;
     padding-top: 10px;
     line-height: 1.87em;
@@ -643,14 +640,14 @@ a:hover {
     width: 100%;
     height: 5px;
     border-radius: 50%;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
 .fh5co-features-outer {
     width: 100%;
     height: auto;
-    padding-top: 40px;
+    padding-top: 0;
 }
 
 .fh5co-features-outer .col-sm-6 {
@@ -681,7 +678,7 @@ a:hover {
 .fh5co-features-outer .sm-4-content p {
     color: #111;
     font-weight: 500;
-    font-size: 14.5px;
+    font-size: 16px;
     line-height: 1.8em;
     width: 100%
 }
@@ -1345,23 +1342,23 @@ a:hover {
     .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-image {
         width: 56px;
         float: none;
-        display: block;
-        margin: 0 auto;
-        padding-right: 0px;
+        padding-right: 0;
         margin-bottom: 20px;
         position: relative;
-        top: 1px;
+        margin-right: 20px;
     }
 
     .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-title {
         float: none;
         text-align: center;
+        display: inline-block;
     }
 
     .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-desc {
         float: none;
         width: 95%;
-        text-align: center;
+        text-align: left;
+        font-size: 1.1em;
     }
 
     .fh5co-slider-outer .fh5co-slider-outer {
@@ -1467,7 +1464,7 @@ a:hover {
         margin: 25px 5px;
     }
 
-    .fh5co-advantages-outer .second-title {
+    .second-title {
         margin-top: 60px;
     }
 
@@ -1546,8 +1543,8 @@ a:hover {
         flex: 0 0 100%;
         width: 100%;
         max-width: 100%;
-        margin: 20px auto;
-        text-align: center;
+        margin: 20px auto 0 auto;
+        text-align: left;
     }
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
@@ -1556,8 +1553,9 @@ a:hover {
         top: 110px;
     }
 
-    .fh5co-advantages-outer .second-title {
+    .second-title {
         margin-top: 60px;
+        font-size: 2.25em;
     }
 
     .fh5co-bottom-outer {
