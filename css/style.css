@@ -11,6 +11,15 @@ html {
     overflow-x: hidden;
 }
 
+a {
+    color: #03A9F4;
+}
+
+a:hover {
+    color: #03A9F4;
+    text-decoration: underline;
+}
+
 .fh5co-hero-inner .printout {
     display: block;
     margin: 0 0 10px;
@@ -280,6 +289,54 @@ html {
 .fh5co-slider-inner {
     margin-top: 50px;
     margin-bottom: 30px;
+}
+
+/* ==========================================================================================================
+										BLOG
+   ========================================================================================================== */
+
+.blog {
+    margin-top: 60px;
+    text-align:center;
+}
+
+.blog .alert {
+    text-align:left;
+    margin-bottom:60px;
+    padding: 16px 16px 16px 48px;
+}
+
+.blog .alert .info {
+    position: absolute;
+    left:16px;
+    top:20px;
+    font-size:1.1em;
+}
+
+.blog .content {
+    text-align:left;
+    margin-top:60px;
+}
+
+.blog .content img {
+    width: 300px;
+    float: left;
+    margin: 40px 30px 20px 0;
+}
+
+.blog .content .date {
+    font-size: .9em;
+    color:#888888;
+}
+
+.blog .content h2 {
+    margin-top:30px;
+}
+
+.blog .content label {
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom: 0;
 }
 
 /* ==========================================================================================================
@@ -1444,6 +1501,15 @@ html {
         border: 1px solid #434769;
         display: block;
     }
+}
+
+@media screen and (max-width: 767px) {
+
+    .blog .content img {
+        width:100%;
+        margin: 0 0 20px 0;
+    }
+
 }
 
 @media screen and (max-width: 520px) {
