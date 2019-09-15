@@ -10,7 +10,7 @@ var slack_data = {
     "p1": {
       id: "p1",
       type: "slack",  //types include: slack, img, flow, call-to-action
-      overlay: true,   //start out in overlay mode to show the 'play' button; when clicked, move through the scripts
+      overlay: false,   //when true, the 'file upload' overlay covers the slack UI to simulate sending a file
       workspace: {
         id: "w1",
         title: "intwixt"
@@ -155,7 +155,7 @@ var slack_data = {
 
   //the storyboard tells a story to the user by moving through a scripted set of panel orchestrations
   story_board: {
-    state: "paused", //other states: playing, played
+    state: "idling", //other states: playing, asking (CTA)
     event_id: 0, //index of event to execute (all will be played in order)
       events: [
         {
@@ -249,8 +249,14 @@ function emulate(id, selector, slack_data) {
         this.panels[panel_id].activeChannelId = channel_id;
         this.scrollToEnd();
       },
+      //upload a file
       set_overlay: function(panel_id, b_show) {
         this.panels[panel_id].overlay = b_show;
+      },
+      //start the narration
+      play: function() {
+        console.log('start playing');
+        this.story_board.state = "playing";
       },
       send_message: function(panel_id) {
         var target = this.panels[panel_id].channels[this.panels[panel_id].activeChannelId].messages;

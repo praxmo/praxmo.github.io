@@ -286,11 +286,14 @@ Through declarative application construction in our highly scalable environment 
                                     </div>
                                 </div>
                             </div>
-                            <div v-bind:class="['slack_overlay', { active: panel.overlay }]">
-                                <div v-on:click="set_overlay(panel_id, false)"
-                                     v-if="!panel.playing"
-                                     class="play"><i class="far fa-play-circle fa-10x"></i></div>
+                            <div v-bind:class="['slack_overlay', { active: panel.overlay }]"
+                                 v-on:click="panel.overlay = false">
+                                <div class="file_upload"> ... </div>
                             </div>
+                        </div>
+                        <div v-bind:class="['story_overlay', { active: story_board.state === 'idling' }]">
+                            <div v-on:click="play()"
+                                 class="play"><i class="far fa-play-circle fa-10x"></i></div>
                         </div>
                     </div>
                 </div>

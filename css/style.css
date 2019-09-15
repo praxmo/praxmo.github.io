@@ -1678,6 +1678,13 @@ a:hover {
 
 }
 
+@media screen and (max-width: 575px) {
+
+    .curved-bg-div {
+        width: 90%;
+    }
+}
+
 @media screen and (max-width: 520px) {
 
     .fh5co-hero-inner .features-btn-first {
