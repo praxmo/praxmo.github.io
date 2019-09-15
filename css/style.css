@@ -102,7 +102,7 @@ a:hover {
 
 .main-navbar-nav .navbar-nav .nav-item a:hover {
     color: #234197 !important;
-    -webkit-transition: all .33s ease;
+    transition: all .33s ease;
     -moz-transition: all .33s ease;
     -o-transition: all .33s ease;
     -ms-transition: all .33s ease;
@@ -139,7 +139,7 @@ a:hover {
 
 .social-icons-header a:hover i {
     opacity: .6;
-    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
     -moz-transition: all .2s ease;
     -o-transition: all .2s ease;
     -ms-transition: all .2s ease;
@@ -292,6 +292,136 @@ a:hover {
 }
 
 /* ==========================================================================================================
+										CSS SPINNER
+   ========================================================================================================== */
+
+.benefits {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    color: #ffffff;
+    left:10%;
+}
+.benefits::after {
+    content: url(https://my.intwixt.com/static1/css/img/logos/light_100_100.png);
+    opacity: 0.25;
+    top: 75px;
+    left: 75px;
+    position: absolute;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.benefits img {
+    width:50px;
+}
+.rotate {
+    width: 100%;
+    height: 100%;
+    position: absolute;  /* add this */
+}
+.counterrotate {
+    width: 100px;
+    height: 100px;
+}
+
+.inner {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 100px;
+    display: table-cell;
+}
+.anim1 {
+    animation: circle1 200s infinite linear;
+}
+.anim1 .counterrotate {
+    animation: ccircle1 200s infinite linear;
+}
+.anim2 {
+    animation: circle2 200s infinite linear;
+}
+.anim2 .counterrotate {
+    animation: ccircle2 200s infinite linear;
+}
+.anim3 {
+    animation: circle3 200s infinite linear;
+}
+.anim3 .counterrotate {
+    animation: ccircle3 200s infinite linear;
+}
+.anim4 {
+    animation: circle4 200s infinite linear;
+}
+.anim4 .counterrotate {
+    animation: ccircle4 200s infinite linear;
+}
+@keyframes circle1 {
+    from {
+        transform: rotateZ(0deg)
+    }
+    to {
+        transform: rotateZ(360deg)
+    }
+}
+@keyframes ccircle1 {
+    from {
+        transform: rotateZ(0deg)
+    }
+    to {
+        transform: rotateZ(-360deg)
+    }
+}
+@keyframes circle2 {
+    from {
+        transform: rotateZ(90deg)
+    }
+    to {
+        transform: rotateZ(450deg)
+    }
+}
+@keyframes ccircle2 {
+    from {
+        transform: rotateZ(-90deg)
+    }
+    to {
+        transform: rotateZ(-450deg)
+    }
+}
+@keyframes circle3 {
+    from {
+        transform: rotateZ(180deg)
+    }
+    to {
+        transform: rotateZ(540deg)
+    }
+}
+@keyframes ccircle3 {
+    from {
+        transform: rotateZ(-180deg)
+    }
+    to {
+        transform: rotateZ(-540deg)
+    }
+}@keyframes circle4 {
+    from {
+        transform: rotateZ(270deg)
+    }
+    to {
+        transform: rotateZ(630deg)
+    }
+}
+@keyframes ccircle4 {
+    from {
+        transform: rotateZ(-270deg)
+    }
+    to {
+        transform: rotateZ(-630deg)
+    }
+}
+
+/* ==========================================================================================================
 										BLOG
    ========================================================================================================== */
 
@@ -434,7 +564,7 @@ a:hover {
 .fh5co-slider-outer {
     width: 100%;
     height: auto;
-    padding: 40px 40px 0;
+    margin-top:120px;
 }
 
 .fh5co-slider-outer h1 {
@@ -694,21 +824,21 @@ a:hover {
     margin-top: 270px;
 }
 
-.fh5co-bottom-outer .fh5co-bottom-inner .col-sm-6 h1 {
+.fh5co-bottom-outer .fh5co-bottom-inner .call-to-action h1 {
     color: #fff;
     text-transform: uppercase;
     font-size: 30px;
     margin-bottom: 30px;
 }
 
-.fh5co-bottom-outer .fh5co-bottom-inner .col-sm-6 p {
+.fh5co-bottom-outer .fh5co-bottom-inner .call-to-action p {
     width: 350px;
     color: #fff;
     font-size: 14.5px;
     line-height: 1.85em;
 }
 
-.fh5co-bottom-outer .fh5co-bottom-inner .col-sm-6 img {
+.fh5co-bottom-outer .fh5co-bottom-inner .call-to-action img {
     margin-top: 25px;
 }
 
@@ -743,7 +873,7 @@ a:hover {
 
 .footer-outer .social-icons-footer a:hover i {
     opacity: .6;
-    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
     -moz-transition: all .2s ease;
     -o-transition: all .2s ease;
     -ms-transition: all .2s ease;
@@ -791,7 +921,7 @@ a:hover {
 .footer-outer .column-3-3 .social-icons-header a:hover {
     color: #fff;
     opacity: 1;
-    -webkit-transition: color .2s ease;
+    transition: color .2s ease;
     -o-transition: color .2s ease;
     transition: color .2s ease;
 }
@@ -811,7 +941,7 @@ a:hover {
 
 .footer-outer .footer-nav ul li:hover {
     color: #fff;
-    -webkit-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
     -o-transition: color .2s ease-in-out;
     transition: color .2s ease-in-out;
 }
@@ -962,6 +1092,10 @@ a:hover {
     filter: invert(66%) sepia(78%) saturate(5056%) hue-rotate(168deg) brightness(100%) contrast(99%);
 }
 
+.icon-filter-white {
+    filter: invert(100%) sepia(0%) saturate(7484%) hue-rotate(260deg) brightness(105%) contrast(104%);
+}
+
 /* ==========================================================================================================
 								CUSTOMERS / PARTNERS
    ========================================================================================================== */
@@ -1001,7 +1135,7 @@ a:hover {
     max-width: 800px;
     list-style-type: none;
     text-align: center;
-    margin: 80px auto 0;
+    margin: 0 auto 0;
     padding: 0
 }
 
