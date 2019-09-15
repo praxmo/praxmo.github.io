@@ -130,8 +130,9 @@
 .channel.app::before, .sidebar .active_user::before {
     position:absolute;
     left:18px;
-    top:-8px;
+    top:-6px;
     content: '•';
+    font-family:'sans-serif';
     font-size:1.8em;
     color:#2bac76;
 }
