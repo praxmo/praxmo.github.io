@@ -421,6 +421,34 @@ a:hover {
     }
 }
 
+
+@media screen and (max-width: 800px) {
+
+    .benefits {
+        zoom: .65;
+        left: 100px;
+        top: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .benefits {
+        zoom: .65;
+        left: 80px;
+        top: 75px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+
+    .benefits {
+        display:none;
+    }
+}
+
+
+
 /* ==========================================================================================================
 										BLOG
    ========================================================================================================== */
