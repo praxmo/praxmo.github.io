@@ -29,12 +29,9 @@ var CACHE_BUST = "https://my.intwixt.com/static1";
  */
 function drawStaticConstellation(data, params, target, class_for_width, class_for_height) {
 
-  //{animate:true, size:30, fps:1100, line_width:3}
-
   var default_image_size = 32;
 
   function Renderer(elm, class_for_width, class_for_height, graph) {
-    //resolve the object
     elm = $(elm);
     var beeped_node;
     var minimum_anotation_width = 600; //only render labels on a larger canvas...too cluttered otherwise

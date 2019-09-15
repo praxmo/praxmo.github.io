@@ -277,6 +277,57 @@ html {
 }
 
 /* ==========================================================================================================
+										ABOUT TEAM
+   ========================================================================================================== */
+
+.about {
+    margin-top: 60px;
+    text-align:center;
+}
+
+.about .photos {
+    margin-top: 40px;
+}
+
+.about .grid-image {
+    filter:grayscale(1);
+    border-radius:8px;
+    box-shadow: 2px 2px 8px #00000087;
+}
+
+.about label.name {
+    font-size:1.2em;
+    margin:20px 0 0 0;
+    vertical-align: top;
+}
+
+
+.about label.position {
+    font-size:.9em;
+    display:block;
+}
+
+@media screen and (max-width: 800px) {
+
+    .about .grid-image {
+        width:150px;
+        float:left;
+        margin:20px;
+    }
+
+    .about label.name {
+        font-size:1em;
+        font-weight:bold;
+    }
+
+    .about .photos {
+        margin-top: 60px;
+    }
+
+
+}
+
+/* ==========================================================================================================
 										SLIDER
    ========================================================================================================== */
 .fh5co-slider-outer {
