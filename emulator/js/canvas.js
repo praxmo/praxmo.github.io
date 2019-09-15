@@ -592,7 +592,7 @@ function traverse_graph(start, delay, next) {
   }
 
 }
-traverse_graph("activity_1", 2500);
+traverse_graph("activity_1", 3333);
 
 
 

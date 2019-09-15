@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intwixt | AI-enabled Slack Workflows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Run AI-enabled workflows directly in Slack"/>
+    <meta name="keywords" content="BPM, Slack, Workflow, Business Process"/>
+    <meta name="author" content="info@intwixt.com"/>
+
+    <!-- social integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="emulator/css/slack.css">
+
+    <!-- Analytics -->
+    <script>(function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-72994520-1', 'auto');
+    ga('send', 'pageview');</script>
+    <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
+</head>
+<body>
+
+
+<div id="page-wrap">
+
+
+    <!-- ==========================================================================================================
+                                                       HERO
+         ========================================================================================================== -->
+
+    <div>
+        <nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
+            <a class="navbar-brand" href="/">Intwixt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/solutions">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="$('#fh5co-call-to-action').goTo();return false;">Request a
+                            Demo</a>
+                    </li>
+                    <li class="nav-item" style="filter:none;">
+                        <a class="nav-btn btn-md btn" href="https://my.intwixt.com/"><i class="fas fa-sign-in-alt"></i>
+                            Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container faq">
+            <h1>FAQ</h1>
+            <p>From developers to CIOs and everyone in between, Intwixt offers solutions to meet your needs.</p>
+
+            <div class="row content fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
+                <div class="col-12 col-lg-6">
+
+                    <h2>What is Intwixt</h2>
+
+                    <p>Intwixt turns messaging apps like Slack, Messenger and Alexa into enterprise workflow solutions.
+                        It’s no-fuss, no-install enterprise workflow delivered from the cloud. Customers use our visual
+                        tools to weave users and systems into highly intuitive workflows. We then run these solutions at
+                        scale on our AI-enabled engine, learning from each interaction. Over time the system evolves to
+                        recommend improvements to future workflows, increasing everything from accuracy to usability.
+                    </p>
+
+                    <p>It’s a new vision for enterprise workflow, all delivered atop the messaging channels that
+                        employees and customers already know and use.</p>
+
+
+                    <h2>Can I orchestrate private APIs</h2>
+                    <p>If you have an API spec document (Open API/Swagger), we can import it and
+                        add its operations to our platform. You can then use our visual tools to design flows that
+                        orchestrate the API, sharing and mapping data as necessary with other activities. If you do not
+                        have a spec document, we can also use sample JSON messages.
+                    </p>
+
+                    <h2>Can I orchestrate Serverless functions</h2>
+                    <p>We provide deep integration with AWS Lambda and Google Cloud Functions. Once you authorize us to
+                        act on your behalf, our visual tools can resolve your function signature by parsing the JSDocs
+                        that you author in-line within your function code.
+                    </p>
+
+                    <h2>Do you publish real-time events</h2>
+                    <p>We publish a detailed set of life-cycle events to CloudWatch when your application is activated
+                        and run, allowing you to set custom triggers or forward the events to an analytics engine of
+                        your choosing. These include:
+                    </p>
+
+                    <label>App Life-cycle Events</label>
+
+                    <div>App Start | Credential in Use | App Stop</div>
+
+                    <label>Flow Life-cycle Events</label>
+
+                    <div>Flow Activate | Activity Initialize | Trigger Initialize | Trigger Destroy | Flow Deactivate
+                    </div>
+
+                    <label>Job Life-cycle Events</label>
+
+                    <div>Job Start | Job Stop | Job Stop With Error</div>
+
+                    <label>Activity Life-cycle Events</label>
+
+                    <div>Activity Start | Activity in Waiting | Activity Retry | Activity Stop | Activity Stop With
+                        Error
+                    </div>
+
+                    <h2>Can I trigger my flows over HTTP</h2>
+                    <p>Any flow can be exposed using an HTTP trigger which we manage on your behalf. You configure the
+                        HTTP method (GET, POST, etc), path and other standard settings. When you activate your flow, we
+                        generate your HTTP spec documentation (Open API format) and maintain and secure the endpoint.
+                        When you deactivate a flow with an HTTP trigger, we shut down the route and regenerate the HTTP
+                        spec documentation to no longer include the cancelled route(s).
+                    </p>
+                </div>
+
+                <div class="col-12 col-lg-6">
+
+                    <h2>Do you offer enterprise deployments</h2>
+                    <p>If you require a private instance with specific configuration, contact us at info@intwixt.com for
+                        pricing and deployment options.</p>
+
+                    <h2>Do you support conditions</h2>
+                    <p>Yes, flows can branch conditionally. The grouping statements, "any of" and "all of", may be used
+                        to construct multi-faceted conditions spanning multiple upstream activities. Error states may
+                        also be tracked as conditions, allowing for different error types (like timeouts) to be explicitly
+                        handled and resolved.</p>
+
+                    <h2>Are flows stateful</h2>
+                    <p>Yes. When a flow is run (we call this a "job"), the information that is generated by each
+                        activity in the flow is persisted as long as necessary for the job to complete. A job may run
+                        for a few milliseconds or it may run for a week. During this time the data is fully managed by
+                        Intwixt and is available to pass to other downstream activities.</p>
+
+                    <p>State is important when orchestrating people. For example, a job with activities that ask
+                        a questions over Slack might take hours or days to complete if the person is slow to respond.
+                        During this time, we retain all activity data, ensuring that when the person eventually responds,
+                        the flow resumes without interruption.</p>
+
+                    <h2>Can I share data between activities</h2>
+                    <p>We provide a data mapper that allows you to connect and transform data from upstream activities
+                        as the flow is run. It is possible to combine the output from multiple upstream activities and
+                        map into a single input.</p>
+
+                    <h2>Can a flow call another flow</h2>
+                    <p>The workflows you design are composable by default. For larger applications, it is common for
+                        users to create flows that serve as reusable modules.</p>
+
+                    <h2>Does Intwixt have a REST API</h2>
+                    <p>All Intwixt capabilities and features are available through our REST API. Flows can be created
+                        and activated. Jobs can be run, and job data can be queried in real-time. Register for an
+                        account for full access to the interactive Swagger (Open API) documentation.</p>
+
+                    <h2>How do you charge for services</h2>
+                    <p>Intwixt provides a hosted community edition of the platform at https://my.intwixt.com. We offer
+                        each user a free app instance with a limited number of resources and activity calls. If you need
+                        additional resources beyond what the free tier offers, you can upgrade your your trial app to a
+                        production app.</p>
+
+                    <h2>How do I provide payment</h2>
+                    <p>If you wish to move your app to production or purchase activity calls (beyond the initial set we
+                        grant you each month), we need a credit card and a maximum monthly budget.</p>
+
+                    <h2>How do you secure my credentials</h2>
+                    <p>As an integration platform, we orchestrate services on your behalf. This requires that we handle
+                        your credentials. We encrypt all stored credentials at rest and in transit and encourage users
+                        to set up two-factor authentication for an added layer of security.</p>
+                </div>
+            </div>
+
+        </div> <!-- /container -->
+    </div>
+
+
+    <!-- ==========================================================================================================
+                                                 BOTTOM
+    ========================================================================================================== -->
+
+    <div id="fh5co-call-to-action" class="fh5co-bottom-outer">
+        <div class="overlay">
+            <div class="container fh5co-bottom-inner">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h1>Want to learn more?</h1>
+                        <p>Run sophisticated business processes backed by our AI-enabled process engine.</p>
+                        <button class="btn btn-md features-btn-more animated fadeIn wow" data-wow-delay="0.25s"
+                                onclick="$('#fh5co-differentiators').goTo();return false;">Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================================================
+                                               SECTION 7 - SUB FOOTER
+    ========================================================================================================== -->
+
+    <footer class="footer-outer">
+        <div class="container footer-inner">
+
+            <div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
+                <div>
+                    <nav class="footer-nav">
+                        <ul class="nav-items">
+                            <a href="/about">
+                                <li>About</li>
+                            </a>
+                            <a href="/faq">
+                                <li>FAQ</li>
+                            </a>
+                            <a href="/videos">
+                                <li>Videos</li>
+                            </a>
+                            <a href="https://intwixt.readme.io">
+                                <li>User Guide</li>
+                            </a>
+                            <a href="/blog">
+                                <li>Blog</li>
+                            </a>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <span class="border-bottom-footer"></span>
+
+            <p class="copyright">&copy; 2019 Intwixt, Inc. All rights reserved.</p>
+
+        </div>
+    </footer>
+
+
+</div> <!-- main page wrapper -->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

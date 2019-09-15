@@ -65,11 +65,17 @@ html {
 
 .main-navbar-nav .navbar-brand {
     font-size: 38px;
-    /*letter-spacing: 4px;*/
+    letter-spacing: 2px;
     position: relative;
     top: -5px;
     font-weight: 500;
-    font-variant: small-caps;
+    /*font-variant: small-caps;*/
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    background-image: url(https://my.intwixt.com/static1/css/img/logos/dark_300.png);
+    background-size: 32px;
+    background-position-x: left;
+    background-position-y: center;
 }
 
 .main-navbar-nav {
@@ -274,6 +280,30 @@ html {
 .fh5co-slider-inner {
     margin-top: 50px;
     margin-bottom: 30px;
+}
+
+/* ==========================================================================================================
+										ABOUT TEAM
+   ========================================================================================================== */
+
+.faq {
+    margin-top: 60px;
+    text-align:center;
+}
+
+.faq .content {
+    text-align:left;
+    margin-top:40px;
+}
+
+.faq .content h2 {
+    margin-top:30px;
+}
+
+.faq .content label {
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom: 0;
 }
 
 /* ==========================================================================================================
