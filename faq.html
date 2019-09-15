@@ -95,9 +95,9 @@
                     <p>Customers use our visual tools to weave users and systems into conversational business processes
                         (we call these flows). We then deploy these solutions at scale on our AI-enabled engine,
                         learning from each interaction. Over time the system evolves to
-                        recommend improvements, increasing everything from accuracy to usability.</p>
+                        recommend improvements to the process, increasing everything from accuracy to usability.</p>
 
-                    <h2>Can I orchestrate my own APIs</h2>
+                    <h2>Can I orchestrate private APIs</h2>
                     <p>If you have an API spec document (Open API/Swagger), we can import it and
                         add its operations to our platform. You can then use our no-code, design tools
                         orchestrate your APIs directly within the messaging platform of your choice. If you do not
@@ -111,29 +111,46 @@
                         you covered.
                     </p>
 
-                    <h2>Do you have a real-time event stream</h2>
-                    <p>In additiona to providing a fully stateful process engine, we publish a detailed set of
+                    <h2>Do you publish real-time events</h2>
+                    <p>In additional to providing a fully stateful process engine, we publish a detailed set of
                         life-cycle events to CloudWatch when your application is activated and run, allowing you to
                         set custom triggers or forward the events to an analytics engine of your choosing. These include:
                     </p>
 
-                    <label>App Life-cycle Events</label>
+                    <label>App Life-cycle Events (an app is a collection of flows)</label>
 
-                    <div class="stream_type">App Start | Credential in Use | App Stop</div>
+                    <div class="stream_type">
+                        <nobr>App Start |</nobr>
+                        <nobr>Credential in Use |</nobr>
+                        <nobr>App Stop</nobr>
+                    </div>
 
                     <label>Flow Life-cycle Events</label>
 
-                    <div class="stream_type">Flow Activate | Activity Initialize | Trigger Initialize | Trigger Destroy | Flow Deactivate
+                    <div class="stream_type">
+                        <nobr>Flow Activate |</nobr>
+                        <nobr>Activity Initialize |</nobr>
+                        <nobr>Trigger Initialize |</nobr>
+                        <nobr>Trigger Destroy |</nobr>
+                        <nobr>Flow Deactivate</nobr>
                     </div>
 
                     <label>Job Life-cycle Events</label>
 
-                    <div class="stream_type">Job Start | Job Stop | Job Stop With Error</div>
+                    <div class="stream_type">
+                        <nobr>Job Start |</nobr>
+                        <nobr>Job Stop |</nobr>
+                        <nobr>Job Stop With Error</nobr>
+                    </div>
 
                     <label>Activity Life-cycle Events</label>
 
-                    <div class="stream_type">Activity Start | Activity in Waiting | Activity Retry | Activity Stop | Activity Stop With
-                        Error
+                    <div class="stream_type">
+                        <nobr>Activity Start |</nobr>
+                        <nobr>Activity in Waiting |</nobr>
+                        <nobr>Activity Retry |</nobr>
+                        <nobr>Activity Stop |</nobr>
+                        <nobr>Activity Stop With Error</nobr>
                     </div>
 
                     <h2>Can I trigger flows over HTTP</h2>
@@ -181,7 +198,7 @@
                     <h2>Does Intwixt have a REST API</h2>
                     <p>All Intwixt capabilities and features are available through our REST API. Flows can be created
                         and activated. Jobs can be run, and job data can be queried in real-time. Register for an
-                        account for full access to the interactive Swagger (Open API) documentation.</p>
+                        account for full access to the interactive Open API (Swagger) documentation.</p>
 
                     <h2>How do you charge for services</h2>
                     <p>Intwixt provides a hosted community edition of the platform at https://my.intwixt.com. We offer
