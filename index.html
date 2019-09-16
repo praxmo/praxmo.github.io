@@ -223,16 +223,16 @@ Through declarative application construction in our highly scalable environment 
                                     <div class="label">Channels</div>
                                     <div v-for="(channel, channel_id) in panel.channels"
                                          v-if="!channel.is_dm"
-                                         v-on:click="setActiveChannel(panel_id, channel.id)"
-                                         v-bind:class="['channel', { active: panel.activeChannelId === channel.id }, { private: channel.private }]"
+                                         v-on:click="set_active_channel(panel_id, channel.id)"
+                                         v-bind:class="['channel', { active: panel.activeChannelId === channel.id }, { private: channel.private }, { activating: channel.activating }]"
                                          v-bind:key="channel.id">
                                         {{channel.title}}
                                     </div>
                                     <div class="label">Apps</div>
                                     <div v-for="(channel, channel_id) in panel.channels"
                                          v-if="channel.is_dm"
-                                         v-on:click="setActiveChannel(panel_id, channel.id)"
-                                         v-bind:class="['channel', 'app', { active: panel.activeChannelId === channel.id }]"
+                                         v-on:click="set_active_channel(panel_id, channel.id)"
+                                         v-bind:class="['channel', 'app', { active: panel.activeChannelId === channel.id }, { activating: channel.activating }]"
                                          v-bind:key="channel.id">
                                         {{channel.title}}
                                     </div>
@@ -257,7 +257,7 @@ Through declarative application construction in our highly scalable environment 
                                     </div>
                                     <div class="messages">
                                         <div v-for="(message, message_id) in panel.channels[panel.activeChannelId].messages"
-                                             class="message"
+                                             v-bind:class="['message', { activating: message.activating }]"
                                              v-bind:key="message.id">
                                             <img class="avatar" :src="'/img/avatars/' + panel.users[message.author].avatar">
                                             <div class="data">
@@ -270,14 +270,16 @@ Through declarative application construction in our highly scalable environment 
                                                     <button v-for="(action, action_id) in message.actions"
                                                             v-bind:key="action.id"
                                                             v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
-                                                            :class='action.style'>{{action.title}}
+                                                            v-bind:class="[action.style, { activating: action.activating }]">{{action.title}}
                                                     </button>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="input">
-                                        <i class="fas fa-paperclip" v-on:click="set_overlay(panel_id, true)"></i>
+                                        <i class="fas fa-paperclip"
+                                           v-bind:class="[{ activating: panel.overlay }]"
+                                           v-on:click="set_overlay(panel_id, true)"></i>
                                         <input type="text"
                                                v-model="panel.input"
                                                :placeholder="'Message ' + panel.channels[panel.activeChannelId].title"

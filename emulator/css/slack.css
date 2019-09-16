@@ -134,6 +134,38 @@
     cursor:pointer;
 }
 
+.channel::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -35px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(111,148,182,0.5);
+}
+
+.channel.activating::after {
+    animation: ripple .75s forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale3d(0.3, 0.3, 1);
+    }
+    25%, 50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale3d(1.2, 1.2, 1);
+    }
+}
+
 .channel::before {
     position:absolute;
     left:22px;
@@ -316,6 +348,14 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    transition: background-color 1.5s linear;
+    background-color: #ffffff;
+    padding:4px;
+    border-radius:2px;
+}
+
+.main .message.activating {
+    background-color: #b3e5fc;
 }
 
 .main .message .avatar {
@@ -372,6 +412,30 @@
     background:#ffffff;
     margin-right:10px;
     min-width:80px;
+    position:relative;
+}
+
+.main .message button:focus {
+    outline:0;
+}
+
+.main .message button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -35px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(111,148,182,0.5);
+}
+
+.main .message button.activating::after {
+    animation: ripple .75s forwards;
+    animation-iteration-count: 1;
 }
 
 .main .message button.primary {
@@ -401,6 +465,25 @@
     left:28px;
     top:16px;
     opacity: .5;
+}
+
+.main .input .fa-paperclip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -35px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(111,148,182,0.5);
+}
+
+.main .input .fa-paperclip.activating::after {
+    animation: ripple .75s forwards;
+    animation-iteration-count: 2;
 }
 
 
