@@ -38,7 +38,7 @@ var slack_data = {
           avatar: "u3.png"
         }
       },
-      activeChannelId: 'null',
+      activeChannelId: 'c2',
       channels: {
         c1: {
           id: "c1",
