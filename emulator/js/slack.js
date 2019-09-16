@@ -155,16 +155,9 @@ var slack_data = {
 
   //the storyboard tells a story to the user by moving through a scripted set of panel orchestrations
   story_board: {
-    state: "idling", //other states: playing, asking (CTA)
+    state: "idling", //other states: `playing`, `asking` (call to action)
     event_id: 0, //index of event to execute (all will be played in order)
       events: [
-        {
-          action: {
-            type: "panel.activate",
-            id: "p1"
-          },
-          pause:2000
-        },
         {
           action: {
             type: "channel.activate",
@@ -260,6 +253,7 @@ function emulate(id, selector, slack_data) {
       play: function() {
         console.log('start playing');
         this.story_board.state = "playing";
+
       },
       //add a new message
       send_message: function(panel_id) {

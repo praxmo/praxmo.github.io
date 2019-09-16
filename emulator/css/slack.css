@@ -27,6 +27,7 @@
     cursor:default;
     opacity: 0;
     z-index: -1;
+    transition: opacity, z-index .5s;
 }
 
 .runner .story_overlay.active {
