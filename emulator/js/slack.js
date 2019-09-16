@@ -322,7 +322,7 @@ function emulate(id, selector, slack_data) {
         var my = this;
         setTimeout(function() {
           my.deemphasize(target);
-        },1500);
+        },1000);
       },
       //remove new/updated message highlighting
       deemphasize: function(target) {
