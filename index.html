@@ -271,8 +271,7 @@ Through declarative application construction in our highly scalable environment 
                                                         class="timestamp">{{message.timestamp}}</span>
                                                 </div>
                                                 <div>
-                                                    <!-- todo: add app reference using icon if applicable to the story board -->
-                                                    <!-- img src="https://my.intwixt.com/stars/Box.1/image_96" align="right" style="width:40px;height:40px;opacity: .75" -->
+                                                    <img class="icon" v-if="message.icon" :src="message.icon" align="right">
                                                     <div class="text" v-html="message.text"></div>
                                                     <p v-if="message.actions" class="actions">
                                                         <button v-for="(action, action_id) in message.actions"

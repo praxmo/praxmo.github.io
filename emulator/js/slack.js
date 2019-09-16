@@ -111,32 +111,7 @@ var slack_data = {
           title: "Unboxed",
           avatar: "a1.png",
           private: true,
-          messages: {
-            "a1m1": {
-              id: "a1m1",
-              author: "a1",
-              timestamp: "9:21 AM",
-              text: "😊 How are you? Here are some buttons. Go ahead and click one!",
-              actions: {
-                submit: {
-                  id: "submit",
-                  title: "Submit",
-                  style: "primary"
-                },
-                cancel: {
-                  id: "cancel",
-                  title: "Cancel",
-                  style: "danger"
-                }
-              }
-            },
-            "a1m2": {
-              id: "a1m2",
-              author: "u2",
-              timestamp: "9:21 AM",
-              text: "<b>Styling stuff here!!</b>. <img class='image' src=''>"
-            }
-          }
+          messages: { }  //starts empty, so the bot can send a welcome message
         }
       },
       input: ""
@@ -156,14 +131,35 @@ var slack_data = {
   //the storyboard tells a story to the user by moving through a scripted set of panel orchestrations
   story_board: {
     state: "idling", //other states: `playing`, `asking` (call to action)
-    event_id: 0, //index of event to execute (all will be played in order)
+    index: 0, //index of event to execute (all will be played in order)
       events: [
+        {
+          action: {
+            type: "panel.activate",
+            id: "p1"
+          },
+          pause:1000
+        },
         {
           action: {
             type: "channel.activate",
             id: "a1"
           },
-          pause:5000
+          pause:1500
+        },
+        {
+          action: {
+            type: "message.send",
+            channel: "a1",
+            message: {
+              id: "a1m1",
+              author: "a1",
+              timestamp: "9:21 AM",
+              text: "😊 Hi, I'm Unboxed! I manage Box document approvals--all within Slack! Drag a file onto this window or click the paperclip to get started.",
+              icon: "https://my.intwixt.com/stars/Box.1/image_96"
+            }
+          },
+          pause:3500
         },
         {
           action: {
@@ -187,7 +183,19 @@ var slack_data = {
               id: "a1m1",
               author: "a1",
               timestamp: "9:21 AM",
-              text: "😊 Hi! Thanks for submitting your file. I'll send you alerts each step of the way and notify you of issues that need to be addressed."
+              text: "😊 Hi! Thanks for submitting your file. I'll send you alerts each step of the way and notify you of issues that need to be addressed.",
+              actions: {
+                submit: {
+                  id: "submit",
+                  title: "Submit",
+                  style: "primary"
+                },
+                cancel: {
+                  id: "cancel",
+                  title: "Cancel",
+                  style: "danger"
+                }
+              }
             }
           },
           pause:5000
@@ -225,15 +233,23 @@ function emulate(id, selector, slack_data) {
       });
     },
     methods: {
-      scroll_to_end: function() {
-        //todo: pass the panel id needed by the query selector to target the correct subitem
-        var container = this.$el.querySelector(".messages");
-        if(container) {
-          Vue.nextTick(function() {
-            container.scrollTop = container.scrollHeight + 1000;
-          });
+      //start the narration
+      play: function() {
+        console.log('start playing');
+        this.story_board.state = "playing";
+        var event = this.story_board.events[this.story_board.index];
+        if(event.type === 'panel.activate') {
+          this.activeChannelId = event.id;
+        } else if(event.type === 'channel.activate') {
+
+        } else if(event.type === 'message.send') {
+
         }
+        //pause until specified and then
+        this.story_board.index = this.story_board.index + 1;
+        setTimeout(this.play, event.pause);
       },
+
       set_active_channel: function(panel_id, channel_id) {
         this.panels[panel_id].activeChannelId = channel_id;
         //bind property that initiates the ripple effect
@@ -244,17 +260,13 @@ function emulate(id, selector, slack_data) {
         });
         //this.scroll_to_end();
       },
+
       //upload a file
       set_overlay: function(panel_id, b_show) {
         this.panels[panel_id].overlay = b_show;
         this.emphasize(this.panels[panel_id]);
       },
-      //start the narration
-      play: function() {
-        console.log('start playing');
-        this.story_board.state = "playing";
 
-      },
       //add a new message
       send_message: function(panel_id) {
         var target = this.panels[panel_id].channels[this.panels[panel_id].activeChannelId].messages;
@@ -282,9 +294,7 @@ function emulate(id, selector, slack_data) {
             }
           }
         }
-        //add using $set to bind the watcher
         this.$set(target, id, new_message);
-        //clear out text from the input
         this.panels[panel_id].input = "";
         this.scroll_to_end();
         var my = this;
@@ -292,6 +302,7 @@ function emulate(id, selector, slack_data) {
           my.emphasize(new_message);
         });
       },
+
       //when an action button is clicked
       act: function(panel_id, channel, message, action) {
         var my = this;
@@ -301,6 +312,7 @@ function emulate(id, selector, slack_data) {
           my.update_message(panel_id, channel.id, message.id, text);
         },700);
       },
+
       //update an existing message
       update_message: function(panel_id, channel_id, message_id, text) {
         var target = this.panels[panel_id].channels[this.panels[panel_id].activeChannelId].messages[message_id];
@@ -309,6 +321,7 @@ function emulate(id, selector, slack_data) {
         target.text = text;
         this.emphasize(target);
       },
+
       //add new/updated message highlighting
       emphasize: function(target) {
         //use set (not part of original data set, so will not be watched otherwise)
@@ -318,9 +331,20 @@ function emulate(id, selector, slack_data) {
           my.deemphasize(target);
         },1000);
       },
+
       //remove new/updated message highlighting
       deemphasize: function(target) {
         this.$set(target, 'activating', false);
+      },
+
+      scroll_to_end: function() {
+        //todo: pass the panel id needed by the query selector to target the correct subitem
+        var container = this.$el.querySelector(".messages");
+        if(container) {
+          Vue.nextTick(function() {
+            container.scrollTop = container.scrollHeight + 1000;
+          });
+        }
       }
     }
   });
