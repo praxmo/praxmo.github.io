@@ -305,7 +305,7 @@ function emulate(id, selector, slack_data) {
         setTimeout(function() {
           var text = "✔️ You clicked the "  + action.id.toUpperCase() + " button.!";
           my.update_message(panel_id, channel.id, message.id, text);
-        },900);
+        },700);
       },
       //update an existing message
       update_message: function(panel_id, channel_id, message_id, text) {
