@@ -298,6 +298,7 @@ a:hover {
     position: relative;
     color: #ffffff;
     left:10%;
+    font-size:.8em;
 }
 .benefits::after {
     content: url(https://my.intwixt.com/static1/css/img/logos/light_100_100.png);
