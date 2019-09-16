@@ -276,10 +276,10 @@ a:hover {
 }
 
 .fh5co-advantages-outer .fh5co-advantages-grid-columns .col-sm-6 .grid-desc {
-    font-size: 16px;
+    font-size: 1.1em;
     color: #666;
     padding-top: 10px;
-    line-height: 1.87em;
+    line-height: 2em;
     clear: both;
 }
 
@@ -679,8 +679,8 @@ a:hover {
 .fh5co-features-outer .sm-4-content p {
     color: #111;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 1.8em;
+    font-size: 1.1em;
+    line-height: 2em;
     width: 100%
 }
 
