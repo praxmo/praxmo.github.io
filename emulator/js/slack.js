@@ -373,7 +373,7 @@ var slack_data = {
         annotation: {
           user: "u1",
           role: "Submitter",
-          text: "When users submit a file to Slack, Intwixt orchestrates the document review process."
+          text: "When users submit a file to Slack, Intwixt responds to the event, triggering the document review workflow."
         },
         pause: 3000
       },
