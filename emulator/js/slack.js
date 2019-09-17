@@ -359,7 +359,7 @@ var slack_data = {
             id: "a1m1",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "😊 Hi, I'm <b>Intwixt</b>! I manage Box document approvals!<br>Upload a file to get started."
+            text: "😊 Hi, I'm <b>Intwixt</b>! I manage Box.com document approvals!<br>Upload a file to get started."
           }
         },
         pause: 4500
