@@ -5,6 +5,35 @@
  */
 var slack_data = {
 
+  annotation: {
+    user:"",
+    role: "",
+    text: ""
+  },
+
+  users: {  //top-level list of users
+    a1: {
+      id: "a1",
+      title: "Intwixt",
+      avatar: "a1.png"
+    },
+    u1: {
+      id: "u1",
+      title: "Luke",
+      avatar: "u1.png"
+    },
+    u2: {
+      id: "u2",
+      title: "Thomas",
+      avatar: "u2.png"
+    },
+    u3: {
+      id: "u3",
+      title: "Sabin",
+      avatar: "u3.png"
+    }
+  },
+
   activePanelId: "p1",
   panels: {
     "p1": {
@@ -20,28 +49,6 @@ var slack_data = {
         title: "Acme Corp"
       },
       activeUserId: "u1",
-      users: {
-        a1: {
-          id: "a1",
-          title: "Intwixt",
-          avatar: "a1.png"
-        },
-        u1: {
-          id: "u1",
-          title: "Luke",
-          avatar: "u1.png"
-        },
-        u2: {
-          id: "u2",
-          title: "Thomas",
-          avatar: "u2.png"
-        },
-        u3: {
-          id: "u3",
-          title: "Sabin",
-          avatar: "u3.png"
-        }
-      },
       activeChannelId: "", //start with no channels selected
       channels: {
         c1: {
@@ -313,17 +320,34 @@ var slack_data = {
     state: "idling", //other states: `playing`, `asking` (call to action)
     index: 0, //index of event to execute (all will be played in order)
     events: [
+      /*{
+        action: {
+          type: "panel.activate",
+          id: "p2"
+        },
+        pause: 500000
+      },*/
       {
         action: {
           type: "panel.activate",
           id: "p1"
         },
-        pause: 1000
+        annotation: {
+          user: "a1",
+          role: "Intwixt",
+          text: "Intwixt turns Slack into a <b>business process engine</b>, enabling sophisticated document workflows entirely within Slack."
+        },
+        pause: 7000
       },
       {
         action: {
           type: "channel.activate",
           id: "a1"
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
         },
         pause: 1000
       },
@@ -346,13 +370,23 @@ var slack_data = {
           filename: "Acme RFP.pdf",
           message: "Here is the Acme proposal."
         },
-        pause: 2000
+        annotation: {
+          user: "u1",
+          role: "Submitter",
+          text: "When users submit a file to Slack, Intwixt orchestrates the document review process."
+        },
+        pause: 3000
       },
       {
         action: {
           type: "file.upload",
           filename: "Acme RFP.pdf",
           message: "Here is the Acme proposal."
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
         },
         pause: 5000
       },
@@ -379,7 +413,12 @@ var slack_data = {
             }
           }
         },
-        pause: 6000
+        annotation: {
+          user: "u1",
+          role: "Submitter",
+          text: "Once the submitter confirms their upload, Intwixt will orchestrate the process entirely within Slack by calling the <b>Box.com</b> Task Assignment APIs."
+        },
+        pause: 5000
       },
       {
         action: {
@@ -393,6 +432,11 @@ var slack_data = {
             text: "Starting review...Return to this message for real-time status updates.<br><b>✔ SUBMITTED</b> <i>Acme RFP.pdf</i> for Review"
           }
         },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
         pause: 4500
       },
       {
@@ -400,20 +444,35 @@ var slack_data = {
           type: "panel.activate",
           id: "p2"
         },
-        pause: 5000
+        annotation: {
+          user: "a1",
+          role: "Intwixt Developers",
+          text: "Intwixt's no-code, visual designer makes it effortless for even business users to modify and extend a workflow. For example, this is the workflow that defined the prior interaction."
+        },
+        pause: 10000
       },
       {
         action: {
           type: "panel.activate",
           id: "p1"
         },
-        pause: 2000
+        annotation: {
+          user: "u1",
+          role: "Submitter",
+          text: "The submitter retains a detailed audit history of the review process, making it easy to search and locate past transactions directly within Slack."
+        },
+        pause: 7500
       },
       {
         action: {
           type: "channel.clear",
           panel: "p1",
           channel: "a1"
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
         },
         pause: 1000
       },
@@ -459,6 +518,11 @@ function emulate(id, selector, slack_data) {
         var event = this.story_board.events[this.story_board.index];
         if(event) {
           var target, action = event.action;
+          if(event.annotation) {
+            this.annotation.user = event.annotation.user;
+            this.annotation.role = event.annotation.role;
+            this.annotation.text = event.annotation.text;
+          }
           if (action.type === 'panel.activate') {
             //todo: need a method to do this, so the animation/reveal slides the panel into view
             this.activePanelId = action.id;
@@ -513,7 +577,9 @@ function emulate(id, selector, slack_data) {
           my.panels[panel_id].file.filename = filename;
           my.panels[panel_id].file.message = "";
           if(message) {
-            my.typing(my.panels[panel_id].file, "message", message, 0, 150, pause);
+            setTimeout(function() {
+              my.typing(my.panels[panel_id].file, "message", message, 0, 150, pause);
+            }, 1000);
           }
         }, 1250);
       },

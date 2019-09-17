@@ -43,7 +43,7 @@ function drawStaticConstellation(data, params, target, class_for_width, class_fo
     var canvas_width = 1;
     var canvas_height = 1;
     var animation_interval;
-    var annotation_color = "#6a6b6c";
+    var annotation_color = "#3a3b3c";
     var ifps = 85;
     var FPS_FAST = params.fps || 75; //redraw every 20ms; this can be reset by the user during configuration
     var FPS_SLOW = 150; //redraw every 500ms when the constellation isn't being actively modified by the user or engine
@@ -132,6 +132,37 @@ function drawStaticConstellation(data, params, target, class_for_width, class_fo
         ctx.globalAlpha = 0.175;
         ctx.arc(Target.X - Vector_Pulse.X, Target.Y - Vector_Pulse.Y, Math.max(2, params.size / 14), 0, Math.PI * 2, false);
         ctx.fill();
+      },
+
+
+      renderNodeLabel: function (node, pt) {
+        // node: {mass:#, p:{x,y}, name:"", data:{}}
+        // pt:   {x:#, y:#}  node position in screen coords
+        var ctx = that.ctx;
+        var baseFillColor = params.fill_color || fill_color;
+        var baseStrokeColor = params.stroke_color || stroke_color;
+
+        //render the labels (suppress when smaller form factor)
+        if (params.annotate && that.canvas.width > minimum_anotation_width) {
+          ctx.beginPath();
+          var label = node.data.title || "[ untitled ]";
+          ctx.font = "300 20px 'Lato', sans-serif ";
+          ctx.textAlign = "center";
+          ctx.fillStyle = params.annotation_color || annotation_color;
+          var X = pt.x;
+          var Y = pt.y;
+          var text_left = X;
+          var _size = params.size;
+          if (node.data.trigger) {
+            _size = _size * trigger_multiplier;
+          } else if (node.data.star === "Error.1" || node.data.error) {
+            _size = _size / 2;
+          }
+          var text_top = Y - (_size / 2) - 30;
+          ctx.fillText(label, text_left, text_top);
+          ctx.stroke();
+        }
+
       },
 
       renderNode: function (node, pt) {
@@ -242,19 +273,6 @@ function drawStaticConstellation(data, params, target, class_for_width, class_fo
           ctx.fillText(node.data.icon_font.code, text_left, text_top);
         }
 
-        //render the labels (suppress when smaller form factor)
-        if (params.annotate && that.canvas.width > minimum_anotation_width) {
-          ctx.beginPath();
-          var label = node.data.title || "[ untitled ]";
-          ctx.font = "300 20px 'Lato', sans-serif ";
-          ctx.textAlign = "center";
-          ctx.fillStyle = params.annotation_color || annotation_color;
-          text_left = X;
-          text_top = Y - (_size / 2) - 30;
-          ctx.fillText(label, text_left, text_top);
-          ctx.stroke();
-        }
-
         //render image
         if (node.data && node.data.image && !node.data.icon_font) {
           var src = node.data.image.src;
@@ -309,6 +327,14 @@ function drawStaticConstellation(data, params, target, class_for_width, class_fo
           //reducing height and width helps with bleed over with labels
           var pt1 = {x: node.x * canvas_width * width_pad, y: node.y * canvas_height * height_pad};
           that.renderNode({data: node}, pt1);
+        });
+        //draw the node labels (do it last, so the text is always visible
+        _(graph.nodes).each(function (node, node_name) {
+          var mod = .1;
+          var x = x < .5 ? x + mod : (x > .5 ? x - mod : x);
+          //reducing height and width helps with bleed over with labels
+          var pt1 = {x: node.x * canvas_width * width_pad, y: node.y * canvas_height * height_pad};
+          that.renderNodeLabel({data: node}, pt1);
         });
       },
 
@@ -598,8 +624,8 @@ var demo_renderer = drawStaticConstellation(
   graph_data,
   {animate: true, size: 80, fps: 20, line_width: 5, annotate:true},
   "#viewport_runner",
-  ".runner",
-  ".runner"
+  ".body",
+  ".body"
 );
 
 

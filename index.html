@@ -208,27 +208,38 @@ Through declarative application construction in our highly scalable environment 
                     <h1 class="small-factor">Document Approval</h1>
 
                     <!-- The 'runner' reveals slack workspaces, images, and example flows per the story being told -->
-                    <div id="unboxed" class="runner" v-cloak>
+                    <div id="unboxed" class="emulator" v-cloak>
+
+                        <!-- runs the emulators -->
+                        <div class="runner">
+
+                        <!-- overlay to show when in 'idling' state -->
+                        <div v-bind:class="['story_overlay', { active: story_board.state === 'idling' }]">
+                            <div v-on:click="play()"
+                                 class="play"><i class="far fa-play-circle fa-10x"></i></div>
+                        </div>
+
+                        <!-- overlay to show when in 'played' state (this is the call-to-action) -->
+                        <div v-bind:class="['story_overlay', { active: story_board.state === 'played' }]">
+                            <div v-on:click="play(true)"
+                                 class="play"><i class="fas fa-reply-all fa-10x"></i></div>
+                        </div>
 
                         <div v-for="(panel, panel_id) in panels">
 
-                            <!-- overlay to show when in 'idling' state -->
-                            <div v-bind:class="['story_overlay', { active: story_board.state === 'idling' }]">
-                                <div v-on:click="play()"
-                                     class="play"><i class="far fa-play-circle fa-10x"></i></div>
-                            </div>
-
-                            <!-- overlay to show when in 'played' state (this is the call-to-action) -->
-                            <div v-bind:class="['story_overlay', { active: story_board.state === 'played' }]">
-                                <div v-on:click="play(true)"
-                                     class="play"><i class="fas fa-reply-all fa-10x"></i></div>
-                            </div>
-
                             <!-- intwixt emulator; common container that renders the graph on the canvas -->
                             <div :id="panel_id"
-                                 v-bind:class="['intwixter', 'panel', { active: activePanelId === panel_id }]"
+                                 class="intwixter panel"
+                                 v-bind:class="[{ active: activePanelId === panel_id }]"
                                  v-if="panel.type === 'intwixt'">
-                                <canvas id="viewport_runner" width="666" height="500"></canvas>
+                                <div class="head">
+                                    <label>Intwixt Designer</label>
+                                    <img src="https://my.intwixt.com/static1/css/img/logos/light_300.png">
+                                </div>
+                                <div class="body">
+                                    <canvas id="viewport_runner" width="666" height="500"></canvas>
+                                    <div class="plus"><span>+</span></div>
+                                </div>
                             </div>
 
                             <!-- slack emulator; each instance represents a slack user and their workspace -->
@@ -242,7 +253,7 @@ Through declarative application construction in our highly scalable environment 
                                                 class="fas fa-angle-down"></i></span>
                                         </div>
                                         <div class="active_user">
-                                            {{panel.users[panel.activeUserId].title}}
+                                            {{users[panel.activeUserId].title}}
                                         </div>
                                         <div class="label">Channels</div>
                                         <div v-for="(channel, channel_id) in panel.channels"
@@ -284,10 +295,10 @@ Through declarative application construction in our highly scalable environment 
                                                  v-bind:class="['message', { activating: message.activating }]"
                                                  v-bind:key="message.id">
                                                 <img class="avatar"
-                                                     :src="'/img/avatars/' + panel.users[message.author].avatar">
+                                                     :src="'/img/avatars/' + users[message.author].avatar">
                                                 <div class="data">
                                                     <div class="metadata">
-                                                        <span class="author">{{panel.users[message.author].title}}</span>
+                                                        <span class="author">{{users[message.author].title}}</span>
                                                         <span
                                                                 class="timestamp">{{message.timestamp}}</span>
                                                     </div>
@@ -345,6 +356,18 @@ Through declarative application construction in our highly scalable environment 
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        </div>
+                        <div class="annotation"
+                             v-bind:class="[{ active: annotation.user }]">
+                            <div class="triangle"></div>
+                            <img class="avatar"
+                                 v-if="annotation.user"
+                                 :src="'/img/avatars/' + users[annotation.user].avatar">
+                            <p class="text">
+                                <label class="role">{{annotation.role}}</label>
+                                <span v-html="annotation.text"></span>
+                            </p>
                         </div>
                     </div>
                 </div>
