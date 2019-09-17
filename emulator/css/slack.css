@@ -812,9 +812,10 @@ canvas {
 @media screen and (max-width: 520px) {
 
     .emulator {
-        width:100% !important;
-        box-shadow:none;
-        border: solid 1px #888888
+        width: 100% !important;
+        box-shadow: none;
+        border-radius: 8px;
+        border-width: 0;
     }
 
     .slack .sidebar {
