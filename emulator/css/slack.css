@@ -9,10 +9,14 @@
     height:400px;
     margin-top:80px;
     border-radius:8px;
-    box-shadow: -5px -5px 20px #888888;
+    box-shadow: 0 0 10px #888888;
     overflow:hidden;
     display:block;
     position: relative;
+}
+
+.runner .intwixter, .runner .slacker {
+    background-color:#ffffff;
 }
 
 .runner .story_overlay {
@@ -22,16 +26,16 @@
     width:100%;
     height:100%;
     display: block;
-    background-color:#888888;
+    background-color: #000000;
+    cursor: default;
     color:#ffffff;
-    cursor:default;
     opacity: 0;
     z-index: -1;
-    transition: opacity, z-index .5s;
+    transition: opacity 1s linear;
 }
 
 .runner .story_overlay.active {
-    opacity:.75;
+    opacity:.5;
     z-index: 2;
 }
 
@@ -48,11 +52,19 @@
     height:100%;
     left:100%;
     top:0;
+    transition: left 1s ease-in;
+    z-index:-1;
 }
 
 .panel.active {
     /* apply this style to slide left */
     left:0;
+    z-index:1;
+}
+
+.panel.deactivating {
+    /* apply this style to slide left */
+    left:-100%;
 }
 
 .panel.deactivating {
@@ -85,16 +97,134 @@
     width:100%;
     height:100%;
     display: block;
-    background-color:#888888;
-    color:#ffffff;
-    cursor:default;
-    opacity: 0;
     z-index: -1;
+    text-align:center;
+    visibility:hidden;
 }
 
 .panel .slack_overlay.active {
-    opacity:.75;
     z-index: 2;
+    visibility:visible;
+}
+
+.panel .slack_overlay .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #000000;
+    cursor: default;
+    opacity: .5;
+    z-index: -1;
+}
+
+.panel .slack_overlay .file_upload {
+    max-width: 400PX;
+    margin-top: 50px;
+    border-radius: 8px;
+    border: solid 1px #888888;
+    padding: 16px;
+    text-align: left;
+    background-color: #ffffff;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    opacity:0;
+    transition: opacity 1s linear;
+}
+
+
+.panel .slack_overlay.active .file_upload {
+    opacity:1;
+}
+
+.panel .slack_overlay .file_upload .file_title {
+    font-weight:bold;
+    font-size: 1.2em;
+    margin-bottom:20px;
+}
+
+.panel .slack_overlay .file_upload .file_close {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    opacity: .5;
+}
+
+.panel .slack_overlay .file_upload .file_message {
+    width: 100%;
+    padding: 8px;
+    border: solid 2px #039BE5;
+    border-radius: 4px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    box-shadow: 0 0 6px #039BE5;
+}
+
+.panel .slack_overlay .file_upload .file_message::placeholder {
+    color: #888888;
+}
+
+.panel .slack_overlay .file_upload .file_wrapper {
+    width: 100%;
+    padding: 8px;
+    border: solid 1px #c8c8c8;
+    border-radius: 4px;
+    background-color: #fafafa;
+    margin-bottom: 60px;
+}
+
+.panel .slack_overlay .file_upload .file {
+    display: inline-block;
+    padding: 6px;
+    border: solid 1px #c8c8c8;
+    border-radius: 4px;
+}
+
+.panel .slack_overlay .file_upload .file_icon {
+    font-size:2em;
+    color:#991818;
+}
+
+.panel .slack_overlay .file_upload .file_name {
+    font-weight: bold;
+    vertical-align: super;
+    margin-bottom: 0;
+    font-size: .9em;
+    margin-left: 5px;
+}
+
+.panel .slack_overlay .file_upload .file_button {
+    background-color: green;
+    color: white;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.panel .slack_overlay .file_upload .file_button:focus {
+    outline:0;
+}
+
+.panel .slack_overlay .file_upload .file_button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -35px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(111,148,182,0.5);
+}
+
+.panel .slack_overlay .file_upload .file_button.activating::after {
+    animation: ripple .75s forwards;
+    animation-iteration-count: 1;
 }
 
 .sidebar {
@@ -338,7 +468,7 @@
 
 .main .messages {
     flex:1;
-    padding:200px 20px 20px 20px;
+    padding:200px 20px 40px 20px;
     width:100%;
     overflow:auto;
 }
@@ -356,7 +486,7 @@
 }
 
 .main .message.activating {
-    background-color: #b3e5fc;
+    background-color: #fff59d;
 }
 
 .main .message .avatar {
@@ -364,6 +494,10 @@
     width:32px;
     height:32px;
     border-radius:4px;
+}
+
+.main .message .file i {
+    color: #991818;
 }
 
 .main .message .data {
@@ -391,10 +525,22 @@
     font-weight:300;
 }
 
+.main .message b {
+    font-weight:900;
+}
+
+.main .message br {
+    line-height: 150%;
+    content: ' ';
+    display: block;
+    margin-top: 6px;
+}
+
 .main .message .icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     opacity: .75;
+    margin: 0 0 10px 10px;
 }
 
 .main .message .actions {
@@ -490,7 +636,7 @@
 
 .main .input .fa-paperclip.activating::after {
     animation: ripple .75s forwards;
-    animation-iteration-count: 2;
+    animation-iteration-count: 1;
 }
 
 

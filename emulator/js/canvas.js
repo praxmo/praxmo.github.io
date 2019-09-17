@@ -594,6 +594,14 @@ function traverse_graph(start, delay, next) {
 }
 traverse_graph("activity_1", 4000);
 
+var demo_renderer = drawStaticConstellation(
+  graph_data,
+  {animate: true, size: 80, fps: 20, line_width: 5, annotate:true},
+  "#viewport_runner",
+  ".runner",
+  ".runner"
+);
+
 
 
 
