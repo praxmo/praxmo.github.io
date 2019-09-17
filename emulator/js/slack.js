@@ -364,7 +364,7 @@ var slack_data = {
             id: "a1m2",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "<br>Press <b>Submit</b> to begin the review process for the file, <i>Acme RFP.pdf</i>.",
+            text: "Would you like to <b>Submit</b> <i>Acme RFP.pdf</i> for review?",
             actions: {
               submit: {
                 id: "submit",
