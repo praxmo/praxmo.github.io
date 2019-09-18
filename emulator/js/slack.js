@@ -439,7 +439,64 @@ var slack_data = {
           role: "",
           text: ""
         },
-        pause: 4500
+        pause: 3500,
+        step_next:true
+      },
+      {
+        action: {
+          type: "message.append",
+          channel: "a1",
+          message: {
+            id: "a1m2",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "<b>✔ CLAIMED</b> at <i>10:45am</i> by Sabin"
+          }
+        },
+        annotation: {
+          user: "u1",
+          role: "Submitter",
+          text: "Submitters are encouraged to return for real-time status updates as the document moves through workflow."
+        },
+        pause: 1500,
+        step_next:true
+      },
+      {
+        action: {
+          type: "message.append",
+          channel: "a1",
+          message: {
+            id: "a1m2",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "<b>✔ Approved</b> at <i>11:00am</i> by Sabin"
+          }
+        },
+        annotation: {
+          user: "u1",
+          role: "Submitter",
+          text: "Submitters are encouraged to return for real-time status updates as the document moves through workflow."
+        },
+        pause: 2500,
+        step_next:true
+      },
+      {
+        action: {
+          type: "message.append",
+          channel: "a1",
+          message: {
+            id: "a1m2",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "<b>✔ Approved</b> at <i>12:33pm</i> by Thomas<br><b>✔ Completed</b> at <i>12:33pm</i>"
+          }
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
+        pause: 2500
       },
       {
         action: {
@@ -449,7 +506,7 @@ var slack_data = {
         annotation: {
           user: "a1",
           role: "Intwixt Developers",
-          text: "Intwixt's no-code, visual designer makes it effortless for even business users to modify and extend a workflow. For example, this is the workflow that defined the prior interaction."
+          text: "Intwixt's no-code, visual designer makes it effortless for even business users to modify and extend a workflow. For example, this is the workflow that triggered when files are uploaded to slack."
         },
         pause: 10000
       },
@@ -561,6 +618,9 @@ function emulate(id, selector, slack_data) {
           } else if (action.type === 'message.send') {
             target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages;
             this.send_formatted_message(target, action.message.id, this.clone(action.message));
+          } else if (action.type === 'message.append') {
+            target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message.id];
+            this.update_message(target, action.message.text, true);
           } else if (action.type === 'file.activate') {
             this.show_file_prompt(this.activePanelId, action.filename, action.message, event.pause);
             //always exit early on file upload; once the message is typed out, the
@@ -584,7 +644,8 @@ function emulate(id, selector, slack_data) {
             }, event.pause);
           } else {
             //pause until specified and then loop back
-            setTimeout(this.play, event.pause);
+            // (always pause for 3k ms if in stepper mode...some readers are fast and the delay can be frustrating)
+            setTimeout(this.play, this.story_board.step ? Math.min(event.pause, 2500) :event.pause);
           }
         } else {
           console.log("Story told! All complete...user can now react to the CTA prompt");
