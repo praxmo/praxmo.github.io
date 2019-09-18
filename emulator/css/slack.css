@@ -1,15 +1,13 @@
 
-
 [v-cloak] {
     display: none;
 }
 
-
 .emulator {
     position: relative;
-    width:680px;
-    margin-top:40px;
-    height:400px;
+    width: 680px;
+    margin-top: 40px;
+    height: 400px;
 }
 
 .emulator .annotation {
@@ -22,8 +20,8 @@
     background-color: #ffffff;
     z-index: 14;
     position: relative;
-    opacity:0;
-    visibility:hidden;
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 1s linear;
 }
 
@@ -67,10 +65,8 @@
 }
 
 .emulator .annotation .text b {
-    font-weight:900;
+    font-weight: 900;
 }
-
-
 
 .emulator .stepper {
     color: #039BE5;
@@ -81,7 +77,7 @@
     opacity: 0;
     transition: opacity 1s linear;
     visibility: hidden;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .emulator .stepper.active {
@@ -92,7 +88,6 @@
 .emulator .stepper i {
     text-shadow: 0 2px 12px #9E9E9E;
 }
-
 
 .emulator .stepper i::after {
     content: '';
@@ -114,52 +109,51 @@
 }
 
 .runner {
-    width:100%;
-    height:400px;
-    border-radius:8px;
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
     box-shadow: 0 0 10px #c8c8c8;
-    overflow:hidden;
-    display:block;
+    overflow: hidden;
+    display: block;
     position: relative;
 }
 
 .runner .panel {
-    background-color:#ffffff;
+    background-color: #ffffff;
     pointer-events: none;
 }
 
-
 .runner .intwixter {
-    padding-top:40px;
+    padding-top: 40px;
 }
 
 .runner .intwixter .head {
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:40px;
-    text-align:center;
-    padding-top:8px;
-    color:#ffffff;
-    background-color:#039BE5;
-    font-size:1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+    color: #ffffff;
+    background-color: #039BE5;
+    font-size: 1.2em;
     font-variant: small-caps;
 }
 
 .runner .intwixter .head img {
-    width:20px;
-    height:20px;
-    position:absolute;
-    right:10px;
-    top:10px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
 .runner .intwixter .body {
-    position:relative;
-    width:100%;
-    height:100%;
-    text-align:center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 .runner .intwixter .body .plus {
@@ -174,8 +168,8 @@
     text-align: center;
     font-weight: 700;
     cursor: move;
-    color:#ffffff;
-    background-color:#039BE5;
+    color: #ffffff;
+    background-color: #039BE5;
     box-shadow: 0 0 4px #686e71a3;
 }
 
@@ -184,76 +178,74 @@
     top: -10px;
 }
 
-
-
 .runner .story_overlay {
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     display: block;
     background-color: #000000;
     cursor: default;
-    color:#ffffff;
+    color: #ffffff;
     opacity: 0;
     z-index: -1;
     transition: opacity 1s linear;
 }
 
 .runner .story_overlay.active {
-    opacity:.5;
+    opacity: .5;
     z-index: 2;
 }
 
 .runner .story_overlay .play {
-    margin-top:20%;
-    text-align:center;
-    cursor:pointer;
+    margin-top: 20%;
+    text-align: center;
+    cursor: pointer;
 }
 
 .runner .story_overlay .play > .button {
     display: inline-block;
-    margin:0 40px;
+    margin: 0 40px;
 }
 
 /** panels slide back-and-forth and should be absolutely positioned **/
 .panel {
     position: absolute;
-    width:100%;
-    height:100%;
-    left:100%;
-    top:0;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    top: 0;
     transition: left 1s ease-in;
-    z-index:-1;
+    z-index: -1;
 }
 
 .panel.active {
     /* apply this style to slide left */
-    left:0;
-    z-index:1;
+    left: 0;
+    z-index: 1;
 }
 
 .panel.deactivating {
     /* apply this style to slide left */
-    left:-100%;
+    left: -100%;
 }
 
 .panel.deactivating {
     /* apply this style to slide left out of view */
-    left:-100%;
+    left: -100%;
 }
 
 .panel.deactivated {
     /* apply this style after the element has been moved out of view */
-    left:100%;
+    left: 100%;
     visibility: hidden;
 }
 
 .panel .slack {
     position: relative;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -263,20 +255,20 @@
 
 /* used to simulate uploading files and other activities that overlay the slack emulator UI */
 .panel .slack_overlay {
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     display: block;
     z-index: -1;
-    text-align:center;
-    visibility:hidden;
+    text-align: center;
+    visibility: hidden;
 }
 
 .panel .slack_overlay.active {
     z-index: 2;
-    visibility:visible;
+    visibility: visible;
 }
 
 .panel .slack_overlay .mask {
@@ -303,19 +295,18 @@
     position: relative;
     display: inline-block;
     width: 100%;
-    opacity:0;
+    opacity: 0;
     transition: opacity 1s linear;
 }
 
-
 .panel .slack_overlay.active .file_upload {
-    opacity:1;
+    opacity: 1;
 }
 
 .panel .slack_overlay .file_upload .file_title {
-    font-weight:bold;
+    font-weight: bold;
     font-size: 1.2em;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .panel .slack_overlay .file_upload .file_close {
@@ -353,12 +344,12 @@
     padding: 6px;
     border: solid 1px #c8c8c8;
     border-radius: 4px;
-    background-color:#ffffff;
+    background-color: #ffffff;
 }
 
 .panel .slack_overlay .file_upload .file_icon {
-    font-size:2em;
-    color:#991818;
+    font-size: 2em;
+    color: #991818;
 }
 
 .panel .slack_overlay .file_upload .file_name {
@@ -378,7 +369,7 @@
 }
 
 .panel .slack_overlay .file_upload .file_button:focus {
-    outline:0;
+    outline: 0;
 }
 
 .panel .slack_overlay .file_upload .file_button::after {
@@ -392,7 +383,7 @@
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
-    background: rgba(111,148,182,0.5);
+    background: rgba(111, 148, 182, 0.5);
 }
 
 .panel .slack_overlay .file_upload .file_button.activating::after {
@@ -401,21 +392,22 @@
 }
 
 .sidebar {
-    width:150px;
-    max-width:150px;
-    min-width:150px;
-    background-color:#4a184b;
-    color:#ffffff;
-    padding:10px 0;
-    overflow:hidden;
-    cursor:default;
+    width: 150px;
+    max-width: 150px;
+    min-width: 150px;
+    background-color: #4a184b;
+    color: #ffffff;
+    padding: 10px 0;
+    overflow: hidden;
+    cursor: default;
 }
 
 .sidebar .workspace_selector {
-    font-weight:bold;
-    font-size:1.2em;
-    padding:0 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 20px;
 }
+
 .sidebar .workspace_selector .carat {
     font-weight: normal;
     font-size: .6em;
@@ -427,15 +419,15 @@
 }
 
 .sidebar .label {
-    font-weight:bold;
-    margin-top:20px;
-    padding:4px 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 4px 20px;
 }
 
 .channel, .active_user {
-    padding:4px 20px 4px 38px;
+    padding: 4px 20px 4px 38px;
     position: relative;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .channel::after {
@@ -449,7 +441,7 @@
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
-    background: rgba(111,148,182,0.5);
+    background: rgba(111, 148, 182, 0.5);
 }
 
 .channel.activating::after {
@@ -471,12 +463,12 @@
 }
 
 .channel::before {
-    position:absolute;
-    left:22px;
-    top:8px;
-    content:'#';
-    font-size:.8em;
-    color:#dddddd;
+    position: absolute;
+    left: 22px;
+    top: 8px;
+    content: '#';
+    font-size: .8em;
+    color: #dddddd;
 }
 
 .channel.app::before, .sidebar .active_user::before {
@@ -493,77 +485,78 @@
 }
 
 .channel.private::before {
-    position:absolute;
-    left:22px;
-    top:11px;
+    position: absolute;
+    left: 22px;
+    top: 11px;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content:'\f023';
-    font-size:.6em;
-    color:#dddddd;
+    content: '\f023';
+    font-size: .6em;
+    color: #dddddd;
 }
 
 .channel.active {
-    font-weight:300;
-    background-color:#1064a3;
+    font-weight: 300;
+    background-color: #1064a3;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    border-radius:0 8px 8px 0;
-    width:100%;
+    border-radius: 0 8px 8px 0;
+    width: 100%;
 }
 
 .main .chrome {
-    display:none;
-    text-align:center;
+    display: none;
+    text-align: center;
     position: relative;
 }
 
 .main .chrome .signal {
     position: absolute;
-    left:8px;
-    top:4px;
-    font-size:.7em;
-    color:#888888;
+    left: 8px;
+    top: 4px;
+    font-size: .7em;
+    color: #888888;
 }
 
 .main .chrome .wifi {
     position: absolute;
-    left:26px;
-    top:4px;
-    font-size:.7em;
-    color:#888888;
+    left: 26px;
+    top: 4px;
+    font-size: .7em;
+    color: #888888;
 }
 
 .main .chrome .time {
     position: relative;
-    font-size:.7em;
-    color:#888888;
+    font-size: .7em;
+    color: #888888;
 }
 
 .main .chrome .battery {
     position: absolute;
-    right:8px;
-    top:4px;
-    font-size:.8em;
-    color:#888888;
+    right: 8px;
+    top: 4px;
+    font-size: .8em;
+    color: #888888;
 }
+
 .main .chrome .battery .fas {
-    font-size:.9em;
-    color:#3ea53ea6
+    font-size: .9em;
+    color: #3ea53ea6
 }
 
 .main .info {
-    height:70px;
-    min-height:70px;
-    max-height:70px;
-    padding:8px 20px 2px 20px;
+    height: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    padding: 8px 20px 2px 20px;
     border-bottom: solid 1px #cccccc;
-    cursor:default;
-    position:relative;
+    cursor: default;
+    position: relative;
 }
 
 .main .info .channel_profile {
@@ -571,91 +564,91 @@
 }
 
 .main .info label {
-    font-weight:bold;
-    font-size:1.1em;
-    margin-bottom:0;
-    padding-left:14px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0;
+    padding-left: 14px;
 }
 
 .main .info label.public::before {
-    position:absolute;
-    left:20px;
-    top:10px;
-    content:'#';
-    font-size:1em;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    content: '#';
+    font-size: 1em;
 }
 
 .main .info label.private::before {
-    position:absolute;
-    left:20px;
-    top:13px;
-    font-weight:900;
+    position: absolute;
+    left: 20px;
+    top: 13px;
+    font-weight: 900;
     font-family: "Font Awesome 5 Free";
-    content:'\f023';
-    font-size:.7em;
-    opacity:.8;
+    content: '\f023';
+    font-size: .7em;
+    opacity: .8;
 }
 
 .main .info label.app.a1::before {
-    position:absolute;
-    left:18px;
-    top:14px;
-    content:' ';
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    content: ' ';
     background-image: url('/img/avatars/a1.png');
     background-size: 13px;
     display: inline-block;
-    width:13px;
-    height:13px;
+    width: 13px;
+    height: 13px;
 }
 
 .main .info .star {
-    font-size:.8em;
-    color:#cccccc;
-    margin-right:10px;
+    font-size: .8em;
+    color: #cccccc;
+    margin-right: 10px;
 }
 
 .main .info .members {
-    font-size:.8em;
-    color:#cccccc;
-    margin-right:0px;
-    border-left:solid 1px;
-    padding-left:10px;
+    font-size: .8em;
+    color: #cccccc;
+    margin-right: 0px;
+    border-left: solid 1px;
+    padding-left: 10px;
 }
 
 .main .info .pins {
-    font-size:.8em;
-    color:#cccccc;
-    margin-left:10px;
-    border-left:solid 1px;
-    padding-left:10px;
+    font-size: .8em;
+    color: #cccccc;
+    margin-left: 10px;
+    border-left: solid 1px;
+    padding-left: 10px;
 
 }
 
 .main .info .more {
-    font-size:1.1em;
-    color:#888888;
-    position:absolute;
-    right:20px;
-    top:24px;
+    font-size: 1.1em;
+    color: #888888;
+    position: absolute;
+    right: 20px;
+    top: 24px;
 }
 
 .main .messages {
-    flex:1;
-    padding:200px 20px 40px 20px;
-    width:100%;
-    overflow:auto;
+    flex: 1;
+    padding: 200px 20px 40px 20px;
+    width: 100%;
+    overflow: auto;
 }
 
 .main .message {
-    width:100%;
-    margin-top:16px;
+    width: 100%;
+    margin-top: 16px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
     transition: background-color 1.5s linear;
     background-color: #ffffff;
-    padding:4px;
-    border-radius:2px;
+    padding: 4px;
+    border-radius: 2px;
 }
 
 .main .message.activating {
@@ -663,10 +656,10 @@
 }
 
 .main .message .avatar {
-    float:left;
-    width:32px;
-    height:32px;
-    border-radius:4px;
+    float: left;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
 }
 
 .main .message .file i {
@@ -674,32 +667,32 @@
 }
 
 .main .message .data {
-    flex:1;
-    padding-left:16px;
+    flex: 1;
+    padding-left: 16px;
 }
 
 .main .message .data .metadata * {
-    margin-right:8px;
+    margin-right: 8px;
 }
 
 .main .message .data .metadata .author {
-    font-weight:bold;
+    font-weight: bold;
     font-family: sans-serif;
 }
 
 .main .message .data .timestamp {
-    color:#aaaaaa;
-    font-size:.7em;
+    color: #aaaaaa;
+    font-size: .7em;
 }
 
 .main .message .text {
-    width:100%;
-    font-size:.9em;
-    font-weight:300;
+    width: 100%;
+    font-size: .9em;
+    font-weight: 300;
 }
 
 .main .message b {
-    font-weight:900;
+    font-weight: 900;
 }
 
 .main .message br {
@@ -717,32 +710,32 @@
 }
 
 .main .message .actions {
-    width:100%;
-    font-size:.9em;
-    font-weight:300;
+    width: 100%;
+    font-size: .9em;
+    font-weight: 300;
 }
 
 .main .message .text .image {
-    display:block;
-    max-height:200px;
+    display: block;
+    max-height: 200px;
 }
 
 .main .message .text p, .main .message .actions {
-    margin-top:10px;
-    margin-bottom:0;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .main .message button {
     border: solid 1px #888888;
     border-radius: 4px;
-    background:#ffffff;
-    margin-right:10px;
-    min-width:80px;
-    position:relative;
+    background: #ffffff;
+    margin-right: 10px;
+    min-width: 80px;
+    position: relative;
 }
 
 .main .message button:focus {
-    outline:0;
+    outline: 0;
 }
 
 .main .message button::after {
@@ -756,7 +749,7 @@
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
-    background: rgba(111,148,182,0.5);
+    background: rgba(111, 148, 182, 0.5);
 }
 
 .main .message button.activating::after {
@@ -765,31 +758,34 @@
 }
 
 .main .message button.primary {
-    color:green;
+    color: green;
 }
 
 .main .message button.danger {
-    color:red;
+    color: red;
 }
 
 .main .input {
-    height:52px;
-    padding:4px 20px 10px 20px;
-    position:relative;
+    height: 52px;
+    padding: 4px 20px 10px 20px;
+    position: relative;
 }
+
 .main .input input {
-    border:solid 1px #888888;
-    border-radius:6px;
-    width:100%;
-    padding:6px 30px 6px 30px;
+    border: solid 1px #888888;
+    border-radius: 6px;
+    width: 100%;
+    padding: 6px 30px 6px 30px;
 }
+
 .main .input input::placeholder {
     color: #888888;
 }
+
 .main .input .fa-paperclip {
-    position:absolute;
-    left:28px;
-    top:16px;
+    position: absolute;
+    left: 28px;
+    top: 16px;
     opacity: .5;
 }
 
@@ -804,7 +800,7 @@
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
-    background: rgba(111,148,182,0.5);
+    background: rgba(111, 148, 182, 0.5);
 }
 
 .main .input .fa-paperclip.activating::after {
@@ -812,21 +808,19 @@
     animation-iteration-count: 1;
 }
 
-
 /* FLOW RENDERING CSS (Intwixt Graph Visualization) */
 
 .phone_canvas_container {
-    width:100%;
-    height:100%;
-    padding:30px 20px 20px 20px;
+    width: 100%;
+    height: 100%;
+    padding: 30px 20px 20px 20px;
 }
 
 canvas {
-    position:relative;
-    width:100%;
-    height:100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
-
 
 /* RESPONSIVE */
 
@@ -838,7 +832,6 @@ canvas {
 
 }
 
-
 @media screen and (max-width: 993px) {
 
     .emulator {
@@ -848,14 +841,12 @@ canvas {
 
 }
 
-
 @media screen and (max-width: 800px) {
 
     .emulator {
         width: 490px !important;
     }
 }
-
 
 @media screen and (max-width: 520px) {
 
@@ -866,20 +857,28 @@ canvas {
         border-width: 0;
     }
 
+    .emulator .stepper.active {
+        right: -12px;
+    }
+
+    .emulator .stepper i {
+        font-size: 2em;
+    }
+
     .slack .sidebar {
         display: none;
     }
 
     .slack .chrome {
         display: block;
-        height:20px;
+        height: 20px;
     }
 
     .slack .main .info {
-        height:30px;
-        min-height:30px;
-        max-height:30px;
-        font-size:.8em;
+        height: 30px;
+        min-height: 30px;
+        max-height: 30px;
+        font-size: .8em;
         padding: 2px 0 0 28px;
     }
 
