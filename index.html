@@ -243,19 +243,34 @@ Through declarative application construction in our highly scalable environment 
                             <div v-bind:class="[{ active: story_board.state === 'played' }]"
                             class="story_overlay cta">
                                 <div class="blurb">
-                                    Your favorite <b>document management</b> app, only better!
+                                    Multi-role. &nbsp; Multi-system. &nbsp; Unified in Slack.
                                 </div>
                                 <div class="options">
                                     <div class="option">
-                                        Try the Slack App
+                                        <label>Try the Slack App</label>
+                                        <div class="action">
+                                            <button class="btn">Add to Slack</button>
+                                        </div>
                                     </div>
                                     <div class="option">
-                                        Own the Intwixt App
+                                        <label>Own the Slack App*</label>
+                                        <div class="action">
+                                            <button class="btn">Get Started</button>
+                                        </div>
                                     </div>
                                     <div class="option">
-                                        Contact Us
+                                        <label>Contact us</label>
+                                        <div class="links action">
+                                            <div>
+                                                <a href="mailto:contact@intwixt.com"><i class="fas fa-at"></i> contact@intwixt.com</a>
+                                            </div>
+                                            <div>
+                                                 <a href="tel:415-287-5100"><i class="fas fa-phone"></i> 415-287-5100</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="footnote">*Sign up for a free Intwixt account. We'll copy the source files and give you tips to get started.</div>
                             </div>
 
                             <div v-for="(panel, panel_id) in panels">
@@ -428,7 +443,7 @@ Through declarative application construction in our highly scalable environment 
                     <span class="circle" title="Slack"><img src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
                 </div>
 
-
+            </div>
 
 
                 <div style="margin-top:200px;" class="row fh5co-features-grid-columns">
@@ -447,6 +462,8 @@ Through declarative application construction in our highly scalable environment 
                     </div>
                 </div>
 
+            <div style="margin-top:200px;" class="row fh5co-features-grid-columns">
+
                 <div class="col-sm-8 in-order-5 wow animated fadeInLeft" data-wow-delay="0.22s">
                     <div class="col-sm-image-container">
                         <img class="img-float-left" src="img/smartphone-2.png" alt="smartphone-3">
@@ -455,9 +472,11 @@ Through declarative application construction in our highly scalable environment 
 
                 <div class="col-sm-4 in-order-6 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1>Employee Onboarding</h1>
-                    <p>Employee onboarding process is a key to success for your organization’s new hires. The entire process spans across many systems, people and time. Starting with 
-                    proper permission handling for access rights to signing additional paperwork to purchasing hardware and software licenses, including 
-                    a welcome email to the team. </p>
+                    <p>Employee onboarding process is a key to success for your organization’s new hires. The entire
+                        process spans across many systems, people and time. Starting with
+                        proper permission handling for access rights to signing additional paperwork to purchasing
+                        hardware and software licenses, including
+                        a welcome email to the team. </p>
                     <span class="circle circle-first">95%</span>
                     <span class="circle circle-middle"><i class="fas fa-forward"></i></span>
                     <span class="circle circle-last"><i class="fab fa-github"></i></span>
@@ -514,7 +533,7 @@ Through declarative application construction in our highly scalable environment 
                                 <i class="fas fa-at"></i> <a href="mailto:contact@intwixt.com">contact@intwixt.com</a>
                             </div>
                             <div>
-                                <i class="fas fa-phone"></i></i> <a href="tel:415-287-5100">415-287-5100</a>
+                                <i class="fas fa-phone"></i> <a href="tel:415-287-5100">415-287-5100</a>
                             </div>
                         </div>
                     </div>

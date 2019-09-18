@@ -211,9 +211,9 @@
     transition: opacity 1s linear;
 }
 
-.runner .story_overlay.cta {
+.runner .story_overlay.cta, .runner .story_overlay.cta a {
     background-color: #ffffff;
-    color:#333333;
+    color:#666666;
 }
 
 .runner .story_overlay.active {
@@ -234,11 +234,19 @@
 }
 
 .runner .story_overlay.cta .blurb {
-    margin-top: 2em;
+    margin-top: 1em;
     text-align: center;
     cursor: pointer;
-    font-size:1.25em;
-    margin-bottom:2em;
+    font-size:1.5em;
+    margin-bottom:3em;
+}
+
+.runner .story_overlay.cta .footnote {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    font-size: .8em;
+    text-align: center;
 }
 
 .runner .story_overlay.cta .options {
@@ -251,6 +259,27 @@
     width:33%;
     min-height:40px;
     text-align:center;
+}
+
+.runner .story_overlay.cta .option .action {
+    margin-top:6px;
+}
+
+.runner .story_overlay.cta .option .btn {
+    border: solid 1px #ffffff;
+    background: #039BE5;
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+.runner .story_overlay.cta .option .links a {
+    color: #039BE5 !important;
+    font-size:.9em;
+}
+
+.runner .story_overlay.cta .option label {
+    font-weight:bold;
+    margin-bottom: 0;
 }
 
 .runner .story_overlay .play > .button {
@@ -891,7 +920,7 @@ canvas {
 
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 767px) {
 
     .emulator {
         width: 490px !important;
