@@ -211,155 +211,180 @@ Through declarative application construction in our highly scalable environment 
                     <h1 class="small-factor">Document Approval</h1>
 
                     <!-- The 'runner' reveals slack workspaces, images, and example flows per the story being told -->
-                    <div id="unboxed" class="emulator" v-cloak>
+                    <div id="unboxed"
+                         v-bind:class="[{ step: story_board.step }]"
+                         class="emulator"
+                         v-cloak>
+
+                        <div v-bind:class="['stepper', { active: story_board.state === 'playing' && story_board.step_next}]"
+                             title="Show next step"
+                             v-on:click="play(false, true);">
+                            <i class="fas fa-play fa-3x"></i>
+                        </div>
 
                         <!-- runs the emulators -->
                         <div class="runner">
 
-                        <!-- overlay to show when in 'idling' state -->
-                        <div v-bind:class="['story_overlay', { active: story_board.state === 'idling' }]">
-                            <div v-on:click="play()"
-                                 class="play"><i class="far fa-play-circle fa-10x"></i></div>
-                        </div>
-
-                        <!-- overlay to show when in 'played' state (this is the call-to-action) -->
-                        <div v-bind:class="['story_overlay', { active: story_board.state === 'played' }]">
-                            <div v-on:click="play(true)"
-                                 class="play"><i class="fas fa-reply-all fa-10x"></i></div>
-                        </div>
-
-                        <div v-for="(panel, panel_id) in panels">
-
-                            <!-- intwixt emulator; common container that renders the graph on the canvas -->
-                            <div :id="panel_id"
-                                 class="intwixter panel"
-                                 v-bind:class="[{ active: activePanelId === panel_id }]"
-                                 v-if="panel.type === 'intwixt'">
-                                <div class="head">
-                                    <label>Intwixt Designer</label>
-                                    <img src="https://my.intwixt.com/static1/css/img/logos/light_300.png">
-                                </div>
-                                <div class="body">
-                                    <canvas id="viewport_runner" width="666" height="500"></canvas>
-                                    <div class="plus"><span>+</span></div>
+                            <!-- overlay to show when in 'idling' state -->
+                            <div v-bind:class="['story_overlay', { active: story_board.state === 'idling'}]">
+                                <div class="play">
+                                    <div v-on:click="play_all()" title="Play all" class="button all">
+                                        <i class="fas fa-play fa-6x"></i>
+                                        <div class="label">Play Example</div>
+                                    </div>
+                                    <div v-on:click="step_through()" title="Step through at my own pace" class="button step">
+                                        <i class="fas fa-step-forward fa-6x"></i>
+                                        <div class="label">Step Through</div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- slack emulator; each instance represents a slack user and their workspace -->
-                            <div :id="panel_id"
-                                 v-if="panel.type === 'slack'"
-                                 v-bind:class="['slacker', 'panel', { active: activePanelId === panel_id }]">
-                                <div class="slack">
-                                    <div class="sidebar">
-                                        <div class="workspace_selector">
-                                            {{panel.workspace.title}} <span class="carat"><i
-                                                class="fas fa-angle-down"></i></span>
-                                        </div>
-                                        <div class="active_user">
-                                            {{users[panel.activeUserId].title}}
-                                        </div>
-                                        <div class="label">Channels</div>
-                                        <div v-for="(channel, channel_id) in panel.channels"
-                                             v-if="!channel.is_dm"
-                                             v-on:click="set_active_channel(panel_id, channel.id)"
-                                             v-bind:class="['channel', { active: panel.activeChannelId === channel.id }, { private: channel.private }, { activating: channel.activating }]"
-                                             v-bind:key="channel.id">
-                                            {{channel.title}}
-                                        </div>
-                                        <div class="label">Apps</div>
-                                        <div v-for="(channel, channel_id) in panel.channels"
-                                             v-if="channel.is_dm"
-                                             v-on:click="set_active_channel(panel_id, channel.id)"
-                                             v-bind:class="['channel', 'app', { active: panel.activeChannelId === channel.id }, { activating: channel.activating }]"
-                                             v-bind:key="channel.id">
-                                            {{channel.title}}
-                                        </div>
+                            <!-- overlay to show when in 'played' state (this is the call-to-action) -->
+                            <div v-bind:class="['story_overlay', { active: story_board.state === 'played' }]">
+                                <div class="play">
+                                    <div v-on:click="play_all(true)" title="Play all" class="button all">
+                                        <i class="fas fa-play fa-6x"></i>
+                                        <div class="label">Play Example</div>
                                     </div>
-                                    <div class="main" v-if="panel.channels[panel.activeChannelId]">
-                                        <div class="chrome">
-                                            <span class="signal"><i class="fas fa-signal"></i></span>
-                                            <span class="wifi"><i class="fas fa-wifi"></i></span>
-                                            <span class="time">3:27 PM</span>
-                                            <span class="battery"><small>75%</small>&nbsp;&nbsp;<i
-                                                    class="fas fa-battery-three-quarters"></i></span>
-                                        </div>
-                                        <div class="info">
-                                            <span class="icon"></span>
-                                            <label v-bind:class="[panel.channels[panel.activeChannelId].id, { app: panel.channels[panel.activeChannelId].is_dm }, { private: panel.channels[panel.activeChannelId].private && !panel.channels[panel.activeChannelId].is_dm }, { public: !panel.channels[panel.activeChannelId].private }]">{{panel.channels[panel.activeChannelId].title}}</label>
-                                            <div class="channel_profile">
-                                                <span class="star"><i class="far fa-star"></i></span>
-                                                <span class="members"><i class="fas fa-user"></i> {{panel.channels[panel.activeChannelId].members}}</span>
-                                                <span class="pins"><i class="fas fa-thumbtack"></i> {{panel.channels[panel.activeChannelId].pins}}</span>
-                                                <span class="more"><i class="fas fa-ellipsis-v"></i></span>
+                                    <div v-on:click="step_through(true)" title="Step through at my own pace" class="button step">
+                                        <i class="fas fa-step-forward fa-6x"></i>
+                                        <div class="label">Step Through</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div v-for="(panel, panel_id) in panels">
+
+                                <!-- intwixt emulator; common container that renders the graph on the canvas -->
+                                <div :id="panel_id"
+                                     class="intwixter panel"
+                                     v-bind:class="[{ active: activePanelId === panel_id }]"
+                                     v-if="panel.type === 'intwixt'">
+                                    <div class="head">
+                                        <label>Intwixt Designer</label>
+                                        <img src="https://my.intwixt.com/static1/css/img/logos/light_300.png">
+                                    </div>
+                                    <div class="body">
+                                        <canvas id="viewport_runner" width="666" height="500"></canvas>
+                                        <div class="plus"><span>+</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- slack emulator; each instance represents a slack user and their workspace -->
+                                <div :id="panel_id"
+                                     v-if="panel.type === 'slack'"
+                                     v-bind:class="['slacker', 'panel', { active: activePanelId === panel_id }]">
+                                    <div class="slack">
+                                        <div class="sidebar">
+                                            <div class="workspace_selector">
+                                                {{panel.workspace.title}} <span class="carat"><i
+                                                    class="fas fa-angle-down"></i></span>
+                                            </div>
+                                            <div class="active_user">
+                                                {{users[panel.activeUserId].title}}
+                                            </div>
+                                            <div class="label">Channels</div>
+                                            <div v-for="(channel, channel_id) in panel.channels"
+                                                 v-if="!channel.is_dm"
+                                                 v-on:click="set_active_channel(panel_id, channel.id)"
+                                                 v-bind:class="['channel', { active: panel.activeChannelId === channel.id }, { private: channel.private }, { activating: channel.activating }]"
+                                                 v-bind:key="channel.id">
+                                                {{channel.title}}
+                                            </div>
+                                            <div class="label">Apps</div>
+                                            <div v-for="(channel, channel_id) in panel.channels"
+                                                 v-if="channel.is_dm"
+                                                 v-on:click="set_active_channel(panel_id, channel.id)"
+                                                 v-bind:class="['channel', 'app', { active: panel.activeChannelId === channel.id }, { activating: channel.activating }]"
+                                                 v-bind:key="channel.id">
+                                                {{channel.title}}
                                             </div>
                                         </div>
-                                        <div class="messages">
-                                            <div v-for="(message, message_id) in panel.channels[panel.activeChannelId].messages"
-                                                 v-bind:class="['message', { activating: message.activating }]"
-                                                 v-bind:key="message.id">
-                                                <img class="avatar"
-                                                     :src="'/img/avatars/' + users[message.author].avatar">
-                                                <div class="data">
-                                                    <div class="metadata">
-                                                        <span class="author">{{users[message.author].title}}</span>
-                                                        <span
-                                                                class="timestamp">{{message.timestamp}}</span>
-                                                    </div>
-                                                    <div>
-                                                        <img class="icon" v-if="message.icon" :src="message.icon"
-                                                             align="right">
-                                                        <div class="text" v-html="message.text"></div>
-                                                        <div v-if="message.file" class="file">
-                                                            <i class="far fa-file-alt file_icon"></i>
-                                                            {{message.file}}
+                                        <div class="main" v-if="panel.channels[panel.activeChannelId]">
+                                            <div class="chrome">
+                                                <span class="signal"><i class="fas fa-signal"></i></span>
+                                                <span class="wifi"><i class="fas fa-wifi"></i></span>
+                                                <span class="time">3:27 PM</span>
+                                                <span class="battery"><small>75%</small>&nbsp;&nbsp;<i
+                                                        class="fas fa-battery-three-quarters"></i></span>
+                                            </div>
+                                            <div class="info">
+                                                <span class="icon"></span>
+                                                <label v-bind:class="[panel.channels[panel.activeChannelId].id, { app: panel.channels[panel.activeChannelId].is_dm }, { private: panel.channels[panel.activeChannelId].private && !panel.channels[panel.activeChannelId].is_dm }, { public: !panel.channels[panel.activeChannelId].private }]">{{panel.channels[panel.activeChannelId].title}}</label>
+                                                <div class="channel_profile">
+                                                    <span class="star"><i class="far fa-star"></i></span>
+                                                    <span class="members"><i class="fas fa-user"></i> {{panel.channels[panel.activeChannelId].members}}</span>
+                                                    <span class="pins"><i class="fas fa-thumbtack"></i> {{panel.channels[panel.activeChannelId].pins}}</span>
+                                                    <span class="more"><i class="fas fa-ellipsis-v"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="messages">
+                                                <div v-for="(message, message_id) in panel.channels[panel.activeChannelId].messages"
+                                                     v-bind:class="['message', { activating: message.activating }]"
+                                                     v-bind:key="message.id">
+                                                    <img class="avatar"
+                                                         :src="'/img/avatars/' + users[message.author].avatar">
+                                                    <div class="data">
+                                                        <div class="metadata">
+                                                            <span class="author">{{users[message.author].title}}</span>
+                                                            <span
+                                                                    class="timestamp">{{message.timestamp}}</span>
                                                         </div>
-                                                        <p v-if="message.actions" class="actions">
-                                                            <button v-for="(action, action_id) in message.actions"
-                                                                    v-bind:key="action.id"
-                                                                    v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
-                                                                    v-bind:class="[action.style, { activating: action.activating }]">
-                                                                {{action.title}}
-                                                            </button>
-                                                        </p>
+                                                        <div>
+                                                            <img class="icon" v-if="message.icon" :src="message.icon"
+                                                                 align="right">
+                                                            <div class="text" v-html="message.text"></div>
+                                                            <div v-if="message.file" class="file">
+                                                                <i class="far fa-file-alt file_icon"></i>
+                                                                {{message.file}}
+                                                            </div>
+                                                            <p v-if="message.actions" class="actions">
+                                                                <button v-for="(action, action_id) in message.actions"
+                                                                        v-bind:key="action.id"
+                                                                        v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
+                                                                        v-bind:class="[action.style, { activating: action.activating }]">
+                                                                    {{action.title}}
+                                                                </button>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="input">
-                                            <i class="fas fa-paperclip"
-                                               v-bind:class="[{ activating: panel.file.activating }]"
-                                               v-on:click="show_file_prompt(panel_id)"></i>
-                                            <input type="text"
-                                                   v-model="panel.input"
-                                                   :placeholder="'Message ' + panel.channels[panel.activeChannelId].title"
-                                                   v-on:keyup.enter="send_message(panel_id)">
+                                            <div class="input">
+                                                <i class="fas fa-paperclip"
+                                                   v-bind:class="[{ activating: panel.file.activating }]"
+                                                   v-on:click="show_file_prompt(panel_id)"></i>
+                                                <input type="text"
+                                                       v-model="panel.input"
+                                                       :placeholder="'Message ' + panel.channels[panel.activeChannelId].title"
+                                                       v-on:keyup.enter="send_message(panel_id)">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div v-bind:class="['slack_overlay', { active: panel.file.active }]">
-                                    <div class="mask"></div>
-                                    <div class="file_upload">
-                                        <h3 class="file_title">Upload a file</h3>
-                                        <i class="fas fa-times file_close"
-                                           v-on:click="cancel_file_upload(panel_id)"></i>
-                                        <textarea class="file_message"
-                                                  v-model="panel.file.message"
-                                                  placeholder="Add a message about the file"></textarea>
-                                        <div class="file_wrapper">
+                                    <div v-bind:class="['slack_overlay', { active: panel.file.active }]">
+                                        <div class="mask"></div>
+                                        <div class="file_upload">
+                                            <h3 class="file_title">Upload a file</h3>
+                                            <i class="fas fa-times file_close"
+                                               v-on:click="cancel_file_upload(panel_id)"></i>
+                                            <textarea class="file_message"
+                                                      v-model="panel.file.message"
+                                                      placeholder="Add a message about the file"></textarea>
+                                            <div class="file_wrapper">
                                         <span class="file">
                                             <i class="far fa-file-alt file_icon"></i>
                                             <label class="file_name">{{panel.file.filename}}</label>
                                         </span>
+                                            </div>
+                                            <button class="file_button btn"
+                                                    v-bind:class="[{ activating: panel.file.submitting }]"
+                                                    v-on:click="before_file_upload(panel_id, panel.file.filename, panel.file.message)">
+                                                Upload
+                                            </button>
                                         </div>
-                                        <button class="file_button btn"
-                                                v-bind:class="[{ activating: panel.file.submitting }]"
-                                                v-on:click="before_file_upload(panel_id, panel.file.filename, panel.file.message)">
-                                            Upload
-                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="annotation"
                              v-bind:class="[{ active: annotation.user }]">

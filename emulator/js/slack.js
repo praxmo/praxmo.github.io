@@ -337,7 +337,7 @@ var slack_data = {
           role: "Intwixt",
           text: "Intwixt turns Slack into a <b>business process engine</b>, enabling sophisticated document workflows entirely within Slack."
         },
-        pause: 7000
+        pause: 6000
       },
       {
         action: {
@@ -349,7 +349,8 @@ var slack_data = {
           role: "",
           text: ""
         },
-        pause: 1000
+        pause: 1000,
+        step_next:true
       },
       {
         action: {
@@ -388,7 +389,8 @@ var slack_data = {
           role: "",
           text: ""
         },
-        pause: 5000
+        pause: 5000,
+        step_next:true //when true and stepping through, moves forward one more slot (some behaviors are too needy and should be force-clicked)
       },
       {
         action: {
@@ -461,7 +463,7 @@ var slack_data = {
           role: "Submitter",
           text: "The submitter retains a detailed audit history of the review process, making it easy to search and locate past transactions directly within Slack."
         },
-        pause: 7500
+        pause: 5000
       },
       {
         action: {
@@ -474,14 +476,16 @@ var slack_data = {
           role: "",
           text: ""
         },
-        pause: 1000
+        pause: 1000,
+        step_next:true
       },
       {
         action: {
           type: "channel.activate",
           id: ""
         },
-        pause: 1000
+        pause: 1000,
+        step_next:true
       }
     ]
   }
@@ -509,10 +513,37 @@ function emulate(id, selector, slack_data) {
       });
     },
     methods: {
-      //start the narration
-      play: function(b_reset) {
+      //step through
+      step_through: function(b_reset) {
         if(b_reset) {
           this.story_board.index = 0;
+        }
+        this.$set(this.story_board, "step", true);
+        this.play(false, true);
+      },
+
+      //play all
+      play_all: function(b_reset) {
+        if(b_reset) {
+          this.story_board.index = 0;
+        }
+        this.$set(this.story_board, "step", false);
+        this.play();
+      },
+
+      //play the next step in the story_board
+      play: function(b_reset, b_force) {
+        if(b_reset) {
+          this.story_board.index = 0;
+        }
+        //when using the step-through stepper either show the play button and exit or execute the action
+        if(this.story_board.step) {
+          if(b_force){
+            this.$set(this.story_board, "step_next", false);
+          } else {
+            this.$set(this.story_board, "step_next", true);
+            return;
+          }
         }
         this.story_board.state = "playing";
         var event = this.story_board.events[this.story_board.index];
@@ -524,8 +555,7 @@ function emulate(id, selector, slack_data) {
             this.annotation.text = event.annotation.text;
           }
           if (action.type === 'panel.activate') {
-            //todo: need a method to do this, so the animation/reveal slides the panel into view
-            this.activePanelId = action.id;
+            this.set_active_panel(action.id);
           } else if (action.type === 'channel.activate') {
             this.set_active_channel(this.activePanelId, action.id);
           } else if (action.type === 'message.send') {
@@ -545,13 +575,25 @@ function emulate(id, selector, slack_data) {
             target = this.panels[action.panel].channels[action.channel];
             this.$set(target, "messages", {});
           }
-          //pause until specified and then
           this.story_board.index = this.story_board.index + 1;
-          setTimeout(this.play, event.pause);
+          if(this.story_board.step && event.step_next) {
+            //force-click the next action...no need to force user to move forward for every little step
+            var my = this;
+            setTimeout(function() {
+              my.play(false, true);
+            }, event.pause);
+          } else {
+            //pause until specified and then loop back
+            setTimeout(this.play, event.pause);
+          }
         } else {
           console.log("Story told! All complete...user can now react to the CTA prompt");
           this.story_board.state = "played";
         }
+      },
+
+      set_active_panel: function(panel_id) {
+        this.activePanelId = panel_id;
       },
 
       set_active_channel: function(panel_id, channel_id) {

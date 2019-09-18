@@ -70,6 +70,49 @@
     font-weight:900;
 }
 
+
+
+.emulator .stepper {
+    color: #039BE5;
+    position: absolute;
+    z-index: 5;
+    right: -26px;
+    top: 40%;
+    opacity: 0;
+    transition: opacity 1s linear;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+.emulator .stepper.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.emulator .stepper i {
+    text-shadow: 0 2px 12px #9E9E9E;
+}
+
+
+.emulator .stepper i::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin: -35px 0 0 -35px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(198, 220, 241, 0.15)
+}
+
+.emulator .stepper.active i::after {
+    animation: ripple 4s forwards;
+    animation-iteration-count: infinite;
+}
+
 .runner {
     width:100%;
     height:400px;
@@ -167,6 +210,11 @@
     margin-top:20%;
     text-align:center;
     cursor:pointer;
+}
+
+.runner .story_overlay .play > .button {
+    display: inline-block;
+    margin:0 40px;
 }
 
 /** panels slide back-and-forth and should be absolutely positioned **/
