@@ -816,7 +816,7 @@ var slack_data = {
         annotation: {
           user: "box",
           role: "Box.com",
-          text: "is used for previewing the file and is also useful for auditing the review history once it's completed. Box.com also serves as the repository the final, approved version of the document."
+          text: "is used for previewing the file and is also useful for auditing the review history once it's completed. Box.com also serves as the repository for the final, approved version of the document."
         },
         pause: 5000
       },
