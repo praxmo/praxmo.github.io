@@ -10,6 +10,10 @@
     height: 400px;
 }
 
+.emulator b {
+    font-weight:900;
+}
+
 .emulator .annotation {
     margin-top: 18px;
     width: 100%;
@@ -220,12 +224,33 @@
 .runner .story_overlay.cta.active {
     opacity: 1;
     z-index: 2;
+    padding:16px;
 }
 
 .runner .story_overlay .play {
     margin-top: 20%;
     text-align: center;
     cursor: pointer;
+}
+
+.runner .story_overlay.cta .blurb {
+    margin-top: 2em;
+    text-align: center;
+    cursor: pointer;
+    font-size:1.25em;
+    margin-bottom:2em;
+}
+
+.runner .story_overlay.cta .options {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.runner .story_overlay.cta .option {
+    width:33%;
+    min-height:40px;
+    text-align:center;
 }
 
 .runner .story_overlay .play > .button {
