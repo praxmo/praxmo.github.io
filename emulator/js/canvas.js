@@ -63,11 +63,11 @@ function drawStaticConstellation(data, params, target, class_for_width, class_fo
         that.resize();
       },
 
-      stop: function (b) {
+      stop: function () {
         window.clearInterval(animation_interval);
       },
 
-      start: function (b) {
+      start: function () {
         if (params.animate !== false) {
           animation_interval = window.setInterval(function () {
             pct_pulse -= .01 * (10 * (fps / FPS_SLOW));
@@ -619,15 +619,6 @@ function traverse_graph(start, delay, next) {
 
 }
 traverse_graph("activity_1", 4000);
-
-var demo_renderer = drawStaticConstellation(
-  graph_data,
-  {animate: true, size: 80, fps: 20, line_width: 5, annotate:true},
-  "#viewport_runner",
-  ".body",
-  ".body"
-);
-
 
 
 

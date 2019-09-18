@@ -241,7 +241,7 @@ Through declarative application construction in our highly scalable environment 
 
                             <!-- overlay to show when in 'played' state (this is the call-to-action) -->
                             <div v-bind:class="['story_overlay', { active: story_board.state === 'played' }]">
-                                <div class="play">
+                                <!-- div class="play">
                                     <div v-on:click="play_all(true)" title="Play all" class="button all">
                                         <i class="fas fa-play fa-6x"></i>
                                         <div class="label">Play Example</div>
@@ -250,10 +250,19 @@ Through declarative application construction in our highly scalable environment 
                                         <i class="fas fa-step-forward fa-6x"></i>
                                         <div class="label">Step Through</div>
                                     </div>
-                                </div>
+                                </div -->
                             </div>
 
                             <div v-for="(panel, panel_id) in panels">
+
+                                <!-- intwixt emulator; common container that renders the graph on the canvas -->
+                                <div :id="panel_id"
+                                     class="imager panel"
+                                     v-bind:class="[{ active: activePanelId === panel_id }]"
+                                     v-if="panel.type === 'image'">
+                                    <img class="avatar"
+                                         :src="panel.src">
+                                </div>
 
                                 <!-- intwixt emulator; common container that renders the graph on the canvas -->
                                 <div :id="panel_id"
@@ -265,7 +274,7 @@ Through declarative application construction in our highly scalable environment 
                                         <img src="https://my.intwixt.com/static1/css/img/logos/light_300.png">
                                     </div>
                                     <div class="body">
-                                        <canvas id="viewport_runner" width="666" height="500"></canvas>
+                                        <canvas :id="'viewport_runner_' + panel_id" width="666" height="500"></canvas>
                                         <div class="plus"><span>+</span></div>
                                     </div>
                                 </div>

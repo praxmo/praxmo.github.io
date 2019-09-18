@@ -11,7 +11,7 @@ var slack_data = {
     text: ""
   },
 
-  users: {  //top-level list of users
+  users: {  //top-level list of users (and systems...overloaded to handle both)
     a1: {
       id: "a1",
       title: "Intwixt",
@@ -31,6 +31,11 @@ var slack_data = {
       id: "u3",
       title: "Sabin",
       avatar: "u3.png"
+    },
+    box: {
+      id: "box",
+      title: "Box.com",
+      avatar: "box.png"
     }
   },
 
@@ -38,8 +43,8 @@ var slack_data = {
   panels: {
     "p1": {
       id: "p1",
-      type: "slack",    //types include: slack, img, flow, call-to-action
-      file: {           //file upload
+      type: "slack",    //types include: slack, img, intwixt, call-to-action
+      file: {
         active: false,
         filename: "Acme RFP.pdf",
         message: "Here is the Acme proposal"
@@ -49,7 +54,7 @@ var slack_data = {
         title: "Acme Corp"
       },
       activeUserId: "u1",
-      activeChannelId: "", //start with no channels selected
+      activeChannelId: "",
       channels: {
         c1: {
           id: "c1",
@@ -59,26 +64,7 @@ var slack_data = {
           pins: 8,
           description: "First-level document review",
           unread: 2,
-          messages: {
-            "c1m1": {
-              id: "c1m1",
-              author: "a1",
-              timestamp: "9:21 AM",
-              text: "😊 Markup and text goes here and is styled using standard <i>&lt;HTML&gt; markup</i>.",
-              actions: {
-                submit: {
-                  id: "submit",
-                  title: "Submit",
-                  style: "primary"
-                },
-                cancel: {
-                  id: "cancel",
-                  title: "Cancel",
-                  style: "danger"
-                }
-              }
-            }
-          }
+          messages: {}
         },
         c2: {
           id: "c2",
@@ -87,34 +73,8 @@ var slack_data = {
           unread: 0,
           members: 290,
           pins: 12,
-          description: "Company-wide, non-critical announcements.",
-          messages: {
-            "c2m1": {
-              id: "c2m1",
-              author: "u1",
-              timestamp: "9:21 AM",
-              text: "😊 Some content <b>markup</b>."
-            },
-            "c2m2": {
-              id: "c2m2",
-              author: "u2",
-              timestamp: "9:21 AM",
-              text: "<b>Styling stuff here!!</b>.",
-              actions: {
-                ok: {
-                  id: "ok",
-                  title: "OK",
-                  style: "primary"
-                }
-              }
-            },
-            "c2m3": {
-              id: "c2m3",
-              author: "u3",
-              timestamp: "9:21 AM",
-              text: "This is a regular message with nothing special to add."
-            }
-          }
+          description: "Company-wide announcements.",
+          messages: {}
         },
         a1: {
           id: "a1",
@@ -122,13 +82,64 @@ var slack_data = {
           title: "Intwixt",
           avatar: "a1.png",
           private: true,
-          messages: { }  //starts empty, so the bot can send a welcome message
+          messages: {}
         }
       },
       input: ""
     },
+    "p4": {
+      id: "p4",
+      type: "slack",    //types include: slack, img, intwixt, call-to-action
+      file: {
+        active: false,
+        filename: "Acme RFP.pdf",
+        message: "Here is the Acme proposal"
+      },
+      workspace: {
+        id: "w1",
+        title: "Acme Corp"
+      },
+      activeUserId: "u2",
+      activeChannelId: "",
+      channels: {
+        c1: {
+          id: "c1",
+          title: "reviewers",
+          private: true,
+          members: 17,
+          pins: 8,
+          description: "First-level document review",
+          unread: 2,
+          messages: {}
+        },
+        c2: {
+          id: "c2",
+          title: "general",
+          private: false,
+          unread: 0,
+          members: 290,
+          pins: 12,
+          description: "Company-wide announcements.",
+          messages: {}
+        },
+        a1: {
+          id: "a1",
+          is_dm: true,
+          title: "Intwixt",
+          avatar: "a1.png",
+          private: true,
+          messages: {}
+        }
+      },
+      input: ""
+    },
+    "p5": {
+      id: "p5",
+      type: "image",
+      src: "img/screenshots/unboxed_1.png"
+    },
     p2: {
-      id:"p2",
+      id: "p2",
       type:"intwixt",
       graph: {
         "nodes": {
@@ -136,7 +147,6 @@ var slack_data = {
             "title": "On Slack File Upload",
             "star": "Slack.1",
             "definition": "trigger-file_event",
-            "verb": "post",
             "p": {
               "x": 0.286,
               "y": 0.251
@@ -148,7 +158,6 @@ var slack_data = {
             "title": "For Each File",
             "star": "Map.1",
             "definition": "map",
-            "verb": "post",
             "p": {
               "x": 0.193,
               "y": 0.379
@@ -159,7 +168,6 @@ var slack_data = {
             "title": "Read Slack File",
             "star": "Slack.1",
             "definition": "activity-get_file",
-            "verb": "post",
             "p": {
               "x": 0.708,
               "y": 0.756
@@ -170,7 +178,6 @@ var slack_data = {
             "title": "Save File to Box",
             "star": "Box.1",
             "definition": "fileUpload",
-            "verb": "post",
             "p": {
               "x": 0.826,
               "y": 0.63
@@ -181,7 +188,6 @@ var slack_data = {
             "title": "Ask to Start",
             "star": "Slack.1",
             "definition": "activity-respond_with_ask_choice_with_blockkit",
-            "verb": "post",
             "p": {
               "x": 0.174,
               "y": 0.683
@@ -194,7 +200,6 @@ var slack_data = {
             "title": "Get User Profile",
             "star": "Slack.1",
             "definition": "activity-get_user_info",
-            "verb": "post",
             "p": {
               "x": 0.519,
               "y": 0.838
@@ -206,7 +211,6 @@ var slack_data = {
             "title": "Send 'OK' Message",
             "star": "Slack.1",
             "definition": "activity-send_message_with_blockkit",
-            "verb": "post",
             "p": {
               "x": 0.295,
               "y": 0.817
@@ -218,7 +222,6 @@ var slack_data = {
             "title": "Send 'Cancel' Message",
             "star": "Slack.1",
             "definition": "activity-send_message_with_blockkit",
-            "verb": "post",
             "p": {
               "x": 0.365,
               "y": 0.65
@@ -231,7 +234,6 @@ var slack_data = {
             "title": "Start Approval Workflow",
             "star": ".intwixt-1-40050.1",
             "definition": "activity_1",
-            "verb": "post",
             "p": {
               "x": 0.906,
               "y": 0.498
@@ -246,7 +248,6 @@ var slack_data = {
             "title": "Check if Resubmission",
             "star": ".intwixt-1-40122.1",
             "definition": "activity_3",
-            "verb": "post",
             "p": {
               "x": 0.139,
               "y": 0.527
@@ -312,21 +313,147 @@ var slack_data = {
           }
         }
       }
+    },
+    p3: {
+      id:"p3",
+      type:"intwixt",
+      graph: {
+        "nodes": {
+          "activity_7": {
+            "title": "Review Document",
+            "star": "Receive.1",
+            "definition": "receive",
+            "p": {
+              "x": 0.191,
+              "y": 0.378
+            },
+            "trigger": true,
+            "image": {
+              "src": "/stars/Receive.1/image_96"
+            },
+            "icon_font": {
+              "class": "fa-file-o",
+              "code": "",
+              "family": "FontAwesome"
+            }
+          },
+          "activity_8": {
+            "title": "Ask Review",
+            "star": "Slack.1",
+            "definition": "activity-ask_choice_with_blockkit",
+            "p": {
+              "x": 0.544,
+              "y": 0.891
+            },
+            "async": true,
+            "long_running": true
+          },
+          "activity_10": {
+            "title": "Create Task",
+            "star": "Box.1",
+            "definition": "createTask",
+            "p": {
+              "x": 0.105,
+              "y": 0.674
+            },
+            "async": true
+          },
+          "activity_13": {
+            "title": "Create Task Assignment",
+            "star": "Box.1",
+            "definition": "createTaskAssignment",
+            "p": {
+              "x": 0.28,
+              "y": 0.916
+            },
+            "async": true
+          },
+          "activity_20": {
+            "title": "Complete Task Assignment",
+            "star": "Box.1",
+            "definition": "updateTaskAssignment",
+            "p": {
+              "x": 0.752,
+              "y": 0.399
+            },
+            "async": true
+          },
+          "activity_22": {
+            "title": "Send Confirmation Message",
+            "star": "Slack.1",
+            "definition": "activity-send_message_with_blockkit",
+            "p": {
+              "x": 0.924,
+              "y": 0.873
+            },
+            "async": true
+          },
+          "activity_1": {
+            "title": "Ask for Reason",
+            "star": "Slack.1",
+            "definition": "activity-respond_with_ask_data_with_dialog",
+            "p": {
+              "x": 0.743,
+              "y": 0.652
+            },
+            "async": true,
+            "long_running": true
+          },
+          "activity_3": {
+            "title": "Return Response",
+            "star": "Return.1",
+            "definition": "return",
+            "p": {
+              "x": 0.684,
+              "y": 0.177
+            }
+          }
+        },
+        "edges": {
+          "activity_13": {
+            "activity_8": {
+              "length": 2
+            }
+          },
+          "activity_7": {
+            "activity_10": {
+              "length": 2
+            }
+          },
+          "activity_10": {
+            "activity_13": {
+              "length": 2
+            }
+          },
+          "activity_1": {
+            "activity_20": {
+              "length": 2
+            },
+            "activity_22": {
+              "length": 2
+            }
+          },
+          "activity_8": {
+            "activity_1": {
+              "length": 2,
+              "condition": true
+            }
+          },
+          "activity_20": {
+            "activity_3": {
+              "length": 2
+            }
+          }
+        }
+      }
     }
   },
 
   //the storyboard tells a story to the user by moving through a scripted set of panel orchestrations
   story_board: {
     state: "idling", //other states: `playing`, `asking` (call to action)
-    index: 0, //index of event to execute (all will be played in order)
+    index: 0,        //index of event to execute (all will be played in order)
     events: [
-      /*{
-        action: {
-          type: "panel.activate",
-          id: "p2"
-        },
-        pause: 500000
-      },*/
       {
         action: {
           type: "panel.activate",
@@ -335,7 +462,7 @@ var slack_data = {
         annotation: {
           user: "a1",
           role: "Intwixt",
-          text: "Intwixt turns Slack into a <b>business process engine</b>, enabling centralized management of document approval workflows."
+          text: "turns Slack into a <b>business process engine</b>, enabling centralized management of document approval workflows."
         },
         pause: 6000
       },
@@ -373,8 +500,8 @@ var slack_data = {
         },
         annotation: {
           user: "u1",
-          role: "Submitter",
-          text: "When users submit a file to Slack, Intwixt responds to the event, triggering the document review workflow."
+          role: "Submitters",
+          text: "upload files directly to Slack. Intwixt responds in turn, triggering the document review."
         },
         pause: 3000
       },
@@ -390,7 +517,7 @@ var slack_data = {
           text: ""
         },
         pause: 5000,
-        step_next:true //when true and stepping through, moves forward one more slot (some behaviors are too needy and should be force-clicked)
+        step_next:true
       },
       {
         action: {
@@ -417,8 +544,8 @@ var slack_data = {
         },
         annotation: {
           user: "u1",
-          role: "Submitter",
-          text: "Once the submitter confirms their upload, Intwixt will orchestrate the process entirely within Slack by calling the <b>Box.com</b> Task Assignment APIs."
+          role: "Submitters",
+          text: "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by calling the <b>Box.com</b> Task Assignment APIs."
         },
         pause: 5000
       },
@@ -455,8 +582,8 @@ var slack_data = {
         },
         annotation: {
           user: "u1",
-          role: "Submitter",
-          text: "Submitters are encouraged to return for real-time status updates as the document moves through workflow."
+          role: "Submitters",
+          text: "can return for real-time status updates as the document moves through workflow. If the document is rejected, users can fix and upload a new document version."
         },
         pause: 2000,
         step_next:true
@@ -472,12 +599,7 @@ var slack_data = {
             text: "<b>✔ APPROVED</b> at <i>11:00am</i> by Sabin"
           }
         },
-        annotation: {
-          user: "u1",
-          role: "Submitter",
-          text: "Submitters are encouraged to return for real-time status updates as the document moves through workflow."
-        },
-        pause: 2000,
+        pause: 3000,
         step_next:true
       },
       {
@@ -506,19 +628,187 @@ var slack_data = {
         annotation: {
           user: "a1",
           role: "Intwixt Developers",
-          text: "Intwixt's no-code, visual designer makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
+          text: "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
         },
-        pause: 10000
+        pause: 9000
       },
       {
         action: {
           type: "panel.activate",
-          id: "p1"
+          id: "p3"
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
+        pause: 1500,
+        step_next:true
+      },
+      {
+        action: {
+          type: "panel.activate",
+          id: "p3"
+        },
+        annotation: {
+          user: "a1",
+          role: "Intwixt Developers",
+          text: "are encouraged to create modular, conversational workflows. This one drives the review process. Now let's return to Slack to see the end user experience orchestrated by this flow."
+        },
+        pause: 6500
+      },
+      {
+        action: {
+          type: "panel.activate",
+          id: "p4"
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
+        pause: 1500,
+        step_next:true
+      },
+      {
+        action: {
+          type: "panel.activate",
+          id: "p4"
+        },
+        annotation: {
+          user: "u2",
+          role: "Approvers",
+          text: "can be named individuals or a Slack channel can be used instead. When a channel is used, members of that channel will be prompted to first claim the document."
+        },
+        pause: 4500
+      },
+      {
+        action: {
+          type: "channel.activate",
+          id: "c1"
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
+        pause: 1000,
+        step_next:true
+      },
+      {
+        action: {
+          type: "message.send",
+          channel: "c1",
+          message: {
+            id: "c1m1",
+            author: "a1",
+            timestamp: "10:40 AM",
+            text: "📝 A document needs review. Press <b>Claim Document</b> to begin.",
+            actions: {
+              claim: {
+                id: "claim",
+                title: "Claim Document",
+                style: "primary"
+              }
+            }
+          }
+        },
+        pause: 4500
+      },
+      {
+        action: {
+          type: "action.click",
+          channel: "c1",
+          action: "claim",
+          message: {
+            id: "c1m1",
+            author: "a1",
+            timestamp: "10:41 AM",
+            text: "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by @Sabin at 10:41 AM."
+          }
+        },
+        annotation: {
+          user: "u2",
+          role: "Approvers",
+          text: "are notified when a document is claimed, giving other channel members a real-time view of everyone's efforts."
+        },
+        pause: 3500
+      },
+      {
+        action: {
+          type: "channel.activate",
+          id: "a1"
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
+        pause: 1000,
+        step_next:true
+      },
+      {
+        action: {
+          type: "message.send",
+          channel: "a1",
+          message: {
+            id: "a1m1",
+            author: "a1",
+            timestamp: "10:42 AM",
+            text: "Please review this Box.com document and then return here to <b>Approve</b> or <b>Reject</b> it. You have 24 hours to complete your review.",
+            actions: {
+              approve: {
+                id: "approve",
+                title: "Approve",
+                style: "primary"
+              },
+              deny: {
+                id: "deny",
+                title: "Deny",
+                style: "danger"
+              },
+              view: {
+                id: "view",
+                title: "View Document"
+              }
+            }
+          }
         },
         annotation: {
           user: "u1",
-          role: "Submitter",
-          text: "The submitter retains a detailed audit history of the review process, making it easy to search and locate past transactions directly within Slack."
+          role: "Approvers",
+          text: "can preview the document at Box.com and then complete the task by clicking <b>Approve</b> or <b>Deny</b>."
+        },
+        pause: 5000
+      },
+      {
+        action: {
+          type: "action.click",
+          channel: "a1",
+          action: "approve",
+          message: {
+            id: "a1m1",
+            author: "a1",
+            timestamp: "10:45 AM",
+            text: "✔ You <b>APPROVED</b> document <i>Acme RFP.pdf</i> at 10:45PM<br><b>REASON</b>: Great writeup! Nice proposal!"
+          }
+        },
+        annotation: {
+          user: "",
+          role: "",
+          text: ""
+        },
+        pause: 3500
+      },
+      {
+        action: {
+          type: "panel.activate",
+          id: "p5"
+        },
+        annotation: {
+          user: "box",
+          role: "Box.com",
+          text: "is used for previewing the file and is also useful for auditing the review history once it's completed. Box.com also serves as the repository the final, approved version of the document."
         },
         pause: 5000
       },
@@ -645,7 +935,7 @@ function emulate(id, selector, slack_data) {
           } else {
             //pause until specified and then loop back
             // (always pause for 3k ms if in stepper mode...some readers are fast and the delay can be frustrating)
-            setTimeout(this.play, this.story_board.step ? Math.min(event.pause, 2500) :event.pause);
+            setTimeout(this.play, this.story_board.step ? Math.min(event.pause, 1750) :event.pause);
           }
         } else {
           console.log("Story told! All complete...user can now react to the CTA prompt");
@@ -655,6 +945,20 @@ function emulate(id, selector, slack_data) {
 
       set_active_panel: function(panel_id) {
         this.activePanelId = panel_id;
+        var target = this.panels[panel_id];
+        if(target.type === "intwixt") {
+          //this is the 'intwixt' panel type; reset the canvas and bind the graph; no need to cycle if not shown!
+          if(window.demo_renderer) {
+            window.demo_renderer.stop();
+          }
+          window.demo_renderer = drawStaticConstellation(
+            target.graph,
+            {animate: true, size: 80, fps: 20, line_width: 5, annotate:true},
+            '#viewport_runner_' + panel_id,
+            ".body",
+            ".body"
+          );
+        }
       },
 
       set_active_channel: function(panel_id, channel_id) {
@@ -819,8 +1123,8 @@ function emulate(id, selector, slack_data) {
 
       //always reveal the latest message appended to the window
       scroll_to_end: function() {
-        //todo: pass the panel id needed by the query selector to target the correct subitem
-        var container = this.$el.querySelector(".messages");
+        var selector = "#" + this.activePanelId + " .messages";
+        var container = this.$el.querySelector(selector);
         if(container) {
           Vue.nextTick(function() {
             container.scrollTop = container.scrollHeight + 1000;
@@ -842,13 +1146,11 @@ function emulate(id, selector, slack_data) {
           //after filling out the message, advance the player
           setTimeout(function() {
             my.play();
-          }, pause);
+          }, this.story_board.step ? 0 : pause);
         }
       }
-
-
     }
-  });
+  }); // end Vue initialization
 }
 
 //instance the 'unboxed' emulator demo
