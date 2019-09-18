@@ -247,6 +247,8 @@
     left: 16px;
     font-size: .8em;
     text-align: center;
+    width: 100%;
+    padding: 0 32px 0 0;
 }
 
 .runner .story_overlay.cta .options {
@@ -934,6 +936,14 @@ canvas {
         box-shadow: none;
         border-radius: 8px;
         border-width: 0;
+    }
+
+    .runner .story_overlay.cta .option .links {
+        margin-top:30px;
+    }
+
+    .runner .story_overlay.cta .option .links i {
+       display:none;
     }
 
     .emulator .stepper.active {

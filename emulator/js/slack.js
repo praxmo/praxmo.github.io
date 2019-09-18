@@ -783,7 +783,7 @@ var slack_data = {
           }
         },
         annotation: {
-          user: "u1",
+          user: "u2",
           role: "Approvers",
           text: "can preview the document at Box.com and then complete the task by clicking <b>Approve</b> or <b>Deny</b>."
         },
@@ -831,7 +831,7 @@ var slack_data = {
           role: "",
           text: ""
         },
-        pause: 1000,
+        pause: 100,
         step_next:true
       },
       {
@@ -839,7 +839,7 @@ var slack_data = {
           type: "channel.activate",
           id: ""
         },
-        pause: 1000,
+        pause: 100,
         step_next:true
       }
     ]
