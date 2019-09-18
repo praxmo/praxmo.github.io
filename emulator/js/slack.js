@@ -469,7 +469,7 @@ var slack_data = {
             id: "a1m2",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "<b>✔ Approved</b> at <i>11:00am</i> by Sabin"
+            text: "<b>✔ APPROVED</b> at <i>11:00am</i> by Sabin"
           }
         },
         annotation: {
@@ -488,7 +488,7 @@ var slack_data = {
             id: "a1m2",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "<b>✔ Approved</b> at <i>12:33pm</i> by Thomas<br><b>✔ Completed</b> at <i>12:33pm</i>"
+            text: "<b>✔ APPROVED</b> at <i>12:33pm</i> by Thomas<br><b>✔ COMPLETED</b> at <i>12:33pm</i>"
           }
         },
         annotation: {
