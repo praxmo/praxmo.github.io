@@ -613,12 +613,20 @@ var slack_data = {
             text: "<b>✔ APPROVED</b> at <i>12:33pm</i> by Thomas<br><b>✔ COMPLETED</b> at <i>12:33pm</i>"
           }
         },
+        pause: 2000
+      },
+      {
+        action: {
+          type: "panel.activate",
+          id: "p2"
+        },
         annotation: {
           user: "",
           role: "",
           text: ""
         },
-        pause: 2000
+        pause: 1500,
+        step_next:true
       },
       {
         action: {
@@ -630,7 +638,7 @@ var slack_data = {
           role: "Intwixt Developers",
           text: "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
         },
-        pause: 9000
+        pause: 7500
       },
       {
         action: {
