@@ -335,7 +335,7 @@ var slack_data = {
         annotation: {
           user: "a1",
           role: "Intwixt",
-          text: "Intwixt turns Slack into a <b>business process engine</b>, enabling sophisticated document workflows entirely within Slack."
+          text: "Intwixt turns Slack into a <b>business process engine</b>, enabling centralized management of document approval workflows."
         },
         pause: 6000
       },
@@ -458,7 +458,7 @@ var slack_data = {
           role: "Submitter",
           text: "Submitters are encouraged to return for real-time status updates as the document moves through workflow."
         },
-        pause: 1500,
+        pause: 2000,
         step_next:true
       },
       {
@@ -477,7 +477,7 @@ var slack_data = {
           role: "Submitter",
           text: "Submitters are encouraged to return for real-time status updates as the document moves through workflow."
         },
-        pause: 2500,
+        pause: 2000,
         step_next:true
       },
       {
@@ -496,7 +496,7 @@ var slack_data = {
           role: "",
           text: ""
         },
-        pause: 2500
+        pause: 2000
       },
       {
         action: {
@@ -506,7 +506,7 @@ var slack_data = {
         annotation: {
           user: "a1",
           role: "Intwixt Developers",
-          text: "Intwixt's no-code, visual designer makes it effortless for even business users to modify and extend a workflow. For example, this is the workflow that triggered when files are uploaded to slack."
+          text: "Intwixt's no-code, visual designer makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
         },
         pause: 10000
       },
