@@ -99,7 +99,7 @@ var slack_data = {
         id: "w1",
         title: "Acme Corp"
       },
-      activeUserId: "u2",
+      activeUserId: "u3",
       activeChannelId: "",
       channels: {
         c1: {
@@ -676,7 +676,7 @@ var slack_data = {
           id: "p4"
         },
         annotation: {
-          user: "u2",
+          user: "u3",
           role: "Approvers",
           text: "can be named individuals or a Slack channel can be used instead. When a channel is used, members of that channel will be prompted to first claim the document."
         },
@@ -728,7 +728,7 @@ var slack_data = {
           }
         },
         annotation: {
-          user: "u2",
+          user: "u3",
           role: "Approvers",
           text: "are notified when a document is claimed, giving other channel members a real-time view of everyone's efforts."
         },
