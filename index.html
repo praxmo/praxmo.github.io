@@ -240,17 +240,10 @@ Through declarative application construction in our highly scalable environment 
                             </div>
 
                             <!-- overlay to show when in 'played' state (this is the call-to-action) -->
-                            <div v-bind:class="['story_overlay', { active: story_board.state === 'played' }]">
-                                <!-- div class="play">
-                                    <div v-on:click="play_all(true)" title="Play all" class="button all">
-                                        <i class="fas fa-play fa-6x"></i>
-                                        <div class="label">Play Example</div>
-                                    </div>
-                                    <div v-on:click="step_through(true)" title="Step through at my own pace" class="button step">
-                                        <i class="fas fa-step-forward fa-6x"></i>
-                                        <div class="label">Step Through</div>
-                                    </div>
-                                </div -->
+                            <div v-bind:class="['story_overlay cta', { active: story_board.state === 'played' }]">
+                                <div class="play">
+                                    Call To Action
+                                </div>
                             </div>
 
                             <div v-for="(panel, panel_id) in panels">

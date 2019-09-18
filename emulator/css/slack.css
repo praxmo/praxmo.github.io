@@ -207,8 +207,18 @@
     transition: opacity 1s linear;
 }
 
+.runner .story_overlay.cta {
+    background-color: #ffffff;
+    color:#333333;
+}
+
 .runner .story_overlay.active {
     opacity: .5;
+    z-index: 2;
+}
+
+.runner .story_overlay.cta.active {
+    opacity: 1;
     z-index: 2;
 }
 
