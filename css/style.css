@@ -803,20 +803,23 @@ a:hover {
 
 
 /* ==========================================================================================================
-										REVIEWS
+										LOGOS
    ========================================================================================================== */
-.fh5co-reviews-outer {
+.logos-outer {
     width: 100%;
-    /*height: 400px;*/
     padding: 70px 70px 0 70px;
     margin-top: 60px;
 }
 
-.fh5co-reviews-outer .fh5co-reviews-inner {
+.logos-outer .logos-inner {
     margin-top: 100px;
 }
 
-.fh5co-reviews-outer > h1 {
+.logos-outer .container {
+    text-align: center;
+}
+
+.logos-outer > h1 {
     color: #03A9F4;
     text-transform: uppercase;
     font-size: 30px;
@@ -825,18 +828,18 @@ a:hover {
     text-align: center;
 }
 
-.fh5co-reviews-outer > small {
+.logos-outer > small {
     text-align: center;
     display: block;
 }
 
-.fh5co-reviews-outer .testimonial-desc {
+.logos-outer .testimonial-desc {
     clear: both;
     padding-top: 30px;
     font-weight: 500;
 }
 
-.fh5co-reviews-outer .testimonial-2 {
+.logos-outer .testimonial-2 {
     margin-left: 50px;
 }
 
@@ -1478,7 +1481,7 @@ a:hover {
         order: 2;
     }
 
-    .fh5co-reviews-outer {
+    .logos-outer {
         padding: 0;
     }
 
@@ -1580,7 +1583,7 @@ a:hover {
         bottom: 190px;
     }
 
-    .fh5co-reviews-inner .col-sm-5 {
+    .logos-inner .col-sm-5 {
         -ms-flex: 0 0 75%;
         flex: 0 0 75%;
         width: 75%;
@@ -1593,11 +1596,11 @@ a:hover {
         height: 300px;
     }
 
-    .fh5co-reviews-outer {
+    .logos-outer {
         height: auto;
     }
 
-    .fh5co-reviews-outer .fh5co-reviews-inner {
+    .logos-outer .logos-inner {
         margin-top: 50px;
     }
 
@@ -1743,7 +1746,7 @@ a:hover {
         margin-bottom: 30px;
     }
 
-    .fh5co-reviews-inner .col-sm-5 {
+    .logos-inner .col-sm-5 {
         -ms-flex: 0 0 90%;
         flex: 0 0 90%;
         width: 90%;
