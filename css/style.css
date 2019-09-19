@@ -1194,42 +1194,6 @@ a:hover {
     color: #999999;
 }
 
-/* animation timing  =  animation:quote [total duration in secs] [increment by duration of each animation] infinite; */
-.quotes.cycle li:nth-child(1) {
-    animation: quote 49s 0s infinite
-}
-
-.quotes.cycle li:nth-child(2) {
-    animation: quote 49s 7s infinite
-}
-
-.quotes.cycle li:nth-child(3) {
-    animation: quote 49s 14s infinite
-}
-
-.quotes.cycle li:nth-child(4) {
-    animation: quote 49s 21s infinite
-}
-
-.quotes.cycle li:nth-child(5) {
-    animation: quote 49s 28s infinite
-}
-
-.quotes.cycle li:nth-child(6) {
-    animation: quote 49s 35s infinite
-}
-
-.quotes.cycle li:nth-child(7) {
-    animation: quote 49s 42s infinite
-}
-
-
-@keyframes quote { /* whole numbers only - round steps to nearest % */
-    0%   { opacity:0 }
-    4%   { opacity:1 } /* (step 2 % = 100% / total quotes x .25) */
-    11%  { opacity:1 } /* (step 3 % = 100% / total quotes x .75) */
-    14%  { opacity:0 } /* (step 4 % = 100% / total quotes) */
-}
 
 /* ==========================================================================================================
                                        RESPONSIVE STYLING
