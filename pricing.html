@@ -81,11 +81,10 @@
 
         <div class="container fh5co-hero-inner">
             <h1 class="animated fadeIn wow" data-wow-delay="0.4s">Intwixt Pricing</h1>
-            <p>&nbsp;</p>
 
             <!---- PRICING GROUP OF 3 -->
 
-            <div class="container">
+            <div class="container pricing">
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow wow animated fadeInRight" data-wow-delay="0.22s">
                         <div class="card-header">
@@ -101,7 +100,9 @@
                                 <li>1 developer account</li>
                                 <li>Public support forums</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Get Started</button>
+                            <div class="button-wrap">
+                                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Get Started</button>
+                            </div>
                         </div>
                     </div>
                     <div class="card mb-4 box-shadow wow animated fadeInRight" data-wow-delay="0.42s">
@@ -118,7 +119,9 @@
                                 <li>Limited developer accounts</li>
                                 <li>Public support forums</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-primary">Get Started</button>
+                            <div class="button-wrap">
+                                <button type="button" class="btn btn-lg btn-block btn-primary">Get Started</button>
+                            </div>
                         </div>
                     </div>
                     <div class="card mb-4 box-shadow wow animated fadeInRight" data-wow-delay="0.62s">
@@ -133,55 +136,14 @@
                                     Slack (and other messaging services)
                                 </li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Contact us</button>
+                            <div class="button-wrap">
+                                <button type="button"
+                                        onclick="$('#fh5co-call-to-action').goTo();return false;"
+                                        class="btn btn-lg btn-block btn-outline-primary">Contact us</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==========================================================================================================
-                                                     ADVANTAGES
-         ========================================================================================================== -->
-
-    <div class="fh5co-advantages-outer">
-        <div class="container">
-            <h1 class="second-title"><!-- span class="span-perfect">Perfect</span --><span
-                    class="span-features">Features</span></h1>
-            <small>Sophisticated Business Processes</small>
-
-            <div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
-
-                <div class="col-sm-3">
-                    <img class="grid-image icon-filter" src="img/multi_user.png" alt="Multi-user">
-                    <h2 class="grid-title">Multi-user</h2>
-                    <p class="grid-desc">Run sophisticated, multi-user approval flows. Handle rejections,
-                        retries, timeouts and more.</p>
-                </div>
-
-                <div class="col-sm-3">
-                    <img class="grid-image icon-filter" src="img/long_running.png" alt="Long-running">
-                    <h2 class="grid-title">Long-running</h2>
-                    <p class="grid-desc">Design long-running business processes lasting days or weeks using our
-                        stateful process engine.</p>
-                </div>
-
-                <div class="col-sm-3">
-                    <img class="grid-image icon-filter" src="img/ai_enabled.png" alt="AI-enabled">
-                    <h2 class="grid-title">AI-enabled</h2>
-                    <p class="grid-desc">Our embedded AI engine learns over time, alerting you to process errors
-                        before they occur.</p>
-                </div>
-
-
-                <div class="col-sm-3">
-                    <img class="grid-image icon-filter" src="img/slack_centric.png" alt="Slack-centric">
-                    <h2 class="grid-title">Slack-deployed</h2>
-                    <p class="grid-desc">No-install, no-fuss solutions run entirely within Slack. Deploy
-                        globally without retraining.</p>
-                </div>
-
             </div>
         </div>
     </div>
