@@ -1031,7 +1031,6 @@ a:hover {
     animation: blink-caret .75s step-end infinite;
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
     from, to {
         border-color: transparent
@@ -1162,65 +1161,37 @@ a:hover {
 
 .quotes {
     position: relative;
-    max-width: 500px;
+    max-width: 600px;
     list-style-type: none;
-    text-align: center;
-    margin: 80px 0;
+    text-align: left;
+    margin: 40px 0;
     padding: 0
 }
 
-.quoted {
-    position: relative;
-    max-width: 800px;
-    list-style-type: none;
-    text-align: center;
-    margin: 0 auto 0;
-    padding: 0
-}
-
-.quotes li, .quoted li  {
+.quotes li  {
     position: absolute;
     left: 0;
-    right: 0;
     background: transparent;
-    text-align: center;
+    text-align: left;
     padding: 1em 0;
     border-radius: 0.25em;
-    opacity: 0;
-    font-size:1.65em;
-    color:#666;
-}
-
-.quoted li.show {
-    opacity:1;
-    position: relative;
-}
-
-.quoted li .text:first-letter {
-    float: left;
-    font-size: 2em;
-    margin: 5px;
-}
-
-.quoted li .text::before {
-    content: open-quote;
-}
-
-.quoted li .text::after {
-    content: close-quote;
+    font-size:1.25em;
+    color:#666666;
+    display:none;
 }
 
 .quotes li:last-child {
     position: relative
 }
 
-.quotes span, .quoted span  {
+.quotes span  {
     display: block;
     text-align: right;
     margin-right: 5%;
+    margin-top:1em;
     font-size: 75%;
     font-style: italic;
-    color: #999;
+    color: #999999;
 }
 
 /* animation timing  =  animation:quote [total duration in secs] [increment by duration of each animation] infinite; */
@@ -1294,7 +1265,16 @@ a:hover {
         width:100%;
     }
 
+    .quotes {
+        max-width: 500px;
+    }
+
+    .quotes li, .quoted li  {
+        font-size:1.15em;
+    }
+
 }
+
 
 @media screen and (max-width: 993px) {
 

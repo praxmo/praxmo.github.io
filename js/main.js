@@ -59,7 +59,7 @@
 
 }());
 
-
+//TYPE-AHEAD (simulates typing on a keyboard, one key at a time (includes a blinking cursor))
 var TxtType = function (el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
@@ -69,26 +69,20 @@ var TxtType = function (el, toRotate, period) {
   this.tick();
   this.isDeleting = false;
 };
-
 TxtType.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
-
   if (this.isDeleting) {
     this.txt = fullTxt.substring(0, this.txt.length - 1);
   } else {
     this.txt = fullTxt.substring(0, this.txt.length + 1);
   }
-
   this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
   var that = this;
   var delta = 200 - Math.random() * 100;
-
   if (this.isDeleting) {
     delta /= 3;
   }
-
   if (!this.isDeleting && this.txt === fullTxt) {
     delta = this.period;
     this.isDeleting = true;
@@ -97,13 +91,14 @@ TxtType.prototype.tick = function () {
     this.loopNum++;
     delta = 500;
   }
-
   setTimeout(function () {
     that.tick();
   }, delta);
 };
 
 window.onload = function () {
+
+  //HERO TYPE-AHEAD (for small form-factors/mobile)
   var elements = document.getElementsByClassName('typewrite');
   for (var i = 0; i < elements.length; i++) {
     var toRotate = elements[i].getAttribute('data-type');
@@ -112,10 +107,22 @@ window.onload = function () {
       new TxtType(elements[i], JSON.parse(toRotate), period);
     }
   }
-  // INJECT CSS
-  var css = document.createElement("style");
-  css.type = "text/css";
-  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #03A9F4}";
-  document.body.appendChild(css);
+
+  //HERO QUOTES (for large form-factors/desktop)
+  (function() {
+    var delay = 4500;
+    var quotes = $(".quotes li");
+    console.log(quotes);
+    console.log(quotes.length);
+    window.quoteIndex = -1;
+    function showNextQuote() {
+      ++quoteIndex;
+      quotes.eq(quoteIndex % quotes.length)
+        .fadeIn(1000)
+        .delay(delay)
+        .fadeOut(1000, showNextQuote);
+    }
+    showNextQuote();
+  })();
 };
     
