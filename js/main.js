@@ -25,7 +25,7 @@
         600: {
           items: 1,
           nav: true,
-          margin: 120,
+          margin: 120
         },
         1000: {
           items: 3,
@@ -43,6 +43,7 @@
 
   };
 
+  //scroll a section into view (by ID)
   $.fn.goTo = function (bm) {
     $('html, body').animate({
       scrollTop: $(this).offset().top + 'px'
@@ -112,8 +113,6 @@ window.onload = function () {
   (function() {
     var delay = 6000;
     var quotes = $(".quotes li");
-    console.log(quotes);
-    console.log(quotes.length);
     window.quoteIndex = -1;
     function showNextQuote() {
       ++quoteIndex;

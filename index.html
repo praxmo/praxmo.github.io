@@ -468,6 +468,22 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <div v-bind:class="['slack_overlay', { active: panel.dialog.active }]">
+                                        <div class="mask"></div>
+                                        <div class="dialog">
+                                            <h3 class="dialog_title">{{panel.dialog.title}}</h3>
+                                            <i class="fas fa-times dialog_close"></i>
+                                            <textarea class="textarea"
+                                                      v-model="panel.dialog.value"
+                                                      :placeholder="panel.dialog.fields[panel.dialog.target_field].placeholder"></textarea>
+                                            <button class="cancel btn">Cancel</button>
+                                            <button class="submit btn"
+                                                    v-bind:class="[{ activating: panel.dialog.submitting }]"
+                                                    v-on:click="before_dialog_submit(panel_id, panel.dialog.action, panel.dialog.value)">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

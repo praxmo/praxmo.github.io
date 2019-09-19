@@ -44,10 +44,23 @@ var slack_data = {
     "p1": {
       id: "p1",
       type: "slack",    //types include: slack, img, intwixt, call-to-action
+      dialog: {
+        active: false,
+        title: "",
+        target_field: "reason",
+        fields: {
+          reason: {
+            type: "",
+            title: "",
+            placeholder: "",
+            value: ""
+          }
+        }
+      },
       file: {
         active: false,
-        filename: "Acme RFP.pdf",
-        message: "Here is the Acme proposal"
+        filename: "",
+        message: ""
       },
       workspace: {
         id: "w1",
@@ -89,11 +102,24 @@ var slack_data = {
     },
     "p4": {
       id: "p4",
-      type: "slack",    //types include: slack, img, intwixt, call-to-action
+      type: "slack",
+      dialog: {
+        active: false,
+        title: "",
+        target_field: "reason",
+        fields: {
+          reason: {
+            type: "",
+            title: "",
+            placeholder: "",
+            value: ""
+          }
+        }
+      },
       file: {
         active: false,
-        filename: "Acme RFP.pdf",
-        message: "Here is the Acme proposal"
+        filename: "",
+        message: ""
       },
       workspace: {
         id: "w1",
@@ -583,9 +609,15 @@ var slack_data = {
         annotation: {
           user: "u1",
           role: "Submitters",
-          text: "can return for real-time status updates as the document moves through workflow. If the document is rejected, users can fix and upload a new document version."
+          text: "can return for real-time status updates as the document moves through workflow."
         },
-        pause: 2000,
+        pause: 3000
+      },
+      {
+        action: {
+          type: "annotation.hide"
+        },
+        pause: 1500,
         step_next:true
       },
       {
@@ -596,7 +628,25 @@ var slack_data = {
             id: "a1m2",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "<b>✔ APPROVED</b> at <i>11:00am</i> by Sabin"
+            text: "<b>🚫 REJECTED</b> at <i>10:50am</i> by Sabin<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
+          }
+        },
+        annotation: {
+          user: "u1",
+          role: "Submitters",
+          text: "are told how to address outstanding issues for rejected documents. They can then resubmit the document and resume the review process."
+        },
+        pause: 3000
+      },
+      {
+        action: {
+          type: "message.append",
+          channel: "a1",
+          message: {
+            id: "a1m2",
+            author: "a1",
+            timestamp: "11:30 AM",
+            text: "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Luke"
           }
         },
         pause: 3000,
@@ -610,20 +660,28 @@ var slack_data = {
             id: "a1m2",
             author: "a1",
             timestamp: "9:21 AM",
-            text: "<b>✔ APPROVED</b> at <i>12:33pm</i> by Radhika<br><b>✔ COMPLETED</b> at <i>12:33pm</i>"
+            text: "<b>✔ APPROVED</b> at <i>11:00pm</i> by Sabin"
+          }
+        },
+        pause: 3000,
+        step_next:true
+      },
+      {
+        action: {
+          type: "message.append",
+          channel: "a1",
+          message: {
+            id: "a1m2",
+            author: "a1",
+            timestamp: "9:21 AM",
+            text: "<b>✔ APPROVED</b> at <i>11:33pm</i> by Radhika<br><b>✔ COMPLETED</b> at <i>11:33pm</i>"
           }
         },
         pause: 2000
       },
       {
         action: {
-          type: "panel.activate",
-          id: "p2"
-        },
-        annotation: {
-          user: "",
-          role: "",
-          text: ""
+          type: "annotation.hide"
         },
         pause: 1500,
         step_next:true
@@ -642,13 +700,7 @@ var slack_data = {
       },
       {
         action: {
-          type: "panel.activate",
-          id: "p3"
-        },
-        annotation: {
-          user: "",
-          role: "",
-          text: ""
+          type: "annotation.hide"
         },
         pause: 1500,
         step_next:true
@@ -667,13 +719,7 @@ var slack_data = {
       },
       {
         action: {
-          type: "panel.activate",
-          id: "p4"
-        },
-        annotation: {
-          user: "",
-          role: "",
-          text: ""
+          type: "annotation.hide"
         },
         pause: 1500,
         step_next:true
@@ -791,14 +837,40 @@ var slack_data = {
       },
       {
         action: {
-          type: "action.click",
+          type: "dialog.trigger",
           channel: "a1",
-          action: "approve",
+          message: "a1m1",   //id of triggering message
+          action: "deny", //id of triggering action button
+          dialog: {
+            title: "Justification",
+            target_field: "reason",
+            fields: {
+              reason: {
+                type: "textarea",
+                title: "Reason",
+                placeholder: "Enter a reason",
+                value: "You need to include more detail in the `maintenance and support` section."
+              }
+            }
+          }
+        },
+        annotation: {
+          user: "u2",
+          role: "Approvers",
+          text: "are prompted to provide additional details for their decision, including steps to remedy rejected documents. The submitter will then be notified to resubmit the fixed document."
+        },
+        pause: 3500
+      },
+      {
+        action: {
+          type: "dialog.submit",
+          channel: "a1",
+          action: "deny",
           message: {
             id: "a1m1",
             author: "a1",
             timestamp: "10:45 AM",
-            text: "✔ You <b>APPROVED</b> document <i>Acme RFP.pdf</i> at 10:45PM<br><b>REASON</b>: Great writeup! Nice proposal!"
+            text: "✔ You <b>REJECTED</b> document <i>Acme RFP.pdf</i> at 10:50AM<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
           }
         },
         annotation: {
@@ -909,7 +981,11 @@ function emulate(id, selector, slack_data) {
             this.annotation.role = event.annotation.role;
             this.annotation.text = event.annotation.text;
           }
-          if (action.type === 'panel.activate') {
+          if (action.type === 'annotation.hide') {
+            this.annotation.user = "";
+            this.annotation.role = "";
+            this.annotation.text = "";
+          } else if (action.type === 'panel.activate') {
             this.set_active_panel(action.id);
           } else if (action.type === 'channel.activate') {
             this.set_active_channel(this.activePanelId, action.id);
@@ -929,6 +1005,14 @@ function emulate(id, selector, slack_data) {
           } else if (action.type === 'action.click') {
             target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message.id];
             this.do_act(target, action.message.text, target.actions[action.action]);
+          } else if (action.type === 'dialog.trigger') {
+            target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message];
+            this.show_dialog(target, action.action, action.dialog, event.pause);
+            //always exit early when showing the dialog box; once the message is typed out, the dialog will be submitted
+            this.story_board.index = this.story_board.index + 1;
+            return;
+          } else if (action.type === 'dialog.submit') {
+            this.before_dialog_submit(this.activePanelId, action.action, action.message);
           } else if (action.type === 'channel.clear') {
             target = this.panels[action.panel].channels[action.channel];
             this.$set(target, "messages", {});
@@ -980,6 +1064,55 @@ function emulate(id, selector, slack_data) {
           });
         }
       },
+
+      //when a dialog is triggered
+      show_dialog: function(target, action_id, dialog, pause) {
+        var my = this;
+        //highlight the action button that triggered the dialog to show
+        this.emphasize(target.actions[action_id]);
+        //pause and execute
+        setTimeout(function () {
+          //set flag that says the dialog should render
+          dialog.active = true;
+          my.$set(my.panels[my.activePanelId], "dialog", dialog);
+          //bind the dialog object (replace the old one...only one singleton instance per panel)
+          var target = my.panels[my.activePanelId].dialog;
+          var target_field = target.fields[dialog.target_field];
+          console.log(target_field);
+          var value = target_field.value;
+          target_field.value = "";
+          console.log("VALUE: " + value);
+          setTimeout(function () {
+            my.typing(target, "value", value, 0, 150, pause);
+          }, 1000);
+        }, 1250);
+      },
+
+      //when the submit button is clicked
+      before_dialog_submit: function(panel_id, action_id, message) {
+        this.emphasize(this.panels[panel_id].dialog, "submitting");
+        var my = this;
+        setTimeout(function() {
+          my.do_dialog_submit(panel_id, action_id, message);
+        },500);
+      },
+
+      //submit the dialog (dismiss the dialog panel)
+      do_dialog_submit: function(panel_id, action_id, message) {
+        this.panels[panel_id].dialog.active = false;
+        var target = this.panels[panel_id].channels[this.panels[panel_id].activeChannelId].messages[message.id];
+        //pause before updating the old message (updating
+        var my = this;
+        setTimeout(function() {
+          my.update_message(target, message.text, false);
+        }, 1500);
+      },
+
+      //dismiss the file upload panel
+      cancel_dialog_submit: function(panel_id) {
+        this.panels[panel_id].dialog.active = false;
+      },
+
 
       //when the paperclip is clicked
       show_file_prompt: function(panel_id, filename, message, pause) {

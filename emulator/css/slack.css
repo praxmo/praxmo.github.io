@@ -366,9 +366,10 @@
     z-index: -1;
 }
 
-.panel .slack_overlay .file_upload {
+.panel .slack_overlay .file_upload, .panel .slack_overlay .dialog {
     max-width: 400PX;
     margin-top: 50px;
+    min-height:200px;
     border-radius: 8px;
     border: solid 1px #888888;
     padding: 16px;
@@ -381,24 +382,24 @@
     transition: opacity 1s linear;
 }
 
-.panel .slack_overlay.active .file_upload {
+.panel .slack_overlay.active .file_upload, .panel .slack_overlay.active .dialog {
     opacity: 1;
 }
 
-.panel .slack_overlay .file_upload .file_title {
+.panel .slack_overlay .file_upload .file_title, .panel .slack_overlay .dialog .dialog_title {
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 20px;
 }
 
-.panel .slack_overlay .file_upload .file_close {
+.panel .slack_overlay .file_upload .file_close, .panel .slack_overlay .dialog .dialog_close  {
     position: absolute;
     right: 16px;
     top: 20px;
     opacity: .5;
 }
 
-.panel .slack_overlay .file_upload .file_message {
+.panel .slack_overlay .file_upload .file_message, .panel .slack_overlay .dialog .textarea {
     width: 100%;
     padding: 8px;
     border: solid 2px #039BE5;
@@ -408,7 +409,7 @@
     box-shadow: 0 0 6px #039BE5;
 }
 
-.panel .slack_overlay .file_upload .file_message::placeholder {
+.panel .slack_overlay .file_upload .file_message::placeholder, .panel .slack_overlay .dialog .textarea::placeholder {
     color: #888888;
 }
 
@@ -442,7 +443,7 @@
     margin-left: 5px;
 }
 
-.panel .slack_overlay .file_upload .file_button {
+.panel .slack_overlay .file_upload .file_button, .panel .slack_overlay .dialog .submit  {
     background-color: green;
     color: white;
     position: absolute;
@@ -450,11 +451,18 @@
     bottom: 16px;
 }
 
-.panel .slack_overlay .file_upload .file_button:focus {
+.panel .slack_overlay .dialog .cancel  {
+    position: absolute;
+    right: 104px;
+    bottom: 16px;
+    border: solid 1px #a8a8a8;
+}
+
+.panel .slack_overlay .file_upload .file_button:focus, .panel .slack_overlay .dialog .submit:focus  {
     outline: 0;
 }
 
-.panel .slack_overlay .file_upload .file_button::after {
+.panel .slack_overlay .file_upload .file_button::after, .panel .slack_overlay .dialog .submit::after  {
     content: '';
     position: absolute;
     top: 50%;
@@ -468,7 +476,7 @@
     background: rgba(111, 148, 182, 0.5);
 }
 
-.panel .slack_overlay .file_upload .file_button.activating::after {
+.panel .slack_overlay .file_upload .file_button.activating::after, .panel .slack_overlay .dialog .submit.activating::after  {
     animation: ripple .75s forwards;
     animation-iteration-count: 1;
 }
