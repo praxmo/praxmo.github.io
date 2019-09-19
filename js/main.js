@@ -110,7 +110,7 @@ window.onload = function () {
 
   //HERO QUOTES (for large form-factors/desktop)
   (function() {
-    var delay = 4500;
+    var delay = 6000;
     var quotes = $(".quotes li");
     console.log(quotes);
     console.log(quotes.length);
