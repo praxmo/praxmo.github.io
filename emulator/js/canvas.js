@@ -1,3 +1,5 @@
+//copyright 2019 Intwixt, Inc. All rights reserved
+
 //cache icons for repeated use by the canvas rendering engine
 if (typeof(window.that_nodeImages) === "undefined") {
   window.that_nodeImages = {};
