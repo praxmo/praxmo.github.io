@@ -10,288 +10,284 @@
 
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
-    <!-- Font Awesome -->
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
-    <!-- Emulator styles  -->
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Slack Emulator styles  -->
     <link rel="stylesheet" href="emulator/css/slack.css">
-
 </head>
 
-<body class="container">
+<body class="container full-width">
 
 
-<div id="slack" class="slack" v-cloak>
-    <div class="sidebar">
-        <div class="workspace_selector">
-            {{workspace.title}} <span class="carat"><i class="fas fa-angle-down"></i></span>
+<!-- don't put position:relative in the containing div...breaks the layout -->
+<div style="margin-top:40px;min-height:500px;">
+    <my-solution-emulator id="unboxed" v-cloak></my-solution-emulator>
+</div>
+
+<div style="margin-top:40px;">
+    <my-solution-emulator id="hubble" v-cloak></my-solution-emulator>
+</div>
+
+
+<script type="text/x-template" id="solution-emulator">
+    <div class="emulator">
+
+        <div v-bind:class="['stepper', { active: story_board.state === 'playing' && story_board.step_next}]"
+             title="Show next step"
+             v-on:click="play(false, true);">
+            <i class="fas fa-play fa-3x"></i>
         </div>
-        <div class="active_user">
-            {{users[activeUserId].title}}
-        </div>
-        <div class="label">Channels</div>
-        <div v-for="(channel, channel_id) in channels"
-             v-if="!channel.is_dm"
-             v-on:click="setActiveChannel(channel.id)"
-             v-bind:class="['channel', { active: activeChannelId === channel.id }, { private: channel.private }]"
-             v-bind:key="channel.id">
-            {{channel.title}}
-        </div>
-        <div class="label">Apps</div>
-        <div v-for="(channel, channel_id) in channels"
-             v-if="channel.is_dm"
-             v-on:click="setActiveChannel(channel.id)"
-             v-bind:class="['channel', 'app', { active: activeChannelId === channel.id }]"
-             v-bind:key="channel.id">
-            {{channel.title}}
-        </div>
-    </div>
-    <div class="main">
-        <div class="info">
-            <label>{{channels[activeChannelId].title}}</label>
-            <div>
-                <span class="star"><i class="far fa-star"></i></span>
-                <span class="members"><i class="fas fa-user"></i> {{channels[activeChannelId].members}}</span>
-                <span class="pins"><i class="fas fa-thumbtack"></i> {{channels[activeChannelId].pins}}</span>
-                <span class="more"><i class="fas fa-ellipsis-v"></i></span>
-            </div>
-        </div>
-        <div class="messages">
-            <div v-for="(message, message_id) in channels[activeChannelId].messages"
-                 class="message"
-                 v-bind:key="message.id">
-                <img class="avatar" :src="'/img/avatars/' + users[message.author].avatar">
-                <div class="data">
-                    <div class="metadata">
-                        <span class="author">{{users[message.author].title}}</span> <span class="timestamp">{{message.timestamp}}</span>
+
+        <!-- runs the emulators -->
+        <div class="runner">
+
+            <!-- overlay to show when in 'idling' state -->
+            <div v-bind:class="['story_overlay', { active: story_board.state === 'idling'}]">
+                <div class="play">
+                    <div v-on:click="play_all()" title="Play all" class="button all">
+                        <i class="fas fa-play fa-6x"></i>
+                        <div class="label">Play Example</div>
                     </div>
-                    <div class="text" v-html="message.text"></div>
-                    <p v-if="message.actions" class="actions">
-                        <button v-for="(action, action_id) in message.actions"
-                                v-bind:key="action.id"
-                                v-on:click="act(channels[activeChannelId], message, action)"
-                                :class='action.style'>{{action.title}}</button>
-                    </p>
+                    <div v-on:click="step_through()" title="Step through at my own pace" class="button step">
+                        <i class="fas fa-step-forward fa-6x"></i>
+                        <div class="label">Step Through</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- overlay to show when in 'played' state (this is the call-to-action) -->
+            <div v-bind:class="[{ active: story_board.state === 'played' }]"
+                 class="story_overlay cta">
+                <div class="blurb">
+                    Multi-role. &nbsp; Multi-system. &nbsp; Unified in Slack.
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <label>Try the Slack App</label>
+                        <div class="action">
+                            <button class="btn">Add to Slack</button>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <label>Own the Slack App*</label>
+                        <div class="action">
+                            <button class="btn">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <label>Contact us</label>
+                        <div class="links action">
+                            <div>
+                                <a href="mailto:contact@intwixt.com"><i class="far fa-envelope"></i> contact@intwixt.com</a>
+                            </div>
+                            <div>
+                                <a href="tel:415-287-5100"><i class="fas fa-phone"></i> 415-287-5100</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footnote">*Sign up for a free Intwixt account. We'll copy the source files and give you tips
+                    to
+                    get started.
+                </div>
+            </div>
+
+            <div v-for="(panel, panel_id) in panels">
+
+                <!-- image viewer; common container that renders static images when storytelling -->
+                <div :id="panel_id"
+                     class="imager panel"
+                     v-bind:class="[{ active: activePanelId === panel_id }]"
+                     v-if="panel.type === 'image'">
+                    <img class="avatar"
+                         :src="panel.src">
+                </div>
+
+                <!-- intwixt emulator; common container that renders the graph on the canvas -->
+                <div :id="panel_id"
+                     class="intwixter panel"
+                     v-bind:class="[{ active: activePanelId === panel_id }]"
+                     v-if="panel.type === 'intwixt'">
+                    <div class="head">
+                        <label>Intwixt Designer</label>
+                        <img src="https://my.intwixt.com/static1/css/img/logos/light_300.png">
+                    </div>
+                    <div class="body" :id="'viewport_' + id + '_' + panel_id">
+                        <canvas :id="'viewport_runner_' + id + '_' + panel_id" width="666" height="500"></canvas>
+                        <div class="plus"><span>+</span></div>
+                    </div>
+                </div>
+
+                <!-- slack emulator; each instance represents a slack user and their workspace -->
+                <div :id="panel_id"
+                     v-if="panel.type === 'slack'"
+                     v-bind:class="['slacker', 'panel', { active: activePanelId === panel_id }]">
+                    <div class="slack">
+                        <div class="sidebar">
+                            <div class="workspace_selector">
+                                {{panel.workspace.title}} <span class="carat"><i
+                                    class="fas fa-angle-down"></i></span>
+                            </div>
+                            <div class="active_user">
+                                {{users[panel.activeUserId].title}}
+                            </div>
+                            <div class="label">Channels</div>
+                            <div v-for="(channel, channel_id) in panel.channels"
+                                 v-if="!channel.is_dm"
+                                 v-on:click="set_active_channel(panel_id, channel.id)"
+                                 v-bind:class="['channel', { active: panel.activeChannelId === channel.id }, { private: channel.private }, { activating: channel.activating }]"
+                                 v-bind:key="channel.id">
+                                {{channel.title}}
+                            </div>
+                            <div class="label">Apps</div>
+                            <div v-for="(channel, channel_id) in panel.channels"
+                                 v-if="channel.is_dm"
+                                 v-on:click="set_active_channel(panel_id, channel.id)"
+                                 v-bind:class="['channel', 'app', { active: panel.activeChannelId === channel.id }, { activating: channel.activating }]"
+                                 v-bind:key="channel.id">
+                                {{channel.title}}
+                            </div>
+                        </div>
+                        <div class="main" v-if="panel.channels[panel.activeChannelId]">
+                            <div class="chrome">
+                                <span class="signal"><i class="fas fa-signal"></i></span>
+                                <span class="wifi"><i class="fas fa-wifi"></i></span>
+                                <span class="time">3:27 PM</span>
+                                <span class="battery"><small>75%</small>&nbsp;&nbsp;<i
+                                        class="fas fa-battery-three-quarters"></i></span>
+                            </div>
+                            <div class="info">
+                                <span class="icon"></span>
+                                <label v-bind:class="[panel.channels[panel.activeChannelId].id, { app: panel.channels[panel.activeChannelId].is_dm }, { private: panel.channels[panel.activeChannelId].private && !panel.channels[panel.activeChannelId].is_dm }, { public: !panel.channels[panel.activeChannelId].private }]">{{panel.channels[panel.activeChannelId].title}}</label>
+                                <div class="channel_profile">
+                                    <span class="star"><i class="far fa-star"></i></span>
+                                    <span class="members"><i class="fas fa-user"></i> {{panel.channels[panel.activeChannelId].members}}</span>
+                                    <span class="pins"><i class="fas fa-thumbtack"></i> {{panel.channels[panel.activeChannelId].pins}}</span>
+                                    <span class="more"><i class="fas fa-ellipsis-v"></i></span>
+                                </div>
+                            </div>
+                            <div class="messages">
+                                <div v-for="(message, message_id) in panel.channels[panel.activeChannelId].messages"
+                                     v-bind:class="['message', { activating: message.activating }]"
+                                     v-bind:key="message.id">
+                                    <img class="avatar"
+                                         :src="'/img/avatars/' + users[message.author].avatar">
+                                    <div class="data">
+                                        <div class="metadata">
+                                            <span class="author">{{users[message.author].title}}</span>
+                                            <span
+                                                    class="timestamp">{{message.timestamp}}</span>
+                                        </div>
+                                        <div>
+                                            <img class="icon" v-if="message.icon" :src="message.icon"
+                                                 align="right">
+                                            <div class="text" v-html="message.text"></div>
+                                            <div v-if="message.file" class="file">
+                                                <i class="far fa-file-alt file_icon"></i>
+                                                {{message.file}}
+                                            </div>
+                                            <p v-if="message.actions" class="actions">
+                                                <button v-for="(action, action_id) in message.actions"
+                                                        v-bind:key="action.id"
+                                                        v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
+                                                        v-bind:class="[action.style, { activating: action.activating }]">
+                                                    {{action.title}}
+                                                </button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <i class="fas fa-paperclip"
+                                   v-bind:class="[{ activating: panel.file.activating }]"
+                                   v-on:click="show_file_prompt(panel_id)"></i>
+                                <input type="text"
+                                       v-model="panel.input"
+                                       :placeholder="'Message ' + panel.channels[panel.activeChannelId].title"
+                                       v-on:keyup.enter="send_message(panel_id)">
+                            </div>
+                        </div>
+                    </div>
+                    <div v-bind:class="['slack_overlay', { active: panel.file.active }]">
+                        <div class="mask"></div>
+                        <div class="file_upload">
+                            <h3 class="file_title">Upload a file</h3>
+                            <i class="fas fa-times file_close"
+                               v-on:click="cancel_file_upload(panel_id)"></i>
+                            <textarea class="file_message"
+                                      v-model="panel.file.message"
+                                      placeholder="Add a message about the file"></textarea>
+                            <div class="file_wrapper">
+                                <span class="file">
+                                    <i class="far fa-file-alt file_icon"></i>
+                                    <label class="file_name">{{panel.file.filename}}</label>
+                                </span>
+                            </div>
+                            <button class="file_button btn"
+                                    v-bind:class="[{ activating: panel.file.submitting }]"
+                                    v-on:click="before_file_upload(panel_id, panel.file.filename, panel.file.message)">
+                                Upload
+                            </button>
+                        </div>
+                    </div>
+                    <div v-bind:class="['slack_overlay', { active: panel.dialog.active }]">
+                        <div class="mask"></div>
+                        <div class="dialog">
+                            <h3 class="dialog_title">{{panel.dialog.title}}</h3>
+                            <i class="fas fa-times dialog_close"></i>
+                            <textarea class="textarea"
+                                      v-model="panel.dialog.value"
+                                      :placeholder="panel.dialog.fields[panel.dialog.target_field].placeholder"></textarea>
+                            <button class="cancel btn">Cancel</button>
+                            <button class="submit btn"
+                                    v-bind:class="[{ activating: panel.dialog.submitting }]"
+                                    v-on:click="before_dialog_submit(panel_id, panel.dialog.action, panel.dialog.value)">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="input">
-            <i class="fas fa-paperclip"></i>
-            <input type="text"
-                   v-model="input"
-                   :placeholder="'Message ' + channels[activeChannelId].title"
-                   v-on:keyup.enter="send_message">
+        <div class="annotation"
+             v-bind:class="[{ active: annotation.user }]">
+            <div class="triangle"></div>
+            <img class="avatar"
+                 v-if="annotation.user"
+                 :src="'/img/avatars/' + users[annotation.user].avatar">
+            <p class="text">
+                <label class="role">{{annotation.role}}</label>
+                <span v-html="annotation.text"></span>
+            </p>
         </div>
     </div>
-    <div class="overlay">
+</script>
 
-    </div>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
+<script src="emulator/stories/unboxed.js"></script>
+<script src="emulator/stories/hubble.js"></script>
+<script src="emulator/js/slack.js"></script>
+<script src="emulator/js/canvas.js"></script>
 <script>
-
-  /**
-   *
-   * a data-driven emulator for slack; the static test model
-   */
-  var slack_data = {
-    //workspace
-    workspace: {
-      id: "w1",
-      title: "intwixt"
-    },
-    //active user
-    activeUserId: "u1",
-    users: {
-      a1: {
-        id:"a1",
-        title: "Unboxed",
-        avatar: "a1.png"
-      },
-      u1: {
-        id:"u1",
-        title: "Luke",
-        avatar: "u1.png"
-      },
-      u2: {
-        id:"u2",
-        title: "Thomas",
-        avatar: "u2.png"
-      },
-      u3: {
-        id:"u3",
-        title: "Sabin",
-        avatar: "u3.png"
-      }
-    },
-    //active channel
-    activeChannelId: 'c1',
-    //all channels
-    channels: {
-      c1: {
-        id: "c1",
-        title: "reviewers",
-        private: true,
-        members: 17,
-        pins: 8,
-        description: "First-level document review",
-        unread: 2,
-        //all messages for this channel
-        messages: {
-          "c1m1": {
-            id: "c1m1",
-            author: "a1",
-            timestamp: "9:21 AM",
-            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons.",
-            actions: {
-              submit: {
-                id: "submit",
-                title: "Submit",
-                style: "primary"
-              },
-              cancel: {
-                id: "cancel",
-                title: "Cancel",
-                style: "danger"
-              }
-            }
-          }
-        }
-      },
-      c2: {
-        id: "c2",
-        title: "general",
-        private: false,
-        unread: 0,
-        members: 290,
-        pins: 12,
-        description: "Company-wide, non-critical announcements.",
-        //all messages for this channel
-        messages: {
-          "c2m1": {
-            id: "c2m1",
-            author: "u1",
-            timestamp: "9:21 AM",
-            text: "😊 Some content <b>markup</b>."
-          },
-          "c2m2": {
-            id: "c2m2",
-            author: "u2",
-            timestamp: "9:21 AM",
-            text: "<b>Styling stuff here!!</b>.",
-            actions: {
-              ok: {
-                id: "ok",
-                title: "OK",
-                style: "primary"
-              }
-            }
-          },
-          "c2m3": {
-            id: "c2m3",
-            author: "u3",
-            timestamp: "9:21 AM",
-            text: "This is a regular message with nothing special to add."
-          }
-        }
-      },
-      a1: {
-        id: "a1",
-        is_dm: true,
-        title: "Unboxed",
-        avatar: "a1.png",
-        private: true,
-        //all messages for this channel
-        messages: {
-          "a1m1": {
-            id: "a1m1",
-            author: "a1",
-            timestamp: "9:21 AM",
-            text: "😊 Static HTML text goes here and is styled styled by adding <b>markup</b>. Here are some buttons.",
-            actions: {
-              submit: {
-                id: "submit",
-                title: "Submit",
-                style: "primary"
-              },
-              cancel: {
-                id: "cancel",
-                title: "Cancel",
-                style: "danger"
-              }
-            }
-          },
-          "a1m2": {
-            id: "a1m2",
-            author: "u2",
-            timestamp: "9:21 AM",
-            text: "<b>Styling stuff here!!</b>. <img class='image' src=''>"
-          }
-        }
-      }
-    },
-    //text input value (used for submitting new content)
-    input:""
-  };
-
-
-  var view = new Vue({
-    el: '#slack',
-    data: slack_data,
-    computed: {
-      activeChannelIdComponent: function () {
-        return 'tab-' + this.activeChannelId.toLowerCase()
-      }
-    },
-    methods: {
-      addItem: function() {
-        this.items.push("Item #"+this.items.length);
-        this.scrollToEnd();
-      },
-      scrollToEnd: function() {
-        var container = this.$el.querySelector(".messages");
-        Vue.nextTick(function() {
-          container.scrollTop = container.scrollHeight + 1000;
-        });
-      },
-      setActiveChannel: function(channel_id) {
-        this.activeChannelId = channel_id;
-        this.scrollToEnd();
-      },
-      send_message: function() {
-        var target = this.channels[this.activeChannelId].messages;
-        var timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-        var id = this.activeChannelId + "m" + new Date();
-        target[id] = {
-          id: id,
-          author: this.activeUserId,
-          timestamp: timestamp,
-          text: this.input
-        };
-        //clear out text
-        this.input = "";
-        this.scrollToEnd();
-      },
-      act: function(channel, message, action) {
-        var my = this;
-        setTimeout(function() {
-          var text = "✔️ You clicked the "  + action.id.toUpperCase() + " button.!";
-          my.update_message(channel.id, message.id, text);
-        },150);
-      },
-      update_message: function(channel_id, message_id, text) {
-        var target = this.channels[this.activeChannelId].messages[message_id];
-        delete target.actions;
-        target.timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-        target.text = text;
-      }
-    }
-  });
-
+  emulate("unboxed", "#unboxed", unboxed);
+  emulate("hubble", "#hubble", hubble);
 </script>
 </body>

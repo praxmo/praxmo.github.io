@@ -3,10 +3,14 @@
     display: none;
 }
 
+.solution-emulator {
+    min-height:400px;
+    /*NO: position:relative*/
+}
+
 .emulator {
-    position: relative;
+    position: absolute;
     width: 680px;
-    margin-top: 40px;
     height: 400px;
 }
 
@@ -17,8 +21,8 @@
 .emulator .annotation {
     margin-top: 18px;
     width: 100%;
-    padding: 0px 8px 8px 60px;
-    border: solid 1px lightgray;
+    padding: 0 8px 8px 60px;
+    border: solid 1px #d3d3d3;
     border-radius: 8px;
     box-shadow: 0 0 20px #888888;
     background-color: #ffffff;
@@ -444,8 +448,8 @@
 }
 
 .panel .slack_overlay .file_upload .file_button, .panel .slack_overlay .dialog .submit  {
-    background-color: green;
-    color: white;
+    background-color: #008000;
+    color: #ffffff;
     position: absolute;
     right: 16px;
     bottom: 16px;
@@ -849,11 +853,11 @@
 }
 
 .main .message button.primary {
-    color: green;
+    color: #008000;
 }
 
 .main .message button.danger {
-    color: red;
+    color: #ff0000;
 }
 
 .main .input {

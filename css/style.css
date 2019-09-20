@@ -645,22 +645,21 @@ a:hover {
     margin-bottom: 40px;
 }
 
-.fh5co-features-outer {
+.examples-outer {
     width: 100%;
     height: auto;
     padding-top: 0;
 }
 
-.fh5co-features-outer .col-sm-6 {
+.examples-outer .col-sm-6 {
     margin-top: 80px;
 }
 
-.fh5co-features-outer .col-sm-6 img {
+.examples-outer .col-sm-6 img {
     height: 550px;
 }
 
-.fh5co-features-outer .sm-4-content {
-    margin-top: 40px;
+.examples-outer .sm-4-content {
     position: relative;
 }
 
@@ -668,7 +667,7 @@ a:hover {
     display:none;
 }
 
-.fh5co-features-outer .sm-4-content h1, h1.small-factor {
+.examples-outer .sm-4-content h1, h1.small-factor {
     color: #03A9F4;
     text-transform: uppercase;
     font-size: 25px;
@@ -676,7 +675,7 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.fh5co-features-outer .sm-4-content p {
+.examples-outer .sm-4-content p {
     color: #111;
     font-weight: 500;
     font-size: 1.1em;
@@ -684,12 +683,12 @@ a:hover {
     width: 100%
 }
 
-.fh5co-features-outer .col-sm-4 .col-sm-image-container {
+.examples-outer .col-sm-4 .col-sm-image-container {
     position: relative;
     width: 300px;
 }
 
-.fh5co-features-outer .col-sm-4 .span-new {
+.examples-outer .col-sm-4 .span-new {
     color: #fff;
     background: #fcec64;
     padding: 18px;
@@ -707,7 +706,7 @@ a:hover {
     top: 140px;
 }
 
-.fh5co-features-outer .col-sm-4 .span-free {
+.examples-outer .col-sm-4 .span-free {
     color: #fff;
     background: #6ca3ff;
     padding: 18px;
@@ -725,7 +724,7 @@ a:hover {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-4 .span-data {
+.examples-outer .col-sm-4 .span-data {
     color: #7e8c91;
     background: #b8faee;
     padding: 20px;
@@ -744,7 +743,7 @@ a:hover {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-6 .span-percent {
+.examples-outer .col-sm-6 .span-percent {
     color: #fff;
     background: #6ca3ff;
     padding: 18px;
@@ -762,7 +761,7 @@ a:hover {
     font-weight: 700;
 }
 
-.fh5co-features-outer .col-sm-4 .circle {
+.examples-outer .col-sm-4 .circle {
     color: #c3cfe5;
     border: 1px solid #ededed;
     background: #fff;
@@ -784,7 +783,7 @@ a:hover {
     overflow: hidden;
 }
 
-.fh5co-features-outer .col-sm-4 .active {
+.examples-outer .col-sm-4 .active {
     border-color:#03a9f4ab;
     box-shadow: 0 0 8px #03a9f4ab;
 }
@@ -808,7 +807,7 @@ a:hover {
 .logos-outer {
     width: 100%;
     padding: 70px 70px 0 70px;
-    margin-top: 60px;
+    margin-top: 130px;
 }
 
 .logos-outer .logos-inner {
@@ -1288,7 +1287,7 @@ a:hover {
 
     }
 
-    .fh5co-features-outer .sm-4-content p {
+    .examples-outer .sm-4-content p {
         width:100%;
     }
 
@@ -1394,11 +1393,11 @@ a:hover {
         display: none;
     }
 
-    .fh5co-features-outer {
+    .examples-outer {
         margin-top: -30px;
     }
 
-    .fh5co-features-outer .sm-4-content p {
+    .examples-outer .sm-4-content p {
         width:100%;
     }
 
@@ -1422,7 +1421,7 @@ a:hover {
         display: inline-block;
     }
 
-    .fh5co-features-grid-columns .col-sm-6 {
+    .examples-grid-columns .col-sm-6 {
         -ms-flex: 0 0 50%;
         flex: 0 0 100%;
         width: 100%;
@@ -1431,7 +1430,7 @@ a:hover {
         text-align: center;
     }
 
-    .fh5co-features-outer .col-sm-6 .col-sm-image-container {
+    .examples-outer .col-sm-6 .col-sm-image-container {
         position: relative;
         width: 295px !important;
         text-align: center;
@@ -1466,12 +1465,12 @@ a:hover {
         float: none;
     }
 
-    .fh5co-features-outer .col-sm-6 .span-percent, .fh5co-features-outer .col-sm-6 .span-free {
+    .examples-outer .col-sm-6 .span-percent, .examples-outer .col-sm-6 .span-free {
         left: -15px;
         bottom: 140px;
     }
 
-    .fh5co-features-outer .sm-4-content {
+    .examples-outer .sm-4-content {
         margin-top: 40px;
         position: relative;
         width:100%;
@@ -1479,7 +1478,7 @@ a:hover {
         z-index:-1;
     }
 
-    .fh5co-features-outer .col-sm-6 .circle {
+    .examples-outer .col-sm-6 .circle {
         position: static;
         display: inline-block;
         margin: 25px 5px;
@@ -1489,16 +1488,16 @@ a:hover {
         margin-top: 60px;
     }
 
-    .fh5co-features-grid-columns {
+    .examples-grid-columns {
         display: flex;
         flex-direction: column;
     }
 
-    .fh5co-features-grid-columns .in-order-4 {
+    .examples-grid-columns .in-order-4 {
         order: 1;
     }
 
-    .fh5co-features-grid-columns .in-order-3 {
+    .examples-grid-columns .in-order-3 {
         order: 2;
     }
 
