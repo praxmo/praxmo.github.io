@@ -886,7 +886,7 @@ var unboxed = {
               },
               "view": {
                 "id": "view",
-                "title": "View Document"
+                "title": "Preview"
               }
             }
           }

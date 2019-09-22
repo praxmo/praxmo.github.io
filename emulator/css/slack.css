@@ -5,6 +5,7 @@
 
 .solution-emulator {
     min-height:400px;
+
     /*NO: position:relative*/
 }
 
@@ -30,7 +31,7 @@
     position: relative;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s linear;
+    transition: opacity .5s linear;
 }
 
 .emulator .annotation.active {
@@ -950,6 +951,7 @@ canvas {
         box-shadow: none;
         border-radius: 8px;
         border-width: 0;
+        position: relative;
     }
 
     .runner .story_overlay.cta .option .action {
