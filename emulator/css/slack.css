@@ -275,10 +275,10 @@
 }
 
 .runner .story_overlay.cta .option .btn {
-    border: solid 1px #ffffff;
     background: #039BE5;
     color: #ffffff;
     margin-top: 6px;
+    box-shadow: 0 1px 4px #00000050;
 }
 
 .runner .story_overlay.cta .option .links a {
@@ -351,6 +351,7 @@
     z-index: -1;
     text-align: center;
     visibility: hidden;
+    padding: 16px;
 }
 
 .panel .slack_overlay.active {
@@ -954,10 +955,20 @@ canvas {
         position: relative;
     }
 
-    .runner .story_overlay.cta .option .action {
-        position: absolute;
-        bottom: 0;
+    .runner .story_overlay.cta .option {
+        width:50%;
     }
+
+    .runner .story_overlay.cta .option .action {
+        /*position: absolute;
+        bottom: 0;*/
+        width:100%;
+    }
+
+    .runner .story_overlay.cta .option:nth-child(3) {
+        display: none;
+    }
+
     .runner .story_overlay.cta .blurb {
         font-size: 1.15em;
         margin-bottom: 4em;

@@ -787,6 +787,15 @@ var unboxed = {
           "type": "panel.activate",
           "id": "p4"
         },
+        "pause": 0,
+        "step_next":true
+      },
+
+      {
+        "action": {
+          "type": "channel.activate",
+          "id": "c1"
+        },
         "annotation": {
           "user": "u3",
           "role": "Approvers",
@@ -797,15 +806,9 @@ var unboxed = {
 
       {
         "action": {
-          "type": "channel.activate",
-          "id": "c1"
+          "type": "annotation.hide"
         },
-        "annotation": {
-          "user": "",
-          "role": "",
-          "text": ""
-        },
-        "pause": 1000,
+        "pause": 500,
         "step_next": true
       },
 

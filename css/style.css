@@ -645,6 +645,16 @@ a:hover {
     margin-bottom: 20px;
 }
 
+.line-bg-div {
+    background: #00a6f7;
+    margin-bottom: 20px;
+    opacity: .1;
+    width: 100%;
+    margin-top: 200px;
+    border-radius: 0;
+    height: 2px;
+}
+
 .examples-outer {
     width: 100%;
     height: auto;
@@ -819,29 +829,6 @@ a:hover {
     text-align: center;
 }
 
-.logos-outer > h1 {
-    color: #03A9F4;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.logos-outer > small {
-    text-align: center;
-    display: block;
-}
-
-.logos-outer .testimonial-desc {
-    clear: both;
-    padding-top: 30px;
-    font-weight: 500;
-}
-
-.logos-outer .testimonial-2 {
-    margin-left: 50px;
-}
 
 /* ==========================================================================================================
 										BOTTOM
