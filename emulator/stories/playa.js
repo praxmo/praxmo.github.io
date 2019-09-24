@@ -289,7 +289,7 @@ var playa = {
             "id": "a1m2",
             "author": "a1",
             "timestamp": "9:22 AM",
-            "text": "Starting review...Return to this message for real-time status updates.<br><b>✔ SUBMITTED</b> <i>Acme RFP.pdf</i> for Review"
+            "text": "Starting review...Return to this message for real-time status updates.<br><b>✔ SUBMITTED</b> <b>Acme RFP.pdf</b> for Review"
           }
         },
         "pause": 3500
@@ -499,7 +499,7 @@ var playa = {
             "id": "a1m1",
             "author": "a1",
             "timestamp": "10:45 AM",
-            "text": "🚫 You <b>REJECTED</b> document <i>Acme RFP.pdf</i> at 10:50AM<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
+            "text": "🚫 You <b>REJECTED</b> document <b>Acme RFP.pdf</b> at 10:50AM<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
           }
         },
         "pause": 3500

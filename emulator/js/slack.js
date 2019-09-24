@@ -102,11 +102,11 @@ function emulate(id, selector, story, config) {
                 this.do_act(target, action.message.text, target.actions[action.action]);
               } else if (action.type === 'dialog.trigger') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message];
-                this.show_dialog(target, action.action, action.dialog, event.pause);
+                this.show_dialog(target, action.action, this.clone(action.dialog), event.pause);
                 this.story_board.index = this.story_board.index + 1;
                 return;
               } else if (action.type === 'dialog.submit') {
-                this.before_dialog_submit(this.activePanelId, action.action, action.message);
+                this.before_dialog_submit(this.activePanelId, action.action, this.clone(action.message));
               } else if (action.type === 'channel.clear') {
                 target = this.panels[action.panel].channels[action.channel];
                 this.$set(target, "messages", {});
