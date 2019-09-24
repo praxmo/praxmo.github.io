@@ -24,14 +24,13 @@ a:hover {
     display: block;
     margin: 0 0 10px;
     font-size: 1.25em;
+    font-weight: 900;
+    z-index: 5;
+    position: relative;
 }
 
 .special {
-    /*
-    color: #03A9F4;
-    font-size:1.1em;
-    font-weight:bold;
-    */
+    font-weight:900;
 }
 
 .download-btn-first {
@@ -144,7 +143,7 @@ a:hover {
 
 .fh5co-hero-inner > h1 {
     color: #345;
-    font-weight: 300;
+    font-weight: 900;
     font-size: 55px;
     letter-spacing: 2px;
     position: relative;
@@ -170,6 +169,7 @@ a:hover {
     text-align: left;
     z-index: 5;
     position: relative;
+    padding-top:10px;
 }
 
 .fh5co-hero-inner .features-btn-first {
@@ -1374,11 +1374,14 @@ a:hover {
     }
 
     .typewriter {
+        /* disabled the typewriter for now
         display:block !important;
+        */
     }
 
     .printout {
-        display:none !important;
+        /*display:none !important;*/
+        text-align: center;
     }
 
     .remainder {
@@ -1571,8 +1574,9 @@ a:hover {
     }
 
     .navbar-light .navbar-toggler {
-        color: #fff !important;
-        border-color: #c7c7c7 !important;
+        color: #ffffff !important;
+        border-color: #c8c8c8 !important;
+        background-color: #ffffff;
     }
 
     .navbar-light .navbar-nav .nav-link {
@@ -1610,7 +1614,7 @@ a:hover {
 
     .fh5co-hero-inner > h1 {
         color: #333;
-        font-weight: 300;
+        font-weight: 900;
         font-size: 45px;
         letter-spacing: 2px;
         text-align: center;
@@ -1800,8 +1804,6 @@ a:hover {
     .fh5co-hero-inner > h1 {
         font-size: 40px;
         text-align: center;
-        /*max-height:0px;
-        visibility: hidden !important;*/
     }
 
     .fh5co-hero-inner > p {
