@@ -9,10 +9,15 @@ var unboxed = {
 
   //'users' is a rollup of all roles and apps used in the emulation; images are all located in the img/avatars directory
   "users": {
-    "a1": {
-      "id": "a1",
+    "a0": {
+      "id": "a0",
       "title": "Intwixt",
       "avatar": "a1.png"
+    },
+    "a1": {
+      "id": "a1",
+      "title": "Acme - Docs",
+      "avatar": "unboxed.png"
     },
     "u1": {
       "id": "u1",
@@ -106,8 +111,8 @@ var unboxed = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Intwixt",
-          "avatar": "a1.png",
+          "title": "Acme - Docs",
+          "avatar": "unboxed.png",
           "private": true,
           "messages": {}
         }
@@ -172,8 +177,8 @@ var unboxed = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Intwixt",
-          "avatar": "a1.png",
+          "title": "Acme - Docs",
+          "avatar": "unboxed.png",
           "private": true,
           "messages": {}
         }
@@ -517,7 +522,7 @@ var unboxed = {
           "id": "p1"
         },
         "annotation": {
-          "user": "a1",
+          "user": "a0",
           "role": "Intwixt",
           "text": "turns Slack into a <b>business process engine</b>, enabling centralized management of document approval workflows."
         },
@@ -555,7 +560,7 @@ var unboxed = {
         "annotation": {
           "user": "u1",
           "role": "Submitters",
-          "text": "upload files directly to Slack. Intwixt listens for this event and begins the document review workflow in response."
+          "text": "upload files directly to Slack. Intwixt-built Slackbots (like the one shown here) can orchestrate sophisticated business processes in response."
         },
         "pause": 4500
       },
@@ -683,7 +688,7 @@ var unboxed = {
         "annotation": {
           "user": "u1",
           "role": "Submitters",
-          "text": "are told how to address outstanding issues for rejected documents. They can then resubmit the document to Slack and the review process will resume."
+          "text": "are told how to address outstanding issues for rejected documents. They can then resubmit the document to Slack, and the review process will resume."
         },
         "pause": 3000
       },
@@ -746,7 +751,7 @@ var unboxed = {
           "id": "p2"
         },
         "annotation": {
-          "user": "a1",
+          "user": "a0",
           "role": "Intwixt Developers",
           "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
         },
@@ -767,7 +772,7 @@ var unboxed = {
           "id": "p3"
         },
         "annotation": {
-          "user": "a1",
+          "user": "a0",
           "role": "Intwixt Developers",
           "text": "are encouraged to create modular, conversational workflows. This one drives the review process. Now let's return to Slack to see the end user experience orchestrated by this flow."
         },
