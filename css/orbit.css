@@ -24,7 +24,7 @@
 .orbit-wrap {
     height: 100%;
     list-style: none;
-    font-size: 3.5em;
+    font-size: 2.5em;
 }
 
 .orbit-wrap > li {
@@ -53,46 +53,48 @@ ul[class^=ring] li {
     transition: all 300ms ease-in-out;
 }
 
+/** NOTE: I MERGED THE ICONS IN RING 0 AT 12.5EM BY CHANGING TO 10EM AND SYNCING THE ANIMATIONS **/
+
 .ring-0 {
     width: 25em;
     height: 25em;
-    animation: clockwiseRotate 300s linear infinite;
+    animation: clockwiseRotate 280s linear infinite;
 }
 .ring-0 i {
-    animation: counterClockwiseRotate 300s linear infinite;
+    animation: counterClockwiseRotate 280s linear infinite;
 }
 
 .ring-0 > *:nth-of-type(1) {
-    transform: rotate(76deg) translate(12.5em) rotate(-76deg);
+    transform: rotate(76deg) translate(10em) rotate(-76deg);
 }
 
 .ring-0 > *:nth-of-type(2) {
-    transform: rotate(152deg) translate(12.5em) rotate(-152deg);
+    transform: rotate(152deg) translate(10em) rotate(-152deg);
 }
 
 .ring-0 > *:nth-of-type(3) {
-    transform: rotate(228deg) translate(12.5em) rotate(-228deg);
+    transform: rotate(228deg) translate(10em) rotate(-228deg);
 }
 
 .ring-0 > *:nth-of-type(4) {
-    transform: rotate(304deg) translate(12.5em) rotate(-304deg);
+    transform: rotate(304deg) translate(10em) rotate(-304deg);
 }
 
 .ring-0 > *:nth-of-type(5) {
-    transform: rotate(380deg) translate(12.5em) rotate(-380deg);
+    transform: rotate(380deg) translate(10em) rotate(-380deg);
 }
 
 .ring-1 {
     width: 20em;
     height: 20em;
-    animation: clockwiseRotate 240s linear infinite;
+    animation: clockwiseRotate 280s linear infinite;
 }
 .ring-1 i {
-    animation: counterClockwiseRotate 240s linear infinite;
+    animation: counterClockwiseRotate 280s linear infinite;
 }
 
 .ring-1 > *:nth-of-type(1) {
-    transform: rotate(95deg) translate(10em) rotate(-95deg);
+    transform: rotate(110deg) translate(10em) rotate(-110deg);
 }
 
 .ring-1 > *:nth-of-type(2) {
@@ -100,11 +102,11 @@ ul[class^=ring] li {
 }
 
 .ring-1 > *:nth-of-type(3) {
-    transform: rotate(285deg) translate(10em) rotate(-285deg);
+    transform: rotate(260deg) translate(10em) rotate(-260deg);
 }
 
 .ring-1 > *:nth-of-type(4) {
-    transform: rotate(380deg) translate(10em) rotate(-380deg);
+    transform: rotate(340deg) translate(10em) rotate(-340deg);
 }
 
 .ring-2 {
