@@ -55,10 +55,10 @@ ul[class^=ring] li {
 .ring-0 {
     width: 25em;
     height: 25em;
-    animation: clockwiseRotate 480s linear infinite;
+    animation: clockwiseRotate 300s linear infinite;
 }
 .ring-0 i {
-    animation: counterClockwiseRotate 480s linear infinite;
+    animation: counterClockwiseRotate 300s linear infinite;
 }
 
 .ring-0 > *:nth-of-type(1) {
@@ -81,10 +81,10 @@ ul[class^=ring] li {
 .ring-1 {
     width: 20em;
     height: 20em;
-    animation: clockwiseRotate 420s linear infinite;
+    animation: clockwiseRotate 240s linear infinite;
 }
 .ring-1 i {
-    animation: counterClockwiseRotate 420s linear infinite;
+    animation: counterClockwiseRotate 240s linear infinite;
 }
 
 .ring-1 > *:nth-of-type(1) {
@@ -102,10 +102,10 @@ ul[class^=ring] li {
 .ring-2 {
     width: 15em;
     height: 15em;
-    animation: clockwiseRotate 380s linear infinite;
+    animation: clockwiseRotate 200s linear infinite;
 }
 .ring-2 i {
-    animation: counterClockwiseRotate 380s linear infinite;
+    animation: counterClockwiseRotate 200s linear infinite;
 }
 
 .ring-2 > *:nth-of-type(1) {
@@ -143,10 +143,10 @@ ul[class^=ring] li {
 .ring-3 {
     width: 10em;
     height: 10em;
-    animation: clockwiseRotate 360s linear infinite;
+    animation: clockwiseRotate 180s linear infinite;
 }
 .ring-3 i {
-    animation: counterClockwiseRotate 360s linear infinite;
+    animation: counterClockwiseRotate 180s linear infinite;
 }
 
 .ring-3 > *:nth-of-type(1) {
