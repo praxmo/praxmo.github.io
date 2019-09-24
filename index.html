@@ -56,8 +56,7 @@
     ga('send', 'pageview');</script>
     <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
 </head>
-<body>
-
+<body id="home">
 
 <div id="page-wrap">
 
@@ -310,7 +309,6 @@
                                  USE CASES / EXAMPLE DOMAIN SOLUTIONS
          ========================================================================================================== -->
 
-    <!-- div id="solutions" class="curved-bg-div container"></div -->
     <div id="solutions" class="examples-outer">
         <div class="container">
             <!-- NOTE: communicating this in transitive style, but could also be reworded to be conceptual, since heading -->
@@ -519,7 +517,7 @@
                 <div>
                     <nav class="footer-nav">
                         <ul class="nav-items">
-                            <a href="#" onclick="$('#fh5co-hero-wrapper').goTo();return false;">
+                            <a href="#home" onclick="$('#home').goTo('home');">
                                 <li><i class="fas fa-arrow-up"></i> TOP</li>
                             </a>
                             <a href="/about">
