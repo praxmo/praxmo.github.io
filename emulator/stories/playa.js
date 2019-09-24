@@ -214,7 +214,7 @@ var playa = {
           "type": "channel.activate",
           "id": "a1"
         },
-        "pause": 1500
+        "pause": 4500
       },
 
       //send a message

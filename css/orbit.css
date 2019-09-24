@@ -4,8 +4,8 @@
 
 .orbit {
     position: absolute;
-    right: 0;
-    top: -12em;
+    right: -25px;
+    top: -11em;
     width: 25em;
     height: 25em;
     z-index: -1;
@@ -26,37 +26,7 @@
     list-style: none;
     font-size: 2.5em;
 }
-/*
-.ring li:nth-child(1) {
-    animation-delay: 1.5s;
-    animation: flickerAnimation 6s infinite;
-}
 
-.ring li:nth-child(2) {
-    animation-delay: 2.33s;
-    animation: flickerAnimation 8s infinite;
-}
-
-.ring li:nth-child(3) {
-    animation-delay: 3.67s;
-    animation: flickerAnimation 10s infinite;
-}
-
-.ring li:nth-child(4) {
-    animation-delay: 4.2s;
-    animation: flickerAnimation 4s infinite;
-}
-
-.ring li:nth-child(5) {
-    animation-delay: 5.1s;
-    animation: flickerAnimation 3s infinite;
-}
-
-.ring li:nth-child(6) {
-    animation-delay: 2s;
-    animation: flickerAnimation 1s infinite;
-}
-*/
 .orbit-wrap > li {
     position: absolute;
     left: 50%;
@@ -85,10 +55,10 @@ ul[class^=ring] li {
 .ring-0 {
     width: 25em;
     height: 25em;
-    animation: clockwiseRotate 180s linear infinite;
+    animation: clockwiseRotate 480s linear infinite;
 }
 .ring-0 i {
-    animation: counterClockwiseRotate 180s linear infinite;
+    animation: counterClockwiseRotate 480s linear infinite;
 }
 
 .ring-0 > *:nth-of-type(1) {
@@ -111,10 +81,10 @@ ul[class^=ring] li {
 .ring-1 {
     width: 20em;
     height: 20em;
-    animation: clockwiseRotate 150s linear infinite;
+    animation: clockwiseRotate 420s linear infinite;
 }
 .ring-1 i {
-    animation: counterClockwiseRotate 150s linear infinite;
+    animation: counterClockwiseRotate 420s linear infinite;
 }
 
 .ring-1 > *:nth-of-type(1) {
@@ -132,10 +102,10 @@ ul[class^=ring] li {
 .ring-2 {
     width: 15em;
     height: 15em;
-    animation: clockwiseRotate 120s linear infinite;
+    animation: clockwiseRotate 380s linear infinite;
 }
 .ring-2 i {
-    animation: counterClockwiseRotate 120s linear infinite;
+    animation: counterClockwiseRotate 380s linear infinite;
 }
 
 .ring-2 > *:nth-of-type(1) {
@@ -173,10 +143,10 @@ ul[class^=ring] li {
 .ring-3 {
     width: 10em;
     height: 10em;
-    animation: clockwiseRotate 100s linear infinite;
+    animation: clockwiseRotate 360s linear infinite;
 }
 .ring-3 i {
-    animation: counterClockwiseRotate 100s linear infinite;
+    animation: counterClockwiseRotate 360s linear infinite;
 }
 
 .ring-3 > *:nth-of-type(1) {
@@ -221,8 +191,8 @@ ul[class^=ring] li {
     text-align: center;
     background: #ffffff;
     border-radius: 100%;
-    border: solid 2px #039BE5;
-    display: none;
+    /*border: solid 2px #039BE5;
+    display: none;*/
 }
 .orbit-center:hover .orbit-center__icon {
     -webkit-transform: rotateZ(0deg);
@@ -241,7 +211,7 @@ ul[class^=ring] li {
     width: 96px;
     height: 96px;
     content:"";
-    background-image: url('/img/intwixt.png');
+    /*background-image: url('/img/intwixt.png');*/
 }
 
 
@@ -297,17 +267,6 @@ animations
         transform: rotate(-360deg);
     }
 }
-
-
-@keyframes flickerAnimation {
-    0%   { opacity:0; }
-    25%  { opacity:.25; }
-    50%  { opacity:1; }
-    75%  { opacity:.25; }
-    100% { opacity:0; }
-}
-
-
 
 .orbit-icon:after {
     background-size: 24px 24px;
