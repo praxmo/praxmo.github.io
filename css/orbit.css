@@ -63,19 +63,22 @@ ul[class^=ring] li {
 }
 
 .ring-0 > *:nth-of-type(1) {
-    -webkit-transform: rotate(95deg) translate(12.5em) rotate(-95deg);
-    transform: rotate(95deg) translate(12.5em) rotate(-95deg);
+    transform: rotate(76deg) translate(12.5em) rotate(-76deg);
 }
 
 .ring-0 > *:nth-of-type(2) {
-    transform: rotate(190deg) translate(12.5em) rotate(-190deg);
+    transform: rotate(152deg) translate(12.5em) rotate(-152deg);
 }
 
 .ring-0 > *:nth-of-type(3) {
-    transform: rotate(285deg) translate(12.5em) rotate(-285deg);
+    transform: rotate(228deg) translate(12.5em) rotate(-228deg);
 }
 
 .ring-0 > *:nth-of-type(4) {
+    transform: rotate(304deg) translate(12.5em) rotate(-304deg);
+}
+
+.ring-0 > *:nth-of-type(5) {
     transform: rotate(380deg) translate(12.5em) rotate(-380deg);
 }
 
@@ -89,14 +92,18 @@ ul[class^=ring] li {
 }
 
 .ring-1 > *:nth-of-type(1) {
-    transform: rotate(126.6666666667deg) translate(10em) rotate(-126.6666666667deg);
+    transform: rotate(95deg) translate(10em) rotate(-95deg);
 }
 
 .ring-1 > *:nth-of-type(2) {
-    transform: rotate(253.3333333333deg) translate(10em) rotate(-253.3333333333deg);
+    transform: rotate(190deg) translate(10em) rotate(-190deg);
 }
 
 .ring-1 > *:nth-of-type(3) {
+    transform: rotate(285deg) translate(10em) rotate(-285deg);
+}
+
+.ring-1 > *:nth-of-type(4) {
     transform: rotate(380deg) translate(10em) rotate(-380deg);
 }
 
@@ -110,34 +117,37 @@ ul[class^=ring] li {
 }
 
 .ring-2 > *:nth-of-type(1) {
-    transform: rotate(47.5deg) translate(7.5em) rotate(-47.5deg);
+    transform: rotate(42.22222deg) translate(7.5em) rotate(-42.22222deg);
 }
 
 .ring-2 > *:nth-of-type(2) {
-    transform: rotate(95deg) translate(7.5em) rotate(-95deg);
+    transform: rotate(84.44444deg) translate(7.5em) rotate(-84.44444deg);
 }
 
 .ring-2 > *:nth-of-type(3) {
-    transform: rotate(142.5deg) translate(7.5em) rotate(-142.5deg);
+    transform: rotate(126.66666deg) translate(7.5em) rotate(-126.66666deg);
 }
 
 .ring-2 > *:nth-of-type(4) {
-    transform: rotate(190deg) translate(7.5em) rotate(-190deg);
+    transform: rotate(168.88888deg) translate(7.5em) rotate(-168.88888deg);
 }
 
 .ring-2 > *:nth-of-type(5) {
-    transform: rotate(237.5deg) translate(7.5em) rotate(-237.5deg);
+    transform: rotate(211.11111deg) translate(7.5em) rotate(-211.11111deg);
 }
 
 .ring-2 > *:nth-of-type(6) {
-    transform: rotate(285deg) translate(7.5em) rotate(-285deg);
+    transform: rotate(253.33333deg) translate(7.5em) rotate(-253.33333deg);
 }
 
 .ring-2 > *:nth-of-type(7) {
-    transform: rotate(332.5deg) translate(7.5em) rotate(-332.5deg);
+    transform: rotate(295.55555deg) translate(7.5em) rotate(-295.55555deg);
 }
 
 .ring-2 > *:nth-of-type(8) {
+    transform: rotate(337.77777deg) translate(7.5em) rotate(-337.77777deg);
+}
+.ring-2 > *:nth-of-type(9) {
     transform: rotate(380deg) translate(7.5em) rotate(-380deg);
 }
 
@@ -151,19 +161,22 @@ ul[class^=ring] li {
 }
 
 .ring-3 > *:nth-of-type(1) {
-    transform: rotate(126.6666666667deg) translate(5em) rotate(-126.6666666667deg);
+    transform: rotate(95deg) translate(5em) rotate(-95deg);
 }
 
 .ring-3 > *:nth-of-type(2) {
-    transform: rotate(253.3333333333deg) translate(5em) rotate(-253.3333333333deg);
+    transform: rotate(190deg) translate(5em) rotate(-190deg);
 }
 
 .ring-3 > *:nth-of-type(3) {
+    transform: rotate(285deg) translate(5em) rotate(-285deg);
+}
+
+.ring-3 > *:nth-of-type(4) {
     transform: rotate(380deg) translate(5em) rotate(-380deg);
 }
 
 ul[class^=ring] {
-    /*border: solid 1px rgba(33, 150, 243, 0.8);*/
     position: relative;
     padding: 0;
     border-radius: 50%;
@@ -181,9 +194,10 @@ ul[class^=ring] li {
     margin: -0.8em;
 }
 
-/*
-  center;
-*/
+
+/**************************************************************************************************************
+                                                center cog with intwixt
+***************************************************************************************************************/
 
 
 .intwixt-cog {
@@ -207,17 +221,13 @@ ul[class^=ring] li {
     background-image: url('/img/intwixt.png');;
 }
 
-
-
 .orbit-center {
     z-index: 5;
     font-size: 2em;
     width: 100px;
     height: 100px;
     text-align: center;
-    /*background: #ffffff;*/
     border-radius: 100%;
-    /*border: solid 2px #039BE5;*/
     display: none;
 }
 
@@ -230,52 +240,6 @@ ul[class^=ring] li {
     background-image: url('/img/intwixt.png');
 }
 
-
-/*
-.orbit-center:hover .orbit-center__icon {
-    -webkit-transform: rotateZ(0deg);
-    transform: rotateZ(0deg);
-}
-*/
-/*
-.orbit-center__icon {
-    transform: rotateZ(-360deg);
-    transition: all 300ms ease-in-out;
-}
-*/
-/*
-.orbit-center__icon:after {
-    background-size: 96px 96px;
-    display: inline-block;
-    width: 96px;
-    height: 96px;
-    content:"";
-    background-image: url('/img/intwixt.png');
-}
-*/
-/*
-.orbit-wrap > li.orbit-center:hover ~ li > ul {
-    width: 0;
-    height: 0;
-}
-.orbit-wrap > li.orbit-center:hover ~ li > ul * {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-}
-*/
-/*
-animations
-*/
-@-webkit-keyframes clockwiseRotate {
-    from {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
 @keyframes clockwiseRotate {
     from {
         -webkit-transform: rotate(0deg);
@@ -284,16 +248,6 @@ animations
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
-    }
-}
-@-webkit-keyframes counterClockwiseRotate {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(-360deg);
-        transform: rotate(-360deg);
     }
 }
 @keyframes counterClockwiseRotate {
@@ -318,80 +272,115 @@ animations
 /*
 icons
 */
-.orbit-icon.heart-o:after {
+.orbit-icon.stepfunctions:after {
     background-image: url('https://my.intwixt.com/stars/StepFunctions.1/image_32');
 }
 
-.orbit-icon.coffee:after {
+.orbit-icon.alexa:after {
     background-image: url('https://my.intwixt.com/stars/Alexa.1/image_32');
 }
 
-.orbit-icon.safari:after {
+.orbit-icon.slack:after {
     background-image: url('https://my.intwixt.com/stars/Slack.1/image_32');
 }
 
-.orbit-icon.firefox:after {
+.orbit-icon.twilio:after {
     background-image: url('https://my.intwixt.com/stars/Twilio.1/image_32');
 }
 
-.orbit-icon.chrome:after {
+.orbit-icon.aito:after {
     background-image: url('https://my.intwixt.com/stars/Aito.1/image_32');
     border: solid 1px #fbc8df;
     border-radius: 50%;
 }
 
-.orbit-icon.edge:after {
+.orbit-icon.dialogflow:after {
     background-image: url('https://my.intwixt.com/stars/GoogleAPIAI.1/image_32');
 }
 
-.orbit-icon.android:after {
+.orbit-icon.lambda:after {
     background-image: url('https://my.intwixt.com/stars/Lambda.1/image_32');
 }
 
-.orbit-icon.apple:after {
+.orbit-icon.cloudwatch:after {
     background-image: url('https://my.intwixt.com/stars/CloudWatch.1/image_32');
 }
 
-.orbit-icon.linux:after {
+.orbit-icon.hubspot:after {
     background-image: url('https://my.intwixt.com/stars/HubSpot.1/image_32');
 }
 
-.orbit-icon.windows:after {
+.orbit-icon.intercom:after {
     background-image: url('/img/connectors/Intercom_32.png');
 }
 
-.orbit-icon.terminal:after {
+.orbit-icon.s3:after {
     background-image: url('https://my.intwixt.com/stars/S3.1/image_32');
 }
 
-.orbit-icon.html5:after {
+.orbit-icon.firebase:after {
     background-image: url('https://my.intwixt.com/stars/Firebase.1/image_32');
 }
 
-.orbit-icon.css3:after {
+.orbit-icon.gcf:after {
     background-image: url('https://my.intwixt.com/stars/GoogleCloudFunctions.1/image_32');
 }
 
-.orbit-icon.git:after {
+.orbit-icon.luis:after {
     background-image: url('https://my.intwixt.com/stars/MicrosoftLUIS.1/image_32');
 }
 
-.orbit-icon.free-code-camp:after {
+.orbit-icon.sqs:after {
     background-image: url('https://my.intwixt.com/stars/SQS.1/image_32');
 }
 
-.orbit-icon.meetup:after {
+.orbit-icon.uipath:after {
     background-image: url('https://my.intwixt.com/stars/UIPath.1/image_32');
 }
 
-.orbit-icon.podcast:after {
+.orbit-icon.maps:after {
     background-image: url('https://my.intwixt.com/stars/Maps.1/image_32');
 }
 
-.orbit-icon.codepen:after {
+.orbit-icon.messenger:after {
     background-image: url('https://my.intwixt.com/stars/Messenger.1/image_32');
 }
 
+.orbit-icon.user1:after {
+    background-image: url('/img/avatars/u1.png');
+    border-radius: 100%;
+    background-size: 22px 22px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+}
+
+.orbit-icon.user2:after {
+    background-image: url('/img/avatars/u2.png');
+    border-radius: 100%;
+    background-size: 22px 22px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+}
+
+.orbit-icon.user3:after {
+    background-image: url('/img/avatars/u3.png');
+    border-radius: 100%;
+    background-size: 22px 22px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+}
+
+.orbit-icon.user4:after {
+    background-image: url('/img/avatars/u4.png');
+    border-radius: 100%;
+    background-size: 22px 22px;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+}
 
 /* ==========================================================================================================
                                        RESPONSIVE STYLING

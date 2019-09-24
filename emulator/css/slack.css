@@ -379,7 +379,7 @@
 .panel .slack_overlay .file_upload, .panel .slack_overlay .dialog {
     max-width: 400PX;
     margin-top: 50px;
-    min-height:200px;
+    min-height:230px;
     border-radius: 8px;
     border: solid 1px #888888;
     padding: 8px;
@@ -417,6 +417,7 @@
     background-color: #ffffff;
     margin-bottom: 5px;
     box-shadow: 0 0 6px #039BE5;
+    min-height:100px;
 }
 
 .panel .slack_overlay .file_upload .file_message::placeholder, .panel .slack_overlay .dialog .textarea::placeholder {
@@ -853,6 +854,9 @@
     background: rgba(111, 148, 182, 0.5);
 }
 
+.main .message button.activating {
+    z-index: 2;
+}
 .main .message button.activating::after {
     animation: ripple .75s forwards;
     animation-iteration-count: 1;

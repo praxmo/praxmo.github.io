@@ -48,8 +48,7 @@ a:hover {
 }
 
 .features-btn-first:hover {
-    background: #f7f7f7 !important;
-    color: #234197 !important;
+    font-weight: bold !important;
 }
 
 .main-navbar-nav .nav-btn {
@@ -148,6 +147,8 @@ a:hover {
     font-weight: 300;
     font-size: 55px;
     letter-spacing: 2px;
+    position: relative;
+    z-index: 5;
 }
 
 .fh5co-hero-inner > p {
@@ -167,6 +168,8 @@ a:hover {
 
 .fh5co-hero-inner .btn-bar {
     text-align: left;
+    z-index: 5;
+    position: relative;
 }
 
 .fh5co-hero-inner .features-btn-first {
@@ -210,8 +213,8 @@ a:hover {
     width: 100%;
     height: 100%;
     background-color: #ffffff;
-    box-shadow: 1px 1px 10px #9E9E9E;
-    border-radius: 40px;
+    box-shadow: 1px 1px 10px #9E9E9E !important;
+    border-radius: 12px;
     overflow: hidden;
 }
 
@@ -1232,7 +1235,8 @@ a:hover {
     list-style-type: none;
     text-align: left;
     margin: 40px 0;
-    padding: 0
+    padding: 0;
+    z-index: 5;
 }
 
 .quotes li  {
