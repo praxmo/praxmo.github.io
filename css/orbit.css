@@ -34,6 +34,7 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+/*
 .orbit-wrap > li:hover ul {
     border-width: 2px;
     border-color: #fff;
@@ -44,7 +45,7 @@
 .orbit-wrap > li:hover ~ li ul li {
     opacity: 0.4;
 }
-
+*/
 ul[class^=ring] {
     transition: all 300ms ease-in-out;
 }
@@ -183,38 +184,76 @@ ul[class^=ring] li {
 /*
   center;
 */
+
+
+.intwixt-cog {
+    top:-84px;
+    margin: 0 50% 0 0;
+    color:#c8c8c8;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 5;
+    width: 100px;
+    height: 100px;
+}
+
+.intwixt-cog:after {
+    background-size: 96px 96px;
+    display: inline-block;
+    width: 96px;
+    height: 96px;
+    content:"";
+    background-image: url('/img/intwixt.png');
+}
+
+
+
 .orbit-center {
     z-index: 5;
     font-size: 2em;
     width: 100px;
     height: 100px;
     text-align: center;
-    background: #ffffff;
+    /*background: #ffffff;*/
     border-radius: 100%;
-    /*border: solid 2px #039BE5;
-    display: none;*/
+    /*border: solid 2px #039BE5;*/
+    display: none;
 }
+
+.orbit-center:after {
+    background-size: 96px 96px;
+    display: inline-block;
+    width: 96px;
+    height: 96px;
+    content:"";
+    background-image: url('/img/intwixt.png');
+}
+
+
+/*
 .orbit-center:hover .orbit-center__icon {
     -webkit-transform: rotateZ(0deg);
     transform: rotateZ(0deg);
 }
-
+*/
+/*
 .orbit-center__icon {
     transform: rotateZ(-360deg);
     transition: all 300ms ease-in-out;
 }
-
-
+*/
+/*
 .orbit-center__icon:after {
     background-size: 96px 96px;
     display: inline-block;
     width: 96px;
     height: 96px;
     content:"";
-    /*background-image: url('/img/intwixt.png');*/
+    background-image: url('/img/intwixt.png');
 }
-
-
+*/
+/*
 .orbit-wrap > li.orbit-center:hover ~ li > ul {
     width: 0;
     height: 0;
@@ -223,7 +262,7 @@ ul[class^=ring] li {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
 }
-
+*/
 /*
 animations
 */
@@ -367,6 +406,10 @@ icons
 
     .orbit-wrap {
         font-size: 3em;
+    }
+
+    .intwixt-cog {
+        display: none;
     }
 
 }
