@@ -16,7 +16,7 @@ var playa = {
     },
     "u1": {
       "id": "u1",
-      "title": "Luke",
+      "title": "Ben",
       "avatar": "u1.png"
     },
     "u2": {
@@ -26,7 +26,7 @@ var playa = {
     },
     "u3": {
       "id": "u3",
-      "title": "Sabin",
+      "title": "Sandy",
       "avatar": "u3.png"
     },
     "box": {
@@ -249,7 +249,7 @@ var playa = {
           "filename": "Acme RFP.pdf",
           "message": "Here is the Acme proposal."
         },
-        "pause": 5000
+        "pause": 3000
       },
 
 
@@ -304,7 +304,7 @@ var playa = {
             "id": "a1m2",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "<b>✔ CLAIMED</b> at <i>10:45am</i> by Sabin"
+            "text": "<b>✔ CLAIMED</b> at <i>10:45am</i> by Sandy"
           }
         },
         "pause": 3000
@@ -326,7 +326,7 @@ var playa = {
             "id": "a1m2",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "<b>🚫 REJECTED</b> at <i>10:50am</i> by Sabin<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
+            "text": "<b>🚫 REJECTED</b> at <i>10:50am</i> by Sandy<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
           }
         },
         "pause": 3000
@@ -340,7 +340,7 @@ var playa = {
             "id": "a1m2",
             "author": "a1",
             "timestamp": "11:30 AM",
-            "text": "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Luke"
+            "text": "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Ben"
           }
         },
         "pause": 3000
@@ -354,7 +354,7 @@ var playa = {
             "id": "a1m2",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "<b>✔ APPROVED</b> at <i>11:00pm</i> by Sabin"
+            "text": "<b>✔ APPROVED</b> at <i>11:00pm</i> by Sandy"
           }
         },
         "pause": 3000
@@ -420,7 +420,7 @@ var playa = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "10:41 AM",
-            "text": "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by @Sabin at 10:41 AM."
+            "text": "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by @Sandy at 10:41 AM."
           }
         },
         "pause": 3500

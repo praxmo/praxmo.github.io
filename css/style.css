@@ -23,7 +23,7 @@ a:hover {
 .fh5co-hero-inner .printout {
     display: block;
     margin: 0 0 10px;
-    font-size: .9em;
+    font-size: 1.25em;
 }
 
 .special {
@@ -67,8 +67,8 @@ a:hover {
 #fh5co-hero-wrapper {
     height: 800px;
     width: 100%;
-    background: url("../img/banner-bg.png") no-repeat center;
-    border-radius: 0 0 50% 50% / 4%;
+    /*background: url("../img/banner-bg.png") no-repeat center;
+    border-radius: 0 0 50% 50% / 4%;*/
 }
 
 .main-navbar-nav .navbar-brand {
@@ -226,7 +226,38 @@ a:hover {
     height: auto;
     width: 100%;
     overflow: hidden;
-    margin-top: 120px;
+    margin-top: 0;
+}
+.fh5co-advantages-outer .second-title {
+    /*margin-top: 80px;*/
+}
+
+.wave {
+    position: relative;
+    height: 140px;
+    width: 100%;
+    top: -80px;
+    margin-bottom: 40px;
+    background-image: url(/img/wave.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5% 0 15% 25%;
+    z-index: -1;
+}
+
+.wave2 {
+    position: relative;
+    height: 80px;
+    width: 100%;
+    top: 0px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-image: url(/img/wave2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20% 20% 50% 50% / 50%;
+    z-index: -1;
+    background-position: center center;
 }
 
 .fh5co-advantages-outer .span-perfect {
@@ -246,6 +277,7 @@ a:hover {
     display: block;
     margin-top: 0;
     margin-bottom: 40px;
+    font-size: 2.75em;
 }
 
 .fh5co-advantages-outer small {
@@ -1052,6 +1084,8 @@ a:hover {
 .typewriter {
     display:none;
     text-align:left;
+    position: relative;
+    z-index: 5;
 }
 
 .typewrite > .wrap {
@@ -1235,7 +1269,7 @@ a:hover {
     max-width: 600px;
     list-style-type: none;
     text-align: left;
-    margin: 40px 0;
+    margin: 80px 0 40px 0;
     padding: 0;
     z-index: 5;
 }
@@ -1247,7 +1281,7 @@ a:hover {
     text-align: left;
     padding: 1em 0;
     border-radius: 0.25em;
-    font-size:1.25em;
+    font-size:1.5em;
     color:#666666;
     display:none;
 }
@@ -1328,7 +1362,7 @@ a:hover {
     }
 
     .quotes li, .quoted li  {
-        font-size:1.15em;
+        font-size:1.35em;
     }
 
 }
@@ -1555,6 +1589,11 @@ a:hover {
 }
 
 @media screen and (max-width: 800px) {
+    
+    .wave, .wave2 {
+        display: none;
+    }
+    
     .main-navbar-nav .nav-btn {
         font-size: 14px;
         padding: 0;

@@ -24,7 +24,7 @@
 .orbit-wrap {
     height: 100%;
     list-style: none;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .orbit-wrap > li {
@@ -81,7 +81,7 @@ ul[class^=ring] li {
 }
 
 .ring-0 > *:nth-of-type(5) {
-    transform: rotate(380deg) translate(10em) rotate(-380deg);
+    transform: rotate(395deg) translate(10em) rotate(-395deg);
 }
 
 .ring-1 {
@@ -106,20 +106,20 @@ ul[class^=ring] li {
 }
 
 .ring-1 > *:nth-of-type(4) {
-    transform: rotate(340deg) translate(10em) rotate(-340deg);
+    transform: rotate(325deg) translate(10em) rotate(-325deg);
 }
 
 .ring-2 {
     width: 15em;
     height: 15em;
-    animation: clockwiseRotate 200s linear infinite;
+    animation: clockwiseRotate 280s linear infinite;
 }
 .ring-2 i {
-    animation: counterClockwiseRotate 200s linear infinite;
+    animation: counterClockwiseRotate 280s linear infinite;
 }
 
 .ring-2 > *:nth-of-type(1) {
-    transform: rotate(42.22222deg) translate(7.5em) rotate(-42.22222deg);
+    transform: rotate(52.22222deg) translate(7.5em) rotate(-52.22222deg);
 }
 
 .ring-2 > *:nth-of-type(2) {
@@ -156,10 +156,10 @@ ul[class^=ring] li {
 .ring-3 {
     width: 10em;
     height: 10em;
-    animation: clockwiseRotate 180s linear infinite;
+    animation: clockwiseRotate 280s linear infinite;
 }
 .ring-3 i {
-    animation: counterClockwiseRotate 180s linear infinite;
+    animation: counterClockwiseRotate 280s linear infinite;
 }
 
 .ring-3 > *:nth-of-type(1) {
@@ -171,11 +171,11 @@ ul[class^=ring] li {
 }
 
 .ring-3 > *:nth-of-type(3) {
-    transform: rotate(285deg) translate(5em) rotate(-285deg);
+    transform: rotate(270deg) translate(5em) rotate(-270deg);
 }
 
 .ring-3 > *:nth-of-type(4) {
-    transform: rotate(380deg) translate(5em) rotate(-380deg);
+    transform: rotate(360deg) translate(5em) rotate(-360deg);
 }
 
 ul[class^=ring] {

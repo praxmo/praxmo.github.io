@@ -49,15 +49,15 @@ window.onload = function () {
 
   //HERO QUOTES (for large form-factors/desktop)
   (function() {
-    var delay = 6000;
+    var delay = 10000;
     var quotes = $(".quotes li");
     window.quoteIndex = -1;
     function showNextQuote() {
       ++quoteIndex;
       quotes.eq(quoteIndex % quotes.length)
-        .fadeIn(1000)
+        .fadeIn(2000)
         .delay(delay)
-        .fadeOut(1000, showNextQuote);
+        .fadeOut(2000, showNextQuote);
     }
     showNextQuote();
   })();
@@ -80,7 +80,7 @@ window.onload = function () {
 
 
 
-//generates the intwixt simulation at the top of the home page in the HERO section above the fold
+//generates an intwixt simulation using a JSON graph
 if($("#viewport1").length) {
 
   //an instance of an Intwixt call graph
