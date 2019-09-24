@@ -12,8 +12,10 @@ var stories = {};
  * @param id {string} must be a unique identifier for the instance; do not call 'emulate' unless this is unique
  * @param selector {string} CSS selector ('#myhtmltagid')
  * @param story {object} story JSON
+ * @param [config] {object} optional configuration
+ * @param [config.autoplay] {boolean} start on render
  */
-function emulate(id, selector, story) {
+function emulate(id, selector, story, config) {
   story.id = id;
   stories[id] = new Vue({
     el: selector,
@@ -22,6 +24,13 @@ function emulate(id, selector, story) {
         template: "#solution-emulator",
         data: function() {
           return story;
+        },
+        mounted: function () {
+          this.$nextTick(function () {
+            if(this.story_board.state === "playing") {
+              this.play_all();
+            }
+          });
         },
         methods: {
 
@@ -70,6 +79,8 @@ function emulate(id, selector, story) {
                 this.annotation.user = "";
                 this.annotation.role = "";
                 this.annotation.text = "";
+              } else if (action.type === 'story.replay') {
+                this.story_board.index = -1;
               } else if (action.type === 'panel.activate') {
                 this.set_active_panel(action.id);
               } else if (action.type === 'channel.activate') {

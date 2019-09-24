@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800");
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: "Lato", "sans-serif";
     font-weight: 300;
 }
@@ -89,11 +89,11 @@ a:hover {
 
 .main-navbar-nav {
     color: #333 !important;
+    z-index: 6;
 }
 
 .main-navbar-nav li {
     color: #333;
-    /*opacity: .7;*/
 }
 
 .main-navbar-nav .navbar-nav {
@@ -102,10 +102,6 @@ a:hover {
 
 .main-navbar-nav .navbar-nav .nav-item a:hover {
     color: #234197 !important;
-    transition: all .33s ease;
-    -moz-transition: all .33s ease;
-    -o-transition: all .33s ease;
-    -ms-transition: all .33s ease;
     transition: all .33s ease;
 }
 
@@ -140,10 +136,6 @@ a:hover {
 .social-icons-header a:hover i {
     opacity: .6;
     transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    -o-transition: all .2s ease;
-    -ms-transition: all .2s ease;
-    transition: all .2s ease;
 }
 
 .fh5co-hero-inner {
@@ -159,7 +151,6 @@ a:hover {
 }
 
 .fh5co-hero-inner > p {
-    /*width: 500px;*/
     font-size: 18px;
     color: #333;
     margin-top: 30px;
@@ -206,13 +197,21 @@ a:hover {
 
 .fh5co-hero-inner .fh5co-hero-smartphone {
     position: absolute;
-    right: 0px;
-    top: 120px;
-    width: 406px; /* 500 */
-    height: 650px; /* 800 */
-    box-shadow: 1px 1px 10px #9E9E9E;
-    border-radius: 45px;
+    right: 0;
+    top: 100px;
+    width: 320px;
+    height: 500px;
+}
+
+.fh5co-hero-inner .fh5co-hero-smartphone > .shadow {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
+    box-shadow: 1px 1px 10px #9E9E9E;
+    border-radius: 40px;
     overflow: hidden;
 }
 
@@ -583,6 +582,19 @@ a:hover {
 
 
 }
+
+/* ==========================================================================================================
+										MOBILE AUTO-PLAY EXAMPLE
+   ========================================================================================================== */
+
+
+.phone_canvas_container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+
 
 /* ==========================================================================================================
 										SLIDER

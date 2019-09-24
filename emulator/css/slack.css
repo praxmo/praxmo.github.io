@@ -355,7 +355,7 @@
     z-index: -1;
     text-align: center;
     visibility: hidden;
-    padding: 16px;
+    padding: 8px;
 }
 
 .panel .slack_overlay.active {
@@ -382,7 +382,7 @@
     min-height:200px;
     border-radius: 8px;
     border: solid 1px #888888;
-    padding: 16px;
+    padding: 8px;
     text-align: left;
     background-color: #ffffff;
     position: relative;
@@ -911,12 +911,6 @@
 
 /* FLOW RENDERING CSS (Intwixt Graph Visualization) */
 
-.phone_canvas_container {
-    width: 100%;
-    height: 100%;
-    padding: 30px 20px 20px 20px;
-}
-
 canvas {
     position: relative;
     width: 100%;
@@ -1044,4 +1038,114 @@ canvas {
     .slack .main .info label.app.a1::before {
         display: none;
     }
+}
+
+
+/***** MOBILE FORCED STYLES *****/
+
+
+.mobile.emulator {
+    margin-top: 0 !important;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    width: 100% !important;
+    box-shadow: none;
+    border-width: 0;
+    text-align:left;
+}
+
+.mobile.emulator .runner {
+    box-shadow:none;
+    width:100%;
+    height:100%;
+}
+
+.mobile.emulator .runner .story_overlay.cta .option {
+    width:50%;
+}
+
+.mobile.emulator .runner .story_overlay.cta .option .action {
+    width:100%;
+}
+
+.mobile.emulator .runner .story_overlay.cta .option:nth-child(3) {
+    display: none;
+}
+
+.mobile.emulator .runner .story_overlay.cta .blurb {
+    font-size: 1.15em;
+    margin-bottom: 4em;
+    font-weight: bold;
+}
+
+.mobile.emulator .runner .story_overlay.cta .option .links i {
+    display:none;
+}
+
+.mobile.emulator .stepper.active {
+    right: -12px;
+}
+
+.mobile.emulator .stepper i {
+    font-size: 2em;
+}
+
+.mobile.emulator .slack .sidebar {
+    display: none;
+}
+
+.mobile.emulator .slack .chrome {
+    display: block;
+    height: 20px;
+}
+
+.mobile.emulator .main .messages {
+    padding: 200px 8px 40px 8px;
+}
+
+.mobile.emulator .main .message button {
+    width:100%;
+    margin-bottom:6px;
+}
+
+.mobile.emulator .slack .main .info {
+    height: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    font-size: .8em;
+    padding: 2px 0 0 28px;
+}
+
+.mobile.emulator .slack .main .info .icon {
+    background-image: url(https://my.intwixt.com/stars/Slack.1/image_96);
+    background-size: 16px 16px;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.mobile.emulator .slack .main .info .channel_profile {
+    display: none;
+}
+
+.mobile.emulator .slack .main .info label {
+    padding-left: 0;
+}
+
+.mobile.emulator .slack .main .info label.public::before {
+    display: none;
+}
+
+.mobile.emulator .slack .main .info label.private::before {
+    display: none;
+}
+
+.mobile.emulator .slack .main .info label.app.a1::before {
+    display: none;
 }

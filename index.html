@@ -27,8 +27,11 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
+    <!-- Orbit.css -->
+    <link rel="stylesheet" href="css/orbit.css">
     <!-- Fonts -->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -140,12 +143,58 @@
                 </li>
             </ul>
 
-            <div class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s">
 
-                <img class="smartphone" src="img/iphone-2.png" alt="Slack-enabled business processes">
+            <div class="fh5co-hero-smartphone animated fadeInRight wow" data-wow-delay="1s">
+                <div class="shadow">
+                    <img class="smartphone" src="img/iphone-4.png" alt="Slack-enabled business processes">
+                </div>
+
+                <div class="orbit animated fadeIn wow" data-wow-delay="2s">
+                    <ul class="orbit-wrap">
+                        <li class="orbit-center">
+                            <i class="orbit-center__icon icon-filter"></i>
+                        </li>
+                        <li>
+                            <ul class="ring ring-0">
+                                <li><i class="orbit-icon git"></i></li>
+                                <li><i class="orbit-icon free-code-camp"></i></li>
+                                <li><i class="orbit-icon meetup"></i></li>
+                                <li><i class="orbit-icon codepen"></i></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="ring ring-1">
+                                <li><i class="orbit-icon podcast"></i></li>
+                                <li><i class="orbit-icon css3"></i></li>
+                                <li><i class="orbit-icon html5"></i></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="ring ring-2">
+                                <li><i class="orbit-icon windows"></i></li>
+                                <li><i class="orbit-icon safari"></i></li>
+                                <li><i class="orbit-icon edge"></i></li>
+                                <li><i class="orbit-icon linux"></i></li>
+                                <li><i class="orbit-icon apple"></i></li>
+                                <li><i class="orbit-icon chrome"></i></li>
+                                <li><i class="orbit-icon android"></i></li>
+                                <li><i class="orbit-icon firefox"></i></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="ring ring-3">
+                                <li><i class="orbit-icon coffee"></i></li>
+                                <li><i class="orbit-icon terminal"></i></li>
+                                <li><i class="orbit-icon heart-o"></i></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
                 <div class="phone_canvas_container">
-                    <canvas id="viewport1" width="406" height="650"></canvas>
+                    <my-solution-emulator id="playa" class="mobile" v-cloak></my-solution-emulator>
+                    <!-- canvas id="viewport1" width="406" height="650"></canvas -->
                 </div>
 
             </div> <!-- fh5co-hero-smartphone -->
@@ -715,6 +764,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/wow.min.js"></script>
+<script src="emulator/stories/playa.js"></script>
 <script src="emulator/stories/unboxed.js"></script>
 <script src="emulator/stories/hubble.js"></script>
 <script src="emulator/stories/overboard.js"></script>
@@ -722,6 +772,7 @@
 <script src="emulator/js/canvas.js"></script>
 <script src="js/main.js"></script>
 <script>
+  emulate("playa", "#playa", playa, {autoplay:true});
   emulate("unboxed", "#unboxed", unboxed);
   emulate("hubble", "#hubble", hubble);
   emulate("overboard", "#overboard", overboard);
