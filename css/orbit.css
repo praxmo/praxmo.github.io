@@ -187,7 +187,7 @@ ul[class^=ring] li {
 
 
 .intwixt-cog {
-    top:-84px;
+    top:-67px;
     margin: 0 50% 0 0;
     color:#c8c8c8;
     position: absolute;
@@ -199,10 +199,10 @@ ul[class^=ring] li {
 }
 
 .intwixt-cog:after {
-    background-size: 96px 96px;
+    background-size: 76px 76px;
     display: inline-block;
-    width: 96px;
-    height: 96px;
+    width: 76px;
+    height: 76px;
     content:"";
     background-image: url('/img/intwixt.png');
 }
