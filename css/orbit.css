@@ -204,7 +204,7 @@ ul[class^=ring] li {
     width: 76px;
     height: 76px;
     content:"";
-    background-image: url('/img/intwixt.png');
+    background-image: url('/img/intwixt.png');;
 }
 
 
