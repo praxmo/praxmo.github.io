@@ -789,6 +789,7 @@ a:hover {
 
 .examples-outer .col-sm-4 .circles {
     padding-top:20px;
+    zoom: 85%;
 }
 
 .examples-outer .col-sm-4 .circle {
@@ -805,16 +806,16 @@ a:hover {
     font-size: 14px;
     box-sizing: initial;
     position: relative;
-    margin: 0 0 0 -8px !important;
+    margin: 0 0 0 12px !important;
     font-weight: 600;
     box-shadow: 0 0 8px #c8c8c8;
-    cursor:pointer;
+    cursor:default;
 }
 
 .examples-outer .col-sm-4 .circle:after {
     content: attr(title);
     margin: 0 50% 0 0;
-    color:#c8c8c8;
+    color:#888888;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
@@ -823,11 +824,11 @@ a:hover {
 }
 
 .examples-outer .col-sm-4 .circle:hover:after {
-    color:#888888;
+    /*color:#888888;*/
 }
 
 .examples-outer .col-sm-4 .circle:nth-child(odd):after {
-    top: -25px;
+    bottom: -25px;
 }
 
 .examples-outer .col-sm-4 .circle:nth-child(even):after {
