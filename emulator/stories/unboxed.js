@@ -554,7 +554,7 @@ var unboxed = {
             "id": "a1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "😊 Hi, I'm <b>Intwixt</b>! I manage Box.com document approvals!<br>Upload a file to get started."
+            "text": "😊 Hi, I'm <b>Acme Docs</b>! I manage Box.com document approvals!<br>Upload a file to get started."
           }
         },
         "annotation": {
