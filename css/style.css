@@ -198,9 +198,9 @@ a:hover {
 .fh5co-hero-inner .fh5co-hero-smartphone {
     position: absolute;
     right: 0;
-    top: 100px;
-    width: 320px;
-    height: 500px;
+    top: 50px;
+    width: 350px;
+    height: 550px;
 }
 
 .fh5co-hero-inner .fh5co-hero-smartphone > .shadow {
@@ -1309,7 +1309,9 @@ a:hover {
     }
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
-
+        top: 120px;
+        height: 475px;
+        width: 350px;
     }
 
     .examples-outer .sm-4-content p {
