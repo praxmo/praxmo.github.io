@@ -8,6 +8,7 @@
     <meta name="keywords" content="BPM, Slack, Workflow, Business Process"/>
     <meta name="author" content="info@intwixt.com"/>
 
+
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Owl Carousel  -->
@@ -15,13 +16,19 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
-    <!-- Font Awesome -->
+    <!-- Orbit.css -->
+    <link rel="stylesheet" href="css/orbit.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
     <!-- Theme style  -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="emulator/css/slack.css">
 
     <!-- Analytics -->
     <script>(function (i, s, o, g, r, a, m) {
@@ -48,7 +55,7 @@
                                                        HERO
          ========================================================================================================== -->
 
-    <div id="fh5co-hero-wrapper">
+    <div id="fh5co-hero-wrapper" style="height: auto !important;">
         <nav class="container navbar navbar-expand-lg main-navbar-nav navbar-light">
             <a class="navbar-brand" href="/">Intwixt</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -68,7 +75,7 @@
                         <a class="nav-link" href="/faq">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="$('#fh5co-call-to-action').goTo();return false;">Request a
+                        <a class="nav-link" href="#" onclick="$('#contact').goTo();return false;">Request a
                             Demo</a>
                     </li>
                     <li class="nav-item">
@@ -91,17 +98,16 @@
                             <h4 class="my-0 font-weight-normal">Free</h4>
                         </div>
                         <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$0
-                                <small class="text-muted">/ mo</small>
+                            <h1 class="card-title pricing-card-title">$0</small>
                             </h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>1 app</li>
-                                <li>2,500 activity calls / mo</li>
+                                <li>12K activity calls / yr</li>
                                 <li>1 developer account</li>
                                 <li>Public support forums</li>
                             </ul>
                             <div class="button-wrap">
-                                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Get Started</button>
+                                <a class="btn btn-lg btn-block btn-outline-primary" href="https://slack.com/oauth/authorize?client_id=4147882853.4450379864&amp;scope=identity.basic,identity.team,identity.email,identity.avatar&amp;state=U2FsdGVkX18RWff9nBuyMVElGGu1Dwj%2FcHE5NdO3CypP%2B9QPaGPcZZHLUGJa9oTmgGdAFpEHrNpRqjDxJtZ4xZJjwdy39cwowvNXYQPH5AW%2BWtdnkYjglCzlteK9nMgVoxW%2Bvp%2BEbbkT7y6at2VWZe2IpBFuMvBVu81g6JO3iGk%3D&amp;redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback"><img style="width:32px;height:32px;margin-right:10px;" src="https://my.intwixt.com/stars/Slack.1/image_96"><span>Sign up with Slack</span></a>
                             </div>
                         </div>
                     </div>
@@ -110,17 +116,17 @@
                             <h4 class="my-0 font-weight-normal">Pro</h4>
                         </div>
                         <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$1,599
-                                <small class="text-muted">/ mo</small>
-                            </h1>
+                            <h1 class="card-title pricing-card-title">Call us</h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>2 apps</li>
-                                <li>100,000 activity calls / mo</li>
-                                <li>Limited developer accounts</li>
+                                <li>1.2M activity calls / yr</li>
+                                <li>Multiple developer accounts</li>
                                 <li>Public support forums</li>
                             </ul>
                             <div class="button-wrap">
-                                <button type="button" class="btn btn-lg btn-block btn-primary">Get Started</button>
+                                <button type="button"
+                                        onclick="$('#contact').goTo('contact');return false;"
+                                        class="btn btn-lg btn-block btn-primary">Contact us</button>
                             </div>
                         </div>
                     </div>
@@ -129,17 +135,17 @@
                             <h4 class="my-0 font-weight-normal">Enterprise</h4>
                         </div>
                         <div class="card-body">
-                            <h1 class="card-title pricing-card-title">Call us
-                                <!-- small class="text-muted">/ mo</small --></h1>
+                            <h1 class="card-title pricing-card-title">Call us</h1>
                             <ul class="list-unstyled mt-3 mb-4">
-                                <li>For any size organization to build, configure, manage and use AI-enabled workflows and business processes in
-                                    Slack (and other messaging services); Enterprise-level scalability, unlimited apps, unlimited developer accounts
-                                </li>
+                                <li>Unlimited apps</li>
+                                <li>Enterprise-level scalability</li>
+                                <li>Unlimited developer accounts</li>
+                                <li>ELA support options</li>
                             </ul>
                             <div class="button-wrap">
                                 <button type="button"
-                                        onclick="$('#fh5co-call-to-action').goTo();return false;"
-                                        class="btn btn-lg btn-block btn-outline-primary">Contact us</button>
+                                        onclick="$('#contact').goTo('contact');return false;"
+                                        class="btn btn-lg btn-block btn-primary">Contact us</button>
                             </div>
                         </div>
                     </div>
@@ -153,7 +159,7 @@
                                                  CALL TO ACTION
     ========================================================================================================== -->
 
-    <div id="fh5co-call-to-action" class="fh5co-bottom-outer">
+    <div id="contact" class="fh5co-bottom-outer">
         <div class="overlay">
             <div class="container fh5co-bottom-inner">
                 <div class="row">

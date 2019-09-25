@@ -690,12 +690,13 @@
     opacity: .8;
 }
 
+/** TODO: enable for other bots as well **/
 .main .info label.app.a1::before {
     position: absolute;
     left: 18px;
     top: 14px;
     content: ' ';
-    background-image: url('/img/avatars/a1.png');
+    background-image: url('/img/avatars/unboxed.png');
     background-size: 13px;
     display: inline-block;
     width: 13px;

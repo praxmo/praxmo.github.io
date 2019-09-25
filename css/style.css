@@ -24,7 +24,6 @@ a:hover {
     display: block;
     margin: 0 0 10px;
     font-size: 1.25em;
-    font-weight: 900;
     z-index: 5;
     position: relative;
 }
@@ -143,7 +142,7 @@ a:hover {
 
 .fh5co-hero-inner > h1 {
     color: #345;
-    font-weight: 900;
+    font-weight: 300;
     font-size: 55px;
     letter-spacing: 2px;
     position: relative;
@@ -1319,6 +1318,28 @@ a:hover {
 .pricing .card-body {
     min-height:300px;
 }
+
+.pricing .btn-primary {
+    color: #ffffff;
+    background-color: #03A9F4;
+    border-color: #03A9F4;
+}
+
+.pricing .btn-outline-primary {
+    color: #03A9F4;
+    background-color: #ffffff;
+    border-color: #03A9F4;
+}
+
+
+@media (max-width: 991px) {
+    .pricing .card-deck {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
 
 /* ==========================================================================================================
                                        RESPONSIVE STYLING
