@@ -189,7 +189,7 @@ var unboxed = {
     "p5": {
       "id": "p5",
       "type": "image",
-      "src": "img/screenshots/unboxed_1.png"
+      "src": "/img/screenshots/unboxed_1.png"
     },
 
     //this panel shows the intwixt emulator (this is the one that depicts the file upload workflow)
