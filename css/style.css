@@ -819,7 +819,7 @@ a:hover {
 
 .examples-outer .col-sm-4 .circles {
     padding-top:20px;
-    zoom: 85%;
+    zoom: 80%;
 }
 
 .examples-outer .col-sm-4 .circle {
@@ -836,7 +836,7 @@ a:hover {
     font-size: 14px;
     box-sizing: initial;
     position: relative;
-    margin: 0 0 0 12px !important;
+    margin: 0 0 0 18px !important;
     font-weight: 600;
     box-shadow: 0 0 8px #c8c8c8;
     cursor:default;
