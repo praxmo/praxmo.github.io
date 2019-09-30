@@ -136,14 +136,14 @@ a:hover {
 }
 
 .fh5co-hero-inner {
-    margin-top: 110px;
+    margin-top: 60px;
     position: relative;
 }
 
 .fh5co-hero-inner > h1 {
-    color: #345;
+    color: #444444;
     font-weight: 300;
-    font-size: 55px;
+    font-size: 50px;
     letter-spacing: 2px;
     position: relative;
     z-index: 5;
@@ -200,7 +200,7 @@ a:hover {
 .fh5co-hero-inner .fh5co-hero-smartphone {
     position: absolute;
     right: 0;
-    top: 50px;
+    top: 110px;
     width: 350px;
     height: 530px;
 }
@@ -1368,7 +1368,7 @@ a:hover {
     }
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
-        top: 120px;
+        top: 140px;
         height: 475px;
         width: 350px;
     }
@@ -1436,7 +1436,7 @@ a:hover {
         right: 0;
         margin-left: auto;
         margin-right: auto;
-        top: 140px;
+        top: 170px;
         margin-top: 90px;
         width: 288px; /* 500 */
         height: 460px; /* 800 */
@@ -1665,7 +1665,7 @@ a:hover {
     .fh5co-hero-inner .fh5co-hero-smartphone {
         height: 420px; /* 800 */
         width: 263px; /* 500 */
-        top: 110px;
+        top: 120px;
     }
 
     .second-title {
@@ -1891,4 +1891,12 @@ a:hover {
         text-align: center;
     }
 
+}
+
+
+@media screen and (max-width: 410px) {
+
+    .printout {
+        display:none !important;
+    }
 }
