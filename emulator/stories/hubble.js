@@ -90,11 +90,11 @@ var hubble = {
       "channels": {
         "c1": {
           "id": "c1",
-          "title": "reviewers",
+          "title": "sales-managers",
           "private": true,
           "members": 17,
           "pins": 8,
-          "description": "First-level document review",
+          "description": "Manage sales teams",
           "unread": 2,
           "messages": {}
         },
@@ -111,7 +111,7 @@ var hubble = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Acme - Docs",
+          "title": "Acme - Sales",
           "avatar": "unboxed.png",
           "private": true,
           "messages": {}

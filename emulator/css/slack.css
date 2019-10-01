@@ -822,7 +822,24 @@
     max-height: 200px;
 }
 
-.main .message .text p, .main .message .actions {
+.main .message .fields {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-radius: 0 8px 8px 0;
+    width: 100%;
+}
+
+.main .message .fields:nth-child(odd) {
+    width:50%;
+    font-weight:900;
+}
+
+
+
+
+
+.main .message .text p, .main .message .actions, .main .message .fields {
     margin-top: 10px;
     margin-bottom: 0;
 }

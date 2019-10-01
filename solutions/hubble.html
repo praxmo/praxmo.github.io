@@ -269,6 +269,14 @@
                                                 <i class="far fa-file-alt file_icon"></i>
                                                 {{message.file}}
                                             </div>
+                                            <p v-if="message.fields" class="fields">
+                                                <div v-for="(action, action_id) in message.actions"
+                                                        v-bind:key="action.id"
+                                                        v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
+                                                        v-bind:class="[action.style, { activating: action.activating }]">
+                                                    {{action.title}}
+                                                </div>
+                                            </p>
                                             <p v-if="message.actions" class="actions">
                                                 <button v-for="(action, action_id) in message.actions"
                                                         v-bind:key="action.id"
