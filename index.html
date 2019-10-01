@@ -352,7 +352,7 @@
                         Intercom. With <b>machine learning</b> baked-in, gain insight into people and processes you might
                         otherwise overlook.</p>
                     <div class="circles">
-                    <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
+                        <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
                         <span class="circle" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
                         <span class="circle" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span>
                         <span class="circle" title="Intercom"><img src="/img/connectors/Intercom_96.png"></span>
@@ -564,13 +564,13 @@
                     <div class="option">
                         <label>Try the Slack App</label>
                         <div class="action">
-                            <button class="btn">Add to Slack</button>
+                            <button class="btn" onclick="alert('This page is in beta and under review. Contact Intwixt for a pre-release demo while we finish things up.');">Add to Slack</button>
                         </div>
                     </div>
                     <div class="option">
                         <label>Own the Slack App*</label>
                         <div class="action">
-                            <button class="btn">Get Started</button>
+                            <button class="btn" onclick="alert('This page is in beta and under review. Contact Intwixt for a pre-release demo while we finish things up.');">Get Started</button>
                         </div>
                     </div>
                     <div class="option">
@@ -685,12 +685,19 @@
                                                 <i class="far fa-file-alt file_icon"></i>
                                                 {{message.file}}
                                             </div>
+                                            <div v-if="message.fields" class="fields">
+                                                <div v-for="field in message.fields"
+                                                     class="field">
+                                                    {{field.title}}
+                                                </div>
+                                            </div>
                                             <p v-if="message.actions" class="actions">
                                                 <button v-for="(action, action_id) in message.actions"
                                                         v-bind:key="action.id"
                                                         v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
-                                                        v-bind:class="[action.style, { activating: action.activating }]">
+                                                        v-bind:class="[action.style, { activating: action.activating }, { select: action.type == 'select' }]">
                                                     {{action.title}}
+                                                    <i class="chevron fas fa-chevron-down"></i>
                                                 </button>
                                             </p>
                                         </div>

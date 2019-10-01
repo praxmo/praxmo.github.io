@@ -136,6 +136,10 @@
     pointer-events: none;
 }
 
+.interactive .runner .panel {
+    pointer-events: auto;
+}
+
 .runner .imager {
     width:100%;
     height: 100%;
@@ -736,7 +740,7 @@
 
 .main .messages {
     flex: 1;
-    padding: 200px 20px 40px 20px;
+    padding: 200px 20px 20px 20px;
     width: 100%;
     overflow: auto;
 }
@@ -811,16 +815,12 @@
     margin: 0 0 10px 10px;
 }
 
-.main .message .actions {
-    width: 100%;
-    font-size: .9em;
-    font-weight: 300;
-}
-
 .main .message .text .image {
     display: block;
     max-height: 200px;
 }
+
+/** fields **/
 
 .main .message .fields {
     display: flex;
@@ -828,19 +828,28 @@
     align-items: stretch;
     border-radius: 0 8px 8px 0;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size:.8em;
 }
 
-.main .message .fields:nth-child(odd) {
+.main .message .fields .field:nth-child(odd) {
     width:50%;
     margin-top:5px;
     font-weight:900;
 }
 
-.main .message .fields:nth-child(even) {
+.main .message .fields .field:nth-child(even) {
     width:50%;
     margin-top:5px;
+}
+
+/** action buttons **/
+
+.main .message .actions {
+    width: 100%;
+    font-size: .9em;
+    font-weight: 300;
 }
 
 .main .message .text p, .main .message .actions {
@@ -852,7 +861,7 @@
     border: solid 1px #888888;
     border-radius: 4px;
     background: #ffffff;
-    margin-right: 10px;
+    margin-right: 5px;
     min-width: 80px;
     position: relative;
     padding: 2px 8px;
@@ -891,6 +900,25 @@
 .main .message button.danger {
     color: #ff0000;
 }
+
+.main .message button .chevron {
+    float: right;
+    top: 6px;
+    position: relative;
+    font-size: .8em;
+    display: none;
+}
+
+.main .message button.select .chevron {
+    display: block;
+    margin-left: 12px;
+}
+
+.main .message button.select {
+    text-align:left;
+    color:#888888;
+}
+
 
 .main .input {
     height: 52px;
@@ -989,14 +1017,19 @@ canvas {
         flex-wrap: wrap;
     }
 
-    .emulator .main .message .fields:nth-child(odd) {
+    .emulator .main .message .fields .field:nth-child(odd) {
         margin-top:5px;
         width:100%;
     }
 
-    .emulator .main .message .fields:nth-child(even) {
+    .emulator .main .message .fields .field:nth-child(even) {
         margin-top:0;
         width:100%;
+    }
+
+    .emulator .main .message button {
+        width:100%;
+        margin-bottom:6px;
     }
 
     .runner .story_overlay.cta .option {
@@ -1148,12 +1181,12 @@ canvas {
     flex-wrap: wrap;
 }
 
-.mobile.emulator .main .message .fields:nth-child(odd) {
+.mobile.emulator .main .message .fields .field:nth-child(odd) {
     margin-top:5px;
     width:100%;
 }
 
-.mobile.emulator .main .message .fields:nth-child(even) {
+.mobile.emulator .main .message .fields .field:nth-child(even) {
     margin-top:0;
     width:100%;
 }

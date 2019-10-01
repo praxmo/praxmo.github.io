@@ -16,7 +16,10 @@ var stories = {};
  * @param [config.autoplay] {boolean} start on render
  */
 function emulate(id, selector, story, config) {
+  //pointer to the canvas rendering engine
+  var graph_renderer = "";
   story.id = id;
+  story.graph = "";
   stories[id] = new Vue({
     el: selector,
     components: {
@@ -90,7 +93,7 @@ function emulate(id, selector, story, config) {
                 this.send_formatted_message(target, action.message.id, this.clone(action.message));
               } else if (action.type === 'message.append') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message.id];
-                this.update_message(target, action.message.text, true);
+                this.update_message(target, action.message, true);
               } else if (action.type === 'file.activate') {
                 this.show_file_prompt(this.activePanelId, action.filename, action.message, event.pause);
                 this.story_board.index = this.story_board.index + 1;
@@ -99,7 +102,7 @@ function emulate(id, selector, story, config) {
                 this.before_file_upload(this.activePanelId, action.filename, action.message);
               } else if (action.type === 'action.click') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message.id];
-                this.do_act(target, action.message.text, target.actions[action.action]);
+                this.do_act(target, this.clone(action.message), target.actions[action.action]);
               } else if (action.type === 'dialog.trigger') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message];
                 this.show_dialog(target, action.action, this.clone(action.dialog), event.pause);
@@ -110,6 +113,10 @@ function emulate(id, selector, story, config) {
               } else if (action.type === 'channel.clear') {
                 target = this.panels[action.panel].channels[action.channel];
                 this.$set(target, "messages", {});
+              } else if (action.type === 'graph.highlight') {
+                this.highlight(action.activity);
+              } else if (action.type === 'graph.walk') {
+                this.highlight_each(action.activity);
               }
               this.story_board.index = this.story_board.index + 1;
               if(this.story_board.step && event.step_next) {
@@ -130,10 +137,11 @@ function emulate(id, selector, story, config) {
             this.activePanelId = panel_id;
             var target = this.panels[panel_id];
             if(target.type === "intwixt") {
-              if(window.demo_renderer) {
-                window.demo_renderer.stop();
+              if(graph_renderer) {
+                graph_renderer.stop();
               }
-              window.demo_renderer = drawStaticConstellation(
+              this.graph = target.graph;
+              graph_renderer = drawStaticConstellation(
                 target.graph,
                 {animate: true, size: 80, fps: 20, line_width: 5, annotate:true},
                 '#viewport_runner_' + this.id + '_' + panel_id,
@@ -187,7 +195,7 @@ function emulate(id, selector, story, config) {
             var target = this.panels[panel_id].channels[this.panels[panel_id].activeChannelId].messages[message.id];
             var my = this;
             setTimeout(function() {
-              my.update_message(target, message.text, false);
+              my.update_message(target, message, false);
             }, 1500);
           },
 
@@ -276,34 +284,75 @@ function emulate(id, selector, story, config) {
             var text = "✔️ You clicked the "  + action.id.toUpperCase() + " button.!";
             var target = this.panels[panel_id].channels[this.panels[panel_id].activeChannelId].messages[message.id];
             setTimeout(function() {
-              my.update_message(target, text, false);
+              my.update_message(target, {text:text}, false);
             },700);
           },
 
           //when an action button is clicked
-          do_act: function(target, text, action) {
+          do_act: function(target, message, action) {
             var my = this;
             this.emphasize(action);
             setTimeout(function() {
-              my.update_message(target, text, false);
+              my.update_message(target, message, false);
             },700);
           },
 
           //update an existing message
-          update_message: function(target, text, b_append) {
+          update_message: function(target, message, b_append) {
             target.timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
             //remove the buttons from the message (assume any update invalidates the action buttons)
             delete target.actions;
+            delete target.fields;
+
             if(b_append) {
-              target.text = target.text + "<br>" + text;
+              target.text = target.text + "<br>" + message.text;
             } else {
-              target.text = text;
+              target.text = message.text;
+              target.fields = message.fields;
+              target.actions = message.actions;
             }
             this.emphasize(target);
             var my = this;
             Vue.nextTick(function() {
               my.scroll_to_end();
             });
+          },
+
+          //pulse an activity in the graph to draw attention
+          highlight: function(activity_id) {
+            graph_renderer.beep(activity_id);
+          },
+
+          //pulse the activities in a graph to draw attention to the flow/sequence
+          highlight_each: function(start_activity_id) {
+            this.traverse_graph(start_activity_id, 4000);
+          },
+
+          traverse_graph: function(start, delay, next) {
+            var my = this;
+            var target = next || start;
+            graph_renderer.beep(target);
+            next = this.graph.edges[target];
+            if (next) {
+              var kids = Object.keys(next);
+              var len = kids.length;
+              if (len === 1) {
+                setTimeout(function () {
+                  my.traverse_graph(start, delay, kids[0]);
+                }, delay);
+              } else {
+                var amt = Math.random() * len;
+                var index = parseInt(amt);
+                setTimeout(function () {
+                  my.traverse_graph(start, delay, kids[index]);
+                }, delay);
+              }
+            } else {
+              //cycle again
+              setTimeout(function () {
+                my.traverse_graph(start, delay);
+              }, delay * 2);
+            }
           },
 
           //add new/updated message highlighting

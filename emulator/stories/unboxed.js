@@ -755,6 +755,20 @@ var unboxed = {
           "role": "Intwixt Developers",
           "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
         },
+        "pause": 0,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "graph.walk",
+          "id": "activity_1"
+        },
+        "annotation": {
+          "user": "a0",
+          "role": "Intwixt Developers",
+          "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
+        },
         "pause": 7500
       },
 

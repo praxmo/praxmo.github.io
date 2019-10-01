@@ -19,6 +19,11 @@ var hubble = {
       "title": "Acme - Sales",
       "avatar": "hubble.png"
     },
+    "a2": {
+      "id": "a2",
+      "title": "Aito.ai",
+      "avatar": "aito.png"
+    },
     "u1": {
       "id": "u1",
       "title": "Ben",
@@ -90,7 +95,7 @@ var hubble = {
       "channels": {
         "c1": {
           "id": "c1",
-          "title": "sales-managers",
+          "title": "sales-mgrs",
           "private": true,
           "members": 17,
           "pins": 8,
@@ -199,127 +204,145 @@ var hubble = {
       "graph": {
         "nodes": {
           "activity_1": {
-            "title": "On Slack File Upload",
-            "star": "Slack.1",
-            "definition": "trigger-file_event",
+            "title": "HubSpot | Deal Created",
+            "star": "HubSpot.1",
+            "definition": "trigger-deal_created",
+            "verb": "post",
             "p": {
-              "x": 0.286,
-              "y": 0.251
+              "x": 0.618,
+              "y": 0.205
             },
             "trigger": true
           },
-          "activity_3": {
-            "title": "For Each File",
-            "star": "Map.1",
-            "definition": "map",
+          "activity_2": {
+            "title": "Get Company Details",
+            "star": "HubSpot.1",
+            "definition": "activity-getcompanyproperties",
+            "verb": "get",
             "p": {
-              "x": 0.193,
-              "y": 0.379
+              "x": 0.347,
+              "y": 0.277
             },
-            "iterate": true
+            "async": true,
+            "iterable": true
+          },
+          "activity_3": {
+            "title": "Get Deal Details",
+            "star": "HubSpot.1",
+            "definition": "activity-getdeal",
+            "verb": "get",
+            "p": {
+              "x": 0.155,
+              "y": 0.431
+            },
+            "async": true
           },
           "activity_4": {
-            "title": "Read Slack File",
-            "star": "Slack.1",
-            "definition": "activity-get_file",
+            "title": "Aito | Predict Best Rep",
+            "star": "Aito.1",
+            "definition": "activity-predict",
+            "verb": "post",
             "p": {
-              "x": 0.708,
-              "y": 0.756
+              "x": 0.132,
+              "y": 0.655
             },
             "async": true
           },
           "activity_5": {
-            "title": "Save File to Box",
-            "star": "Box.1",
-            "definition": "fileUpload",
+            "title": "Get Predicted Rep Profile",
+            "star": "Slack.1",
+            "definition": "activity-get_user_info",
+            "verb": "get",
             "p": {
-              "x": 0.826,
-              "y": 0.63
+              "x": 0.305,
+              "y": 0.723
             },
             "async": true
           },
-          "activity_2": {
-            "title": "Ask to Start",
+          "activity_6": {
+            "title": "Ask Managers to Assign",
             "star": "Slack.1",
-            "definition": "activity-respond_with_ask_choice_with_blockkit",
+            "definition": "activity-ask_choice_with_blockkit",
+            "verb": "post",
             "p": {
-              "x": 0.174,
-              "y": 0.683
+              "x": 0.563,
+              "y": 0.751
             },
             "async": true,
-            "long_running": true,
-            "error": null
-          },
-          "activity_9": {
-            "title": "Get User Profile",
-            "star": "Slack.1",
-            "definition": "activity-get_user_info",
-            "p": {
-              "x": 0.519,
-              "y": 0.838
-            },
-            "async": true,
-            "error": null
-          },
-          "activity_14": {
-            "title": "Send 'OK' Message",
-            "star": "Slack.1",
-            "definition": "activity-send_message_with_blockkit",
-            "p": {
-              "x": 0.295,
-              "y": 0.817
-            },
-            "async": true,
-            "error": null
+            "iterate": true
           },
           "activity_7": {
-            "title": "Send 'Cancel' Message",
+            "title": "Assign Deal",
+            "star": "HubSpot.1",
+            "definition": "activity-updatedeal",
+            "verb": "put",
+            "p": {
+              "x": 0.67,
+              "y": 0.893
+            },
+            "async": true
+          },
+          "activity_8": {
+            "title": "Update Message | Show Chosen Rep",
+            "star": "Slack.1",
+            "definition": "activity-respond_with_ask_choice_with_blockkit",
+            "verb": "post",
+            "p": {
+              "x": 0.42,
+              "y": 0.969
+            },
+            "async": true
+          },
+          "activity_9": {
+            "title": "Intercom | Get Company Detail",
+            "star": "Intercom.1",
+            "definition": "activity-getcompany",
+            "verb": "get",
+            "p": {
+              "x": 0.734,
+              "y": 0.642
+            },
+            "async": true
+          },
+          "activity_10": {
+            "title": "Send Expanded Profile to Managers",
             "star": "Slack.1",
             "definition": "activity-send_message_with_blockkit",
+            "verb": "post",
             "p": {
-              "x": 0.365,
-              "y": 0.65
+              "x": 0.892,
+              "y": 0.475
             },
-            "credential": "intwixt-54829",
-            "async": true,
-            "error": null
+            "async": true
           },
-          "activity_6": {
-            "title": "Start Approval Workflow",
-            "star": ".intwixt-1-40050.1",
+          "activity_11": {
+            "title": "Start Assignee Worfklow",
+            "star": ".learning-1-36939.1",
             "definition": "activity_1",
+            "verb": "post",
             "p": {
-              "x": 0.906,
-              "y": 0.498
+              "x": 0.864,
+              "y": 0.972
             },
             "icon_font": {
               "class": "fa-check",
               "code": "",
               "family": "FontAwesome"
             }
-          },
-          "activity_8": {
-            "title": "Check if Resubmission",
-            "star": ".intwixt-1-40122.1",
-            "definition": "activity_3",
-            "p": {
-              "x": 0.139,
-              "y": 0.527
-            },
-            "icon_font": {
-              "class": "fa-upload",
-              "code": "",
-              "family": "FontAwesome"
-            }
           }
         },
         "edges": {
           "activity_1": {
+            "activity_2": {
+              "length": 1
+            }
+          },
+          "activity_2": {
             "activity_3": {
               "length": 1
             }
           },
-          "activity_9": {
+          "activity_3": {
             "activity_4": {
               "length": 1
             }
@@ -329,39 +352,31 @@ var hubble = {
               "length": 1
             }
           },
-          "activity_8": {
-            "activity_2": {
-              "length": 1,
-              "error": null,
-              "condition": true
-            }
-          },
-          "activity_14": {
-            "activity_9": {
-              "length": 1,
-              "error": null,
-              "condition": null
-            }
-          },
-          "activity_2": {
-            "activity_14": {
-              "length": 1,
-              "error": null,
-              "condition": true
-            },
-            "activity_7": {
-              "length": 1,
-              "error": null,
-              "condition": true
-            }
-          },
           "activity_5": {
             "activity_6": {
               "length": 1
             }
           },
-          "activity_3": {
+          "activity_6": {
+            "activity_7": {
+              "length": 1,
+              "condition": true
+            },
+            "activity_9": {
+              "length": 1,
+              "condition": true
+            }
+          },
+          "activity_7": {
             "activity_8": {
+              "length": 1
+            },
+            "activity_11": {
+              "length": 1
+            }
+          },
+          "activity_9": {
+            "activity_10": {
               "length": 1
             }
           }
@@ -527,7 +542,7 @@ var hubble = {
           "text": "turns Slack into a <b>business process engine</b>, optimizing the customer journey directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
-        "pause": 6000
+        "pause": 6000 //6000
       },
 
       //activate a channel
@@ -549,78 +564,70 @@ var hubble = {
       {
         "action": {
           "type": "message.send",
-          "channel": "a1",
+          "channel": "c1",
           "message": {
-            "id": "a1m1",
+            "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "👍 A new deal was just created in HubSpot!<br><b>Ahe Kilani</b> typically closes deals like this in around 6 weeks. What would you like to do?"
-          }
-        },
-        "annotation": {
-          "user": "u1",
-          "role": "Submitters",
-          "text": "upload files directly to Slack. Intwixt-built Slackbots (like the one shown here) can orchestrate sophisticated business processes in response."
-        },
-        "pause": 4500
-      },
-
-      //activate the file upload form
-      {
-        "action": {
-          "type": "file.activate",
-          "filename": "Acme RFP.pdf",
-          "message": "Here is the Acme proposal."
-        },
-        "pause": 3000
-      },
-
-      //submit the file upload form
-      {
-        "action": {
-          "type": "file.upload",
-          "filename": "Acme RFP.pdf",
-          "message": "Here is the Acme proposal."
-        },
-        "annotation": {
-          "user": "",
-          "role": "",
-          "text": ""
-        },
-        "pause": 5000,
-        "step_next": true
-      },
-
-
-      {
-        "action": {
-          "type": "message.send",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "Just to confirm...would you like to Submit <b>Acme RFP.pdf</b> for review?",
+            "text": "👍 A new deal was just created in HubSpot!<br>🤖 <b>Amit</b> usually closes deals like this in 6 weeks.",
+            "fields": [
+              {title: "Company"},
+              {title: "Intel, Inc."},
+              {title: "Employees"},
+              {title: "110,000"}
+            ],
             "actions": {
-              "submit": {
-                "id": "submit",
-                "title": "Submit",
-                "style": "primary"
+              "review": {
+                "id": "review",
+                "title": "View Deal"
               },
-              "cancel": {
-                "id": "cancel",
-                "title": "Cancel",
-                "style": "danger"
+              "assign": {
+                "id": "assign",
+                "title": "Assign to Amit"
+              },
+              "choose": {
+                "id": "choose",
+                "type":"select",
+                "title": "Choose SR"
               }
             }
           }
         },
         "annotation": {
           "user": "u1",
-          "role": "Submitters",
-          "text": "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by calling the <b>Box.com</b> Task Assignment APIs."
+          "role": "Sales Managers",
+          "text": "are notified when new deals are created in HubSpot. The <b>AI agent</b> recommends sales reps (SRs) based upon past performance."
         },
-        "pause": 5000
+        "pause": 3500,
+        "step_next": false
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 750,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "annotation.show"
+        },
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "can view deal details directly in Slack and can optionally choose a different SR. The AI agent augments the interaction, while <b>managers make the final call</b>."
+        },
+        "pause": 3500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 250,
+        "step_next": true
       },
 
       //click an action button in a message
@@ -628,113 +635,26 @@ var hubble = {
         "action": {
           "type": "action.click",
           "channel": "a1",
-          "action": "submit",
+          "action": "assign",
           "message": {
-            "id": "a1m2",
+            "id": "c1m1",
             "author": "a1",
-            "timestamp": "9:22 AM",
-            "text": "Starting review...Return to this message for real-time status updates.<br><b>✔ SUBMITTED</b> <i>Acme RFP.pdf</i> for Review"
-          }
-        },
-        "annotation": {
-          "user": "",
-          "role": "",
-          "text": ""
-        },
-        "pause": 3500,
-        "step_next": true
-      },
-
-      //append message content to an existing message
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>✔ CLAIMED</b> at <i>10:45am</i> by Sandy"
+            "timestamp": "9:30 AM",
+            "text": "Intel Deal (HubSpot Deal <a href='#'>1025480752</a>) status:<br><b>✔ UPDATED</b> by @Ben at 09:30 AM<br><b>✔ ASSIGNED</b> to @Amit at 09:30 AM",
+            "actions": {
+              "review": {
+                "id": "review",
+                "title": "View Deal"
+              }
+            }
           }
         },
         "annotation": {
           "user": "u1",
-          "role": "Submitters",
-          "text": "can return for real-time status updates as the document moves through workflow."
+          "role": "Sales Managers",
+          "text": "see the deal update directly in Slack. Real-time updates to interactive messages are critical to conversational usability, helping avoid confusion on shared channels."
         },
-        "pause": 3000
-      },
-
-      //clear the annotation that describes what's going on; good to hide to better draw attention when showing
-      {
-        "action": {
-          "type": "annotation.hide"
-        },
-        "pause": 1500,
-        "step_next": true
-      },
-
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>🚫 REJECTED</b> at <i>10:50am</i> by Sandy<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
-          }
-        },
-        "annotation": {
-          "user": "u1",
-          "role": "Submitters",
-          "text": "are told how to address outstanding issues for rejected documents. They can then resubmit the document to Slack, and the review process will resume."
-        },
-        "pause": 3000
-      },
-
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "11:30 AM",
-            "text": "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Ben"
-          }
-        },
-        "pause": 3000,
-        "step_next": true
-      },
-
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>✔ APPROVED</b> at <i>11:00pm</i> by Sandy"
-          }
-        },
-        "pause": 3000,
-        "step_next": true
-      },
-
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>✔ APPROVED</b> at <i>11:33pm</i> by Radhika<br><b>✔ COMPLETED</b> at <i>11:33pm</i>"
-          }
-        },
-        "pause": 2000
+        "pause": 3500
       },
 
       {
@@ -753,9 +673,56 @@ var hubble = {
         "annotation": {
           "user": "a0",
           "role": "Intwixt Developers",
-          "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
+          "text": "use the visual designer to configure workflows. This 'no-code' approach makes it possible for even business users to define rules. This particular workflow is triggered when a deal is added to HubSpot."
         },
         "pause": 7500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 750,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "graph.highlight",
+          "activity": "activity_4"
+        },
+        "annotation": {
+          "user": "a2",
+          "role": "AI Services",
+          "text": "can be integrated into any process to make predictions that sales managers might otherwise overlook."
+        },
+        "pause": 3500
+      },
+
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p3"
+        },
+        "annotation": {
+          "user": "a2",
+          "role": "AI Services",
+          "text": "are trained in a separate workflow. Each time a deal successfully closes, information about the deal and the sales rep are passed along. The more data provided to the AI, the more accurate the predictions"
+        },
+        "pause": 6500
+      },
+
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p5"
+        },
+        "annotation": {
+          "user": "a2",
+          "role": "Aito.ai",
+          "text": "is an AI-enabled database that can be updated using historical data to help make accurate predictions from the get-go."
+        },
+        "pause": 5000
       },
 
       {
@@ -768,15 +735,14 @@ var hubble = {
 
       {
         "action": {
-          "type": "panel.activate",
-          "id": "p3"
+          "type": "annotation.show"
         },
         "annotation": {
           "user": "a0",
-          "role": "Intwixt Developers",
-          "text": "are encouraged to create modular, conversational workflows. This one drives the review process. Now let's return to Slack to see the end user experience orchestrated by this flow."
+          "role": "Intwixt",
+          "text": "makes it easy to train the AI services, using the same conversational style. Here the information is sent to Aito for bulk updates."
         },
-        "pause": 6500
+        "pause": 5000
       },
 
       {
@@ -799,12 +765,12 @@ var hubble = {
       {
         "action": {
           "type": "channel.activate",
-          "id": "c1"
+          "id": "a1"
         },
         "annotation": {
           "user": "u3",
-          "role": "Approvers",
-          "text": "can be named individuals or a Slack channel can be used instead. When a channel is used, members of that channel will be prompted to first claim the document."
+          "role": "Sales Reps",
+          "text": "are contacted directly by the bot when deals are assigned."
         },
         "pause": 4500
       },
@@ -825,7 +791,7 @@ var hubble = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "10:40 AM",
-            "text": "📝 A document needs review. Press <b>Claim Document</b> to begin.",
+            "text": "📝 You were just assigned a deal. Press <b>Refresh</b> to begin.",
             "actions": {
               "claim": {
                 "id": "claim",
@@ -836,139 +802,6 @@ var hubble = {
           }
         },
         "pause": 4500
-      },
-
-      {
-        "action": {
-          "type": "action.click",
-          "channel": "c1",
-          "action": "claim",
-          "message": {
-            "id": "c1m1",
-            "author": "a1",
-            "timestamp": "10:41 AM",
-            "text": "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by @Sandy at 10:41 AM."
-          }
-        },
-        "annotation": {
-          "user": "u3",
-          "role": "Approvers",
-          "text": "are notified when a document is claimed, giving other channel members a real-time view of everyone's efforts."
-        },
-        "pause": 3500
-      },
-
-      {
-        "action": {
-          "type": "channel.activate",
-          "id": "a1"
-        },
-        "annotation": {
-          "user": "",
-          "role": "",
-          "text": ""
-        },
-        "pause": 1000,
-        "step_next": true
-      },
-
-      {
-        "action": {
-          "type": "message.send",
-          "channel": "a1",
-          "message": {
-            "id": "a1m1",
-            "author": "a1",
-            "timestamp": "10:42 AM",
-            "text": "Please review this Box.com document and then return here to <b>Approve</b> or <b>Reject</b> it. You have 24 hours to complete your review.",
-            "actions": {
-              "approve": {
-                "id": "approve",
-                "title": "Approve",
-                "style": "primary"
-              },
-              "deny": {
-                "id": "deny",
-                "title": "Deny",
-                "style": "danger"
-              },
-              "view": {
-                "id": "view",
-                "title": "Preview"
-              }
-            }
-          }
-        },
-        "annotation": {
-          "user": "u2",
-          "role": "Approvers",
-          "text": "can preview the document at Box.com and then complete the task by clicking <b>Approve</b> or <b>Deny</b>."
-        },
-        "pause": 5000
-      },
-
-      //show the form dialog; for now hard-coded to just show a text area...can be extended to render forms.
-      //include the id of the message and id of the action button that will trigger the dialog
-      //make sure target_field is equal t the id of the single field ('reason' in this example)
-      {
-        "action": {
-          "type": "dialog.trigger",
-          "channel": "a1",
-          "message": "a1m1",
-          "action": "deny",
-          "dialog": {
-            "title": "Justification",
-            "target_field": "reason",
-            "fields": {
-              "reason": {
-                "type": "textarea",
-                "title": "Reason",
-                "placeholder": "Enter a reason",
-                "value": "You need to include more detail in the `maintenance and support` section."
-              }
-            }
-          }
-        },
-        "annotation": {
-          "user": "u2",
-          "role": "Approvers",
-          "text": "are prompted to provide additional details for their decision, including steps to remedy rejected documents. The submitter will then be notified to resubmit the fixed document."
-        },
-        "pause": 3500
-      },
-
-      //submit the dialog (the `text` replaces the message text and buttons for the message that launched the dialog)
-      {
-        "action": {
-          "type": "dialog.submit",
-          "channel": "a1",
-          "action": "deny",
-          "message": {
-            "id": "a1m1",
-            "author": "a1",
-            "timestamp": "10:45 AM",
-            "text": "🚫 You <b>REJECTED</b> document <i>Acme RFP.pdf</i> at 10:50AM<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
-          }
-        },
-        "annotation": {
-          "user": "",
-          "role": "",
-          "text": ""
-        },
-        "pause": 3500
-      },
-
-      {
-        "action": {
-          "type": "panel.activate",
-          "id": "p5"
-        },
-        "annotation": {
-          "user": "box",
-          "role": "Box.com",
-          "text": "is used for previewing the file and is also useful for auditing the review history once it's completed. Box.com also serves as the repository for the final, approved version of the document."
-        },
-        "pause": 5000
       },
 
       //clear all messages from a channel (used to reset a slack workspace in prep for re-running the simulation)
