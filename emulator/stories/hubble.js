@@ -16,8 +16,8 @@ var hubble = {
     },
     "a1": {
       "id": "a1",
-      "title": "Acme - Docs",
-      "avatar": "unboxed.png"
+      "title": "Acme - Sales",
+      "avatar": "hubble.png"
     },
     "u1": {
       "id": "u1",
@@ -112,7 +112,7 @@ var hubble = {
           "id": "a1",
           "is_dm": true,
           "title": "Acme - Sales",
-          "avatar": "unboxed.png",
+          "avatar": "hubble.png",
           "private": true,
           "messages": {}
         }
@@ -156,11 +156,11 @@ var hubble = {
       "channels": {
         "c1": {
           "id": "c1",
-          "title": "reviewers",
+          "title": "sales-reps",
           "private": true,
           "members": 17,
           "pins": 8,
-          "description": "First-level document review",
+          "description": "Shared channels for SRs",
           "unread": 2,
           "messages": {}
         },
@@ -177,8 +177,8 @@ var hubble = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Acme - Docs",
-          "avatar": "unboxed.png",
+          "title": "Acme - Sales",
+          "avatar": "hubble.png",
           "private": true,
           "messages": {}
         }
@@ -189,7 +189,7 @@ var hubble = {
     "p5": {
       "id": "p5",
       "type": "image",
-      "src": "/img/screenshots/unboxed_1.png"
+      "src": "/img/screenshots/hubble_1.png"
     },
 
     //this panel shows the intwixt emulator (this is the one that depicts the file upload workflow)
@@ -524,7 +524,7 @@ var hubble = {
         "annotation": {
           "user": "a0",
           "role": "Intwixt",
-          "text": "turns Slack into a <b>business process engine</b>, enabling centralized management of document approval workflows."
+          "text": "turns Slack into a <b>business process engine</b>, optimizing the customer journey directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
         "pause": 6000
@@ -534,7 +534,7 @@ var hubble = {
       {
         "action": {
           "type": "channel.activate",
-          "id": "a1"
+          "id": "c1"
         },
         "annotation": {
           "user": "",
@@ -554,7 +554,7 @@ var hubble = {
             "id": "a1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "😊 Hi, I'm <b>Acme Docs</b>! I manage Box.com document approvals!<br>Upload a file to get started."
+            "text": "👍 A new deal was just created in HubSpot!<br><b>Ahe Kilani</b> typically closes deals like this in around 6 weeks. What would you like to do?"
           }
         },
         "annotation": {

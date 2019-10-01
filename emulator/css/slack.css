@@ -828,18 +828,22 @@
     align-items: stretch;
     border-radius: 0 8px 8px 0;
     width: 100%;
+    margin-top: 5px;
+    margin-bottom: 0;
 }
 
 .main .message .fields:nth-child(odd) {
     width:50%;
+    margin-top:5px;
     font-weight:900;
 }
 
+.main .message .fields:nth-child(even) {
+    width:50%;
+    margin-top:5px;
+}
 
-
-
-
-.main .message .text p, .main .message .actions, .main .message .fields {
+.main .message .text p, .main .message .actions {
     margin-top: 10px;
     margin-bottom: 0;
 }
@@ -939,6 +943,8 @@ canvas {
     height: 100%;
 }
 
+
+
 /* RESPONSIVE */
 
 @media screen and (max-width: 1200px) {
@@ -979,13 +985,25 @@ canvas {
         position: relative;
     }
 
+    .emulator .main .message .fields {
+        flex-wrap: wrap;
+    }
+
+    .emulator .main .message .fields:nth-child(odd) {
+        margin-top:5px;
+        width:100%;
+    }
+
+    .emulator .main .message .fields:nth-child(even) {
+        margin-top:0;
+        width:100%;
+    }
+
     .runner .story_overlay.cta .option {
         width:50%;
     }
 
     .runner .story_overlay.cta .option .action {
-        /*position: absolute;
-        bottom: 0;*/
         width:100%;
     }
 
@@ -1124,6 +1142,20 @@ canvas {
 
 .mobile.emulator .main .messages {
     padding: 200px 8px 40px 8px;
+}
+
+.mobile.emulator .main .message .fields {
+    flex-wrap: wrap;
+}
+
+.mobile.emulator .main .message .fields:nth-child(odd) {
+    margin-top:5px;
+    width:100%;
+}
+
+.mobile.emulator .main .message .fields:nth-child(even) {
+    margin-top:0;
+    width:100%;
 }
 
 .mobile.emulator .main .message button {
