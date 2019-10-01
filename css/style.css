@@ -98,7 +98,7 @@ a:hover {
 }
 
 .main-navbar-nav .navbar-nav .nav-item a:hover {
-    color: #234197 !important;
+    color: #03a9f4 !important;
     transition: all .33s ease;
 }
 
@@ -744,79 +744,6 @@ a:hover {
     width: 300px;
 }
 
-.examples-outer .col-sm-4 .span-new {
-    color: #fff;
-    background: #fcec64;
-    padding: 18px;
-    width: 35px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
-    position: absolute;
-    font-weight: 700;
-    right: 0;
-    top: 140px;
-}
-
-.examples-outer .col-sm-4 .span-free {
-    color: #fff;
-    background: #6ca3ff;
-    padding: 18px;
-    width: 35px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
-    position: absolute;
-    left: -35px;
-    bottom: -430px;
-    font-weight: 700;
-}
-
-.examples-outer .col-sm-4 .span-data {
-    color: #7e8c91;
-    background: #b8faee;
-    padding: 20px;
-    width: 40px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    letter-spacing: 1px;
-    box-sizing: initial;
-    position: absolute;
-    top: 140px;
-    right: -2px;
-    font-weight: 700;
-}
-
-.examples-outer .col-sm-6 .span-percent {
-    color: #fff;
-    background: #6ca3ff;
-    padding: 18px;
-    width: 35px;
-    display: inline-block;
-    line-height: 30px;
-    height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
-    position: absolute;
-    left: -35px;
-    bottom: -430px;
-    font-weight: 700;
-}
-
 .examples-outer .col-sm-4 .circles {
     padding-top:20px;
     zoom: 80%;
@@ -973,10 +900,6 @@ a:hover {
 
 .footer-outer .social-icons-footer a:hover i {
     opacity: .6;
-    transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    -o-transition: all .2s ease;
-    -ms-transition: all .2s ease;
     transition: all .2s ease;
 }
 
