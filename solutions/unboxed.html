@@ -99,10 +99,10 @@
                         in Slack, while Box versioning, task assignment, and
                         access controls provide secure and auditable document access.</p>
                     <div class="circles">
-                        <span class="circle" title="Submitter"><img class="avatar" src="/img/avatars/u1.png"></span>
+                        <span class="circle" data-name="(Ben)" title="Submitter"><img class="avatar" src="/img/avatars/u1.png"></span>
                         <span class="circle" title="Box"><img src="https://my.intwixt.com/stars/Box.1/image_96"></span>
-                        <span class="circle" title="Approver"><img class="avatar" src="/img/avatars/u2.png"></span>
-                        <span class="circle" title="Approver"><img class="avatar" src="/img/avatars/u3.png"></span>
+                        <span class="circle" data-name="(Sandy)" title="Reviewer 1"><img class="avatar" src="/img/avatars/u2.png"></span>
+                        <span class="circle" data-name="(Radhika)" title="Reviewer 2"><img class="avatar" src="/img/avatars/u3.png"></span>
                     </div>
                 </div>
             </div>
@@ -269,12 +269,19 @@
                                                 <i class="far fa-file-alt file_icon"></i>
                                                 {{message.file}}
                                             </div>
+                                            <div v-if="message.fields" class="fields">
+                                                <div v-for="field in message.fields"
+                                                     class="field">
+                                                    {{field.title}}
+                                                </div>
+                                            </div>
                                             <p v-if="message.actions" class="actions">
                                                 <button v-for="(action, action_id) in message.actions"
                                                         v-bind:key="action.id"
                                                         v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
-                                                        v-bind:class="[action.style, { activating: action.activating }]">
+                                                        v-bind:class="[action.style, { activating: action.activating }, { select: action.type == 'select' }]">
                                                     {{action.title}}
+                                                    <i class="chevron fas fa-chevron-down"></i>
                                                 </button>
                                             </p>
                                         </div>

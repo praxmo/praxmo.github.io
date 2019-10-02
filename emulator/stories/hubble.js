@@ -98,8 +98,18 @@ var hubble = {
           "title": "sales-mgrs",
           "private": true,
           "members": 17,
-          "pins": 8,
+          "pins": 6,
           "description": "Manage sales teams",
+          "unread": 2,
+          "messages": {}
+        },
+        "c3": {
+          "id": "c3",
+          "title": "sales-reps",
+          "private": true,
+          "members": 32,
+          "pins": 12,
+          "description": "Sales team members",
           "unread": 2,
           "messages": {}
         },
@@ -269,7 +279,7 @@ var hubble = {
               "y": 0.751
             },
             "async": true,
-            "iterate": true
+            "iterable": true
           },
           "activity_7": {
             "title": "Assign Deal",
@@ -390,129 +400,98 @@ var hubble = {
       "type": "intwixt",
       "graph": {
         "nodes": {
-          "activity_7": {
-            "title": "Review Document",
-            "star": "Receive.1",
-            "definition": "receive",
+          "activity_13": {
+            "title": "HubSpot | On Deal Updated",
+            "star": "HubSpot.1",
+            "definition": "trigger-deal_updated",
+            "verb": "post",
             "p": {
-              "x": 0.191,
-              "y": 0.378
+              "x": 0.461,
+              "y": 0.14
             },
-            "trigger": true,
-            "image": {
-              "src": "/stars/Receive.1/image_96"
-            },
-            "icon_font": {
-              "class": "fa-file-o",
-              "code": "",
-              "family": "FontAwesome"
-            }
+            "trigger": true
           },
-          "activity_8": {
-            "title": "Ask Review",
+          "activity_14": {
+            "title": "Get User Info",
             "star": "Slack.1",
-            "definition": "activity-ask_choice_with_blockkit",
+            "definition": "activity-get_user_info",
+            "verb": "get",
             "p": {
-              "x": 0.544,
-              "y": 0.891
-            },
-            "async": true,
-            "long_running": true
-          },
-          "activity_10": {
-            "title": "Create Task",
-            "star": "Box.1",
-            "definition": "createTask",
-            "p": {
-              "x": 0.105,
-              "y": 0.674
+              "x": 0.626,
+              "y": 0.931
             },
             "async": true
           },
-          "activity_13": {
-            "title": "Create Task Assignment",
-            "star": "Box.1",
-            "definition": "createTaskAssignment",
+          "activity_17": {
+            "title": "Deal Closed | Get Deal Info",
+            "star": "HubSpot.1",
+            "definition": "activity-getdeal",
+            "verb": "get",
             "p": {
-              "x": 0.28,
-              "y": 0.916
+              "x": 0.152,
+              "y": 0.301
+            },
+            "async": true
+          },
+          "activity_18": {
+            "title": "Get Company Info",
+            "star": "HubSpot.1",
+            "definition": "activity-getcompany",
+            "verb": "get",
+            "p": {
+              "x": 0.138,
+              "y": 0.63
+            },
+            "async": true
+          },
+          "activity_19": {
+            "title": "Get Company Info",
+            "star": "Intercom.1",
+            "definition": "activity-getcompany",
+            "verb": "get",
+            "p": {
+              "x": 0.334,
+              "y": 0.879
             },
             "async": true
           },
           "activity_20": {
-            "title": "Complete Task Assignment",
-            "star": "Box.1",
-            "definition": "updateTaskAssignment",
+            "title": "Train AI",
+            "star": "Aito.1",
+            "definition": "activity-add_data_entry",
+            "verb": "post",
             "p": {
-              "x": 0.752,
-              "y": 0.399
+              "x": 0.882,
+              "y": 0.804
             },
             "async": true
-          },
-          "activity_22": {
-            "title": "Send Confirmation Message",
-            "star": "Slack.1",
-            "definition": "activity-send_message_with_blockkit",
-            "p": {
-              "x": 0.924,
-              "y": 0.873
-            },
-            "async": true
-          },
-          "activity_1": {
-            "title": "Ask for Reason",
-            "star": "Slack.1",
-            "definition": "activity-respond_with_ask_data_with_dialog",
-            "p": {
-              "x": 0.743,
-              "y": 0.652
-            },
-            "async": true,
-            "long_running": true
-          },
-          "activity_3": {
-            "title": "Return Response",
-            "star": "Return.1",
-            "definition": "return",
-            "p": {
-              "x": 0.684,
-              "y": 0.177
-            }
           }
         },
         "edges": {
+          "activity_19": {
+            "activity_14": {
+              "length": 1
+            }
+          },
           "activity_13": {
-            "activity_8": {
-              "length": 2
-            }
-          },
-          "activity_7": {
-            "activity_10": {
-              "length": 2
-            }
-          },
-          "activity_10": {
-            "activity_13": {
-              "length": 2
-            }
-          },
-          "activity_1": {
-            "activity_20": {
-              "length": 2
-            },
-            "activity_22": {
-              "length": 2
-            }
-          },
-          "activity_8": {
-            "activity_1": {
-              "length": 2,
+            "activity_17": {
+              "length": 1,
               "condition": true
             }
           },
-          "activity_20": {
-            "activity_3": {
-              "length": 2
+          "activity_17": {
+            "activity_18": {
+              "length": 1
+            }
+          },
+          "activity_18": {
+            "activity_19": {
+              "length": 1
+            }
+          },
+          "activity_14": {
+            "activity_20": {
+              "length": 1
             }
           }
         }
@@ -525,10 +504,29 @@ var hubble = {
     "state": "idling",
 
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
-    "index": 0,
+    "index": 8,
 
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
+
+
+
+
+
+      //activate a panel
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p4"
+        },
+        "annotation": {
+          "user": "a0",
+          "role": "Intwixt",
+          "text": "turns Slack into a <b>business process engine</b>, optimizing the customer journey directly in Slack."
+        },
+        //when the user clicks 'play all' this defines how long to wait before running the next step
+        "pause": 6000 //6000
+      },
 
       //activate a panel
       {
@@ -537,9 +535,9 @@ var hubble = {
           "id": "p1"
         },
         "annotation": {
-          "user": "a0",
-          "role": "Intwixt",
-          "text": "turns Slack into a <b>business process engine</b>, optimizing the customer journey directly in Slack."
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "are notified when deals time out HubSpot. The <b>AI agent</b> recommends sales reps (SRs) based upon past performance."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
         "pause": 6000 //6000

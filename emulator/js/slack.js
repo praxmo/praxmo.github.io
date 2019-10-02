@@ -325,33 +325,35 @@ function emulate(id, selector, story, config) {
 
           //pulse the activities in a graph to draw attention to the flow/sequence
           highlight_each: function(start_activity_id) {
-            this.traverse_graph(start_activity_id, 4000);
+            this.traverse_graph(this.activePanelId, start_activity_id, 4000);
           },
 
-          traverse_graph: function(start, delay, next) {
-            var my = this;
-            var target = next || start;
-            graph_renderer.beep(target);
-            next = this.graph.edges[target];
-            if (next) {
-              var kids = Object.keys(next);
-              var len = kids.length;
-              if (len === 1) {
-                setTimeout(function () {
-                  my.traverse_graph(start, delay, kids[0]);
-                }, delay);
+          traverse_graph: function(target_panel, start, delay, next) {
+            if(target_panel === this.activePanelId) {
+              var my = this;
+              var target = next || start;
+              graph_renderer.beep(target);
+              next = this.graph.edges[target];
+              if (next) {
+                var kids = Object.keys(next);
+                var len = kids.length;
+                if (len === 1) {
+                  setTimeout(function () {
+                    my.traverse_graph(target_panel, start, delay, kids[0]);
+                  }, delay);
+                } else {
+                  var amt = Math.random() * len;
+                  var index = parseInt(amt);
+                  setTimeout(function () {
+                    my.traverse_graph(target_panel, start, delay, kids[index]);
+                  }, delay);
+                }
               } else {
-                var amt = Math.random() * len;
-                var index = parseInt(amt);
+                //cycle again
                 setTimeout(function () {
-                  my.traverse_graph(start, delay, kids[index]);
-                }, delay);
+                  my.traverse_graph(target_panel, start, delay);
+                }, delay * 2);
               }
-            } else {
-              //cycle again
-              setTimeout(function () {
-                my.traverse_graph(start, delay);
-              }, delay * 2);
             }
           },
 

@@ -213,8 +213,8 @@ var unboxed = {
             "star": "Map.1",
             "definition": "map",
             "p": {
-              "x": 0.193,
-              "y": 0.379
+              "x": 0.143,
+              "y": 0.369
             },
             "iterate": true
           },
@@ -244,7 +244,7 @@ var unboxed = {
             "definition": "activity-respond_with_ask_choice_with_blockkit",
             "p": {
               "x": 0.174,
-              "y": 0.683
+              "y": 0.803
             },
             "async": true,
             "long_running": true,
@@ -266,8 +266,8 @@ var unboxed = {
             "star": "Slack.1",
             "definition": "activity-send_message_with_blockkit",
             "p": {
-              "x": 0.295,
-              "y": 0.817
+              "x": 0.315,
+              "y": 0.917
             },
             "async": true,
             "error": null
@@ -290,7 +290,7 @@ var unboxed = {
             "definition": "activity_1",
             "p": {
               "x": 0.906,
-              "y": 0.498
+              "y": 0.438
             },
             "icon_font": {
               "class": "fa-check",
@@ -304,7 +304,7 @@ var unboxed = {
             "definition": "activity_3",
             "p": {
               "x": 0.139,
-              "y": 0.527
+              "y": 0.597
             },
             "icon_font": {
               "class": "fa-upload",
@@ -510,7 +510,7 @@ var unboxed = {
     "state": "idling",
 
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
-    "index": 0,
+    "index": 0, //use 14 to start emulator at graph 1
 
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
@@ -618,7 +618,7 @@ var unboxed = {
         "annotation": {
           "user": "u1",
           "role": "Submitters",
-          "text": "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by calling the <b>Box.com</b> Task Assignment APIs."
+          "text": "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by orchestrating the necessary <b>Box.com</b> APIs."
         },
         "pause": 5000
       },
@@ -753,7 +753,7 @@ var unboxed = {
         "annotation": {
           "user": "a0",
           "role": "Intwixt Developers",
-          "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
+          "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it possible for even business users to modify and extend a workflow. This particular workflow is triggered when files are uploaded to slack."
         },
         "pause": 0,
         "step_next": true
@@ -761,13 +761,8 @@ var unboxed = {
 
       {
         "action": {
-          "type": "graph.walk",
-          "id": "activity_1"
-        },
-        "annotation": {
-          "user": "a0",
-          "role": "Intwixt Developers",
-          "text": "use the visual designer to configure the workflow. This 'no-code' approach makes it effortless for even business users to modify and extend a workflow. For example, this workflow is triggered when files are uploaded to slack."
+          "type": "graph.highlight",
+          "activity": "activity_1"
         },
         "pause": 7500
       },
@@ -789,6 +784,15 @@ var unboxed = {
           "user": "a0",
           "role": "Intwixt Developers",
           "text": "are encouraged to create modular, conversational workflows. This one drives the review process. Now let's return to Slack to see the end user experience orchestrated by this flow."
+        },
+        "pause": 0,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "graph.highlight",
+          "activity": "activity_7"
         },
         "pause": 6500
       },
@@ -817,8 +821,8 @@ var unboxed = {
         },
         "annotation": {
           "user": "u3",
-          "role": "Approvers",
-          "text": "can be named individuals or a Slack channel can be used instead. When a channel is used, members of that channel will be prompted to first claim the document."
+          "role": "Reviewers",
+          "text": "can be named individuals (like Radhika and Sandy) or a Slack channel can be used instead (as is shown here). When a channel is used, members of that channel will be prompted to first claim the document."
         },
         "pause": 4500
       },
@@ -861,12 +865,12 @@ var unboxed = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "10:41 AM",
-            "text": "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by @Sandy at 10:41 AM."
+            "text": "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by Sandy at 10:41 AM."
           }
         },
         "annotation": {
           "user": "u3",
-          "role": "Approvers",
+          "role": "Reviewers",
           "text": "are notified when a document is claimed, giving other channel members a real-time view of everyone's efforts."
         },
         "pause": 3500
@@ -915,7 +919,7 @@ var unboxed = {
         },
         "annotation": {
           "user": "u2",
-          "role": "Approvers",
+          "role": "Reviewers",
           "text": "can preview the document at Box.com and then complete the task by clicking <b>Approve</b> or <b>Deny</b>."
         },
         "pause": 5000
@@ -945,7 +949,7 @@ var unboxed = {
         },
         "annotation": {
           "user": "u2",
-          "role": "Approvers",
+          "role": "Reviewers",
           "text": "are prompted to provide additional details for their decision, including steps to remedy rejected documents. The submitter will then be notified to resubmit the fixed document."
         },
         "pause": 3500
