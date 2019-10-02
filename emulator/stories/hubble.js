@@ -717,7 +717,7 @@ var hubble = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> can be used to augment the interaction. In this case, the AI service recommends a sales rep (SR) based upon past performance."
+          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> can augment the interaction to help expedite the deal flow. In this case, the AI service recommends a sales rep (SR) based upon past performance."
         },
         "pause": 2500
       },
