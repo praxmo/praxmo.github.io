@@ -535,6 +535,9 @@ var hubble = {
   "story_board": {
     "state": "idling",
 
+    //1, 2, 3 (binary add) (1) use slack app, (2) own slack app, (4) contact us
+    "cta": 4,
+
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
     "index": 0,
 
@@ -678,8 +681,6 @@ var hubble = {
             "timestamp": "9:20 AM",
             "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
             "fields": [
-              {title: "&nbsp;", full_width:true},
-              {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true}

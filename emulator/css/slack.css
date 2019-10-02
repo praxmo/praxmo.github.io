@@ -294,11 +294,22 @@
 }
 
 .runner .story_overlay.cta .option {
-    width: 33%;
     min-height: 110px;
     text-align: center;
     height: 110px;
     position: relative;
+}
+
+.runner .story_overlay.cta .option.try {
+    width: 33%;
+}
+
+.runner .story_overlay.cta .option.own {
+    width: 33%;
+}
+
+.runner .story_overlay.cta .option.call {
+    flex:auto;
 }
 
 .runner .story_overlay.cta .option .action {
@@ -1061,16 +1072,21 @@ canvas {
         margin-bottom:6px;
     }
 
-    .runner .story_overlay.cta .option {
-        width:50%;
-    }
-
     .runner .story_overlay.cta .option .action {
         width:100%;
     }
 
-    .runner .story_overlay.cta .option:nth-child(3) {
+    .runner .story_overlay.cta .option.try {
         display: none;
+    }
+
+    .runner .story_overlay.cta .option.own {
+        display: none;
+    }
+
+    .runner .story_overlay.cta .option.call {
+        /*display: none;*/
+        width:100%;
     }
 
     .runner .story_overlay.cta .blurb {

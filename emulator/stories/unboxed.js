@@ -509,6 +509,9 @@ var unboxed = {
   "story_board": {
     "state": "idling",
 
+    //1, 2, 3 (binary add) (1) use slack app, (2) own slack app, (4) contact us
+    "cta": 7,
+
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
     "index": 0, //use 14 to start emulator at graph 1
 
