@@ -9,10 +9,20 @@ var playa = {
 
   //'users' is a rollup of all roles and apps used in the emulation; images are all located in the img/avatars directory
   "users": {
+    "a0": {
+      "id": "a0",
+      "title": "Intwixt",
+      "avatar": "a1.png"
+    },
     "a1": {
       "id": "a1",
-      "title": "Acme - Docs",
-      "avatar": "unboxed.png"
+      "title": "Acme - Sales",
+      "avatar": "hubble.png"
+    },
+    "a2": {
+      "id": "a2",
+      "title": "Aito.ai",
+      "avatar": "aito.png"
     },
     "u1": {
       "id": "u1",
@@ -37,7 +47,7 @@ var playa = {
   },
 
   //declare the id of the panel you want to show in the background before the player starts
-  "activePanelId": "p1",
+  "activePanelId": "p4",
 
   //this is the first slack workspace used in the demo (use for the submitter)
   "panels": {
@@ -85,11 +95,21 @@ var playa = {
       "channels": {
         "c1": {
           "id": "c1",
-          "title": "reviewers",
+          "title": "sales-mgrs",
           "private": true,
           "members": 17,
-          "pins": 8,
-          "description": "First-level document review",
+          "pins": 6,
+          "description": "Manage sales teams",
+          "unread": 2,
+          "messages": {}
+        },
+        "c3": {
+          "id": "c3",
+          "title": "sales-reps",
+          "private": true,
+          "members": 32,
+          "pins": 12,
+          "description": "Sales team members",
           "unread": 2,
           "messages": {}
         },
@@ -106,8 +126,8 @@ var playa = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Acme - Docs",
-          "avatar": "unboxed.png",
+          "title": "Acme - Sales",
+          "avatar": "hubble.png",
           "private": true,
           "messages": {}
         }
@@ -151,11 +171,21 @@ var playa = {
       "channels": {
         "c1": {
           "id": "c1",
-          "title": "reviewers",
+          "title": "sales-mgrs",
           "private": true,
           "members": 17,
-          "pins": 8,
-          "description": "First-level document review",
+          "pins": 6,
+          "description": "Sales team managers",
+          "unread": 2,
+          "messages": {}
+        },
+        "c3": {
+          "id": "c3",
+          "title": "sales-reps",
+          "private": true,
+          "members": 32,
+          "pins": 12,
+          "description": "Sales team members",
           "unread": 2,
           "messages": {}
         },
@@ -172,8 +202,8 @@ var playa = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Acme - Docs",
-          "avatar": "unboxed.png",
+          "title": "Acme - Sales",
+          "avatar": "hubble.png",
           "private": true,
           "messages": {}
         }
@@ -184,11 +214,324 @@ var playa = {
     "p5": {
       "id": "p5",
       "type": "image",
-      "src": "img/screenshots/unboxed_1.png"
+      "src": "/img/screenshots/hubble_1.png"
+    },
+
+    //this panel is used for showing a static image (like a screenshot of the box workspace)
+    "p6": {
+      "id": "p6",
+      "type": "image",
+      "src": "/img/screenshots/hubble_2.png"
+    },
+
+    //this panel shows the intwixt emulator (this is the one that depicts the file upload workflow)
+    "p2": {
+      "id": "p2",
+      "type": "intwixt",
+      "graph": {
+        "nodes": {
+          "activity_1": {
+            "title": "Deal Claim Timeout",
+            "star": "Receive.1",
+            "definition": "receive",
+            "verb": "post",
+            "p": {
+              "x": 0.618,
+              "y": 0.205
+            },
+            "trigger": true,
+            "image": {
+              "src": "/stars/Receive.1/image_96"
+            },
+            "icon_font": {
+              "id": "ic_alarm",
+              "class": "alarm",
+              "group_id": "action",
+              "keywords": [
+                "action",
+                "alarm"
+              ],
+              "ligature": "alarm",
+              "code": "",
+              "family": "'Material Icons'"
+            }
+          },
+          "activity_2": {
+            "title": "Get Company Details",
+            "star": "HubSpot.1",
+            "definition": "activity-getcompanyproperties",
+            "verb": "get",
+            "p": {
+              "x": 0.347,
+              "y": 0.277
+            },
+            "async": true,
+            "iterable": true
+          },
+          "activity_3": {
+            "title": "Get Deal Details",
+            "star": "HubSpot.1",
+            "definition": "activity-getdeal",
+            "verb": "get",
+            "p": {
+              "x": 0.155,
+              "y": 0.431
+            },
+            "async": true
+          },
+          "activity_4": {
+            "title": "AI | Predict Best Rep",
+            "star": "Aito.1",
+            "definition": "activity-predict",
+            "verb": "post",
+            "p": {
+              "x": 0.152,
+              "y": 0.655
+            },
+            "async": true
+          },
+          "activity_5": {
+            "title": "Get Rep Profile",
+            "star": "Slack.1",
+            "definition": "activity-get_user_info",
+            "verb": "get",
+            "p": {
+              "x": 0.305,
+              "y": 0.723
+            },
+            "async": true
+          },
+          "activity_6": {
+            "title": "Ask Managers to Assign",
+            "star": "Slack.1",
+            "definition": "activity-ask_choice_with_blockkit",
+            "verb": "post",
+            "p": {
+              "x": 0.563,
+              "y": 0.751
+            },
+            "async": true,
+            "iterable": true
+          },
+          "activity_7": {
+            "title": "Assign Deal",
+            "star": "HubSpot.1",
+            "definition": "activity-updatedeal",
+            "verb": "put",
+            "p": {
+              "x": 0.67,
+              "y": 0.893
+            },
+            "async": true
+          },
+          "activity_8": {
+            "title": "Update Message | Show Chosen Rep",
+            "star": "Slack.1",
+            "definition": "activity-respond_with_ask_choice_with_blockkit",
+            "verb": "post",
+            "p": {
+              "x": 0.42,
+              "y": 0.969
+            },
+            "async": true
+          },
+          "activity_9": {
+            "title": "Intercom | Get Company Detail",
+            "star": "Intercom.1",
+            "definition": "activity-getcompany",
+            "verb": "get",
+            "p": {
+              "x": 0.734,
+              "y": 0.642
+            },
+            "async": true
+          },
+          "activity_10": {
+            "title": "Send Expanded Profile to Managers",
+            "star": "Slack.1",
+            "definition": "activity-send_message_with_blockkit",
+            "verb": "post",
+            "p": {
+              "x": 0.892,
+              "y": 0.475
+            },
+            "async": true
+          },
+          "activity_11": {
+            "title": "Start Assignee Worfklow",
+            "star": ".learning-1-36939.1",
+            "definition": "activity_1",
+            "verb": "post",
+            "p": {
+              "x": 0.864,
+              "y": 0.972
+            },
+            "icon_font": {
+              "class": "fa-check",
+              "code": "",
+              "family": "FontAwesome"
+            }
+          }
+        },
+        "edges": {
+          "activity_1": {
+            "activity_2": {
+              "length": 1
+            }
+          },
+          "activity_2": {
+            "activity_3": {
+              "length": 1
+            }
+          },
+          "activity_3": {
+            "activity_4": {
+              "length": 1
+            }
+          },
+          "activity_4": {
+            "activity_5": {
+              "length": 1
+            }
+          },
+          "activity_5": {
+            "activity_6": {
+              "length": 1
+            }
+          },
+          "activity_6": {
+            "activity_7": {
+              "length": 1,
+              "condition": true
+            },
+            "activity_9": {
+              "length": 1,
+              "condition": true
+            }
+          },
+          "activity_7": {
+            "activity_8": {
+              "length": 1
+            },
+            "activity_11": {
+              "length": 1
+            }
+          },
+          "activity_9": {
+            "activity_10": {
+              "length": 1
+            }
+          }
+        }
+      }
+    },
+
+    //this is the second intwixt emulator instance; this one shows the approval process
+    "p3": {
+      "id": "p3",
+      "type": "intwixt",
+      "graph": {
+        "nodes": {
+          "activity_13": {
+            "title": "HubSpot | On Deal Updated",
+            "star": "HubSpot.1",
+            "definition": "trigger-deal_updated",
+            "verb": "post",
+            "p": {
+              "x": 0.461,
+              "y": 0.204
+            },
+            "trigger": true
+          },
+          "activity_14": {
+            "title": "Get User Info",
+            "star": "Slack.1",
+            "definition": "activity-get_user_info",
+            "verb": "get",
+            "p": {
+              "x": 0.626,
+              "y": 0.961
+            },
+            "async": true
+          },
+          "activity_17": {
+            "title": "Deal Closed | Get Deal Info",
+            "star": "HubSpot.1",
+            "definition": "activity-getdeal",
+            "verb": "get",
+            "p": {
+              "x": 0.202,
+              "y": 0.301
+            },
+            "async": true
+          },
+          "activity_18": {
+            "title": "Get Company Info",
+            "star": "HubSpot.1",
+            "definition": "activity-getcompany",
+            "verb": "get",
+            "p": {
+              "x": 0.138,
+              "y": 0.63
+            },
+            "async": true
+          },
+          "activity_19": {
+            "title": "Get Company Info",
+            "star": "Intercom.1",
+            "definition": "activity-getcompany",
+            "verb": "get",
+            "p": {
+              "x": 0.334,
+              "y": 0.879
+            },
+            "async": true
+          },
+          "activity_20": {
+            "title": "Train AI",
+            "star": "Aito.1",
+            "definition": "activity-add_data_entry",
+            "verb": "post",
+            "p": {
+              "x": 0.882,
+              "y": 0.804
+            },
+            "async": true
+          }
+        },
+        "edges": {
+          "activity_19": {
+            "activity_14": {
+              "length": 1
+            }
+          },
+          "activity_13": {
+            "activity_17": {
+              "length": 1,
+              "condition": true
+            }
+          },
+          "activity_17": {
+            "activity_18": {
+              "length": 1
+            }
+          },
+          "activity_18": {
+            "activity_19": {
+              "length": 1
+            }
+          },
+          "activity_14": {
+            "activity_20": {
+              "length": 1
+            }
+          }
+        }
+      }
     }
   },
 
-  //this is the story board. this is used to tell the story; it starts in an `idling` state (important!!)
+  //this is the story board. this is used to tell the story; it starts in an `playing` state which also causes the loop
   "story_board": {
     "state": "playing",
 
@@ -202,81 +545,247 @@ var playa = {
       {
         "action": {
           "type": "panel.activate",
-          "id": "p1"
+          "id": "p4"
+        },
+        "annotation": {
+          "user": "a0",
+          "role": "Intwixt",
+          "text": "turns Slack into a <b>business process engine</b>, optimizing the customer journey directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
-        "pause": 0
+        "pause": 2000 //6000
       },
 
       //activate a channel
       {
         "action": {
           "type": "channel.activate",
-          "id": "a1"
+          "id": "c3"
         },
-        "pause": 4500
+        "annotation": {
+          "user": "",
+          "role": "",
+          "text": ""
+        },
+        "pause": 2500,
+        "step_next": true
       },
 
       //send a message
       {
         "action": {
           "type": "message.send",
-          "channel": "a1",
+          "channel": "c3",
           "message": {
-            "id": "a1m1",
+            "id": "c3m1",
             "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "😊 Hi, I'm <b>Acme - Docs</b>! I manage Box.com document approvals!<br>Upload a file to get started."
-          }
-        },
-        "pause": 4500
-      },
-
-      //activate the file upload form
-      {
-        "action": {
-          "type": "file.activate",
-          "filename": "Acme RFP.pdf",
-          "message": "Here is the Acme proposal."
-        },
-        "pause": 3000
-      },
-
-      //submit the file upload form
-      {
-        "action": {
-          "type": "file.upload",
-          "filename": "Acme RFP.pdf",
-          "message": "Here is the Acme proposal."
-        },
-        "pause": 3000
-      },
-
-
-      {
-        "action": {
-          "type": "message.send",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "Just to confirm...would you like to Submit <b>Acme RFP.pdf</b> for review?",
+            "timestamp": "8:20 AM",
+            "text": "A new contact was added to HubSpot at 8:20 AM. If you feel this is a good match, please claim the lead within the hour.",
+            "fields": [
+              {title: "<b>Company</b>"},
+              {title: "Intel, Inc."},
+              {title: "<b>Employees</b>"},
+              {title: "110,000"},
+              {title: "<b>Location</b>"},
+              {title: "Santa Clara, CA"},
+              {title: "...", full_width:true}
+            ],
             "actions": {
-              "submit": {
-                "id": "submit",
-                "title": "Submit",
-                "style": "primary"
+              "review": {
+                "id": "review",
+                "title": "Check Intercom"
               },
-              "cancel": {
-                "id": "cancel",
-                "title": "Cancel",
-                "style": "danger"
+              "claim": {
+                "id": "claim",
+                "title": "Claim Deal"
               }
             }
           }
         },
-        "pause": 5000
+        "annotation": {
+          "user": "u2",
+          "role": "Sales Reps",
+          "text": "like Sandy are notified when new contacts are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
+        },
+        "pause": 6000,
+        "step_next": false
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 250,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "action.click",
+          "channel": "a1",
+          "action": "review",
+          "message": {
+            "id": "c3m1",
+            "author": "a1",
+            "timestamp": "8:30 AM",
+            "text": "New contact (added to HubSpot at 8:20 AM)",
+            "fields": [
+              {title: "<b><a href='#'>HUBSPOT PROFILE</a></b>", full_width:true},
+              {title: "<b>Company</b>"},
+              {title: "Intel, Inc."},
+              {title: "<b><a href='#'>INTERCOM PROFILE</a></b>", full_width:true},
+              {title: "<b>Web Sessions</b>"},
+              {title: "22"},
+              {title: "<b>Last Visit</b>"},
+              {title: "Oct 2, 2019"},
+              {title: "...", full_width:true}
+            ],
+            "actions": {
+              "refresh": {
+                "id": "refresh",
+                "title": "Refresh Intercom Details"
+              },
+              "claim": {
+                "id": "claim",
+                "title": "Claim Deal"
+              }
+            }
+          }
+        },
+        "annotation": {
+          "user": "u2",
+          "role": "Sales Reps",
+          "text": "work together in the same Slack channel. This keeps the information flowing regardless of who's online or away from their desk."
+        },
+        "pause": 6000
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 250,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "message.update",
+          "channel": "a1",
+          "message": {
+            "id": "c3m1",
+            "author": "a1",
+            "timestamp": "9:20 AM",
+            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time.<br>I've escalated the issue with the sales management team.<br>You'll be notified individually if you're matched.",
+            "fields": [
+              {title: "&nbsp;", full_width:true},
+              {title: "&nbsp;", full_width:true}
+            ]
+          }
+        },
+        "annotation": {
+          "user": "u2",
+          "role": "Sales Reps",
+          "text": "are notified directly in-channel whenever the lead is updated. In this case, no one claimed the lead in time, causing the issue to escalate. Timeouts and exception handling are critical components of a well-designed business process."
+        },
+        "pause": 5500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 1000,
+        "step_next": true
+      },
+
+      //activate a panel
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p1"
+        },
+        "pause": 1750,
+        "step_next": true
+      },
+
+      //activate a channel
+      {
+        "action": {
+          "type": "channel.activate",
+          "id": "c1"
+        },
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> can augment the interaction to help expedite the deal flow. In this case, the AI service recommends a sales rep (SR) based upon past performance."
+        },
+        "pause": 1500
+      },
+
+      //send a message
+      {
+        "action": {
+          "type": "message.send",
+          "channel": "c1",
+          "message": {
+            "id": "c1m1",
+            "author": "a1",
+            "timestamp": "9:21 AM",
+            "text": "❗ No one on the team claimed this HubSpot lead.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
+            "fields": [
+              {title: "Company"},
+              {title: "Intel, Inc."},
+              {title: "Employees"},
+              {title: "110,000"}
+            ],
+            "actions": {
+              "review": {
+                "id": "review",
+                "title": "View Deal"
+              },
+              "assign": {
+                "id": "assign",
+                "title": "Assign to Sandy"
+              },
+              "choose": {
+                "id": "choose",
+                "type":"select",
+                "title": "Choose SR"
+              }
+            }
+          }
+        },
+        "pause": 5500,
+        "step_next": false
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 750,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "annotation.show"
+        },
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "can view deal details directly in Slack and can optionally choose a different sales rep. The AI service augments the interaction, while <b>managers make the final call</b>."
+        },
+        "pause": 3500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 250,
+        "step_next": true
       },
 
       //click an action button in a message
@@ -284,225 +793,100 @@ var playa = {
         "action": {
           "type": "action.click",
           "channel": "a1",
-          "action": "submit",
+          "action": "assign",
           "message": {
-            "id": "a1m2",
+            "id": "c1m1",
             "author": "a1",
-            "timestamp": "9:22 AM",
-            "text": "Starting review...Return to this message for real-time status updates.<br><b>✔ SUBMITTED</b> <b>Acme RFP.pdf</b> for Review"
+            "timestamp": "9:50 AM",
+            "text": "[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
+            "actions": {
+              "review": {
+                "id": "review",
+                "title": "View in HubSpot"
+              }
+            }
           }
+        },
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "see the deal update directly in Slack. Real-time updates to interactive messages are critical to conversational usability, helping avoid confusion on shared channels."
         },
         "pause": 3500
       },
 
-      //append message content to an existing message
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>✔ CLAIMED</b> at <i>10:45am</i> by Sandy"
-          }
-        },
-        "pause": 3000
-      },
-
-      //clear the annotation that describes what's going on; good to hide to better draw attention when showing
       {
         "action": {
           "type": "annotation.hide"
+        },
+        "pause": 1500,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p2"
+        },
+        "annotation": {
+          "user": "a0",
+          "role": "Intwixt Developers",
+          "text": "use the visual designer to configure workflows. This 'no-code' approach makes it possible for even business users to define rules. This particular workflow is triggered when a new deal times out and is escalated to managers."
         },
         "pause": 1500
       },
 
       {
         "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>🚫 REJECTED</b> at <i>10:50am</i> by Sandy<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
-          }
+          "type": "annotation.hide"
         },
-        "pause": 3000
+        "pause": 750,
+        "step_next": true
       },
 
       {
         "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "11:30 AM",
-            "text": "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Ben"
-          }
+          "type": "graph.highlight",
+          "activity": "activity_4"
         },
-        "pause": 3000
-      },
-
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>✔ APPROVED</b> at <i>11:00pm</i> by Sandy"
-          }
+        "annotation": {
+          "user": "a2",
+          "role": "AI Services",
+          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to close this deal."
         },
-        "pause": 3000
-      },
-
-      {
-        "action": {
-          "type": "message.append",
-          "channel": "a1",
-          "message": {
-            "id": "a1m2",
-            "author": "a1",
-            "timestamp": "9:21 AM",
-            "text": "<b>✔ APPROVED</b> at <i>11:33pm</i> by Radhika<br><b>✔ COMPLETED</b> at <i>11:33pm</i>"
-          }
-        },
-        "pause": 2000
+        "pause": 10000
       },
 
       {
         "action": {
           "type": "panel.activate",
-          "id": "p4"
+          "id": "p3"
         },
-        "pause": 0
-      },
-
-      {
-        "action": {
-          "type": "channel.activate",
-          "id": "c1"
-        },
-        "pause": 500
-      },
-
-      {
-        "action": {
-          "type": "message.send",
-          "channel": "c1",
-          "message": {
-            "id": "c1m1",
-            "author": "a1",
-            "timestamp": "10:40 AM",
-            "text": "📝 A document needs review. Press <b>Claim Document</b> to begin.",
-            "actions": {
-              "claim": {
-                "id": "claim",
-                "title": "Claim Document",
-                "style": "primary"
-              }
-            }
-          }
-        },
-        "pause": 4500
-      },
-
-      {
-        "action": {
-          "type": "action.click",
-          "channel": "c1",
-          "action": "claim",
-          "message": {
-            "id": "c1m1",
-            "author": "a1",
-            "timestamp": "10:41 AM",
-            "text": "📝 Check here for live status updates for document, <b>Acme RFP.pdf</b>.<br>✔ CLAIMED by @Sandy at 10:41 AM."
-          }
-        },
-        "pause": 3500
-      },
-
-      {
-        "action": {
-          "type": "channel.activate",
-          "id": "a1"
+        "annotation": {
+          "user": "a2",
+          "role": "AI Services",
+          "text": "are trained each time a deal successfully closes, incorporating information about the company, deal and sales rep. The more data provided to the AI service, the more accurate the predictions."
         },
         "pause": 1000
       },
 
       {
         "action": {
-          "type": "message.send",
-          "channel": "a1",
-          "message": {
-            "id": "a1m1",
-            "author": "a1",
-            "timestamp": "10:42 AM",
-            "text": "Please review this Box.com document and then return here to <b>Approve</b> or <b>Reject</b> it. You have 24 hours to complete your review.",
-            "actions": {
-              "approve": {
-                "id": "approve",
-                "title": "Approve",
-                "style": "primary"
-              },
-              "deny": {
-                "id": "deny",
-                "title": "Deny",
-                "style": "danger"
-              },
-              "view": {
-                "id": "view",
-                "title": "Preview"
-              }
-            }
-          }
+          "type": "graph.highlight",
+          "activity": "activity_20"
         },
-        "pause": 5000
+        "pause": 10000
       },
 
-      //show the form dialog; for now hard-coded to just show a text area...can be extended to render forms.
-      //include the id of the message and id of the action button that will trigger the dialog
-      //make sure target_field is equal t the id of the single field ('reason' in this example)
-      {
-        "action": {
-          "type": "dialog.trigger",
-          "channel": "a1",
-          "message": "a1m1",
-          "action": "deny",
-          "dialog": {
-            "title": "Justification",
-            "target_field": "reason",
-            "fields": {
-              "reason": {
-                "type": "textarea",
-                "title": "Reason",
-                "placeholder": "Enter a reason",
-                "value": "You need to include more detail in the `maintenance and support` section."
-              }
-            }
-          }
-        },
-        "pause": 3500
-      },
 
-      //submit the dialog (the `text` replaces the message text and buttons for the message that launched the dialog)
+      //clear all messages from a channel (used to reset a slack workspace in prep for re-running the simulation)
       {
         "action": {
-          "type": "dialog.submit",
-          "channel": "a1",
-          "action": "deny",
-          "message": {
-            "id": "a1m1",
-            "author": "a1",
-            "timestamp": "10:45 AM",
-            "text": "🚫 You <b>REJECTED</b> document <b>Acme RFP.pdf</b> at 10:50AM<br><b>REASON</b>: You need to include more detail in the `maintenance and support` section."
-          }
+          "type": "channel.clear",
+          "panel": "p4",
+          "channel": "c3"
         },
-        "pause": 3500
+        "pause": 0
       },
 
       //clear all messages from a channel (used to reset a slack workspace in prep for re-running the simulation)
@@ -510,26 +894,6 @@ var playa = {
         "action": {
           "type": "channel.clear",
           "panel": "p1",
-          "channel": "a1"
-        },
-        "pause": 0
-      },
-
-      //clear all messages from a channel (used to reset a slack workspace in prep for re-running the simulation)
-      {
-        "action": {
-          "type": "channel.clear",
-          "panel": "p4",
-          "channel": "a1"
-        },
-        "pause": 0
-      },
-
-      //clear all messages from a channel (used to reset a slack workspace in prep for re-running the simulation)
-      {
-        "action": {
-          "type": "channel.clear",
-          "panel": "p4",
           "channel": "c1"
         },
         "pause": 0

@@ -285,7 +285,7 @@ var hubble = {
             "definition": "activity-predict",
             "verb": "post",
             "p": {
-              "x": 0.132,
+              "x": 0.152,
               "y": 0.655
             },
             "async": true
@@ -607,7 +607,7 @@ var hubble = {
           "role": "Sales Reps",
           "text": "like Sandy are notified when new contacts are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
         },
-        "pause": 5500,
+        "pause": 6000,
         "step_next": false
       },
 
@@ -630,10 +630,10 @@ var hubble = {
             "timestamp": "8:30 AM",
             "text": "New contact (added to HubSpot at 8:20 AM)",
             "fields": [
-              {title: "<b>HUBSPOT PROFILE</b>", full_width:true},
+              {title: "<b><a href='#'>HUBSPOT PROFILE</a></b>", full_width:true},
               {title: "<b>Company</b>"},
               {title: "Intel, Inc."},
-              {title: "<b>INTERCOM PROFILE</b>", full_width:true},
+              {title: "<b><a href='#'>INTERCOM PROFILE</a></b>", full_width:true},
               {title: "<b>Web Sessions</b>"},
               {title: "22"},
               {title: "<b>Last Visit</b>"},
@@ -644,6 +644,10 @@ var hubble = {
               "claim": {
                 "id": "claim",
                 "title": "Claim Deal"
+              },
+              "refresh": {
+                "id": "refresh",
+                "title": "Refresh Lead Details"
               }
             }
           }
@@ -653,7 +657,7 @@ var hubble = {
           "role": "Sales Reps",
           "text": "work together in the same Slack channel. This keeps the information flowing regardless of who's online or away from their desk."
         },
-        "pause": 4500
+        "pause": 6000
       },
 
       {
@@ -672,7 +676,7 @@ var hubble = {
             "id": "c3m1",
             "author": "a1",
             "timestamp": "9:20 AM",
-            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time. I'm going to escalate the issue with the sales management team. You'll be notified individually if you're matched.",
+            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time. I've escalated the issue with the sales management team. You'll be notified individually if you're matched.",
             "fields": [
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true},
@@ -731,7 +735,7 @@ var hubble = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "❗ It looks like no one on the team claimed this HubSpot lead.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
+            "text": "❗ No one on the team claimed this HubSpot lead.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
@@ -864,7 +868,7 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "are trained in a separate workflow. Each time a deal successfully closes, information about the deal and the assigned sales rep are passed along. The more data provided to the AI, the more accurate the predictions."
+          "text": "are trained each time a deal successfully closes, incorporating information about the company, deal and sales rep. The more data provided to the AI service, the more accurate the predictions."
         },
         "pause": 6500
       },
