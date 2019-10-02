@@ -618,7 +618,7 @@ var unboxed = {
         "annotation": {
           "user": "u1",
           "role": "Submitters",
-          "text": "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by orchestrating the necessary <b>Box.com</b> APIs."
+          "text": "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by calling the necessary <b>Box.com</b> APIs."
         },
         "pause": 5000
       },
