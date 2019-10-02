@@ -871,7 +871,7 @@ var unboxed = {
         "annotation": {
           "user": "u3",
           "role": "Reviewers",
-          "text": "are notified when a document is claimed, giving other channel members a real-time view of everyone's efforts."
+          "text": "are notified when a document is claimed, giving other channel members a real-time view of everyone's efforts. Importantly, the interactive Slack message is updated to remove buttons that no longer apply. This is essential to conversational usability."
         },
         "pause": 3500
       },
