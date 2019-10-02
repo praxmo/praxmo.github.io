@@ -567,7 +567,7 @@ var playa = {
           "role": "",
           "text": ""
         },
-        "pause": 2500,
+        "pause": 1500,
         "step_next": true
       },
 
@@ -605,7 +605,7 @@ var playa = {
         "annotation": {
           "user": "u2",
           "role": "Sales Reps",
-          "text": "like Sandy are notified when new contacts are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
+          "text": "are notified when new contacts are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
         },
         "pause": 6000,
         "step_next": false
@@ -904,7 +904,7 @@ var playa = {
         "action": {
           "type": "story.replay"
         },
-        "pause": 100
+        "pause": 0
       }
     ]
   }
