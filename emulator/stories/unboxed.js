@@ -783,7 +783,7 @@ var unboxed = {
         "annotation": {
           "user": "a0",
           "role": "Intwixt Developers",
-          "text": "are encouraged to create modular, conversational workflows. This one drives the review process. Now let's return to Slack to see the end user experience orchestrated by this flow."
+          "text": "are encouraged to create modular, conversational workflows. This one drives the review process. Now let's return to Slack to see the end user experience when claiming and review documents."
         },
         "pause": 0,
         "step_next": true
