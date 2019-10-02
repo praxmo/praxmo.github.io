@@ -732,7 +732,7 @@ var playa = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "❗ No one on the team claimed this HubSpot lead.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
+            "text": "❗ This lead was not claimed in time.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
