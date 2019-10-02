@@ -676,7 +676,7 @@ var hubble = {
             "id": "c3m1",
             "author": "a1",
             "timestamp": "9:20 AM",
-            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time. I've escalated the issue with the sales management team. You'll be notified individually if you're matched.",
+            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
             "fields": [
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true},
