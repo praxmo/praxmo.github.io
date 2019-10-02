@@ -825,7 +825,7 @@ var unboxed = {
         "annotation": {
           "user": "u3",
           "role": "Reviewers",
-          "text": "can be named individuals (like Radhika and Sandy) or a Slack channel can be used instead (as is shown here). When a channel is used, members of that channel will be prompted to first claim the document."
+          "text": "can be named individuals or a Slack channel can be used instead (as is shown here). When a channel is used, members of that channel will be prompted to first claim the document."
         },
         "pause": 4500
       },
