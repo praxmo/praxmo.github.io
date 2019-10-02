@@ -127,13 +127,13 @@
             <!-- overlay to show when in 'idling' state -->
             <div v-bind:class="['story_overlay', { active: story_board.state === 'idling'}]">
                 <div class="play">
-                    <div v-on:click="play_all()" title="Play all" class="button all">
+                    <!-- div v-on:click="play_all()" title="Play all" class="button all">
                         <i class="fas fa-play fa-6x"></i>
                         <div class="label">Play Example</div>
-                    </div>
+                    </div -->
                     <div v-on:click="step_through()" title="Step through at my own pace" class="button step">
                         <i class="fas fa-step-forward fa-6x"></i>
-                        <div class="label">Step Through</div>
+                        <div class="label">Step-By-Step Example</div>
                     </div>
                 </div>
             </div>
@@ -271,11 +271,11 @@
                                             </div>
                                             <div v-if="message.fields" class="fields">
                                                 <div v-for="field in message.fields"
-                                                     class="field">
-                                                    {{field.title}}
+                                                     v-html="field.title"
+                                                     v-bind:class="['field',{ full_width: field.full_width }]">
                                                 </div>
                                             </div>
-                                            <p v-if="message.actions" class="actions">
+                                            <div v-if="message.actions" class="actions">
                                                 <button v-for="(action, action_id) in message.actions"
                                                         v-bind:key="action.id"
                                                         v-on:click="act(panel_id, panel.channels[panel.activeChannelId], message, action)"
@@ -283,7 +283,7 @@
                                                     {{action.title}}
                                                     <i class="chevron fas fa-chevron-down"></i>
                                                 </button>
-                                            </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
