@@ -740,7 +740,7 @@
 
 .main .messages {
     flex: 1;
-    padding: 200px 20px 20px 20px;
+    padding: 200px 10px 0 10px;
     width: 100%;
     overflow: auto;
 }
@@ -831,18 +831,24 @@
     margin-top: 0;
     margin-bottom: 15px;
     font-size:.8em;
+    flex-wrap: wrap;
 }
 
-.main .message .fields .field:nth-child(odd) {
+.main .message .fields .field {
     width:50%;
     margin-top:5px;
+}
+
+.main .message .fields .field b {
     font-weight:900;
 }
 
-.main .message .fields .field:nth-child(even) {
-    width:50%;
+.main .message .fields .field.full_width {
     margin-top:5px;
+    width:100%;
+    font-size: 1.1em;
 }
+
 
 /** action buttons **/
 
@@ -1014,7 +1020,7 @@ canvas {
     }
 
     .emulator .main .message .fields {
-        flex-wrap: wrap;
+        /*flex-wrap: wrap;*/
     }
 
     .emulator .main .message .fields .field:nth-child(odd) {

@@ -91,6 +91,9 @@ function emulate(id, selector, story, config) {
               } else if (action.type === 'message.send') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages;
                 this.send_formatted_message(target, action.message.id, this.clone(action.message));
+              } else if (action.type === 'message.update') {
+                target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message.id];
+                this.update_message(target, action.message, false);
               } else if (action.type === 'message.append') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages[action.message.id];
                 this.update_message(target, action.message, true);
@@ -299,7 +302,8 @@ function emulate(id, selector, story, config) {
 
           //update an existing message
           update_message: function(target, message, b_append) {
-            target.timestamp = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+            target.timestamp = message.timestamp ||
+              new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
             //remove the buttons from the message (assume any update invalidates the action buttons)
             delete target.actions;
             delete target.fields;

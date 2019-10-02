@@ -47,7 +47,7 @@ var hubble = {
   },
 
   //declare the id of the panel you want to show in the background before the player starts
-  "activePanelId": "p1",
+  "activePanelId": "p4",
 
   //this is the first slack workspace used in the demo (use for the submitter)
   "panels": {
@@ -171,11 +171,21 @@ var hubble = {
       "channels": {
         "c1": {
           "id": "c1",
-          "title": "sales-reps",
+          "title": "sales-mgrs",
           "private": true,
           "members": 17,
-          "pins": 8,
-          "description": "Shared channels for SRs",
+          "pins": 6,
+          "description": "Sales team managers",
+          "unread": 2,
+          "messages": {}
+        },
+        "c3": {
+          "id": "c3",
+          "title": "sales-reps",
+          "private": true,
+          "members": 32,
+          "pins": 12,
+          "description": "Sales team members",
           "unread": 2,
           "messages": {}
         },
@@ -214,15 +224,23 @@ var hubble = {
       "graph": {
         "nodes": {
           "activity_1": {
-            "title": "HubSpot | Deal Created",
-            "star": "HubSpot.1",
-            "definition": "trigger-deal_created",
+            "title": "Deal Unclaimed Timeout",
+            "star": "Receive.1",
+            "definition": "receive",
             "verb": "post",
             "p": {
               "x": 0.618,
               "y": 0.205
             },
-            "trigger": true
+            "trigger": true,
+            "image": {
+              "src": "/stars/Receive.1/image_96"
+            },
+            "icon_font": {
+              "class": "fa-clock-o",
+              "code": "",
+              "family": "FontAwesome"
+            }
           },
           "activity_2": {
             "title": "Get Company Details",
@@ -407,7 +425,7 @@ var hubble = {
             "verb": "post",
             "p": {
               "x": 0.461,
-              "y": 0.14
+              "y": 0.204
             },
             "trigger": true
           },
@@ -418,7 +436,7 @@ var hubble = {
             "verb": "get",
             "p": {
               "x": 0.626,
-              "y": 0.931
+              "y": 0.961
             },
             "async": true
           },
@@ -504,14 +522,10 @@ var hubble = {
     "state": "idling",
 
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
-    "index": 8,
+    "index": 0,
 
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
-
-
-
-
 
       //activate a panel
       {
@@ -528,26 +542,11 @@ var hubble = {
         "pause": 6000 //6000
       },
 
-      //activate a panel
-      {
-        "action": {
-          "type": "panel.activate",
-          "id": "p1"
-        },
-        "annotation": {
-          "user": "u1",
-          "role": "Sales Managers",
-          "text": "are notified when deals time out HubSpot. The <b>AI agent</b> recommends sales reps (SRs) based upon past performance."
-        },
-        //when the user clicks 'play all' this defines how long to wait before running the next step
-        "pause": 6000 //6000
-      },
-
       //activate a channel
       {
         "action": {
           "type": "channel.activate",
-          "id": "c1"
+          "id": "c3"
         },
         "annotation": {
           "user": "",
@@ -562,12 +561,163 @@ var hubble = {
       {
         "action": {
           "type": "message.send",
+          "channel": "c3",
+          "message": {
+            "id": "c3m1",
+            "author": "a1",
+            "timestamp": "8:20 AM",
+            "text": "A new contact was added to HubSpot at 8:20 AM. If you feel this is a good match, please claim the lead within the hour.",
+            "fields": [
+              {title: "<b>Company</b>"},
+              {title: "Intel, Inc."},
+              {title: "<b>Employees</b>"},
+              {title: "110,000"},
+              {title: "<b>Location</b>"},
+              {title: "Santa Clara, CA"},
+              {title: "...", full_width:true}
+            ],
+            "actions": {
+              "review": {
+                "id": "review",
+                "title": "Check Intercom"
+              },
+              "claim": {
+                "id": "claim",
+                "title": "Claim Deal"
+              }
+            }
+          }
+        },
+        "annotation": {
+          "user": "u2",
+          "role": "Sales Reps",
+          "text": "like Sandy are notified when new contacts are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
+        },
+        "pause": 5500,
+        "step_next": false
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 250,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "action.click",
+          "channel": "a1",
+          "action": "review",
+          "message": {
+            "id": "c3m1",
+            "author": "a1",
+            "timestamp": "8:30 AM",
+            "text": "New contact (added to HubSpot at 8:20 AM)",
+            "fields": [
+              {title: "<b>HUBSPOT PROFILE</b>", full_width:true},
+              {title: "<b>Company</b>"},
+              {title: "Intel, Inc."},
+              {title: "<b>INTERCOM PROFILE</b>", full_width:true},
+              {title: "<b>Web Sessions</b>"},
+              {title: "22"},
+              {title: "<b>Last Visit</b>"},
+              {title: "Oct 2, 2019"},
+              {title: "...", full_width:true}
+            ],
+            "actions": {
+              "claim": {
+                "id": "claim",
+                "title": "Claim Deal"
+              }
+            }
+          }
+        },
+        "annotation": {
+          "user": "u2",
+          "role": "Sales Reps",
+          "text": "are notified when other reps update a record. This keeps the information flowing regardless of who's online or away from their desk."
+        },
+        "pause": 4500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 250,
+        "step_next": true
+      },
+
+      {
+        "action": {
+          "type": "message.update",
+          "channel": "a1",
+          "message": {
+            "id": "c3m1",
+            "author": "a1",
+            "timestamp": "9:20 AM",
+            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time. I'm going to escalate the issue with the sales management team. You'll be notified individually if you're matched.",
+            "fields": [
+              {title: "&nbsp;", full_width:true},
+              {title: "&nbsp;", full_width:true},
+              {title: "&nbsp;", full_width:true},
+              {title: "&nbsp;", full_width:true},
+              {title: "&nbsp;", full_width:true}
+            ]
+          }
+        },
+        "annotation": {
+          "user": "u2",
+          "role": "Sales Reps",
+          "text": "are notified directly in-channel when a lead is updated. In this case, no one claimed the lead in time, causing the issue to escalate. Timeouts and exception handling are a critical component of a well-designed business process."
+        },
+        "pause": 3500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 1000,
+        "step_next": true
+      },
+
+      //activate a panel
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p1"
+        },
+        "pause": 1750,
+        "step_next": true
+      },
+
+      //activate a channel
+      {
+        "action": {
+          "type": "channel.activate",
+          "id": "c1"
+        },
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> augments the interaction, recommending a preferred sales rep (SR) based upon past performance."
+        },
+        "pause": 2500
+      },
+
+      //send a message
+      {
+        "action": {
+          "type": "message.send",
           "channel": "c1",
           "message": {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "👍 A new deal was just created in HubSpot!<br>🤖 <b>Amit</b> usually closes deals like this in 6 weeks.",
+            "text": "❗ It looks like no one on the team claimed this HubSpot lead.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
@@ -581,7 +731,7 @@ var hubble = {
               },
               "assign": {
                 "id": "assign",
-                "title": "Assign to Amit"
+                "title": "Assign to Sandy"
               },
               "choose": {
                 "id": "choose",
@@ -590,11 +740,6 @@ var hubble = {
               }
             }
           }
-        },
-        "annotation": {
-          "user": "u1",
-          "role": "Sales Managers",
-          "text": "are notified when new deals are created in HubSpot. The <b>AI agent</b> recommends sales reps (SRs) based upon past performance."
         },
         "pause": 3500,
         "step_next": false
@@ -615,7 +760,7 @@ var hubble = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "can view deal details directly in Slack and can optionally choose a different SR. The AI agent augments the interaction, while <b>managers make the final call</b>."
+          "text": "can view deal details directly in Slack and can optionally choose a different sales rep. The AI agent augments the interaction, while <b>managers make the final call</b>."
         },
         "pause": 3500
       },
@@ -637,12 +782,12 @@ var hubble = {
           "message": {
             "id": "c1m1",
             "author": "a1",
-            "timestamp": "9:30 AM",
-            "text": "Intel Deal (HubSpot Deal <a href='#'>1025480752</a>) status:<br><b>✔ UPDATED</b> by @Ben at 09:30 AM<br><b>✔ ASSIGNED</b> to @Amit at 09:30 AM",
+            "timestamp": "9:50 AM",
+            "text": "[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
             "actions": {
               "review": {
                 "id": "review",
-                "title": "View Deal"
+                "title": "View in HubSpot"
               }
             }
           }
@@ -671,7 +816,7 @@ var hubble = {
         "annotation": {
           "user": "a0",
           "role": "Intwixt Developers",
-          "text": "use the visual designer to configure workflows. This 'no-code' approach makes it possible for even business users to define rules. This particular workflow is triggered when a deal is added to HubSpot."
+          "text": "use the visual designer to configure workflows. This 'no-code' approach makes it possible for even business users to define rules. This particular workflow is triggered when a new deal times out and is escalated to managers."
         },
         "pause": 7500
       },
@@ -692,7 +837,7 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "can be integrated into any process to make predictions that sales managers might otherwise overlook."
+          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to close this deal."
         },
         "pause": 3500
       },
