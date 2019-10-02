@@ -131,6 +131,24 @@
     position: relative;
 }
 
+.runner .alert {
+    background-color: #039BE5;
+    color:#ffffff;
+    padding:20px;
+    text-align:center;
+    font-size:1.25em;
+    z-index: -1;
+    visibility: hidden;
+    opacity:0;
+    transition: opacity 1s linear;
+}
+
+.runner .alert.active {
+    visibility: visible;
+    opacity: .85;
+    z-index:5;
+}
+
 .runner .panel {
     background-color: #ffffff;
     pointer-events: none;
@@ -244,6 +262,11 @@
     margin-top: 20%;
     text-align: center;
     cursor: pointer;
+}
+
+.runner .story_overlay .play .label {
+    margin-top: 10px;
+    font-size:1.25em;
 }
 
 .runner .story_overlay.cta .blurb {

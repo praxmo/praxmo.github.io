@@ -20,6 +20,7 @@ function emulate(id, selector, story, config) {
   var graph_renderer = "";
   story.id = id;
   story.graph = "";
+  story.alert = "";
   stories[id] = new Vue({
     el: selector,
     components: {
@@ -84,6 +85,8 @@ function emulate(id, selector, story, config) {
                 this.annotation.text = "";
               } else if (action.type === 'story.replay') {
                 this.story_board.index = -1;
+              } else if (action.type === 'story.alert') {
+                return this.alert = action.text;
               } else if (action.type === 'panel.activate') {
                 this.set_active_panel(action.id);
               } else if (action.type === 'channel.activate') {

@@ -217,6 +217,13 @@ var hubble = {
       "src": "/img/screenshots/hubble_1.png"
     },
 
+    //this panel is used for showing a static image (like a screenshot of the box workspace)
+    "p6": {
+      "id": "p6",
+      "type": "image",
+      "src": "/img/screenshots/hubble_2.png"
+    },
+
     //this panel shows the intwixt emulator (this is the one that depicts the file upload workflow)
     "p2": {
       "id": "p2",
@@ -224,7 +231,7 @@ var hubble = {
       "graph": {
         "nodes": {
           "activity_1": {
-            "title": "Deal Unclaimed Timeout",
+            "title": "Deal Claim Timeout",
             "star": "Receive.1",
             "definition": "receive",
             "verb": "post",
@@ -237,9 +244,16 @@ var hubble = {
               "src": "/stars/Receive.1/image_96"
             },
             "icon_font": {
-              "class": "fa-clock-o",
-              "code": "",
-              "family": "FontAwesome"
+              "id": "ic_alarm",
+              "class": "alarm",
+              "group_id": "action",
+              "keywords": [
+                "action",
+                "alarm"
+              ],
+              "ligature": "alarm",
+              "code": "",
+              "family": "'Material Icons'"
             }
           },
           "activity_2": {
@@ -446,7 +460,7 @@ var hubble = {
             "definition": "activity-getdeal",
             "verb": "get",
             "p": {
-              "x": 0.152,
+              "x": 0.202,
               "y": 0.301
             },
             "async": true
@@ -637,7 +651,7 @@ var hubble = {
         "annotation": {
           "user": "u2",
           "role": "Sales Reps",
-          "text": "are notified when other reps update a record. This keeps the information flowing regardless of who's online or away from their desk."
+          "text": "work together in the same Slack channel. This keeps the information flowing regardless of who's online or away from their desk."
         },
         "pause": 4500
       },
@@ -671,7 +685,7 @@ var hubble = {
         "annotation": {
           "user": "u2",
           "role": "Sales Reps",
-          "text": "are notified directly in-channel when a lead is updated. In this case, no one claimed the lead in time, causing the issue to escalate. Timeouts and exception handling are a critical component of a well-designed business process."
+          "text": "are notified directly in-channel whenever the lead is updated. In this case, no one claimed the lead in time, causing the issue to escalate. Timeouts and exception handling are critical components of a well-designed business process."
         },
         "pause": 3500
       },
@@ -703,7 +717,7 @@ var hubble = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> augments the interaction, recommending a preferred sales rep (SR) based upon past performance."
+          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> can be used to augment the interaction. In this case, the AI service recommends a sales rep (SR) based upon past performance."
         },
         "pause": 2500
       },
@@ -760,7 +774,7 @@ var hubble = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "can view deal details directly in Slack and can optionally choose a different sales rep. The AI agent augments the interaction, while <b>managers make the final call</b>."
+          "text": "can view deal details directly in Slack and can optionally choose a different sales rep. The AI service augments the interaction, while <b>managers make the final call</b>."
         },
         "pause": 3500
       },
@@ -850,7 +864,7 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "are trained in a separate workflow. Each time a deal successfully closes, information about the deal and the sales rep are passed along. The more data provided to the AI, the more accurate the predictions"
+          "text": "are trained in a separate workflow. Each time a deal successfully closes, information about the deal and the assigned sales rep are passed along. The more data provided to the AI, the more accurate the predictions."
         },
         "pause": 6500
       },
@@ -863,27 +877,20 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "Aito.ai",
-          "text": "is an AI-enabled database that can be updated using historical data to help make accurate predictions from the get-go."
+          "text": "is a fully managed database with machine learning abilities. It provides sophisticated insights, but setup can keep its power out-of-reach for the average business user."
         },
         "pause": 5000
       },
 
       {
         "action": {
-          "type": "annotation.hide"
-        },
-        "pause": 1500,
-        "step_next": true
-      },
-
-      {
-        "action": {
-          "type": "annotation.show"
+          "type": "panel.activate",
+          "id": "p6"
         },
         "annotation": {
           "user": "a0",
           "role": "Intwixt",
-          "text": "makes it easy to train the AI services, using the same conversational style. Here the information is sent to Aito for bulk updates."
+          "text": "exposes Aito's functionality using the same conversational style used for integrating people and services. If you've got an idea, we provide the tools to help you realize it."
         },
         "pause": 5000
       },
@@ -905,71 +912,13 @@ var hubble = {
         "step_next":true
       },
 
-      {
-        "action": {
-          "type": "channel.activate",
-          "id": "a1"
-        },
-        "annotation": {
-          "user": "u3",
-          "role": "Sales Reps",
-          "text": "are contacted directly by the bot when deals are assigned."
-        },
-        "pause": 4500
-      },
-
-      {
-        "action": {
-          "type": "annotation.hide"
-        },
-        "pause": 500,
-        "step_next": true
-      },
-
-      {
-        "action": {
-          "type": "message.send",
-          "channel": "c1",
-          "message": {
-            "id": "c1m1",
-            "author": "a1",
-            "timestamp": "10:40 AM",
-            "text": "📝 You were just assigned a deal. Press <b>Refresh</b> to begin.",
-            "actions": {
-              "claim": {
-                "id": "claim",
-                "title": "Claim Document",
-                "style": "primary"
-              }
-            }
-          }
-        },
-        "pause": 4500
-      },
-
-      //clear all messages from a channel (used to reset a slack workspace in prep for re-running the simulation)
-      {
-        "action": {
-          "type": "channel.clear",
-          "panel": "p1",
-          "channel": "a1"
-        },
-        "annotation": {
-          "user": "",
-          "role": "",
-          "text": ""
-        },
-        "pause": 100,
-        "step_next": true
-      },
-
       //set to a default state with no channels selected
       {
         "action": {
           "type": "channel.activate",
           "id": ""
         },
-        "pause": 100,
+        "pause": 0,
         "step_next": true
       }
     ]

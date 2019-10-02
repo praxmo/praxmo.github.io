@@ -16,7 +16,7 @@ var overboard = {
     },
     "u1": {
       "id": "u1",
-      "title": "Luke",
+      "title": "Ben",
       "avatar": "u1.png"
     },
     "u2": {
@@ -106,7 +106,7 @@ var overboard = {
         "a1": {
           "id": "a1",
           "is_dm": true,
-          "title": "Intwixt",
+          "title": "Acme - Hire",
           "avatar": "a1.png",
           "private": true,
           "messages": {}
@@ -184,319 +184,21 @@ var overboard = {
     "p5": {
       "id": "p5",
       "type": "image",
-      "src": "img/screenshots/unboxed_1.png"
+      "src": "img/screenshots/overboard_1.png"
     },
 
     //this panel shows the intwixt emulator (this is the one that depicts the file upload workflow)
     "p2": {
       "id": "p2",
       "type": "intwixt",
-      "graph": {
-        "nodes": {
-          "activity_1": {
-            "title": "On Slack File Upload",
-            "star": "Slack.1",
-            "definition": "trigger-file_event",
-            "p": {
-              "x": 0.286,
-              "y": 0.251
-            },
-            "trigger": true
-          },
-          "activity_3": {
-            "title": "For Each File",
-            "star": "Map.1",
-            "definition": "map",
-            "p": {
-              "x": 0.193,
-              "y": 0.379
-            },
-            "iterate": true
-          },
-          "activity_4": {
-            "title": "Read Slack File",
-            "star": "Slack.1",
-            "definition": "activity-get_file",
-            "p": {
-              "x": 0.708,
-              "y": 0.756
-            },
-            "async": true
-          },
-          "activity_5": {
-            "title": "Save File to Box",
-            "star": "Box.1",
-            "definition": "fileUpload",
-            "p": {
-              "x": 0.826,
-              "y": 0.63
-            },
-            "async": true
-          },
-          "activity_2": {
-            "title": "Ask to Start",
-            "star": "Slack.1",
-            "definition": "activity-respond_with_ask_choice_with_blockkit",
-            "p": {
-              "x": 0.174,
-              "y": 0.683
-            },
-            "async": true,
-            "long_running": true,
-            "error": null
-          },
-          "activity_9": {
-            "title": "Get User Profile",
-            "star": "Slack.1",
-            "definition": "activity-get_user_info",
-            "p": {
-              "x": 0.519,
-              "y": 0.838
-            },
-            "async": true,
-            "error": null
-          },
-          "activity_14": {
-            "title": "Send 'OK' Message",
-            "star": "Slack.1",
-            "definition": "activity-send_message_with_blockkit",
-            "p": {
-              "x": 0.295,
-              "y": 0.817
-            },
-            "async": true,
-            "error": null
-          },
-          "activity_7": {
-            "title": "Send 'Cancel' Message",
-            "star": "Slack.1",
-            "definition": "activity-send_message_with_blockkit",
-            "p": {
-              "x": 0.365,
-              "y": 0.65
-            },
-            "credential": "intwixt-54829",
-            "async": true,
-            "error": null
-          },
-          "activity_6": {
-            "title": "Start Approval Workflow",
-            "star": ".intwixt-1-40050.1",
-            "definition": "activity_1",
-            "p": {
-              "x": 0.906,
-              "y": 0.498
-            },
-            "icon_font": {
-              "class": "fa-check",
-              "code": "",
-              "family": "FontAwesome"
-            }
-          },
-          "activity_8": {
-            "title": "Check if Resubmission",
-            "star": ".intwixt-1-40122.1",
-            "definition": "activity_3",
-            "p": {
-              "x": 0.139,
-              "y": 0.527
-            },
-            "icon_font": {
-              "class": "fa-upload",
-              "code": "",
-              "family": "FontAwesome"
-            }
-          }
-        },
-        "edges": {
-          "activity_1": {
-            "activity_3": {
-              "length": 1
-            }
-          },
-          "activity_9": {
-            "activity_4": {
-              "length": 1
-            }
-          },
-          "activity_4": {
-            "activity_5": {
-              "length": 1
-            }
-          },
-          "activity_8": {
-            "activity_2": {
-              "length": 1,
-              "error": null,
-              "condition": true
-            }
-          },
-          "activity_14": {
-            "activity_9": {
-              "length": 1,
-              "error": null,
-              "condition": null
-            }
-          },
-          "activity_2": {
-            "activity_14": {
-              "length": 1,
-              "error": null,
-              "condition": true
-            },
-            "activity_7": {
-              "length": 1,
-              "error": null,
-              "condition": true
-            }
-          },
-          "activity_5": {
-            "activity_6": {
-              "length": 1
-            }
-          },
-          "activity_3": {
-            "activity_8": {
-              "length": 1
-            }
-          }
-        }
-      }
+      "graph": {}
     },
 
     //this is the second intwixt emulator instance; this one shows the approval process
     "p3": {
       "id": "p3",
       "type": "intwixt",
-      "graph": {
-        "nodes": {
-          "activity_7": {
-            "title": "Review Document",
-            "star": "Receive.1",
-            "definition": "receive",
-            "p": {
-              "x": 0.191,
-              "y": 0.378
-            },
-            "trigger": true,
-            "image": {
-              "src": "/stars/Receive.1/image_96"
-            },
-            "icon_font": {
-              "class": "fa-file-o",
-              "code": "",
-              "family": "FontAwesome"
-            }
-          },
-          "activity_8": {
-            "title": "Ask Review",
-            "star": "Slack.1",
-            "definition": "activity-ask_choice_with_blockkit",
-            "p": {
-              "x": 0.544,
-              "y": 0.891
-            },
-            "async": true,
-            "long_running": true
-          },
-          "activity_10": {
-            "title": "Create Task",
-            "star": "Box.1",
-            "definition": "createTask",
-            "p": {
-              "x": 0.105,
-              "y": 0.674
-            },
-            "async": true
-          },
-          "activity_13": {
-            "title": "Create Task Assignment",
-            "star": "Box.1",
-            "definition": "createTaskAssignment",
-            "p": {
-              "x": 0.28,
-              "y": 0.916
-            },
-            "async": true
-          },
-          "activity_20": {
-            "title": "Complete Task Assignment",
-            "star": "Box.1",
-            "definition": "updateTaskAssignment",
-            "p": {
-              "x": 0.752,
-              "y": 0.399
-            },
-            "async": true
-          },
-          "activity_22": {
-            "title": "Send Confirmation Message",
-            "star": "Slack.1",
-            "definition": "activity-send_message_with_blockkit",
-            "p": {
-              "x": 0.924,
-              "y": 0.873
-            },
-            "async": true
-          },
-          "activity_1": {
-            "title": "Ask for Reason",
-            "star": "Slack.1",
-            "definition": "activity-respond_with_ask_data_with_dialog",
-            "p": {
-              "x": 0.743,
-              "y": 0.652
-            },
-            "async": true,
-            "long_running": true
-          },
-          "activity_3": {
-            "title": "Return Response",
-            "star": "Return.1",
-            "definition": "return",
-            "p": {
-              "x": 0.684,
-              "y": 0.177
-            }
-          }
-        },
-        "edges": {
-          "activity_13": {
-            "activity_8": {
-              "length": 2
-            }
-          },
-          "activity_7": {
-            "activity_10": {
-              "length": 2
-            }
-          },
-          "activity_10": {
-            "activity_13": {
-              "length": 2
-            }
-          },
-          "activity_1": {
-            "activity_20": {
-              "length": 2
-            },
-            "activity_22": {
-              "length": 2
-            }
-          },
-          "activity_8": {
-            "activity_1": {
-              "length": 2,
-              "condition": true
-            }
-          },
-          "activity_20": {
-            "activity_3": {
-              "length": 2
-            }
-          }
-        }
-      }
+      "graph": {}
     }
   },
 
@@ -509,6 +211,15 @@ var overboard = {
 
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
+
+      //alert
+      {
+        "action": {
+          "type": "story.alert",
+          "text": "Demo server unavailable for this example. Please try again later."
+        },
+        "pause": 0
+      },
 
       //activate a panel
       {
@@ -696,7 +407,7 @@ var overboard = {
             "id": "a1m2",
             "author": "a1",
             "timestamp": "11:30 AM",
-            "text": "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Luke"
+            "text": "<b>✔ RESUBMITTED</b> at <i>11:30am</i> by Ben"
           }
         },
         "pause": 3000,

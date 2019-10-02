@@ -355,7 +355,7 @@
                         <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
                         <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
                         <span class="circle" data-name="(Ben)" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
-                        <span class="circle" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span>
+                        <!-- span class="circle" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span -->
                         <span class="circle" title="Intercom"><img src="/img/connectors/Intercom_96.png"></span>
                         <span class="circle" data-name="(AI / ML)" title="Aito.ai"><img src="https://my.intwixt.com/stars/Aito.1/image_96"></span>
                     </div>
@@ -541,16 +541,21 @@
         <!-- runs the emulators -->
         <div class="runner">
 
+            <!-- message overlay to show when in 'idling' state -->
+            <div v-bind:class="['alert', { active: alert}]">
+                <div>{{alert}}</div>
+            </div>
+
             <!-- overlay to show when in 'idling' state -->
             <div v-bind:class="['story_overlay', { active: story_board.state === 'idling'}]">
                 <div class="play">
                     <!-- div v-on:click="play_all()" title="Play all" class="button all">
-                        <i class="fas fa-play fa-6x"></i>
+                        <i class="fas fa-step-forward fa-6x"></i>
                         <div class="label">Play Example</div>
                     </div -->
                     <div v-on:click="step_through()" title="Step through at my own pace" class="button step">
-                        <i class="fas fa-step-forward fa-6x"></i>
-                        <div class="label">Step-By-Step Example</div>
+                        <i class="fas fa-play fa-6x"></i>
+                        <div class="label">Show Me</div>
                     </div>
                 </div>
             </div>
