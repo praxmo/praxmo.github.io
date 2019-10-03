@@ -101,7 +101,6 @@
                         <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
                         <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
                         <span class="circle" data-name="(Ben)" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
-                        <!-- span class="circle" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span -->
                         <span class="circle" title="Intercom"><img src="/img/connectors/Intercom_96.png"></span>
                         <span class="circle" data-name="(AI / ML)" title="Aito.ai"><img src="https://my.intwixt.com/stars/Aito.1/image_96"></span>
                     </div>
@@ -125,6 +124,11 @@
         <!-- runs the emulators -->
         <div class="runner">
 
+            <!-- message overlay to show when in 'idling' state -->
+            <div v-bind:class="['alert', { active: alert}]">
+                <div>{{alert}}</div>
+            </div>
+
             <!-- overlay to show when in 'idling' state -->
             <div v-bind:class="['story_overlay', { active: story_board.state === 'idling'}]">
                 <div class="play">
@@ -146,19 +150,19 @@
                     Multi-role. &nbsp; Multi-system. &nbsp; Unified in Slack.
                 </div>
                 <div class="options">
-                    <div class="option">
+                    <div class="option try" v-if="story_board.cta === 1 || story_board.cta === 3 || story_board.cta === 5 || story_board.cta === 7">
                         <label>Try the Slack App</label>
                         <div class="action">
-                            <button class="btn" onclick="alert('This page is in beta and under review. Contact Intwixt for a pre-release demo while we finish things up.');">Add to Slack</button>
+                            <a class="btn" target="_slack" href="https://slack.com/oauth/authorize?client_id=397209179749.672831744468&scope=bot%20commands%20chat%3Awrite%3Abot%20users.profile%3Aread&state=U2FsdGVkX19akHWXxKM6UWidHGf5TaYdNMJNc8mkz8eARzE71diJGnAldWf3Ylf%2BI0cL7sq%2F5fNbtDrzJ8oTTb5yeRVqzuaf2kOTAoiLTKgE%2FcF2Bo833yA7o1I%2FIR%2Ff05FgtpN%2Fqjlt9fA6llxaQUfCpGLtB%2BCPkz2x2sfYPas%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">Add to Slack</a>
                         </div>
                     </div>
-                    <div class="option">
+                    <div class="option own" v-if="story_board.cta === 2 || story_board.cta === 3 || story_board.cta === 5 || story_board.cta === 6 || story_board.cta === 7">
                         <label>Own the Slack App*</label>
                         <div class="action">
-                            <button class="btn" onclick="alert('This page is in beta and under review. Contact Intwixt for a pre-release demo while we finish things up.');">Get Started</button>
+                            <button class="btn" onclick="alert('Please contact us to get started. We will copy the source files to your Intwixt account and give you tips for extending to make it your own..');">Get Started</button>
                         </div>
                     </div>
-                    <div class="option">
+                    <div class="option call" v-if="story_board.cta === 4 || story_board.cta === 5 || story_board.cta === 6 || story_board.cta === 7">
                         <label>Contact us</label>
                         <div class="links action">
                             <div>
@@ -170,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footnote">*Sign up for a free Intwixt account. We'll copy the source files and give you tips
+                <div class="footnote" v-if="story_board.cta === 2 || story_board.cta === 3 || story_board.cta === 5 || story_board.cta === 6 || story_board.cta === 7">*Sign up for a free Intwixt account. We'll copy the source files and give you tips
                     to
                     get started.
                 </div>
