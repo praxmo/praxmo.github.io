@@ -203,7 +203,7 @@ ul[class^=ring] li {
 
 
 .intwixt-cog {
-    top:-67px;
+    top:-70px;
     margin: 0 50% 0 0;
     color:#c8c8c8;
     position: absolute;
@@ -220,7 +220,7 @@ ul[class^=ring] li {
     width: 76px;
     height: 76px;
     content:"";
-    background-image: url('/img/intwixt.png');;
+    background-image: url('/img/intwixt_03A9F4.png');;
 }
 
 .orbit-center {

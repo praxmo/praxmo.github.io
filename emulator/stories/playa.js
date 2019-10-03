@@ -231,7 +231,7 @@ var playa = {
       "graph": {
         "nodes": {
           "activity_1": {
-            "title": "Deal Claim Timeout",
+            "title": "Lead Claim Timeout",
             "star": "Receive.1",
             "definition": "receive",
             "verb": "post",
@@ -597,7 +597,7 @@ var playa = {
               },
               "claim": {
                 "id": "claim",
-                "title": "Claim Deal"
+                "title": "Claim Lead"
               }
             }
           }
@@ -647,7 +647,7 @@ var playa = {
               },
               "claim": {
                 "id": "claim",
-                "title": "Claim Deal"
+                "title": "Claim Lead"
               }
             }
           }
@@ -676,7 +676,7 @@ var playa = {
             "id": "c3m1",
             "author": "a1",
             "timestamp": "9:20 AM",
-            "text": "❗[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
+            "text": "❗The <a href='#'>Intel, Inc</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
             "fields": [
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true}
@@ -718,7 +718,7 @@ var playa = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "are notified when new deals aren't claimed within the required time frame. An <b>AI service</b> can augment the interaction to help expedite the deal flow. In this case, the AI service recommends a sales rep (SR) based upon past performance."
+          "text": "are notified when new leads aren't claimed within the required time frame. An <b>AI service</b> can augment the interaction to help expedite the deal flow. In this case, the AI service recommends a sales rep (SR) based upon past performance."
         },
         "pause": 1500
       },
@@ -732,7 +732,7 @@ var playa = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "❗ This lead was not claimed in time.<br>🤖 <b>Sandy</b> looks like the best match to close this deal.",
+            "text": "❗ The <a href='#'>Intel, Inc</a> lead was not claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
@@ -742,7 +742,7 @@ var playa = {
             "actions": {
               "review": {
                 "id": "review",
-                "title": "View Deal"
+                "title": "View Lead"
               },
               "assign": {
                 "id": "assign",
@@ -775,7 +775,7 @@ var playa = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "can view deal details directly in Slack and can optionally choose a different sales rep. The AI service augments the interaction, while <b>managers make the final call</b>."
+          "text": "can view lead details directly in Slack and can optionally choose a different sales rep. The AI service augments the interaction, while <b>managers make the final call</b>."
         },
         "pause": 3500
       },
@@ -798,7 +798,7 @@ var playa = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:50 AM",
-            "text": "[Intel, Inc., HubSpot ID <a href='#'>1025480752</a>] status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
+            "text": "<a href='#'>Intel, Inc</a> deal status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
             "actions": {
               "review": {
                 "id": "review",
