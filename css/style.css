@@ -753,38 +753,37 @@ a:hover {
 
 .examples-outer .col-sm-4 .circles {
     padding-top:20px;
-    zoom: 80%;
     white-space:nowrap;
 }
 
 .examples-outer .col-sm-4 .circle {
-    color: #c3cfe5;
+    color: #2196F3;
     border: 1px solid #ededed;
     background: #fff;
-    padding: 10px;
+    padding: 4px;
     display: inline-block;
-    line-height: 30px;
+    /* line-height: 22px; */
     width: 30px;
     height: 30px;
     text-align: center;
     border-radius: 50%;
-    font-size: 14px;
-    box-sizing: initial;
+    font-size: 11px;
+    box-sizing: content-box;
     position: relative;
-    margin: 0 18px 0 0 !important;
+    margin: 0 28px 0 0 !important;
     font-weight: 600;
     box-shadow: 0 0 8px #c8c8c8;
-    cursor:default;
+    cursor: default;
 }
 
 .examples-outer .col-sm-4 .circle:before {
     content: attr(data-name);
     margin: 0 50% 0 0;
-    color:#888888;
+    color: #1b1b1b;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    font-size:.9em;
+    font-size: .9em;
     white-space: nowrap;
     bottom: -40px;
 }
@@ -792,11 +791,11 @@ a:hover {
 .examples-outer .col-sm-4 .circle:after {
     content: attr(title);
     margin: 0 50% 0 0;
-    color:#888888;
+    color: #1b1b1b;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    font-size:.9em;
+    font-size: .9em;
     white-space: nowrap;
     bottom: -25px;
 }
