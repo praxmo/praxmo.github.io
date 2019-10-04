@@ -1051,6 +1051,7 @@ canvas {
         border-radius: 8px;
         border-width: 0;
         position: relative;
+        min-height:460px;
     }
 
     .emulator .main .message .fields {
@@ -1070,6 +1071,10 @@ canvas {
     .emulator .main .message button {
         width:100%;
         margin-bottom:6px;
+    }
+
+    .runner {
+        height:460px;
     }
 
     .runner .story_overlay.cta .option .action {
