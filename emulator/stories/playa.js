@@ -285,7 +285,7 @@ var playa = {
             "definition": "activity-predict",
             "verb": "post",
             "p": {
-              "x": 0.152,
+              "x": 0.162,
               "y": 0.655
             },
             "async": true
@@ -330,7 +330,7 @@ var playa = {
             "definition": "activity-respond_with_ask_choice_with_blockkit",
             "verb": "post",
             "p": {
-              "x": 0.42,
+              "x": 0.32,
               "y": 0.969
             },
             "async": true
@@ -347,7 +347,7 @@ var playa = {
             "async": true
           },
           "activity_10": {
-            "title": "Send Expanded Profile to Managers",
+            "title": "Send Expanded Profile",
             "star": "Slack.1",
             "definition": "activity-send_message_with_blockkit",
             "verb": "post",
@@ -364,7 +364,7 @@ var playa = {
             "verb": "post",
             "p": {
               "x": 0.864,
-              "y": 0.972
+              "y": 0.988
             },
             "icon_font": {
               "class": "fa-check",
@@ -460,8 +460,8 @@ var playa = {
             "definition": "activity-getdeal",
             "verb": "get",
             "p": {
-              "x": 0.202,
-              "y": 0.301
+              "x": 0.212,
+              "y": 0.361
             },
             "async": true
           },
@@ -676,8 +676,10 @@ var playa = {
             "id": "c3m1",
             "author": "a1",
             "timestamp": "9:20 AM",
-            "text": "❗The <a href='#'>Intel, Inc</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
             "fields": [
+              {title: "&nbsp;", full_width:true},
+              {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true}
             ]
@@ -732,7 +734,7 @@ var playa = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "❗ The <a href='#'>Intel, Inc</a> lead was not claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
+            "text": "❗ The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
@@ -799,6 +801,10 @@ var playa = {
             "author": "a1",
             "timestamp": "9:50 AM",
             "text": "<a href='#'>Intel, Inc</a> deal status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
+            "fields": [
+              {title: "&nbsp;", full_width: true},
+              {title: "&nbsp;", full_width: true}
+            ],
             "actions": {
               "review": {
                 "id": "review",

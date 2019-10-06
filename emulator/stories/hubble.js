@@ -280,18 +280,18 @@ var hubble = {
             "async": true
           },
           "activity_4": {
-            "title": "Aito | Predict Best Rep",
+            "title": "AI | Predict Best Rep",
             "star": "Aito.1",
             "definition": "activity-predict",
             "verb": "post",
             "p": {
-              "x": 0.152,
+              "x": 0.162,
               "y": 0.655
             },
             "async": true
           },
           "activity_5": {
-            "title": "Get Predicted Rep Profile",
+            "title": "Get Rep Profile",
             "star": "Slack.1",
             "definition": "activity-get_user_info",
             "verb": "get",
@@ -330,7 +330,7 @@ var hubble = {
             "definition": "activity-respond_with_ask_choice_with_blockkit",
             "verb": "post",
             "p": {
-              "x": 0.42,
+              "x": 0.32,
               "y": 0.969
             },
             "async": true
@@ -347,7 +347,7 @@ var hubble = {
             "async": true
           },
           "activity_10": {
-            "title": "Send Expanded Profile to Managers",
+            "title": "Send Expanded Profile",
             "star": "Slack.1",
             "definition": "activity-send_message_with_blockkit",
             "verb": "post",
@@ -364,7 +364,7 @@ var hubble = {
             "verb": "post",
             "p": {
               "x": 0.864,
-              "y": 0.972
+              "y": 0.988
             },
             "icon_font": {
               "class": "fa-check",
@@ -679,7 +679,7 @@ var hubble = {
             "id": "c3m1",
             "author": "a1",
             "timestamp": "9:20 AM",
-            "text": "❗The <a href='#'>Intel, Inc</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
             "fields": [
               {title: "&nbsp;", full_width:true},
               {title: "&nbsp;", full_width:true},
@@ -736,7 +736,7 @@ var hubble = {
             "id": "c1m1",
             "author": "a1",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel, Inc</a> lead was not claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
