@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <title>Intwixt | FAQ</title>
@@ -90,60 +90,28 @@
             <div class="row content">
                 <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInLeft" data-wow-delay="0.36s">
 
-                    <h2>What is the “Intwixt Enterprise Conversation Platform”?</h2>
-                    <p>The Intwixt Enterprise Conversation Platform (ECP) is a unique, people-first approach to Business Process Automation. While existing platforms typically focus on automating systems, Intwixt’s hybrid approach is able to interleave people and systems into realistic solutions that reflect real-word business processes. </p>
-                    <p>Automating people is difficult, especially given human unpredictability: interrupting the process, changing its course, or failing to respond at all. Human interaction demands something more akin to <i>conversation</i>. Instead of treating unexpected human behavior as an error, Intwixt elegantly resolves the change of flow like a change of conversation.</p>
-                    <p>Conversational platforms are easily distinguished from traditional automation platforms in their ability to manage state. Without the ability to know what <i>was</i>, <i>is</i>, and <i>might be</i> said, there is no way to engage a person on their terms. Legacy automation platforms are easily identified by their stateless interactions. They might be able to send an alert (perhaps through email or messaging channels like Slack). But they have little to no ability to await the answer, react to a change of dialog, and truly engage the recipient.</p>
+                    <h2>Do I need to write code?</h2>
 
-                    <h2>Are "workflows" different from "business processes"?</h2>
-                    <p>At Intwixt, we define <i>workflows</i> as short-running, system-to-system automations. The workflow might conclude by sending an email or Slack message, but the hallmark of a workflow is that it never waits for the person to respond. </p>
-                    <p>Workflows are stateless. There is no sense of time or timeouts. Instead, they represent a straight-through process that concludes once the message is sent to a person. It’s easy to spot a workflow--even those that involve people--because the step-by-step sequence of activities will always stop or end once the message is sent.</p>
-                    <p><i>Business processes</i> are different in that they model the entire process, including the human interaction (what we call a “conversation”). This allows a business process to model an entirely different class of application, where people can be asked questions, and different (even unexpected) answers can be handled--even the non-answer (a timeout) can be addressed. While business processes are stateful, workflows are stateless.</p>
-
-                    <h2>Why is the distinction between stateful and stateless so important?</h2>
-                    <p>Stateless processes underlie the majority of automation platforms including iPaaS and RPA solutions. They are intended to support business scenarios that involve short-running logic and have high-performance requirements.</p>
-                    <p>Stateful processes are intended to support business scenarios that involve people and therefore have different demands, requiring complex, long-running logic. Stateful processes often have specific reliability and recovery requirements that simply can’t be modeled by stateless solutions. For example, a process that sends a question to a person and awaits a response must be stateful, because the act of waiting and being able to recover and continue execution will always take an indeterminate amount of time.</p>
-                    <p>We believe that intelligent automation, including AI-decision making and supporting technologies like Natural Language Processing (NLP) require stateful deployment. Further, in order to take full advantage of modern communication platforms like Slack, it’s necessary to support stateful interactions. A critical component of messaging platforms (and what makes them vastly superior to email) is the concept of "channels"--shared inboxes where like-minded groups can conduct business. However, without state, channels are soon cluttered with interactive messages that never go away. It’s difficult (if not impossible) to clean up once a message times out or the process takes a different turn, leaving the team confused as to which messages have been viewed and claimed.</p>
-                    <p>Whether you’re deploying stateless workflows or stateful business processes, the Intwixt ECP has you covered. Our novel approach to unifying human and system interaction, means you can model long-running human conversations as easily as short-running, system-to-system integrations.</p>
-
-                    <h2>What data does Intwixt collect through its platform service?</h2>
-                    <p>Intwixt collects your Slack contact information when you choose to sign up using your  Slack account. This includes your Slack ID, Slack Team, email address and name. If you do not wish to sign up with Slack, please contact us directly. We’ll request your email and optionally collect your phone number as well if you wish to enable two-factor authentication.</p>
-                    <p>Because our process engine is fully stateful, we temporarily store all data as it travels through our system. However, once a flow completes its execution, all information is fully scrubbed from our servers within 30 minutes of completion.</p>
-
-                    <h2>How do you compare to Robotic Process Automation (RPA)?</h2>
-                    <p>Robotic Process Automation (RPA) seeks to automate manual, mundane, and repetitive tasks. It’s often touted as a way “to take the robot out of the human” by factoring out predictable, linear business processes. This focus makes it easy to apply RPA to linear tasks, but challenging when addressing complex decision-making activities.</p>
-                    <p>RPA tools and strategies aren’t designed to automate human decision-making. They shine as long as the process remains linear and predictable. But armed with Intwixt’s conversation modeling tools, developers can design hybrid solutions that take RPA to the next level--towards <i>Intelligent Business Process Automation</i>, with a strong focus on human interaction, stateful conversations, and AI. </p>
-                </div>
-
-                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight" data-wow-delay="0.36s">
-
-
-                    <h2>How do you compare to traditional iPaaS vendors?</h2>
-                    <p>An Integration Platforms as a Service (iPaaS) is primarily focused on automating data sharing across disparate computing systems. They leverage APIs or similar structured service definitions to predictably orchestrate the targeted systems.</p>
-                    <p>The Intwixt Enterprise Conversation Platform (ECP) employs the same patterns provided by traditional iPaaS vendors but is backed by a stateful process engine, capable of  conversational, cognitive, and long-running business processes.</p>
-                    <label>Conversational</label>
-                    <div class="stream_type">
-                        Our conversation platform combines people and systems in unified workflows, delivering advanced business process capabilities like timeouts and exception handling. People can be unpredictable, sending unanticipated phrases (or nothing at all). We react and learn to keep the conversation going. Our ability to turn any messaging app into a business process engine means no more switching between applications. Slack, Alexa, Messenger and more...we keep you productive, all in one place.
-                    </div>
-                    <label>Cognitive</label>
-                    <div class="stream_type">
-                        Cognitive computing uses artificial intelligence (AI) to simulate advanced human decision-making capabilities. We seamlessly integrate AI to sense, respond, predict, and learn. AI enhances our rule-based workflows and business processes, making end-user interactions more fluid and flexible. The insights don't replace human interaction; they make it better.
-                    </div>
-                    <label>Stateful</label>
-                    <div class="stream_type">
-                        Long-running business processes span systems, people, and time, requiring state in order to orchestrate and perform efficiently. While stateless systems offer limited and simple workflows, statefulness opens up advanced interactions that reflect the complex interactions between people and systems they use.
-                    </div>
-
-                    <h2>Does Intwixt support other messaging services beyond Slack?</h2>
-                    <p>Yes. In fact, some of Intwixt’s customers are using Facebook Messenger and Alexa as well as traditional channels like email and SMS. We’ve chosen to focus on Slack given its broad adoption and robust messaging APIs. With Slack, It’s finally possible to fully replace mobile and Web applications given the completeness of their platform. As other platforms evolve and improve, we hope to leverage them as well to meet users where they work.</p>
-
-                    <h2>How do I get started?</h2>
-                    <p>Intwixt provides a hosted community edition of the platform at https://my.intwixt.com. We offer each user a free app instance with a limited number of resources and activity calls. If you need additional resources beyond what the free tier offers, you can upgrade your your trial app to a production app. If you require further customizations ask us about our enterprise deployments.
-                    <p>If you wish to move your app to production or purchase activity calls (beyond the initial set we grant you each month), we need a credit card and a maximum monthly budget.</p>
+                    <p>Our model-driven approach lets users create sophisticated solutions without code.
+                        Instead, customers use our visual tools to weave users and systems into conversational business processes
+                        (we call these flows). We then deploy these solutions at scale on our AI-enabled engine,
+                        learning from each interaction. Over time the system evolves to
+                        recommend improvements to the process, increasing everything from accuracy to usability.</p>
 
                     <h2>Can I connect my private APIs?</h2>
-                    <p>Our development tools are cloud-hosted and available through modern browsers like Chrome, Safari or Firefox. We offer a growing list of more than 30 connectors. Importantly, you can add your own connectors to and orchestrate your private APIs as well.</p>
-                    <p>If you have an API spec document (Open API/Swagger), we can import its operations. You can then use our no-code design tools to orchestrate your APIs directly within the messaging platform of your choice. If you do not have a spec document, we can also use sample JSON messages to get you started.</p>
+                    <p>If you have an API spec document (Open API/Swagger), we can import its operations.
+                        You can then use our no-code design tools to orchestrate your APIs directly within the
+                        messaging platform of your choice. If you do not have a spec document, we can also use sample
+                        JSON messages to get you started.
+                    </p>
+
+                    <h2>Can I include Serverless functions?</h2>
+                    <p>Intwixt adds statefulness to your Serverless functions. Our deep integration with both
+                        AWS Lambda and Google Cloud Functions allows you to orchestrate your functions
+                        using our no-code, visual designer.
+                        Combine Serverless functions, APIs, apps and users
+                        into sophisticated flows that can be run directly in Slack and other messaging platforms.
+                    </p>
 
                     <h2>Can I monitor real-time events?</h2>
                     <p>In addition to providing a fully stateful process engine, we publish a detailed set of
@@ -187,8 +155,61 @@
                         <nobr>Activity Stop With Error</nobr>
                     </div>
 
-                    <h2>What kind of support does Intwixt offer?</h2>
-                    <p>We provide community forums, user guides, and API documentation. These are available to both <b>Free</b> and <b>Pro</b> accounts. We offer ELAs for enterprises with more-specific needs in order to help you stay productive, particularly when modeling complex business scenarios. While our tooling is easy to learn, it can be challenging to learn how to deliver the same functionality over a messaging channel like Slack as is typically offered by Web and mobile applications.</p>
+                    <h2>Can I trigger flows over HTTP?</h2>
+                    <p>Any flow can be exposed using an HTTP trigger which we manage on your behalf. You configure the
+                        HTTP method (GET, POST, etc), path and other standard settings. When you activate your flow, we
+                        generate your HTTP spec documentation (Open API format) and maintain and secure the endpoint.
+                        When you deactivate a flow with an HTTP trigger, we shut down the route and regenerate the HTTP
+                        spec documentation to no longer include the cancelled route(s).
+                    </p>
+                </div>
+
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight" data-wow-delay="0.36s">
+
+                    <h2>Are workflows stateful?</h2>
+                    <p>When a flow is run (we call this a "job"), the information that is generated by each
+                        activity in the flow is persisted as long as necessary for the job to complete. A job may run
+                        for a few milliseconds or it may run for a week. During this time the data is fully managed by
+                        Intwixt and is available to pass to other downstream activities.</p>
+
+                    <p>State is important when orchestrating people. For example, a job with activities that ask
+                        questions over Slack might take hours or days to complete if the person is slow to answer.
+                        During this time, we retain all activity data, ensuring that when the person eventually responds,
+                        the flow resumes without interruption.</p>
+
+                    <h2>Can I add conditional statements?</h2>
+                    <p>The grouping statements, "any of" and "all of", may be used
+                        to construct multi-faceted conditions based upon the output of any upstream activity. Error states may
+                        also be tracked as conditions, allowing for different error types (like timeouts) to be explicitly
+                        handled and resolved.</p>
+
+                    <h2>Can I share data between activities?</h2>
+                    <p>We provide a data mapper that allows you to connect and transform data from upstream activities
+                        as the flow is run. It is possible to combine the output from multiple upstream activities and
+                        map into a single input.</p>
+
+                    <h2>Can flows call other flows?</h2>
+                    <p>The workflows you design are compositional by default. For larger applications, it is common for
+                        users to create flows that serve as reusable modules.</p>
+
+                    <h2>Do you have a RESTful API?</h2>
+                    <p>All Intwixt capabilities and features are available through our REST API. Flows can be created
+                        and activated. Jobs can be run, and job data can be queried in real-time. Register for an
+                        account for full access to the interactive Open API (Swagger) documentation.</p>
+
+                    <h2>Can I try before I buy?</h2>
+                    <p>Intwixt provides a hosted community edition of the platform at https://my.intwixt.com. We offer
+                        each user a free app instance with a limited number of resources and activity calls. If you need
+                        additional resources beyond what the free tier offers, you can upgrade your your trial app to a
+                        production app. If you require further customizations ask us about our enterprise deployments.</p>
+
+                    <p>If you wish to move your app to production or purchase activity calls (beyond the initial set we
+                        grant you each month), we need a credit card and a maximum monthly budget.</p>
+
+                    <h2>How do you secure my credentials?</h2>
+                    <p>As an integration platform, we orchestrate services on your behalf. This requires that we handle
+                        your credentials. We encrypt all stored credentials at rest and in transit and encourage users
+                        to set up two-factor authentication for an added layer of security.</p>
                 </div>
             </div>
 

@@ -433,7 +433,7 @@ var hubble = {
       "graph": {
         "nodes": {
           "activity_13": {
-            "title": "HubSpot | On Deal Updated",
+            "title": "HubSpot | On Deal Closed",
             "star": "HubSpot.1",
             "definition": "trigger-deal_updated",
             "verb": "post",
