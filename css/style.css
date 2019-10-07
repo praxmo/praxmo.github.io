@@ -1244,6 +1244,31 @@ a:hover {
     color: #999999;
 }
 
+.quotes .selectors {
+    position: absolute;
+    top: 240px;
+    text-align: center;
+    letter-spacing: .5em;
+    width: 100%;
+}
+
+.quotes .selectors .selector {
+    position: relative;
+    display: inline;
+    margin: 0;
+    font-style: normal;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.quotes .selectors .selector:after {
+    content: '\25CB';
+}
+
+.quotes .selectors .selector.selected:after {
+    content: '\25CF';
+}
+
 
 /* ==========================================================================================================
 								        PRICING
