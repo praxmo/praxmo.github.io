@@ -86,23 +86,23 @@
 
             <div style="margin-top:40px;min-height:800px;" class="row examples-grid-columns">
                 <div class="col-sm-8 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <h1 class="small-factor">Customer Journey</h1>
+                    <h1 class="small-factor">More than just Slack</h1>
                     <div class="solution-emulator interactive">
-                        <my-solution-emulator  id="hubble" v-cloak></my-solution-emulator>
+                        <my-solution-emulator  id="omni" v-cloak></my-solution-emulator>
                     </div>
                 </div>
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
-                    <h1 class="large-factor">Customer Journey</h1>
-                    <p> Deliver <b>AI-enabled</b> customer journeys that keep your sales teams  productive and your sales
-                        managers informed. Merge customer information directly in Slack from CRM systems like HubSpot and
-                        Intercom. With <b>machine learning</b> baked-in, gain insight into people and processes you might
-                        otherwise overlook.</p>
+                    <h1 class="large-factor">More than Just Slack</h1>
+                    <p>Slack's expansive APIs and rich interactive messages make it our favorite choice
+                    for deploying conversational apps. But nothing is more important that actually reaching your audience.
+                        Deploy multi-channel solutions on the channels your employees and customers already know and use, including
+                        Alexa, SMS, Messenger and more.</p>
                     <div class="circles">
                         <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
-                        <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
                         <span class="circle" data-name="(Ben)" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
-                        <span class="circle" title="Intercom"><img src="/img/connectors/Intercom_96.png"></span>
-                        <span class="circle" data-name="(AI / ML)" title="Aito.ai"><img src="https://my.intwixt.com/stars/Aito.1/image_96"></span>
+                        <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
+                        <span class="circle" data-name="(SMS)" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span>
+                        <span class="circle" title="Slack"><img src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@
                     <div class="option try" v-if="story_board.cta === 1 || story_board.cta === 3 || story_board.cta === 5 || story_board.cta === 7">
                         <label>Try the Slack App</label>
                         <div class="action">
-                            <a class="btn" target="_slack" href="https://slack.com/oauth/authorize?client_id=397209179749.672831744468&scope=bot%20commands%20chat%3Awrite%3Abot%20users.profile%3Aread&state=U2FsdGVkX19akHWXxKM6UWidHGf5TaYdNMJNc8mkz8eARzE71diJGnAldWf3Ylf%2BI0cL7sq%2F5fNbtDrzJ8oTTb5yeRVqzuaf2kOTAoiLTKgE%2FcF2Bo833yA7o1I%2FIR%2Ff05FgtpN%2Fqjlt9fA6llxaQUfCpGLtB%2BCPkz2x2sfYPas%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">Add to Slack</a>
+                            <a class="btn" target="_slack" href="#">Add to Slack</a>
                         </div>
                     </div>
                     <div class="option own" v-if="story_board.cta === 2 || story_board.cta === 3 || story_board.cta === 5 || story_board.cta === 6 || story_board.cta === 7">
@@ -185,7 +185,7 @@
                 <!-- image viewer; common container that renders static images when storytelling -->
                 <div :id="panel_id"
                      class="imager panel"
-                     v-bind:class="[{ active: activePanelId === panel_id }]"
+                     v-bind:class="[{ active: activePanelId === panel_id },{ hcenter: panel.halign === 'center' },{ vcenter: panel.valign === 'center' }]"
                      v-if="panel.type === 'image'">
                     <img class="avatar"
                          :src="panel.src">
@@ -363,12 +363,12 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/wow.min.js"></script>
-<script src="/emulator/stories/hubble.js"></script>
+<script src="/emulator/stories/omni.js"></script>
 <script src="/emulator/js/slack.js"></script>
 <script src="/emulator/js/canvas.js"></script>
 <script src="/js/main.js"></script>
 <script>
-  emulate("hubble", "#hubble", hubble);
+  emulate("omni", "#omni", omni);
 </script>
 </body>
 </html>
