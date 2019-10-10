@@ -543,7 +543,54 @@ a:hover {
 }
 
 /* ==========================================================================================================
-										ABOUT TEAM
+										TERMS
+   ========================================================================================================== */
+
+
+.container.terms {
+    margin-top:80px;
+}
+
+.container .date {
+    margin-bottom:40px;
+}
+
+.terms ol {
+    margin-left:1em;
+    text-indent:.5em;
+}
+
+.terms ol[type="a"] {
+    margin-left: 1.5em;
+    text-indent: .15em;
+}
+
+.terms ol[type="a"] li {
+    margin-left:.5em;
+}
+
+.terms ul {
+    margin-left:3.5em;
+}
+
+/* ==========================================================================================================
+										POLICY
+   ========================================================================================================== */
+
+.container.policy {
+    margin-top:80px;
+}
+
+.container .date {
+    margin-bottom:40px;
+}
+
+span.policy-detail {
+    font-size:14px;
+}
+
+/* ==========================================================================================================
+										FAQ
    ========================================================================================================== */
 
 .faq {
@@ -972,6 +1019,11 @@ a:hover {
     transition: color .2s ease;
 }
 
+.nav-items.secondary-nav {
+    margin-top:20px;
+    margin-bottom:0;
+}
+
 .footer-outer .footer-nav ul {
     list-style: none;
     text-align: center;
@@ -1007,7 +1059,7 @@ a:hover {
     margin: 0 auto;
     border: 1px solid #434769;
     display: block;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .footer-outer .copyright {
@@ -1757,7 +1809,7 @@ a:hover {
     .footer-outer .border-bottom-footer {
         height: 1px;
         width: 100%;
-        margin: 100px auto 0 auto;
+        margin: 20px auto 0 auto;
         border: 1px solid #434769;
         display: block;
     }
@@ -1860,6 +1912,10 @@ a:hover {
         display: block;
         width: 100%;
         text-align: center;
+    }
+
+    .footer-outer .border-bottom-footer {
+        margin: 60px auto 0 auto;
     }
 
 }
