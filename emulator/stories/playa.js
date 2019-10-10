@@ -538,6 +538,13 @@ var playa = {
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
     "index": 0,
 
+    "cta": 1,
+
+    "href": {
+      "try":"",
+      "own":"javascript:alert('Please contact us to get started. We will copy the source files to your Intwixt account and give you tips for extending to make it your own.');"
+    },
+
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
 

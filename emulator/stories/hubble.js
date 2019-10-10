@@ -538,6 +538,11 @@ var hubble = {
     //1, 2, 3 (binary add) (1) use slack app, (2) own slack app, (4) contact us
     "cta": 4,
 
+    "href": {
+      "try":"",
+      "own":"javascript:alert('Please contact us to get started. We will copy the source files to your Intwixt account and give you tips for extending to make it your own.');"
+    },
+
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
     "index": 0,
 

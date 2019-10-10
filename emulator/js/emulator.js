@@ -1,7 +1,5 @@
 //copyright 2019 Intwixt, Inc. All rights reserved
 
-//DEPRECATED: Use emulator.js instead which includes the embedded template
-
 /**
  * global pointer to all stories being told; each story is a Vue instance with its own UI and data source
  */

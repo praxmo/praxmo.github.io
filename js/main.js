@@ -82,8 +82,6 @@ window.onload = function () {
           .fadeIn(2000)
           .delay(delay)
           .fadeOut(2000, function () {
-            console.log(local);
-            console.log(counter);
             if (local === counter) {
               showNextQuote();
             }
