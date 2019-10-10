@@ -719,7 +719,7 @@ var omni = {
         "annotation": {
           "user": "u2",
           "role": "Sales Reps",
-          "text": "see real-time updates and cleanup of all interactive messages--even when another channel like SMS is used. This helps to avoid confusion and keep the sales rep focused on their deals."
+          "text": "see real-time updates and cleanup of all interactive messages--even when another channel like SMS is used. This helps to avoid confusion and keeps the sales rep focused on their deals."
         },
         "pause": 3500
       },
