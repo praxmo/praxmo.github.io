@@ -1354,6 +1354,35 @@ span.policy-detail {
     border-color: #03A9F4;
 }
 
+.pricing .definition {
+    text-align:left;
+}
+
+.pricing .definition b {
+    font-weight: 900;
+}
+
+.pricing .definition .title {
+    left: -.5em;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.pricing .definition .title {
+    left: -.5em;
+    position: relative;
+    padding-bottom: 15px;
+    padding-top:40px;
+}
+
+.pricing .definition .sample_flow {
+    text-align:center;
+}
+
+.pricing .definition .sample_flow img {
+    max-width:600px;
+}
+
 
 @media (max-width: 991px) {
     .pricing .card-deck {
@@ -1361,6 +1390,7 @@ span.policy-detail {
         flex-direction: column;
     }
 }
+
 
 
 
