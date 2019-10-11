@@ -168,18 +168,18 @@
                         <p>A flow is the central object in Intwixt. Users design flows by using the Intwixt visual
                             designer. This particular flow sends a message in Slack, asking a user to
                             grant access to their Box.com account.</p>
-                        <p>Flows are stateful and can model long-running conversations, timeouts,
-                            wait conditions, and more. Statefulness keeps flows intuitive and readable, organizing
-                            even complex concepts with just a few activities.</p>
                         <div class='sample_flow' style='text-align: center;'>
                             <img style='width:100%;' src='/img/flow.png'>
                         </div>
+                        <p>Flows are stateful and can model long-running conversations, timeouts,
+                            wait conditions, and more. Statefulness keeps flows intuitive and readable, organizing
+                            even complex concepts with just a few activities.</p>
                         <p>A flow may contain multiple sub-processes to better organize the activities being
                             orchestrated. For example, the flow above is comprised of 4 sub-processes: <b>A</b>,
                             <b>B</b>, <b>C</b>, and <b>D</b>.
                         </p>
-
-                        <p>Sub-processes always begin with a single trigger that responds to outside events. When a trigger
+                        <p>Sub-processes always begin with a single trigger that responds to outside events. When a
+                            trigger
                             fires, the engine executes the activities that follow it one-by-one.
                             Some of these activities call external APIs (like sending a message to Slack), while others
                             aid in the running of the flow (like pausing the flow, calling another flow, or
