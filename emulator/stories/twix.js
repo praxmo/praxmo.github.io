@@ -510,7 +510,7 @@ var twix = {
     "state": "idling",
 
     //1, 2, 3 (binary add) (1) use slack app, (2) own slack app, (4) contact us
-    "cta": 7,
+    "cta": 4,
 
     "href": {
       "try":"https://slack.com/oauth/authorize?client_id=397209179749.672831744468&scope=bot%20commands%20chat%3Awrite%3Abot%20users.profile%3Aread%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX19TyXJ8x9GKFTM9%2F8WAAjeQS9EJxCUpYeXCabwD%2FCl1fZXcp50hIdnvGJee1PS8z4ZuT6Tb2vEUOaWhWHKBLj2vNZ6JksffsFcZxH7L2B%2BWhazh1LrkYWOupcRjz73Q12HqOq1wO6H6CoPQQooowBCQw65seFuvdJU%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback",
