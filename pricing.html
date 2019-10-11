@@ -179,9 +179,11 @@
                             <b>B</b>, <b>C</b>, and <b>D</b>.
                         </p>
 
-                        <p>Flows can contain different types of activities. Some activities call external APIs
-                            (like sending a message to Slack), while other activities aid in the running of the flow
-                            (like pausing a flow, calling another flow, or resuming a paused flow).</p>
+                        <p>Sub-processes always begin with a single trigger that responds to outside events. When a trigger
+                            fires, the engine executes the activities that follow it one-by-one.
+                            Some of these activities call external APIs (like sending a message to Slack), while others
+                            aid in the running of the flow (like pausing the flow, calling another flow, or
+                            resuming a paused flow).</p>
                     </div>
                     <div class="definition">
                         <h4 class="title"><sup>**</sup>Activity Calls</h4>
@@ -196,7 +198,7 @@
                             decides to <i>Cancel</i> the authorization, only 9 activities will be called
                             (sub-flows A, C, D). </p>
                         <p>
-                            But if the user chooses to authorize the request then
+                            If the user chooses to authorize the request then
                             12 total activities will be called (sub-flows A, B, D).</p>
                     </div>
                 </div>
