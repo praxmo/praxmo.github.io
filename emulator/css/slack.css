@@ -75,6 +75,7 @@
 .emulator .annotation .text {
     font-size: 1.1em;
     padding-top: 8px;
+    line-height: 1.5em;
 }
 
 .emulator .annotation .text b {
