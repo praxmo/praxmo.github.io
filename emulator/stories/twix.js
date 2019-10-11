@@ -755,6 +755,15 @@ var twix = {
 
       {
         "action": {
+          "type": "panel.activate",
+          "id": "p4"
+        },
+        "pause": 0,
+        "step_next":true
+      },
+
+      {
+        "action": {
           "type": "channel.activate",
           "id": "c1"
         },
