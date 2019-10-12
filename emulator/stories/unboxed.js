@@ -513,7 +513,11 @@ var unboxed = {
     "cta": 7,
 
     "href": {
-      "try":"https://slack.com/oauth/authorize?client_id=397209179749.672831744468&scope=bot%20commands%20chat%3Awrite%3Abot%20users.profile%3Aread%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX19TyXJ8x9GKFTM9%2F8WAAjeQS9EJxCUpYeXCabwD%2FCl1fZXcp50hIdnvGJee1PS8z4ZuT6Tb2vEUOaWhWHKBLj2vNZ6JksffsFcZxH7L2B%2BWhazh1LrkYWOupcRjz73Q12HqOq1wO6H6CoPQQooowBCQw65seFuvdJU%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback",
+      //direct user to the app home landing page to 'try' it; if there is no app home landing,the 'add to slack' link can be used instead
+      "try":"https://www.intwixt.com/solutions/twix",
+
+      //todo: when the `/setup` suffix is added to the above link (this will serve the developer landing page), point developers there to 'own' the intiwxt app
+      //todo: enable cookie xfer from my.intwixt.com domain to www.intwixt.com domain; can now safely share, since we host both
       "own":"javascript:alert('Please contact us to get started. We will copy the source files to your Intwixt account and give you tips for extending to make it your own.');"
     },
 
