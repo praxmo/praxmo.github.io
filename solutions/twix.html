@@ -234,7 +234,7 @@
                         directories where the documents will reside during and after the review process. Administrators are
                         prompted to grant access to Box.com upon installation of the Twix app. They can then design and configure
                         approval workflows as needed. Administrators can add additional approval workflows (up to 5 total)
-                        by issuing the slash command, <code>/twix config</code>.
+                        by issuing the slash command, <code>/twix create</code>.
                     </p>
 
                     <h3> How many end users can we have?</h3>
@@ -274,15 +274,19 @@
             <h2 id="commands" style="margin-top:60px;padding-top:40px">Slash Commands</h2>
             <div style="margin-top:20px;">
                 <b>Create Workflow</b>
-                <code>/twix config</code>
-                <p>Design a new workflow for your team. (This command is only available to the administrator.)</p>
+                <code>/twix create</code>
+                <p>Design a new workflow for your team. If no workflows have been created, this also serves to begin the authorization process, which will make the user the "official Twix administrator" for the team. (This command is only available to the administrator.)</p>
             </div>
             <div style="margin-top:20px;">
-                <b>Uninstall Twix</b>
+                <b>Reset Workflows</b>
+                <code>/twix reset</code>
+                <p>Remove all workflows an authorizations for the app that were created by the current administrator. Issue this command if you no longer wish to serve as the Twix administrator for your team. (This command is only available to the administrator.)</p>
+            </div>
+            <div style="margin-top:20px;">
+                <b>Uninstall Twix*</b>
                 <code>/twix uninstall</code>
-                <p>Remove all workflows saved by Twix. If you wish to change administrators, issue this command to
-                    start fresh with a new admin. You can also issue this command immediately before uninstalling
-                    the Twix app for full cleanup of all saved information. (This command is only available to the administrator.)</p>
+                <p>Remove all information we track about your usage of Twix, including all workflows you created. (This command is only available to the administrator.)</p>
+                <p><i>*Please note that if you uninstall the Twix app according to Slack's instructions for uninstalling apps, it has the same effect and all information we track will be fully removed.</i></p>
             </div>
             <div style="margin-top:20px;">
                 <b>Twix Help</b>
@@ -294,8 +298,11 @@
                 <b>Begin Workflow</b>
                 <p>Starting a new document workflow is as easy as uploading a document to the Twix app. We'll show you
                 a list of all workflows that your Twix administrator has configured to kick off the process.</p>
-                <p>If you're resubmitting a rejected document, make sure to upload the document to the same conversation
-                    thread, so we know that this is a <b>resubmission</b> and not an entirely new approval workflow.</p>
+                <p>If you're resubmitting a rejected document, make sure to upload the document to the <i>same conversation
+                    thread</i>, so we know that this is a <b>resubmission</b> and not an entirely new approval workflow.</p>
+                <div style='text-align: left;'>
+                    <img style='width:100%;max-width:600px;' src='/img/resubmit.png'>
+                </div>
             </div>
 
 
