@@ -278,40 +278,44 @@
                 </div>
             </div>
 
-            <h2 id="commands" style="margin-top:60px;padding-top:40px">Slash Commands</h2>
+            <h2 id="slash" style="margin-top:40px;padding-top:40px">Slash Commands</h2>
             <div style="margin-top:20px;">
-                <b>Create Workflow</b>
+                <b>Create Workflow*</b>
                 <br><code>/twix create</code>
-                <p>Design a new workflow for your team. If no workflows have been created, this also serves to begin the authorization process, which will make the user the "official Twix administrator" for the team. (This command is only available to the administrator.)</p>
+                <p>Design a new workflow for your team. If no workflows have been created, this also serves to begin the
+                    Box.com authorization process, which will make the user the "official Twix administrator" for the team.</p>
             </div>
             <div style="margin-top:20px;">
-                <b>Reset Workflows</b>
+                <b>Reset Workflows*</b>
                 <br><code>/twix reset</code>
-                <p>Remove all workflows an authorizations for the app that were created by the current administrator. Issue this command if you no longer wish to serve as the Twix administrator for your team. (This command is only available to the administrator.)</p>
-            </div>
-            <div style="margin-top:20px;">
-                <b>Uninstall Twix*</b>
-                <br><code>/twix uninstall</code>
-                <p>Remove all information we track about your usage of Twix, including all workflows you created. (This command is only available to the administrator.)</p>
-                <p><i>*Please note that if you uninstall the Twix app according to Slack's instructions for uninstalling apps, it has the same effect and all information we track will be fully removed.</i></p>
+                <p>Remove the Box.com authorization along with all workflows created by the current administrator.
+                    Issue this command if you no longer wish to serve as the Twix administrator for your team.</p>
             </div>
             <div style="margin-top:20px;">
                 <b>Twix Help</b>
                 <br><code>/twix help</code>
-                <p>Get help for using Twix.</p>
+                <p>Get help for using Twix. Directs the user to this Web page.</p>
             </div>
 
+            <p><i>* This command is only available to the administrator.</i></p>
+
+
+            <h2 id="other" style="margin-top:40px;padding-top:40px">Other Activities</h2>
             <div style="margin-top:20px;">
-                <b>Begin Workflow</b>
+                <b>Start Document Workflow</b>
                 <p>Starting a new document workflow is as easy as uploading a document to the Twix app. We'll show you
-                a list of all workflows that your Twix administrator has configured to kick off the process.</p>
+                    a list of all workflows that your Twix administrator has configured to kick off the process.</p>
                 <p>If you're resubmitting a rejected document, make sure to upload the document to the <i>same conversation
                     thread</i>, so we know that this is a <b>resubmission</b> and not an entirely new approval workflow.</p>
                 <div style='text-align: left;'>
                     <img style='width:100%;max-width:600px;' src='/img/resubmit.png'>
                 </div>
             </div>
-
+            <div style="margin-top:20px;">
+                <b>Uninstall Twix</b>
+                <p>Twix subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event. If you uninstall the Twix app according to Slack's instructions for uninstalling apps, we will fully
+                    remove all information associated with your workspace.</p>
+            </div>
 
             <p class="button-bar" style="text-align: center;margin:60px 0;">
 
