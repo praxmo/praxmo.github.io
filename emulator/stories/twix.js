@@ -530,9 +530,9 @@ var twix = {
           "id": "p1"
         },
         "annotation": {
-          "user": "a0",
-          "role": "Intwixt",
-          "text": "turns Slack into a <b>business process engine</b>, enabling centralized management of document approval workflows."
+          "user": "a1",
+          "role": "Twix",
+          "text": "orchestrates sophisticated document approval flows directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
         "pause": 6000
@@ -568,7 +568,7 @@ var twix = {
         "annotation": {
           "user": "u1",
           "role": "Submitters",
-          "text": "upload files directly to Slack. Intwixt-built Slackbots (like the one shown here) can orchestrate sophisticated business processes in response."
+          "text": "upload files to the Twix App Home in Slack to begin the document review process."
         },
         "pause": 4500
       },
@@ -626,7 +626,7 @@ var twix = {
         "annotation": {
           "user": "u1",
           "role": "Submitters",
-          "text": "are prompted to confirm the upload request. Intwixt will then orchestrate the process entirely within Slack by calling the necessary <b>Box.com</b> APIs."
+          "text": "are prompted to confirm the upload request. Twix will then orchestrate the process entirely within Slack by calling the necessary <b>Box.com</b> APIs."
         },
         "pause": 5000
       },
