@@ -269,8 +269,10 @@
 
 
                     <h3> How do I uninstall Twix?</h3>
-                    <p> Send the slash command, <code>/twix uninstall</code>, and we’ll erase your profile from our servers.
-                        However, you must uninstall the Twix app according to Slack’s own documentation for full cleanup.
+                    <p>Twix subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                        If you uninstall the Twix app according to Slack's instructions for uninstalling apps, we will fully
+                        remove all information associated with your team and workspace, including your authorization to
+                        copy files from Slack to Box.com and assign tasks to reviewers.
                     </p>
 
 
