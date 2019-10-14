@@ -173,19 +173,20 @@
                     <h3>How do you compare to Box Relay?</h3>
 
                     <p> We think <a href="https://www.box.com/collaboration/relay-workflow">Relay</a> is an amazing workflow product.
-                        But we also feel it would be so much more powerful if it could run atop a messaging platform like Slack.
+                        We also feel it would be so much more powerful if it could run atop a messaging platform like Slack.
                         Slack is a natural fit for role-based workflows and it’s hard to overlook just how efficient the
                         approval process can be when paired with Slack channels and rich interactive messages.
                     </p>
 
                     <h3> How many approvals can I build?</h3>
-                    <p> You can design up to 5 document approval workflows. For example, you may choose to have a
-                        “timesheet approval” workflow, an “RFP approval” workflow, etc. It’s up to you to design what you need.
+                    <p> The Twix admin for your team can design up to 5 document approval flows. For example, the
+                        admin may create a “timesheet approval” flow, an “RFP approval” flow, etc.
+                        It’s up to the admin to choose which approval flows would be useful for their team.
                     </p>
 
 
                     <h3> How many steps can an approval workflow have?</h3>
-                    <p> We allow up to 3 steps in each approval workflow you design. There is no limit for paid
+                    <p> We allow up to 3 steps in each approval flow. There is no limit for paid
                         accounts.
                     </p>
 
@@ -196,17 +197,16 @@
 
 
                     <h3> How many approvals can I run each month?</h3>
-                    <p> You can run up to 20 free approvals each month. An approval includes all review steps as well as all
+                    <p> Your team can run up to 20 free approval flows each month. An approval flow includes all review steps as well as all
                         necessary document resubmissions for rejected documents. If a submitter needs to fix and resubmit their
-                        document 10 times, that’s OK! (We'll feel sorry for you, but we won't mind at all.)
+                        document 10 times, that’s OK! (We'll feel sorry for them, but we'll still only count the interaction as a single approval flow.)
                     </p>
 
 
-                    <h3>Can I assign a review tasks to both channels and users?</h3>
-                    <p> Yes, when you configure an approval workflow, you are prompted to choose whether the given approval
-                        step should be assigned to a user or a channel. If you choose to assign the review step to a channel, you must
+                    <h3>Can review tasks be assigned to both channels and users?</h3>
+                    <p> Yes. As the Twix admin, if you choose to assign the review step to a channel, you must
                         invite <b>Twix</b> to the channel, so we can post messages to channel members, alerting them to claim and
-                        review the document. If you choose to assign the review step to a user, we will prompt you to choose a named
+                        review submitted documents. If you choose to assign the review step to a user, we will prompt you to choose a named
                         user on your team, or you can choose to dynamically assign the user based upon the profile of the
                         submitter. For example, if your Slack instance tracks the manager email in a Slack profile field, we
                         can dynamically route an approval to any individual's manager by reading this field during the
@@ -228,7 +228,7 @@
                      data-wow-delay="0.36s">
 
 
-                    <h3> What happens when a document is rejected?</h3>
+                    <h3>What happens when a document is rejected?</h3>
                     <p> When a document is rejected, the original submitter is provided steps to fix the issue and is prompted
                         to resubmit the updated document. We then copy the document from Slack to Box and
                         create a new document version in Box. Once the document review process successfully completes, the full
@@ -236,23 +236,23 @@
                     </p>
 
 
-                    <h3> How many administrators can we have?</h3>
+                    <h3>How many administrators can we have?</h3>
                     <p> The free trial version allows one administrator. This individual must have access to the Box.com
                         directories where the documents will reside during and after the review process. Administrators are
                         prompted to grant access to Box.com upon installation of the Twix app. They can then design and configure
-                        approval workflows as needed. Administrators can add additional approval workflows (up to 5 total)
+                        approval flows as needed. Administrators can add additional approval workflows (up to 5 total)
                         by issuing the slash command, <code>/twix create</code>.
                     </p>
 
                     <h3> How many end users can we have?</h3>
                     <p> We allow unlimited end users, including reviewers and submitters. Our usage meter only tracks the number
-                        of administrators (1) and the number of approval flows that run in a month (20) for trial accounts.
+                        of administrators (1) and the number of approval flows that run in a month (20) for free accounts.
                     </p>
 
 
                     <h3> What private information do you keep on your servers?</h3>
                     <p> We save your Slack Team ID and the Slack user ID for the administrator. We also track the number
-                        of approval flows run each month by your team. As an orchestration platform, we temporarily store
+                        of approval flows run each month in aggregate by your team. As an orchestration platform, we temporarily store
                         the data that is transported through our system; however, all data is fully scrubbed from our servers
                         within 30 minutes of the workflow completing. We never inspect the contents of the uploaded document and
                         only track its size and file name.
@@ -270,7 +270,7 @@
 
                     <h3> How do I uninstall Twix?</h3>
                     <p>Twix subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
-                        If you uninstall the Twix app according to Slack's instructions for uninstalling apps, we will fully
+                        Once you uninstall the Twix app according to Slack's instructions, we will fully
                         remove all information associated with your team and workspace, including your authorization to
                         copy files from Slack to Box.com and assign tasks to reviewers.
                     </p>
@@ -315,8 +315,10 @@
             </div>
             <div style="margin-top:20px;">
                 <b>Uninstall Twix</b>
-                <p>Twix subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event. If you uninstall the Twix app according to Slack's instructions for uninstalling apps, we will fully
-                    remove all information associated with your workspace.</p>
+                <p>Twix subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                    Once you uninstall the Twix app according to Slack's instructions, we will fully
+                    remove all information associated with your team and workspace, including your authorization to
+                    copy files from Slack to Box.com and assign tasks to reviewers.</p>
             </div>
 
             <p class="button-bar" style="text-align: center;margin:60px 0;">
