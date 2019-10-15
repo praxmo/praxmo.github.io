@@ -1330,7 +1330,7 @@ span.policy-detail {
     margin-top:40px;
 }
 
-.container.solution b {
+.container.solution b, .container.solution label  {
     font-weight: 900;
 }
 

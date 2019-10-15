@@ -158,11 +158,58 @@
 
 
             <h2 id="getting_started" style="margin-top:140px;">Getting Started</h2>
-            <p>Twix tracks three main user types: installer, administrator, and end-user. The installer is the individual
-            who installs Twix to the Slack workspace. The administrator is responsible for granting access to Box.com, so
-            that Twix may orchestrate document workflows. Administrators also create the workflows, specifying details like the
-            number of steps and the channels and users responsible for reviewing documents. End-users are the Slack
-            team members who upload documents. They are also referred to as "submitters".</p>
+            <p>Twix organizes users according to the following three roles: Installer, Administrator, and End-user.</p>
+
+            <h4 id="installer">Installer</h4>
+            <p>The installer is the individual who installs Twix to the Slack workspace. This must be a team member
+                who is authorized to install Slack apps. Twix will send notifications to this individual on two
+                occasions. First, if the Slack workspace is configured to NOT share email addresses, Twix cannot resolve user
+                identities in Box.com. This is required to assign tasks, so the installer will receive a message, explaining
+                how to <a href="https://slack.com/help/articles/228020667-make-email-addresses-private">enable this setting</a>.
+                Second, if the team uses up all 20 workflows that are granted to trial accounts each month, a message will
+                    be sent, encouraging the installer to consider upgrading to a paid account.</p>
+
+            <h4 id="administrator">Administrator</h4>
+            <p>There can only be one administrator for the free version of Twix.
+                This individual is responsible for granting access to Box.com, so
+                that Twix may orchestrate document workflows. Administrators also create the approval flows, specifying details like the
+                number of steps and the channels and users responsible for reviewing documents.</p>
+            <p>Administrators create
+                new approval flows by sending the slash command, <code>/twix create</code>. They'll then be
+                walked through a wizard-like series of steps directly in Slack. The most complex part of this
+                process is choosing which folders at Box.com will be used for storing documents as they move through
+                each step in the approval process. In total, three folders must be configured for each step in an
+                approval flow: Pending, Approved, and Rejected.
+            </p>
+            <p>Navigating and choosing subfolders at Box.com is done using two form fields: a select box and a button. The select box is used for drilling down and
+            locating the desired subfolder on Box.com. Once the subfolder is located, the button is used to confirm the
+            choice.</p>
+
+            <div style="margin-top:20px;">
+                <label>Initial state</label>
+                <br>
+                <img src="/img/twix/level0.png" style="width:100%;max-width:500px;">
+            </div>
+            <div style="margin-top:20px;">
+                <label>Drill down</label>
+                <br>
+                <img src="/img/twix/level1.png" style="width:100%;max-width:500px;">
+            </div>
+            <div style="margin-top:20px;">
+                <label>Drill down further, etc.</label>
+                <br>
+                <img src="/img/twix/level2.png" style="width:100%;max-width:500px;">
+            </div>
+            <div style="margin-top:20px;margin-bottom: 20px;">
+                <label>Choose the desired folder</label>
+                <br>
+                <img src="/img/twix/choose.png" style="width:100%;max-width:500px;">
+            </div>
+
+            <h4 id="end-user">End-user</h4>
+            <p>End-users are the Slack team members who upload documents. They are also referred to as "submitters". Once
+            a submitter uploads a document to the Twix app, they will be prompted to choose from the list of approval flows
+                created by the team's Twix administrator.</p>
 
             <h2 id="faq" style="margin-top:80px;">FAQ</h2>
 
@@ -170,7 +217,7 @@
                 <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInLeft"
                      data-wow-delay="0.36s">
 
-                    <h3>How do you compare to Box Relay?</h3>
+                    <h4>How do you compare to Box Relay?</h4>
 
                     <p> We think <a href="https://www.box.com/collaboration/relay-workflow">Relay</a> is an amazing workflow product.
                         We also feel it would be so much more powerful if it could run atop a messaging platform like Slack.
@@ -178,32 +225,32 @@
                         approval process can be when paired with Slack channels and rich interactive messages.
                     </p>
 
-                    <h3> How many approvals can I build?</h3>
+                    <h4> How many approvals can I build?</h4>
                     <p> The Twix admin for your team can design up to 5 document approval flows. For example, the
                         admin may create a “timesheet approval” flow, an “RFP approval” flow, etc.
                         It’s up to the admin to choose which approval flows would be useful for their team.
                     </p>
 
 
-                    <h3> How many steps can an approval workflow have?</h3>
+                    <h4> How many steps can an approval workflow have?</h4>
                     <p> We allow up to 3 steps in each approval flow. There is no limit for paid
                         accounts.
                     </p>
 
 
-                    <h3> What is the maximum document size allowed?</h3>
+                    <h4> What is the maximum document size allowed?</h4>
                     <p> We support uploads up to 5MB. Paid accounts start at 20MB and can be configured for more.
                     </p>
 
 
-                    <h3> How many approvals can I run each month?</h3>
+                    <h4> How many approvals can I run each month?</h4>
                     <p> Your team can run up to 20 free approval flows each month. An approval flow includes all review steps as well as all
                         necessary document resubmissions for rejected documents. If a submitter needs to fix and resubmit their
                         document 10 times, that’s OK! (We'll feel sorry for them, but we'll still only count the interaction as a single approval flow.)
                     </p>
 
 
-                    <h3>Can review tasks be assigned to both channels and users?</h3>
+                    <h4>Can review tasks be assigned to both channels and users?</h4>
                     <p> Yes. As the Twix admin, if you choose to assign the review step to a channel, you must
                         invite <b>Twix</b> to the channel, so we can post messages to channel members, alerting them to claim and
                         review submitted documents. If you choose to assign the review step to a user, we will prompt you to choose a named
@@ -214,8 +261,8 @@
                     </p>
 
 
-                    <h3> How much does it cost to upgrade if I need more resources?
-                    </h3>
+                    <h4> How much does it cost to upgrade if I need more resources?
+                    </h4>
                     <p> Reach out to us at <a href="mailto:contact@intwixt.com">contact@intwixt.com</a> if you’d like to
                         pay for additional workflows. Does your organization have a few end users who need
                         to run a lot of workflows, or do you have a lot of end users running very few workflows? Tell us what you
@@ -228,7 +275,7 @@
                      data-wow-delay="0.36s">
 
 
-                    <h3>What happens when a document is rejected?</h3>
+                    <h4>What happens when a document is rejected?</h4>
                     <p> When a document is rejected, the original submitter is provided steps to fix the issue and is prompted
                         to resubmit the updated document. We then copy the document from Slack to Box and
                         create a new document version in Box. Once the document review process successfully completes, the full
@@ -236,7 +283,7 @@
                     </p>
 
 
-                    <h3>How many administrators can we have?</h3>
+                    <h4>How many administrators can we have?</h4>
                     <p> The free trial version allows one administrator. This individual must have access to the Box.com
                         directories where the documents will reside during and after the review process. Administrators are
                         prompted to grant access to Box.com upon installation of the Twix app. They can then design and configure
@@ -244,13 +291,13 @@
                         by issuing the slash command, <code>/twix create</code>.
                     </p>
 
-                    <h3> How many end users can we have?</h3>
+                    <h4> How many end users can we have?</h4>
                     <p> We allow unlimited end users, including reviewers and submitters. Our usage meter only tracks the number
                         of administrators (1) and the number of approval flows that run in a month (20) for free accounts.
                     </p>
 
 
-                    <h3> What private information do you keep on your servers?</h3>
+                    <h4> What private information do you keep on your servers?</h4>
                     <p> We save your Slack Team ID and the Slack user ID for the administrator. We also track the number
                         of approval flows run each month in aggregate by your team. As an orchestration platform, we temporarily store
                         the data that is transported through our system; however, all data is fully scrubbed from our servers
@@ -259,7 +306,7 @@
                     </p>
 
 
-                    <h3> Do you share information with outside parties?</h3>
+                    <h4> Do you share information with outside parties?</h4>
                     <p> No, never, and not at all. It’s our intent to efficiently move your documents from Slack to Box,
                         call the necessary task assignment APIs, and then delete all traces of the transaction from our
                         servers once the process completes. Our company (Intwixt) designs business process apps that run atop Slack.
@@ -268,7 +315,7 @@
                     </p>
 
 
-                    <h3> How do I uninstall Twix?</h3>
+                    <h4> How do I uninstall Twix?</h4>
                     <p>Twix subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
                         Once you uninstall the Twix app according to Slack's instructions, we will fully
                         remove all information associated with your team and workspace, including your authorization to
