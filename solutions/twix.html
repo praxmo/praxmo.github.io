@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Twix | User Guide</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Run Box.com document workflows in Slack"/>
+    <meta name="description" content="Run Box.com approval flows in Slack"/>
     <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
     <meta name="author" content="contact@intwixt.com"/>
 
@@ -117,7 +117,7 @@
             </p>
 
             <p>Twix helps you get the most from your <a href="https://www.box.com/">Box.com</a> investment, delivering
-                sophisticated approval workflows
+                sophisticated approval flows
                 directly in Slack. We begin by asking you a few questions about your workflow needs,
                 including the number of review steps and whether to send the document to a channel or user for review.
             </p>
@@ -166,8 +166,8 @@
                 occasions. First, if the Slack workspace is configured to NOT share email addresses, Twix cannot resolve user
                 identities in Box.com. This is required to assign tasks, so the installer will receive a message, explaining
                 how to <a href="https://slack.com/help/articles/228020667-make-email-addresses-private">enable this setting</a>.
-                Second, if the team uses up all 20 workflows that are granted to trial accounts each month, a message will
-                    be sent, encouraging the installer to consider upgrading to a paid account.</p>
+                Second, if the team uses up all 20 approval flows that are granted to trial accounts each month, a message will
+                    be sent, encouraging the installer to consider upgrading their team to a paid account.</p>
 
             <h4 id="administrator">Administrator</h4>
             <p>There can only be one administrator for the free version of Twix.
@@ -232,7 +232,7 @@
                     </p>
 
 
-                    <h4> How many steps can an approval workflow have?</h4>
+                    <h4> How many steps can an approval flow have?</h4>
                     <p> We allow up to 3 steps in each approval flow. There is no limit for paid
                         accounts.
                     </p>
@@ -264,7 +264,8 @@
                     <h4> How much does it cost to upgrade if I need more resources?
                     </h4>
                     <p> Reach out to us at <a href="mailto:contact@intwixt.com">contact@intwixt.com</a> if you’d like to
-                        pay for additional workflows. Does your organization have a few end users who need
+                        pay for additional approval flows beyond the 20 we grant you each month.
+                        Does your organization have a few end users who need
                         to run a lot of workflows, or do you have a lot of end users running very few workflows? Tell us what you
                         need, and we’ll help you find the plan that best meets your usage profile.
                     </p>
@@ -287,7 +288,7 @@
                     <p> The free trial version allows one administrator. This individual must have access to the Box.com
                         directories where the documents will reside during and after the review process. Administrators are
                         prompted to grant access to Box.com upon installation of the Twix app. They can then design and configure
-                        approval flows as needed. Administrators can add additional approval workflows (up to 5 total)
+                        approval flows as needed. Administrators can add additional approval flows (up to 5 total)
                         by issuing the slash command, <code>/twix create</code>.
                     </p>
 
@@ -301,7 +302,7 @@
                     <p> We save your Slack Team ID and the Slack user ID for the administrator. We also track the number
                         of approval flows run each month in aggregate by your team. As an orchestration platform, we temporarily store
                         the data that is transported through our system; however, all data is fully scrubbed from our servers
-                        within 30 minutes of the workflow completing. We never inspect the contents of the uploaded document and
+                        within 30 minutes of the approval flow completing. We never inspect the contents of the uploaded document and
                         only track its size and file name.
                     </p>
 
@@ -329,15 +330,15 @@
 
             <h2 id="commands" style="margin-top:40px;padding-top:40px">Slash Commands</h2>
             <div style="margin-top:20px;">
-                <b>Create Workflow*</b>
+                <b>Create Approval Flow*</b>
                 <br><code>/twix create</code>
-                <p>Design a new workflow for your team. If no workflows have been created, this also serves to begin the
+                <p>Design a new approval flow for your team. If no approval flows have been created, this also serves to begin the
                     Box.com authorization process, which will make the user the "official Twix administrator" for the team.</p>
             </div>
             <div style="margin-top:20px;">
-                <b>Reset Workflows*</b>
+                <b>Reset Approval Flows*</b>
                 <br><code>/twix reset</code>
-                <p>Remove the Box.com authorization along with all workflows created by the current administrator.
+                <p>Remove the Box.com authorization along with all approval flows created by the current administrator.
                     Issue this command if you no longer wish to serve as the Twix administrator for your team.</p>
             </div>
             <div style="margin-top:20px;">
@@ -351,10 +352,10 @@
 
             <h2 id="actions" style="margin-top:40px;padding-top:40px">Other Activities</h2>
             <div style="margin-top:20px;">
-                <b>Start Document Workflow</b>
-                <p>Starting a new document workflow is as easy as uploading a document to the Twix app. We'll show you
-                    a list of all workflows that your Twix administrator has configured to kick off the process. If you're resubmitting a rejected document, make sure to upload the document to the <i>same conversation
-                    thread</i>, so we know that this is a <b>resubmission</b> and not an entirely new approval workflow.</p>
+                <b>Start Approval Flow</b>
+                <p>Starting a new approval flow is as easy as uploading a document to the Twix app. We'll show you
+                    a list of all approval flows that your Twix administrator has configured to kick off the process. If you're resubmitting a rejected document, make sure to upload the document to the <i>same conversation
+                    thread</i>, so we know that this is a <b>resubmission</b> and not an entirely new approval flow.</p>
                 <div style='text-align: left;'>
                     <img style='width:100%;max-width:600px;' src='/img/resubmit.png'>
                 </div>
