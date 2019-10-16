@@ -506,7 +506,7 @@ a:hover {
 
 .blog {
     margin-top: 60px;
-    text-align:center;
+    /*text-align:center;*/
 }
 
 .blog .alert {
@@ -601,7 +601,7 @@ span.policy-detail {
 
 .faq {
     margin-top:140px;
-    text-align:center;
+    /*text-align:center;*/
 }
 
 .faq .content {
