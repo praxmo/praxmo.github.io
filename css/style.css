@@ -208,12 +208,25 @@ a:hover {
     position: absolute;
     right: 0;
     top: 110px;
-    width: 350px;
-    height: 530px;
-
+    /*width: 350px;
+    height: 530px;*/
+    width: 366px;
+    height: 524px;
     box-shadow: 1px 1px 10px #9E9E9E !important;
     border-radius: 12px;
     background-color: #ffffff;
+}
+
+.fh5co-hero-inner .fh5co-hero-smartphone_static {
+    position: absolute;
+    left:0;
+    top:0;
+    width:366px; /*366.24 (* .42) */
+    height:524px; /*524.16  (* .42)  */
+    border-radius: 12px;
+    background-color: #ffffff;
+    background-image:url("/img/hero_slack_1.png");
+    background-size:cover;
 }
 
 .fh5co-hero-inner .fh5co-hero-smartphone > .shadow {
@@ -1530,9 +1543,18 @@ span.policy-detail {
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
         top: 140px;
-        height: 500px;
-        width: 350px;
+        /*height: 500px;
+        width: 350px;*/
+        width: 349px;
+        height: 499px;
     }
+
+
+    .fh5co-hero-inner .fh5co-hero-smartphone_static {
+        width:349px; /*348.8 (* .4) */
+        height:499px; /*499.2  (* .4)  */
+    }
+
 
     .examples-outer .sm-4-content p {
         width:100%;
@@ -1599,9 +1621,18 @@ span.policy-detail {
         margin-right: auto;
         top: 170px;
         margin-top: 90px;
-        width: 340px; /* 500 */
-        height: 460px; /* 800 */
+        /*width: 340px;
+        height: 460px;*/
+        width: 323px;
+        height: 462px;
     }
+
+
+    .fh5co-hero-inner .fh5co-hero-smartphone_static {
+        width:323px; /*322.64 (* .37) */
+        height:462px; /*461.76  (* .37)  */
+    }
+
 
     .fh5co-advantages-outer {
         margin-top: 0;
@@ -1825,10 +1856,19 @@ span.policy-detail {
     }
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
-        height: 440px; /* 800 */
-        width: 340px; /* 500 */
+        /*height: 440px;
+        width: 340px;*/
+        width: 305px;
+        height: 437px;
         top: 120px;
     }
+
+
+    .fh5co-hero-inner .fh5co-hero-smartphone_static {
+        width:305px; /*305.2 (* .35) */
+        height:437px; /*436.8  (* .35)  */
+    }
+
 
     .second-title {
         margin-top: 60px;
@@ -1997,10 +2037,18 @@ span.policy-detail {
     }
 
     .fh5co-hero-inner .fh5co-hero-smartphone {
-        height: 500px;
-        width: 340px;
+        /*width: 340px;
+        height: 500px;*/
+        width: 323px;
+        height: 462px;
         top: 130px;
         margin-top: 70px;
+    }
+
+
+    .fh5co-hero-inner .fh5co-hero-smartphone_static {
+        width:323px; /*322.64 (* .37) */
+        height:462px; /*461.76  (* .37)  */
     }
 
     .social-icons-header i:first-of-type {
