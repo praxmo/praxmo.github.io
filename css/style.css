@@ -270,6 +270,10 @@ a:hover {
     z-index: -1;
 }
 
+#page-wrap .wave_blue {
+    background-image: url(/img/wave_blue.png);
+}
+
 .wave2 {
     position: relative;
     height: 80px;
