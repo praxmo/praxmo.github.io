@@ -58,7 +58,7 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    border-radius: 100%;
+    border-radius: 8px;
     left: 10px;
     top: 18px;
 }
@@ -540,9 +540,9 @@
 }
 
 .sidebar {
-    width: 150px;
-    max-width: 150px;
-    min-width: 150px;
+    width: 170px;
+    max-width: 170px;
+    min-width: 170px;
     background-color: #4a184b;
     color: #ffffff;
     padding: 10px 0;
@@ -574,7 +574,7 @@
 }
 
 .channel, .active_user {
-    padding: 4px 20px 4px 38px;
+    padding: 4px 10px 4px 38px;
     position: relative;
     cursor: pointer;
 }
@@ -749,6 +749,34 @@
     display: inline-block;
     width: 13px;
     height: 13px;
+}
+
+/** TODO: enable for other bots as well **/
+.main .info label.app.docflow::before {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    content: ' ';
+    background-image: url('/img/avatars/docflow_96.png');
+    background-size: 13px;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius:2px;
+}
+
+/** TODO: enable for other bots as well **/
+.main .info label.app.dealflow::before {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    content: ' ';
+    background-image: url('/img/avatars/dealflow_96.png');
+    background-size: 13px;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius:2px;
 }
 
 .main .info .star {
@@ -1168,7 +1196,7 @@ canvas {
         display: none;
     }
 
-    .slack .main .info label.app.a1::before {
+    .slack .main .info label.app.a1::before, .main .info label.app.docflow::before, .main .info label.app.dealflow::before {
         display: none;
     }
 }
@@ -1293,6 +1321,6 @@ canvas {
     display: none;
 }
 
-.mobile.emulator .slack .main .info label.app.a1::before {
+.mobile.emulator .slack .main .info label.app.a1::before, .mobile.emulator .main .info label.app.docflow::before, .mobile.emulator .main .info label.app.dealflow::before {
     display: none;
 }

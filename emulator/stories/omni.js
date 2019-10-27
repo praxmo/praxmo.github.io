@@ -12,12 +12,12 @@ var omni = {
     "a0": {
       "id": "a0",
       "title": "Intwixt",
-      "avatar": "a1.png"
+      "avatar": "a0.png"
     },
-    "a1": {
-      "id": "a1",
-      "title": "Acme - Sales",
-      "avatar": "hubble.png"
+    "dealflow": {
+      "id": "dealflow",
+      "title": "Intwixt DealFlow",
+      "avatar": "dealflow_96.png"
     },
     "a2": {
       "id": "a2",
@@ -133,11 +133,11 @@ var omni = {
           "description": "Company-wide announcements.",
           "messages": {}
         },
-        "a1": {
-          "id": "a1",
+        "dealflow": {
+          "id": "dealflow",
           "is_dm": true,
-          "title": "Acme - Sales",
-          "avatar": "hubble.png",
+          "title": "Intwixt DealFlow",
+          "avatar": "dealflow_96.png",
           "private": true,
           "messages": {}
         }
@@ -177,7 +177,7 @@ var omni = {
         "title": "Acme Corp"
       },
 
-      "activeChannelId": "a1",
+      "activeChannelId": "dealflow",
       "channels": {
         "c1": {
           "id": "c1",
@@ -209,11 +209,11 @@ var omni = {
           "description": "Company-wide announcements.",
           "messages": {}
         },
-        "a1": {
-          "id": "a1",
+        "dealflow": {
+          "id": "dealflow",
           "is_dm": true,
-          "title": "Acme - Sales",
-          "avatar": "hubble.png",
+          "title": "Intwixt DealFlow",
+          "avatar": "dealflow_96.png",
           "private": true,
           "messages": {}
         }
@@ -461,7 +461,7 @@ var omni = {
           "channel": "c1",
           "message": {
             "id": "c1m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:21 AM",
             "text": "❗Please assign the <a href='#'>Intel</a> lead.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
             "fields": [
@@ -482,7 +482,7 @@ var omni = {
               "choose": {
                 "id": "choose",
                 "type":"select",
-                "title": "Choose SR"
+                "title": "Choose"
               }
             }
           }
@@ -503,11 +503,11 @@ var omni = {
       {
         "action": {
           "type": "action.click",
-          "channel": "a1",
+          "channel": "dealflow",
           "action": "assign",
           "message": {
             "id": "c1m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:50 AM",
             "text": "<a href='#'>Intel, Inc</a> deal status:<br><b>✔ CREATED</b> at 08:20 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
             "actions": {
@@ -618,7 +618,7 @@ var omni = {
         "annotation": {
           "user": "twilio",
           "role": "SMS",
-          "text": "messages have fewer bells-and-whistles than Slack messages. But Intwixt's <b>Enterprise Conversation Platform</b> (ECP) is still able to provide stateful, long-running interactions like asking a question."
+          "text": "messages have fewer bells-and-whistles than Slack messages. But Intwixt's <b>Conversational Automation Platform</b> (CAP) is still able to provide stateful, long-running interactions like asking a question."
         },
         "pause": 5000
       },
@@ -663,10 +663,10 @@ var omni = {
       {
         "action": {
           "type": "message.send",
-          "channel": "a1",
+          "channel": "dealflow",
           "message": {
             "id": "a1m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:21 AM",
             "text": "❗You've been assigned the the <a href='#'>Intel</a> lead. Please respond within the hour.",
             "fields": [
@@ -706,11 +706,11 @@ var omni = {
       {
         "action": {
           "type": "action.click",
-          "channel": "a1",
+          "channel": "dealflow",
           "action": "accept",
           "message": {
             "id": "a1m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:55 AM",
             "text": "You've claimed the <a href='#'>Intel, Inc</a> deal:<br><b>✔ CREATED</b> at 08:20 AM<br><b>✔ ASSIGNED</b> to you at 09:50 AM<br><b>✔ CLAIMED</b> by you at 09:55 AM",
             "actions": {

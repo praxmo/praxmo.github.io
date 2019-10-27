@@ -12,12 +12,12 @@ var hubble = {
     "a0": {
       "id": "a0",
       "title": "Intwixt",
-      "avatar": "a1.png"
+      "avatar": "a0.png"
     },
-    "a1": {
-      "id": "a1",
-      "title": "Acme - Sales",
-      "avatar": "hubble.png"
+    "dealflow": {
+      "id": "dealflow",
+      "title": "Intwixt DealFlow",
+      "avatar": "dealflow_96.png"
     },
     "a2": {
       "id": "a2",
@@ -123,11 +123,11 @@ var hubble = {
           "description": "Company-wide announcements.",
           "messages": {}
         },
-        "a1": {
-          "id": "a1",
+        "dealflow": {
+          "id": "dealflow",
           "is_dm": true,
-          "title": "Acme - Sales",
-          "avatar": "hubble.png",
+          "title": "Intwixt DealFlow",
+          "avatar": "dealflow_96.png",
           "private": true,
           "messages": {}
         }
@@ -199,11 +199,11 @@ var hubble = {
           "description": "Company-wide announcements.",
           "messages": {}
         },
-        "a1": {
-          "id": "a1",
+        "dealflow": {
+          "id": "dealflow",
           "is_dm": true,
-          "title": "Acme - Sales",
-          "avatar": "hubble.png",
+          "title": "Intwixt DealFlow",
+          "avatar": "dealflow_96.png",
           "private": true,
           "messages": {}
         }
@@ -586,7 +586,7 @@ var hubble = {
           "channel": "c3",
           "message": {
             "id": "c3m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "8:20 AM",
             "text": "A new contact was added to HubSpot at 8:20 AM. If you feel this is a good match, please claim the lead within the hour.",
             "fields": [
@@ -630,11 +630,11 @@ var hubble = {
       {
         "action": {
           "type": "action.click",
-          "channel": "a1",
+          "channel": "dealflow",
           "action": "review",
           "message": {
             "id": "c3m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "8:30 AM",
             "text": "New contact (added to HubSpot at 8:20 AM)",
             "fields": [
@@ -679,10 +679,10 @@ var hubble = {
       {
         "action": {
           "type": "message.update",
-          "channel": "a1",
+          "channel": "dealflow",
           "message": {
             "id": "c3m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:20 AM",
             "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
             "fields": [
@@ -739,7 +739,7 @@ var hubble = {
           "channel": "c1",
           "message": {
             "id": "c1m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:21 AM",
             "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
             "fields": [
@@ -760,7 +760,7 @@ var hubble = {
               "choose": {
                 "id": "choose",
                 "type":"select",
-                "title": "Choose SR"
+                "title": "Choose"
               }
             }
           }
@@ -801,11 +801,11 @@ var hubble = {
       {
         "action": {
           "type": "action.click",
-          "channel": "a1",
+          "channel": "dealflow",
           "action": "assign",
           "message": {
             "id": "c1m1",
-            "author": "a1",
+            "author": "dealflow",
             "timestamp": "9:50 AM",
             "text": "<a href='#'>Intel, Inc</a> deal status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
             "actions": {

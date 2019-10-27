@@ -118,8 +118,7 @@ window.onload = function () {
 };
 
 /**
- * cookie related functions used for getting the user identity that was
- * set when the user successfully logged in at my.intwixt.com
+ * set cookie
  * @param name
  * @param value
  * @param days
@@ -133,6 +132,12 @@ function setCookie(name,value,days) {
   }
   document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
+
+/**
+ * get cookie
+ * @param name
+ * @returns {*}
+ */
 function getCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(';');
@@ -143,6 +148,20 @@ function getCookie(name) {
   }
   return null;
 }
+
+/**
+ * erase cookie
+ * @param name
+ */
 function eraseCookie(name) {
   document.cookie = name+'=; Max-Age=-99999999;';
+}
+
+/**
+ * get url query string param
+ * @param key
+ * @returns {string}
+ */
+function getQueryString (key) {
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
 }

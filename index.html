@@ -65,7 +65,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-items-right ml-auto mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#examples" onclick="$('#examples').goTo('examples');">Examples</a>
+                        <a class="nav-link" href="#examples" onclick="$('#examples').goTo('examples');">Use Cases</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/plans">Plans</a>
@@ -87,7 +87,7 @@
         <div class="container fh5co-hero-inner">
             <h1 class="animated">Run AI-Enabled Workflows On Slack</h1>
             <p class="printout">
-                Run <span class="special">conversational</span> business processes on your favorite messaging app.
+                Design and run <span class="special">conversational</span> business processes on your favorite messaging app.
             </p>
             <div class="btn-bar">
                 <button class="btn btn-md features-btn-first"
@@ -213,7 +213,7 @@
     <div id="fh5co-differentiators" class="fh5co-advantages-outer">
         <div class="container">
             <h1 class="second-title">Intelligent Business Process Automation</h1>
-            <div class="second-tagline">with Intwixt's <b>Enterprise Conversation Platform</b></div>
+            <div class="second-tagline">with Intwixt's <b>Conversational Automation Platform</b></div>
 
             <div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
                 <div class="col-sm-6 differentiator">
@@ -303,7 +303,7 @@
     <div class="examples-outer">
         <div class="container">
             <h1 id="examples" class="second-title" style="padding-top:120px;margin-top:0px;margin-bottom: 40px;">Unify your Business Processes in Slack</h1>
-            <div class="second-tagline">Some Example Solutions Built with Intwixt</div>
+            <div class="second-tagline">Sample Use Cases Built with Intwixt</div>
 
 
             <!-- ==========================================================================================================
@@ -312,13 +312,13 @@
 
             <div id="documentapproval" style="margin-top:40px;" class="row examples-grid-columns">
                 <div class="col-sm-8 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <h1 class="small-factor">Document Approval</h1>
+                    <h1 class="small-factor">Intwixt DocFlow</h1>
                     <div class="solution-emulator">
-                        <my-solution-emulator id="unboxed" v-cloak></my-solution-emulator>
+                        <my-solution-emulator id="docflow_dev" v-cloak></my-solution-emulator>
                     </div>
                 </div>
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
-                    <h1 class="large-factor">Document Approval</h1>
+                    <h1 class="large-factor">Intwixt DocFlow</h1>
                     <p> Deliver document workflows that move beyond simple approvals. Handle rejections, exceptions,
                         timeouts and more&mdash;all with unmatched transparency.
                         As the document moves through workflow all users are updated in real time
@@ -343,7 +343,7 @@
 
             <div id="customerjourney" class="row examples-grid-columns">
                 <div class="col-sm-4 in-order-3 sm-4-content wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <h1 class="large-factor">Customer Journey</h1>
+                    <h1 class="large-factor">Intwixt DealFlow</h1>
                     <p> Deliver <b>AI-enabled</b> customer journeys that keep your sales teams  productive and your sales
                         managers informed. Merge customer information directly in Slack from CRM systems like HubSpot and
                         Intercom. With <b>machine learning</b> baked-in, gain insight into people and processes you might
@@ -358,7 +358,7 @@
                     </div>
                 </div>
                 <div class="col-sm-8 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
-                    <h1 class="small-factor">Customer Journey</h1>
+                    <h1 class="small-factor">Intwixt DealFlow</h1>
                     <div class="solution-emulator">
                         <my-solution-emulator id="hubble" class="right-aligned" v-cloak></my-solution-emulator>
                     </div>
@@ -430,6 +430,7 @@
     <!-- ==========================================================================================================
                                                  CALL TO ACTION
     ========================================================================================================== -->
+
 
     <div id="contact" class="fh5co-bottom-outer">
         <div class="overlay">
@@ -535,8 +536,8 @@
                         <a href="/terms">
                             <li>Terms and Conditions</li>
                         </a>
-                        <a href="/solutions/twix" style="display: none;">
-                            <li>Twix</li>
+                        <a href="/solutions/docflow" style="display: none;">
+                            <li>Intwixt DocFlow</li>
                         </a>
                     </ul>
                 </nav>
@@ -555,15 +556,15 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="/emulator/stories/playa.js"></script>
-<script src="/emulator/stories/unboxed.js"></script>
+<script src="/emulator/stories/docflow_dev.js"></script>
 <script src="/emulator/stories/hubble.js"></script>
 <script src="/emulator/stories/omni.js"></script>
 <script src="/emulator/js/emulator.js"></script>
 <script src="/emulator/js/canvas.js"></script>
 <script src="js/main.js"></script>
 <script>
-  emulate("playa", "#playa", playa, {autoplay:true});
-  emulate("unboxed", "#unboxed", unboxed);
+  //emulate("playa", "#playa", playa, {autoplay:true});
+  emulate("docflow_dev", "#docflow_dev", docflow_dev);
   emulate("hubble", "#hubble", hubble);
   emulate("omni", "#omni", omni);
 </script>

@@ -212,6 +212,7 @@ ul[class^=ring] li {
     z-index: 5;
     width: 100px;
     height: 100px;
+    display: none; /* seemed too busy to include this for now  */
 }
 
 .intwixt-cog:after {

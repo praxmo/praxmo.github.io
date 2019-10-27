@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- copyright 2019 Intwixt, Inc. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twix | Order Confirmation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Run Box.com approval flows in Slack"/>
+    <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
+    <meta name="author" content="contact@intwixt.com"/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Orbit.css -->
+    <link rel="stylesheet" href="/css/orbit.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="/emulator/css/slack.css">
+
+    <!-- Analytics -->
+    <script>(function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-72994520-1', 'auto');
+    ga('send', 'pageview');</script>
+    <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
+</head>
+<body id="home">
+
+<div id="page-wrap">
+
+
+    <!-- ==========================================================================================================
+                                                       HERO
+         ========================================================================================================== -->
+
+    <div id="fh5co-hero-wrapper" style="height:auto;margin-bottom:100px;">
+        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top" style="background-color: #db6700 !important;">
+            <a class="navbar-brand" href="/">Intwixt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#emulator" onclick="$('#emulator').goTo('emulator');">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq" onclick="$('#faq').goTo('faq');">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#commands" onclick="$('#commands').goTo('commands');">Commands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://intwixt.readme.io/discuss">
+                            Forums
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/privacy">
+                            Privacy
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/terms">
+                            Terms
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> <!-- first section wrapper -->
+
+
+    <!-- ==========================================================================================================
+                                 ORDER CONFIRMATION DETAILS
+         ========================================================================================================== -->
+
+    <div id="solutions" class="examples-outer">
+        <div class="container solution">
+
+            <img src="/img/docflow.png" align="left" style="max-width:200px;margin:10px 20px 20px 20px;">
+
+            <h1>Intwixt Docs Order Confirmation</h1>
+
+            <p>
+                Order confirmation page for Intwixt Docs*
+            </p>
+
+            <small>*Slack user is redirected from Stripe to a trigger receiver in the intwixt (Twix) app where the
+                successful processing of the payment and updates to the customer record are made;
+                at the end a 302 error code is thrown, causing a redirect to this page.</small>
+
+            <p>
+                The order confirmation details would be listed here along with details for adding additional seats.
+            </p>
+
+        </div>
+    </div> <!-- end example -->
+
+
+    <!-- ==========================================================================================================
+                                               SECTION 7 - SUB FOOTER
+    ========================================================================================================== -->
+
+    <footer class="footer-outer">
+        <div class="container footer-inner">
+
+            <span class="border-bottom-footer"></span>
+
+            <div>
+                <nav class="footer-nav">
+                    <ul class="nav-items secondary-nav wow fadeIn animated" data-wow-delay="0.66s">
+                        <a href="/privacy">
+                            <li>Privacy Policy</li>
+                        </a>
+                        <a href="/terms">
+                            <li>Terms and Conditions</li>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+
+            <p class="copyright">&copy; 2019 Intwixt, Inc. All rights reserved.</p>
+
+        </div>
+    </footer>
+
+</div> <!-- main page wrapper end content -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/main.js"></script>
+<script>
+
+  //order confirmation succeeded (i.e., the card was accepted), clear the cookie
+  console.log(getCookie("session_id"));
+  eraseCookie("session_id");
+  console.log(getCookie("session_id"));
+
+</script>
+</body>
+</html>
