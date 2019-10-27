@@ -1,0 +1,465 @@
+{
+  "basePath": "/api",
+  "definitions": {
+    "defs_user_id": {
+      "pattern": "^[UW][A-Z0-9]{8}$",
+      "title": "User ID",
+      "type": "string"
+    },
+    "defs_team": {
+      "pattern": "^[T][A-Z0-9]{8}$",
+      "title": "Team ID",
+      "type": "string"
+    },
+    "defs_ok_false": {
+      "enum": [
+        false
+      ],
+      "title": "default failure response",
+      "type": "boolean"
+    },
+    "defs_ok_true": {
+      "enum": [
+        true
+      ],
+      "title": "default success response",
+      "type": "boolean"
+    }
+  },
+  "externalDocs": {
+    "description": "Learn more about the Slack Web API",
+    "url": "https://api.slack.com/web"
+  },
+  "host": "slack.com",
+  "info": {
+    "description": "One way to interact with the Slack platform is its HTTP RPC-based Web API, a collection of methods requiring OAuth 2.0-based user, bot, or workspace tokens blessed with related OAuth scopes.",
+    "title": "Slack Web API",
+    "version": "1.2.0"
+  },
+  "paths": {
+    "/users.identity": {
+      "get": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "description": "Get a user's identity.",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://api.slack.com/methods/users.identity"
+        },
+        "operationId": "users_identity",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `identity.basic`",
+            "in": "query",
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "You will receive at a minimum the following information:",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "team": {
+                  "id": "T0G9PQBBK"
+                },
+                "user": {
+                  "id": "U0G9QF9C6",
+                  "name": "Sonny Whether"
+                }
+              }
+            },
+            "schema": {
+              "description": "Schema for successful response from users.identity method",
+              "items": [
+                {
+                  "additionalProperties": false,
+                  "description": "Schema for 'identity.basic' scope",
+                  "properties": {
+                    "ok": {
+                      "$ref": "#/definitions/defs_ok_true"
+                    },
+                    "team": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/defs_team"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    "user": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/defs_user_id"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "id"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "user",
+                    "team"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "description": "Schema for 'identity.basic,identity.email' scopes",
+                  "properties": {
+                    "ok": {
+                      "$ref": "#/definitions/defs_ok_true"
+                    },
+                    "team": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/defs_team"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    "user": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "email": {
+                          "format": "email",
+                          "type": "string"
+                        },
+                        "id": {
+                          "$ref": "#/definitions/defs_user_id"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "id",
+                        "email"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "user",
+                    "team"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "description": "Schema for 'identity.basic,identity.avatar' scopes",
+                  "properties": {
+                    "ok": {
+                      "$ref": "#/definitions/defs_ok_true"
+                    },
+                    "team": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/defs_team"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    "user": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/defs_user_id"
+                        },
+                        "image_192": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_24": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_32": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_48": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_512": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_72": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "id",
+                        "image_24",
+                        "image_32",
+                        "image_48",
+                        "image_72",
+                        "image_192",
+                        "image_512"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "user",
+                    "team"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "description": "Schema for 'identity.basic,identity.team' scopes",
+                  "properties": {
+                    "ok": {
+                      "$ref": "#/definitions/defs_ok_true"
+                    },
+                    "team": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "domain": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "$ref": "#/definitions/defs_team"
+                        },
+                        "image_102": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_132": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_230": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_34": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_44": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_68": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_88": {
+                          "format": "url",
+                          "type": "string"
+                        },
+                        "image_default": {
+                          "type": "boolean"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "domain",
+                        "image_34",
+                        "image_44",
+                        "image_68",
+                        "image_88",
+                        "image_102",
+                        "image_132",
+                        "image_230",
+                        "image_default"
+                      ],
+                      "type": "object"
+                    },
+                    "user": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/defs_user_id"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "id"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "ok",
+                    "user",
+                    "team"
+                  ],
+                  "type": "object"
+                }
+              ],
+              "title": "users.identity schema"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "account_inactive",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from users.identity method",
+              "properties": {
+                "error": {
+                  "enum": [
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "$ref": "#/definitions/defs_ok_false"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "users.identity error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "identity.basic"
+            ]
+          }
+        ],
+        "tags": [
+          "users"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "slackAuth": {
+      "authorizationUrl": "https://slack.com/oauth/authorize",
+      "flow": "accessCode",
+      "scopes": {
+        "admin": "admin",
+        "admin.users:write": "admin.users:write",
+        "bot": "Bot user scope",
+        "channels:history": "channels:history",
+        "channels:read": "channels:read",
+        "channels:write": "channels:write",
+        "chat:write": "chat:write",
+        "chat:write:bot": "Author messages as a bot",
+        "chat:write:user": "chat:write:user",
+        "conversations:history": "conversations:history",
+        "conversations:read": "conversations:read",
+        "conversations:write": "conversations:write",
+        "dnd:read": "dnd:read",
+        "dnd:write": "dnd:write",
+        "emoji:read": "emoji:read",
+        "files:read": "files:read",
+        "files:write:user": "files:write:user",
+        "groups:history": "groups:history",
+        "groups:read": "groups:read",
+        "groups:write": "groups:write",
+        "identity.basic": "identity.basic",
+        "identity.team": "identity.team",
+        "identity.email": "identity.email",
+        "identity.avatar": "identity.avatar",
+        "im:history": "im:history",
+        "im:read": "im:read",
+        "im:write": "im:write",
+        "links:write": "links:write",
+        "mpim:history": "mpim:history",
+        "mpim:read": "mpim:read",
+        "mpim:write": "mpim:write",
+        "none": "No scope required",
+        "pins:read": "pins:read",
+        "pins:write": "pins:write",
+        "reactions:read": "reactions:read",
+        "reactions:write": "reactions:write",
+        "reminders:read": "reminders:read",
+        "reminders:write": "reminders:write",
+        "rtm:stream": "rtm:stream",
+        "search:read": "search:read",
+        "stars:read": "stars:read",
+        "stars:write": "stars:write",
+        "team:read": "team:read",
+        "tokens.basic": "tokens.basic",
+        "usergroups:read": "usergroups:read",
+        "usergroups:write": "usergroups:write",
+        "users.profile:read": "users.profile:read",
+        "users.profile:write": "users.profile:write",
+        "users:read": "users:read",
+        "users:read.email": "users:read.email",
+        "users:write": "users:write"
+      },
+      "tokenUrl": "https://slack.com/api/oauth.access",
+      "type": "oauth2"
+    }
+  },
+  "swagger": "2.0"
+}
