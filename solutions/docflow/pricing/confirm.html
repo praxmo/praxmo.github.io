@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Twix | Order Confirmation</title>
+    <title>Intwixt Docflow | Pricing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Run Box.com approval flows in Slack"/>
     <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
@@ -55,7 +55,7 @@
          ========================================================================================================== -->
 
     <div id="fh5co-hero-wrapper" style="height:auto;margin-bottom:100px;">
-        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top" style="background-color: #db6700 !important;">
+        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top">
             <a class="navbar-brand" href="/">Intwixt</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,27 +65,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-items-right ml-auto mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#emulator" onclick="$('#emulator').goTo('emulator');">Demo</a>
+                        <a class="nav-link" href="/solutions/docflow">DocFlow</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq" onclick="$('#faq').goTo('faq');">FAQ</a>
+                        <a class="nav-link" href="/solutions/docflow#faq">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#commands" onclick="$('#commands').goTo('commands');">Commands</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://intwixt.readme.io/discuss">
-                            Forums
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/privacy">
-                            Privacy
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/terms">
-                            Terms
+                        <a class="nav-link" href="/solutions/docflow/pricing">
+                            Pricing
                         </a>
                     </li>
                 </ul>
@@ -95,30 +82,115 @@
 
 
     <!-- ==========================================================================================================
-                                 ORDER CONFIRMATION DETAILS
+                                 PRICING / ORDERING
          ========================================================================================================== -->
 
     <div id="solutions" class="examples-outer">
-        <div class="container solution">
+        <div class="container solution plans docflow">
 
-            <img src="/img/docflow.png" align="left" style="max-width:200px;margin:10px 20px 20px 20px;">
+            <img src="/img/docflow.png" align="left" class="logo">
 
-            <h1>Intwixt Docs Order Confirmation</h1>
-
-            <p>
-                Order confirmation page for Intwixt Docs*
-            </p>
-
-            <small>*Slack user is redirected from Stripe to a trigger receiver in the intwixt (Twix) app where the
-                successful processing of the payment and updates to the customer record are made;
-                at the end a 302 error code is thrown, causing a redirect to this page.</small>
+            <h1 class="title">DocFlow Order Confirmation</h1>
 
             <p>
-                The order confirmation details would be listed here along with details for adding additional seats.
+                Thanks, <b id="slack_user_name">Sandy</b>! Your order was successfully processed.
             </p>
-
+            <div style="clear: both;">
+                <p>Here are your subscription details. Your card will be charged at the start of the next <b id="cycle_adjective">annual</b> billing cycle.
+                    If you need to make any changes to your subscription, including adding/removing submitters or
+                    updating
+                    your credit card details, enter the slash command, <code>/docflow billing</code>.</p>
+                <table class="order-details" style="table-layout: fixed;width:200px;border-color:transparent;" cellpadding="8">
+                    <tr>
+                        <td style="width:140px;">Plan</td>
+                        <td><b id="plan">Standard</b></td>
+                    </tr>
+                    <tr>
+                        <td>Cycle</td>
+                        <td><b id="cycle_noun">Annual</b></td>
+                    </tr>
+                    <tr>
+                        <td>Submitters (qty)</td>
+                        <td><b id="quantity">31</b></td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td><b id="amount">$1,450.00</b></td>
+                    </tr>
+                </table>
+                <p></p>
+            </div>
         </div>
+
+
     </div> <!-- end example -->
+
+
+    <!-- ==========================================================================================================
+                                                 CALL TO ACTION
+    ========================================================================================================== -->
+
+    <div id="contact" class="fh5co-bottom-outer">
+        <div class="overlay">
+            <div class="container fh5co-bottom-inner">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-7 call-to-action">
+                        <h1>Want to learn more?</h1>
+                        <p>Run conversational business processes backed by our AI-enabled process engine.</p>
+                        <div class="links">
+                            <div>
+                                <i class="far fa-envelope"></i> <a
+                                    href="mailto:contact@intwixt.com">contact@intwixt.com</a>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i> <a href="tel:650-209-4216">650-209-4216</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-5">
+                        <div class="benefits">
+                            <div class="rotate anim1">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/efficiency.png"
+                                             alt="Efficient">
+                                        <div>Efficiency</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rotate anim2">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/transparency.png"
+                                             alt="Transparent">
+                                        <div>Transparency</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rotate anim3">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/usability.png"
+                                             alt="Usable">
+                                        <div>Usability</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rotate anim4">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/extensibility.png"
+                                             alt="Extensible">
+                                        <div>Extensibility</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ==========================================================================================================
@@ -154,12 +226,136 @@
 <script src="/js/bootstrap.js"></script>
 <script src="/js/wow.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script>
+  //set the public key needed for submitting the order to Stripe
+  var stripe = Stripe('pk_test_dRxwVniwE4hEH3AYZgBROyp6');
 
-  //order confirmation succeeded (i.e., the card was accepted), clear the cookie
-  console.log(getCookie("session_id"));
-  eraseCookie("session_id");
-  console.log(getCookie("session_id"));
+  //price calculator
+  var qty = $("#quantity");
+  var ann = $("#annually");
+  var quantity, is_annual;
+
+
+  /**
+   *
+   */
+  function calculate() {
+    var unit_price = 5;
+    var annual_discount_rate = .8;
+    quantity = qty.val();
+    if (isNaN(quantity)) {
+      quantity = 1;
+      qty.val(quantity);
+    }
+    is_annual = ann.is(':checked');
+    var amount = is_annual ? (unit_price * annual_discount_rate * quantity * 12) : unit_price * quantity;
+    $("#total").html("Total: $" + amount.toLocaleString('en') + ".00" + (is_annual ? " / Year" : " / Month"));
+  }
+
+  qty.on("change keyup paste", function () {
+    calculate();
+  });
+  ann.change(function () {
+    calculate();
+  });
+
+
+  // the pricing page is typically opened from Slack, and includes encoded profile information about the user's identity
+  // (if not present, check the cookie for a cached instance)
+  var slack_profile, session_profile, is_redirect;
+  if (window.location.hash) {
+    is_redirect = true;
+    slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
+    window.location.hash = "";
+    var noHashURL = window.location.href.replace(/#.*$/, '');
+    window.history.replaceState('', document.title, noHashURL);
+  } else {
+    slack_profile = getCookie("slack_profile");
+  }
+  console.log(slack_profile);
+  if (slack_profile && slack_profile.indexOf("{") === 0) {
+    setCookie("slack_profile", slack_profile, 365);
+    session_profile = JSON.parse(slack_profile);
+    is_redirect = is_redirect && session_profile && session_profile.quantity && session_profile.cycle;
+  } else if (slack_profile) {
+    eraseCookie("slack_profile");
+  }
+  if(is_redirect) {
+    create_checkout_session(session_profile.quantity, session_profile.cycle === "annually", session_profile);
+  } else {
+    $("#submit").on("click", function () {
+      create_checkout_session(quantity, is_annual, session_profile);
+    });
+  }
+
+
+
+  /**
+   * create the checkout session (make call to ixt process providing the user's slack identity)
+   * @param quantity {number} number of seats (submitters)
+   * @param is_annual {boolean} if cycle is boolean
+   * @param profile {object|null} user Slack profile returned/cached during last login
+   * @param [profile.user_id] {string}
+   * @param [profile.team_id] {string}
+   * @param [profile.session_id] {string}
+   */
+  function create_checkout_session(quantity, is_annual, profile) {
+    var base_url;
+    var cycle = is_annual ? "annually" : "monthly";
+    if (!(profile && profile.user_id && profile.team_id && profile.session_id)) {
+      // 1) resolve the user's Slack identity first, so we know how to link the payment to the proper account
+      base_url = "https://intwixt-0.apis.intwixt.com/api/v1/slack/authorization/target";
+      var qs = "?quantity=" + quantity + "&cycle=" + cycle;
+      $.get(base_url + qs).done(function (data) {
+        console.log("success!!");
+        console.log(data);
+        //begin the oauth flow; when it completes, the user will be redirected to this page, along with identity details
+        window.location.href = data.url;
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        //note: should only occur if a server failure/system error (redirect never occurs without user authorization)
+      });
+    } else {
+      // 2) generate the 'session_id' by providing the user's identity to the intwixt service
+      base_url = "https://intwixt-0.apis.intwixt.com/api/v1/checkout_session";
+      var data = {
+        quantity: quantity,
+        cycle: cycle,
+        user_id: profile.user_id,
+        team_id: profile.team_id,
+        session_id: profile.session_id
+      };
+      $.post(base_url, data).done(function (data) {
+        console.log("success!!");
+        console.log(data);
+        // 3) redirect to stripe, passing the session_id;
+        // when the process completes successfully, stripe will alert a server-side webhook and redirect the user
+        // to the confirmation page /solutions/docflow/pricing/confirm
+        redirect_to_checkout(data.id)
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        //todo: need to alert user of the issue!
+      });
+    }
+  }
+
+
+  /**
+   * final leg; redirect to Stripe now that we have a valid checkout session
+   * @param session_id
+   */
+  function redirect_to_checkout(session_id) {
+    stripe.redirectToCheckout({
+      sessionId: session_id
+    }).then(function (result) {
+      console.log(result);
+      console.log(result.error);
+    });
+  }
+
 
 </script>
 </body>

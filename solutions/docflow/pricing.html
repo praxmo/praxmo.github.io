@@ -65,23 +65,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-items-right ml-auto mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/solutions/docflow#emulator">Demo</a>
+                        <a class="nav-link" href="/solutions/docflow">DocFlow</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/solutions/docflow#faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/solutions/docflow#commands">Commands</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://intwixt.readme.io/discuss">
-                            Forums
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/solutions/docflow/pricing">
-                            Pricing
-                        </a>
                     </li>
                 </ul>
             </div>
@@ -100,11 +87,12 @@
 
             <h1 class="title">DocFlow Pricing</h1>
 
-            <p>
-                <b>DocFlow</b> is free to use. Upgrade to a paid plan to run at scale.
+            <p class="pb-2">
+                Teams are assigned to the free <b>Intro Plan</b> when DocFlow is first
+                installed to their Slack workspace. Upgrade to a paid plan to run at scale.
                 The <b>Standard Plan</b> is priced according to the number of Slack team members who will need to submit
-                documents (submitters). There is no limit to the number of reviewers.
-                Reach out to us if you're interested in your own customized instance or need specific support options.
+                documents (submitters). Ask us about our <b>Enterprise Plan</b> if you're interested in your
+                own customized instance, volume pricing, or require specific support options.
             </p>
 
 
@@ -141,27 +129,28 @@
                         </div>
                         <div class="card-body">
                             <div>
-                            <h1 class="card-title plans-card-title" style="font-size: 2em;">$5 / Mo / User</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>Unlimited Approvals / Mo / User</li>
-                                <li>Unlimited Reviewers</li>
-                                <li>3 Admins</li>
-                                <li>20MB Max File Size</li>
-                                <li>Public Support Forums</li>
-                            </ul>
-                            <div class="button-wrap">
-                                <button type="button"
-                                        onclick="$('.calculate').addClass('active');"
-                                        class="btn btn-lg btn-block btn-primary">Calculate Price
-                                </button>
-                            </div>
+                                <h1 class="card-title plans-card-title" style="font-size: 2em;">$5 / Mo / User</h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Unlimited Approvals / Mo / User</li>
+                                    <li>Unlimited Reviewers</li>
+                                    <li>3 Admins</li>
+                                    <li>20MB Max File Size</li>
+                                    <li>Public Support Forums</li>
+                                </ul>
+                                <div class="button-wrap">
+                                    <button type="button"
+                                            onclick="$('.calculate').addClass('active');calculate();"
+                                            class="btn btn-lg btn-block btn-primary">Calculate Price
+                                    </button>
+                                </div>
                             </div>
                             <div id="calculate" class="calculate">
                                 <div class="close" onclick="$('.calculate').removeClass('active');">x</div>
                                 <h3>Calculate Price</h3>
                                 <label for="quantity">Number of users (submitters)</label>
                                 <input id="quantity" class="form-control" value="1" placeholder="Enter Quantity">
-                                <label for="annually" class="annually"><input id="annually" type="checkbox"> Pay Annually for a
+                                <label for="annually" class="annually"><input id="annually" type="checkbox"> Pay
+                                    Annually for a
                                     20% discount</label>
                                 <hr>
                                 <div id="total">Total: $5.00 / Month</div>
@@ -186,7 +175,7 @@
                                 <li>3+ Admins</li>
                                 <li>20MB+ Max File Size</li>
                                 <li>ELA Support Options</li>
-                                <li><b>Custom modifications**</b></li>
+                                <li><b>Custom modifications*</b></li>
                             </ul>
                             <div class="button-wrap">
                                 <button type="button"
@@ -195,17 +184,24 @@
                                 </button>
                             </div>
                             <div class="calculate semi-transparent"></div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
 
-
-
-            <!-- small>*Base page with pricing options...also the redirect page if the user leaves Stripe. Should instruct
-                the user to enter the slash command <code>/docflow billing</code></small -->
-
+            <div class="mt-5">
+                <hr>
+                <img align="left"
+                     class="modular fadeInLeft animated" data-wow-delay="0.66s"
+                     src='/img/docflow/modularity.png'>
+                <p>*DocFlow is easy to configure. Administrators can create sophisticated approval
+                    flows directly in Slack through a wizard-like series of questions.
+                    But every organization is unique, sometimes requiring functionality beyond what is offered out-of-the-box.
+                    Fortunately, DocFlow built using Intwixt’s <b>Conversational Automation Platform</b> (CAP). Our no-code, visual
+                    approach delivers unmatched modularity. Tell us about your specific needs and we can design a
+                    custom solution to match.</p>
+            </div>
         </div>
 
 
@@ -322,13 +318,15 @@
   var ann = $("#annually");
   var quantity, is_annual;
 
+
   /**
-   *
+   * called when the price calculator fields are modified by the user; stores/renders the latest values to use when
+   * a purchase is made
    */
   function calculate() {
     var unit_price = 5;
     var annual_discount_rate = .8;
-    var quantity = qty.val();
+    quantity = qty.val();
     if (isNaN(quantity)) {
       quantity = 1;
       qty.val(quantity);
@@ -338,18 +336,20 @@
     $("#total").html("Total: $" + amount.toLocaleString('en') + ".00" + (is_annual ? " / Year" : " / Month"));
   }
 
-  qty.on("change keyup paste", function() {
+  //bind on-change events to form controls
+  qty.on("change keyup paste", function () {
     calculate();
   });
-  ann.change(function() {
+  ann.change(function () {
     calculate();
   });
 
 
   // the pricing page is typically opened from Slack, and includes encoded profile information about the user's identity
   // (if not present, check the cookie for a cached instance)
-  var slack_profile, session_profile;
+  var slack_profile, session_profile, is_redirect;
   if (window.location.hash) {
+    is_redirect = true;
     slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
     window.location.hash = "";
     var noHashURL = window.location.href.replace(/#.*$/, '');
@@ -361,21 +361,69 @@
   if (slack_profile && slack_profile.indexOf("{") === 0) {
     setCookie("slack_profile", slack_profile, 365);
     session_profile = JSON.parse(slack_profile);
+    is_redirect = is_redirect && session_profile && session_profile.quantity && session_profile.cycle;
+  } else if (slack_profile) {
+    eraseCookie("slack_profile");
+  }
+  if(is_redirect) {
+    create_checkout_session(session_profile.quantity, session_profile.cycle === "annually", session_profile);
+  } else {
     $("#submit").on("click", function () {
       create_checkout_session(quantity, is_annual, session_profile);
     });
-  } else {
-    eraseCookie("slack_profile");
-    $("#submit").attr("disabled", "disabled");
   }
 
 
+
   /**
-   * called when the user is satisfied with their choices and clicks the submit button
+   * create the checkout session (make call to ixt process providing the user's slack identity)
+   * @param quantity {number} number of seats (submitters)
+   * @param is_annual {boolean} if cycle is boolean
+   * @param profile {object|null} user Slack profile returned/cached during last login
+   * @param [profile.user_id] {string}
+   * @param [profile.team_id] {string}
+   * @param [profile.session_id] {string}
    */
   function create_checkout_session(quantity, is_annual, profile) {
-    //todo: ajax call providing the tid, uid, and sid
-    redirect_to_checkout(session_id)
+    var base_url;
+    var cycle = is_annual ? "annually" : "monthly";
+    if (!(quantity && profile && profile.user_id && profile.team_id && profile.session_id)) {
+      // 1) resolve the user's Slack identity first, so we know how to link the payment to the proper account
+      base_url = "https://intwixt-0.apis.intwixt.com/api/v1/slack/authorization/target";
+      var qs = "?quantity=" + quantity + "&cycle=" + cycle;
+      $.get(base_url + qs).done(function (data) {
+        console.log("success!!");
+        console.log(data);
+        //begin the oauth flow; when it completes, the user will be redirected to this page, along with identity details
+        window.location.href = data.url;
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        //note: should only occur if a server failure/system error (redirect never occurs without user authorization)
+      });
+    } else {
+      // 2) generate the 'session_id' by providing the user's identity to the intwixt service
+      base_url = "https://intwixt-0.apis.intwixt.com/api/v1/checkout_session";
+      var data = {
+        quantity: quantity,
+        cycle: cycle,
+        user_id: profile.user_id,
+        team_id: profile.team_id,
+        session_id: profile.session_id
+      };
+      $.post(base_url, data).done(function (data) {
+        console.log("success!!");
+        console.log(data);
+        // 3) redirect to stripe, passing the session_id;
+        // when the process completes successfully, stripe will alert a server-side webhook and redirect the user
+        // to the confirmation page /solutions/docflow/pricing/confirm
+        redirect_to_checkout(data.id)
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        //todo: need to alert user of the issue!
+      });
+    }
   }
 
 
@@ -394,6 +442,5 @@
 
 
 </script>
-
 </body>
 </html>
