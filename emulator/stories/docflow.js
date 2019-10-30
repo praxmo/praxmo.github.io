@@ -513,7 +513,7 @@ var docflow = {
     "cta": 4,
 
     "href": {
-      "try":"https://slack.com/oauth/authorize?client_id=397209179749.672831744468&scope=bot%20commands%20chat%3Awrite%3Abot%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX19SMGebZ%2FLR%2BWQn3RdsoiJ6LvaIsJHd83WQMVnj9daeBKL0sFHmVtQ9rI90GwmAurSGop0lNJ7DNqPsP%2BzBPesz%2FIWSLfUul5ZlUm80ED%2B5pYG9ugZyRacSKF%2Fc0Wxnp5JnQGtjX%2F8T7%2FcdNFi0coYrJwaZl3iioBI%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback",
+      "try":"https://slack.com/oauth/authorize?client_id=397209179749.806711433568&scope=bot%20commands%20chat%3Awrite%3Abot%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX18XnuUWBfyhVJ3he1yGlFu1R1qjytUUHYHEmwum4YzMxX%2FIbqsRYI69s6piu4DwryxLSoKEsAxDK1Sz39OLGFN9LTfUC2ZM9VCyXkomb7c31KEgMcVfEvdNIdN5yCrJSUZNm2j1430%2F2WG8N7gONOzd7HJIq3rU04w%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback",
       "own":"javascript:alert('Please contact us to get started. We will copy the source files to your Intwixt account and give you tips for extending to make it your own.');"
     },
 
