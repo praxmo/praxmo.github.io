@@ -346,6 +346,7 @@
   // (if not present, check the cookie for a cached instance)
   var slack_profile, session_profile, is_redirect;
   if (window.location.hash) {
+    //when a profile is passed, it is coming directly from Slack OR is the final leg of a Slack authorization flow
     is_redirect = true;
     slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
     window.location.hash = "";
@@ -356,8 +357,11 @@
   }
   console.log(slack_profile);
   if (slack_profile && slack_profile.indexOf("{") === 0) {
-    setCookie("slack_profile", slack_profile, 365);
     session_profile = JSON.parse(slack_profile);
+    if(session_profile && session_profile.user_id && session_profile.team_id && session_profile.session_id) {
+      setCookie("slack_profile", slack_profile, 365);
+    }
+    //verify that this is a full redirect to the billing page (only happens when quantity and cycle are present)
     is_redirect = is_redirect && session_profile && session_profile.quantity && session_profile.cycle;
   } else if (slack_profile) {
     eraseCookie("slack_profile");
@@ -385,7 +389,7 @@
     var base_url;
     var cycle = is_annual ? "annually" : "monthly";
     if (!(quantity && profile && profile.user_id && profile.team_id && profile.session_id)) {
-      // 1) resolve the user's Slack identity first, so we know how to link the payment to the proper account
+      // 1) resolve the user's Slack identity, so we can link their payment to the slack team's workspace
       base_url = "https://intwixt-0.apis.intwixt.com/api/v2/slack/authorization/target";
       var qs = "?quantity=" + quantity + "&cycle=" + cycle;
       $.get(base_url + qs).done(function (data) {
@@ -399,7 +403,7 @@
         //note: should only occur if a server failure/system error (redirect never occurs without user authorization)
       });
     } else {
-      // 2) generate the 'session_id' by providing the user's identity to the intwixt service
+      // 2) generate a 'session_id' by providing the user's identity to the intwixt checkout_session service
       base_url = "https://intwixt-0.apis.intwixt.com/api/v2/checkout_session";
       var data = {
         quantity: quantity,
@@ -409,12 +413,15 @@
         session_id: profile.session_id
       };
       $.post(base_url, data).done(function (data) {
-        console.log("success!!");
-        console.log(data);
+        console.log("session_id: " + data.id);
         // 3) redirect to stripe, passing the session_id;
-        // when the process completes successfully, stripe will alert a server-side webhook and redirect the user
-        // to the confirmation page /solutions/docflow/pricing/confirm
-        redirect_to_checkout(data.id)
+        // when the process completes successfully, stripe will redirect the user to the confirmation page
+        stripe.redirectToCheckout({
+          sessionId: data.id
+        }).then(function (result) {
+          console.log(result);
+          console.log(result.error);
+        });
       }).fail(function (data) {
         console.log("fail!!");
         console.log(data);
@@ -422,21 +429,6 @@
       });
     }
   }
-
-
-  /**
-   * final leg; redirect to Stripe now that we have a valid checkout session
-   * @param session_id
-   */
-  function redirect_to_checkout(session_id) {
-    stripe.redirectToCheckout({
-      sessionId: session_id
-    }).then(function (result) {
-      console.log(result);
-      console.log(result.error);
-    });
-  }
-
 
 </script>
 </body>
