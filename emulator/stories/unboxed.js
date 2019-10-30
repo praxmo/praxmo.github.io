@@ -514,7 +514,7 @@ var unboxed = {
 
     "href": {
       //direct user to the app home landing page to 'try' it; if there is no app home landing,the 'add to slack' link can be used instead
-      "try":"https://www.intwixt.com/solutions/twix",
+      "try":"https://www.intwixt.com/solutions/docflow",
 
       //todo: when the `/setup` suffix is added to the above link (this will serve the developer landing page), point developers there to 'own' the intiwxt app
       //todo: enable cookie xfer from my.intwixt.com domain to www.intwixt.com domain; can now safely share, since we host both
