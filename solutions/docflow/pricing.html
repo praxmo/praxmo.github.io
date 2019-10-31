@@ -307,14 +307,11 @@
 <script src="/js/main.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  //set the public key needed for submitting the order to Stripe
-  var stripe = Stripe('pk_test_dRxwVniwE4hEH3AYZgBROyp6');
 
   //price calculator
   var qty = $("#quantity");
   var ann = $("#annually");
   var quantity, is_annual;
-
 
   /**
    * called when the price calculator fields are modified by the user; stores/renders the latest values to use when
@@ -416,7 +413,7 @@
         console.log("session_id: " + data.id);
         // 3) redirect to stripe, passing the session_id;
         // when the process completes successfully, stripe will redirect the user to the confirmation page
-        stripe.redirectToCheckout({
+        Stripe(data.stripe_public_key).redirectToCheckout({
           sessionId: data.id
         }).then(function (result) {
           console.log(result);
@@ -425,7 +422,7 @@
       }).fail(function (data) {
         console.log("fail!!");
         console.log(data);
-        //todo: need to alert user of the issue!
+        //todo: alert user of the issue!
       });
     }
   }

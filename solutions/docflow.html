@@ -255,35 +255,6 @@
                 <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInLeft"
                      data-wow-delay="0.36s">
 
-                    <h4>How do you compare to Box Relay?</h4>
-
-                    <p> We think <a href="https://www.box.com/collaboration/relay-workflow">Box Relay</a> is an amazing workflow product.
-                        We also feel it can be even more powerful when connected to a messaging platform like Slack.
-                        Slack is a natural fit for role-based workflows and it’s hard to overlook just how efficient the
-                        approval process can be when paired with Slack channels and real-time, interactive messages.
-                    </p>
-                    <p> DocFlow is based upon the same <i>user-first</i> design philosophy that makes Relay approachable to
-                        business users. It's possible for users to configure
-                        and execute sophisticated approval flows with little technical know-how.
-                        Where we differ is our Slack-centric approach. This provides additional features like
-                        timeouts, exception handling, and group-based task assignment that
-                        leverage Slack channels. Importantly, any approval flow orchestrated by DocFlow can trigger a
-                        Relay workflow. Please ask us how DocFlow can help you get the most from your Relay investment.
-                    </p>
-
-                    <h4> How many approval flows can I build?</h4>
-                    <p> The DocFlow administrator for your team can design up to 5 document approval flows. For example, the
-                        administrator may create a “timesheet approval” flow, an “RFP approval” flow, etc.
-                        It’s up to the administrator to choose which approval flows would be useful for their team.
-                    </p>
-
-
-                    <h4> How many steps can an approval flow have?</h4>
-                    <p> We allow up to 3 steps in each approval flow. Paid accounts support up to 10 steps. Consider
-                        an Enterprise license if you need even further customizations.
-                    </p>
-
-
                     <h4> What is the maximum document size allowed?</h4>
                     <p> We support uploads up to 5MB. Paid accounts start at 20MB and can be configured for more if
                         you choose an Enterprise license.
@@ -299,6 +270,18 @@
                     </p>
 
 
+                    <h4>Can we configure multiple approval flow types?</h4>
+                    <p> The DocFlow administrator for your team can design up to 5 document approval flows. For example, the
+                        administrator may create a “timesheet approval” flow, an “RFP approval” flow, etc.
+                        It’s up to the administrator to choose which approval flows would be useful for their team.
+                    </p>
+
+
+                    <h4> How many steps can an approval flow have?</h4>
+                    <p> We allow up to 3 steps in each approval flow. Paid accounts support up to 10 steps. Consider
+                        an Enterprise license if you need even further customizations.
+                    </p>
+
                     <h4>Can review tasks be assigned to both channels and users?</h4>
                     <p> Yes. As the DocFlow administrator, if you choose to assign the review step to a channel, you must
                         invite <b>DocFlow</b> to the channel, so we can post messages to channel members, alerting them to claim and
@@ -307,10 +290,36 @@
                         assignment process (e.g, routing to users based upon relationships in your company's employee directory).
                     </p>
 
-                    <h4> How many end users can we have?</h4>
-                    <p> We allow unlimited end users, including reviewers and submitters. Our usage meter only tracks the number
-                        of administrators (1) and the number of approval flows that run in a month (20) for free accounts.
+                    <h4> How many submitters and reviewers can we have?</h4>
+                    <p> The free <b>Intro Plan</b> allows unlimited submitters. We limit usage
+                        on the Intro Plan by limiting the total number of approval flows that can be run by
+                        your team in any given month (20).
+                        </p><p>
+                        The paid <b>Standard Plan</b> is priced according to the number of named submitters your team needs. Each
+                        submitter belonging to a paid plan can upload as many documents as they wish each and every month.
+                        If you need custom pricing or wish to know more, please refer to the
+                        <a href="docflow/pricing">DocFlow Pricing</a>. There is no limit to the number of reviewers for
+                        both free and paid plans.
                     </p>
+
+
+                    <h4>What happens when a document is rejected?</h4>
+                    <p> When a document is rejected, the original submitter is provided steps to fix the issue and is prompted
+                        to resubmit the updated document. We then copy the document from Slack to Box and
+                        create a new document version in Box. Once the document review process successfully completes, the full
+                        audit history is available at Box.com, including all submitted versions.
+                    </p>
+
+
+                    <h4>How many administrators can we have?</h4>
+                    <p> The free trial version allows one administrator. This individual must have access to the Box.com
+                        directories where the documents will reside during and after the review process. Administrators are
+                        prompted to grant access to Box.com upon installation of the DocFlow app. They can then design and configure
+                        approval flows as needed. Administrators can add additional approval flows (up to 5 total)
+                        by issuing the slash command, <code>/docflow create</code>.
+                    </p>
+
+
 
                 </div>
                 <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
@@ -331,22 +340,21 @@
                         software subscriptions in your organization, enter the <code>/docflow billing</code>  slash command
                         to initiate the payment process or update an existing subscription.</i></p>
 
-                    <h4>What happens when a document is rejected?</h4>
-                    <p> When a document is rejected, the original submitter is provided steps to fix the issue and is prompted
-                        to resubmit the updated document. We then copy the document from Slack to Box and
-                        create a new document version in Box. Once the document review process successfully completes, the full
-                        audit history is available at Box.com, including all submitted versions.
+                    <h4>How do you compare to Box Relay?</h4>
+
+                    <p> We think <a href="https://www.box.com/collaboration/relay-workflow">Box Relay</a> is an amazing workflow product.
+                        We also feel it can be even more powerful when connected to a messaging platform like Slack.
+                        Slack is a natural fit for role-based workflows and it’s hard to overlook just how efficient the
+                        approval process can be when paired with Slack channels and real-time, interactive messages.
                     </p>
-
-
-                    <h4>How many administrators can we have?</h4>
-                    <p> The free trial version allows one administrator. This individual must have access to the Box.com
-                        directories where the documents will reside during and after the review process. Administrators are
-                        prompted to grant access to Box.com upon installation of the DocFlow app. They can then design and configure
-                        approval flows as needed. Administrators can add additional approval flows (up to 5 total)
-                        by issuing the slash command, <code>/docflow create</code>.
+                    <p> DocFlow is based upon the same <i>user-first</i> design philosophy that makes Relay approachable to
+                        business users. It's possible for users to configure
+                        and execute sophisticated approval flows with little technical know-how.
+                        Where we differ is our Slack-centric approach. This provides additional features like
+                        timeouts, exception handling, and group-based task assignment that
+                        leverage Slack channels. Importantly, any approval flow orchestrated by DocFlow can trigger a
+                        Relay workflow. Please ask us how DocFlow can help you get the most from your Relay investment.
                     </p>
-
 
                     <h4> What private information do you keep on your servers?</h4>
                     <p> We save your Slack Team ID and the Slack user ID for the DocFlow administrator and the DocFlow installer
