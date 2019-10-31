@@ -224,7 +224,7 @@
 <script src="/js/wow.min.js"></script>
 <script src="/js/main.js"></script>
 <script>
-
+    //lookups/constants
     var cycles = {
       lower: {
         monthly: "monthly",
@@ -237,26 +237,30 @@
     };
     var unit_price = 5;
     var annual_discount_rate = .8;
-
-    var base_url = "https://intwixt-0.apis.intwixt.com/api/v2/checkout_session/";
+    //confirmation guid
     var checkout_session_id = getQueryString("session_id");
-  $.get(base_url + checkout_session_id).done(function (data) {
-    console.log(data);
-    $("#cycle_adjective").html(cycles.lower[data.checkout_session.cycle]);
-    $("#cycle_noun").html(cycles.title[data.checkout_session.cycle]);
-    $("#quantity").html(data.checkout_session.quantity);
-    var amount;
-    if(data.checkout_session.cycle === "monthly") {
-      amount = unit_price * data.checkout_session.quantity;
+    if(checkout_session_id) {
+      var base_url = "https://intwixt-0.apis.intwixt.com/api/v2/checkout_session/";
+      $.get(base_url + checkout_session_id).done(function (data) {
+        console.log(data);
+        $("#cycle_adjective").html(cycles.lower[data.checkout_session.cycle]);
+        $("#cycle_noun").html(cycles.title[data.checkout_session.cycle]);
+        $("#quantity").html(data.checkout_session.quantity);
+        var amount;
+        if(data.checkout_session.cycle === "monthly") {
+          amount = unit_price * data.checkout_session.quantity;
+        } else {
+          amount = unit_price * annual_discount_rate * data.checkout_session.quantity * 12;
+        }
+        $("#amount").html("$" + amount.toLocaleString('en') + ".00 USD");
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        //note: should only occur if a server failure/system error (redirect never occurs without user authorization)
+      });
     } else {
-      amount = unit_price * annual_discount_rate * data.checkout_session.quantity * 12;
+      window.location.href = window.location.href.replace("/confirm","");
     }
-    $("#amount").html("$" + amount.toLocaleString('en') + ".00 USD");
-  }).fail(function (data) {
-    console.log("fail!!");
-    console.log(data);
-    //note: should only occur if a server failure/system error (redirect never occurs without user authorization)
-  });
 
 </script>
 </body>
