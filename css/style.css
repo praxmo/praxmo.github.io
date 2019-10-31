@@ -1366,7 +1366,7 @@ span.policy-detail {
 
 .container .logo {
     max-width: 160px;
-    margin: 10px 20px 20px 20px;
+    margin: 10px 20px 20px 0px;
     border-radius:12px;
 }
 
@@ -1427,6 +1427,16 @@ span.policy-detail {
     box-shadow: 2px 2px 8px #c8c8c8;
     border: solid 1px #c8c8c8;
     border-radius: 8px;
+}
+
+.order-details {
+    table-layout: fixed;
+    width: 325px;
+    border-color: transparent;
+}
+
+.order-details td {
+    padding:6px;
 }
 
 
