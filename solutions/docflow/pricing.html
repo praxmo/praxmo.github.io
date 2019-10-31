@@ -330,7 +330,7 @@
     }
     is_annual = ann.is(':checked');
     var amount = is_annual ? (unit_price * annual_discount_rate * quantity * 12) : unit_price * quantity;
-    $("#total").html("Total: $" + amount.toLocaleString('en') + ".00" + (is_annual ? " / Year" : " / Month"));
+    $("#total").html("Total: $" + Math.abs(amount).toLocaleString('en') + ".00" + (is_annual ? " / Year" : " / Month"));
   }
 
   //bind on-change events to form controls
