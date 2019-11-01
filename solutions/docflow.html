@@ -152,7 +152,7 @@
             <h2 id="getting_started" style="margin-top:60px;padding-top:80px;">Getting Started</h2>
             <p>DocFlow organizes users according to the following 5 roles: <b>Installer, Administrator, Submitter, Reviewer and Owner.</b></p>
 
-            <h4 id="installer">Installer</h4>
+            <h4 id="installer"><i class="fas fa-user-cog"></i> Installer</h4>
             <p>The installer is the individual who installs DocFlow to the Slack workspace. This must be a team member
                 who is authorized to install Slack apps. DocFlow will send notifications to this individual on two
                 occasions. First, if the Slack workspace is configured to NOT share email addresses, DocFlow cannot resolve user
@@ -173,7 +173,7 @@
                 </a>
             </p>
 
-            <h4 id="administrator">Administrator</h4>
+            <h4 id="administrator"><i class="fas fa-user-edit"></i> Administrator</h4>
             <p>Administrators are responsible for creating approval flows. This requires that the administrator
                 authorize DocFlow to access Box.com on their behalf. Once authorization is granted, DocFlow monitors the
                 <code>TASK_ASSIGNMENT.UPDATED</code> event and calls the following
@@ -232,18 +232,18 @@
             <p><b>And remember, administrators can also be end-users. They can use DocFlow to upload their own
                 documents for review at any time.</b></p>
 
-            <h4 id="end-user">Submitter</h4>
+            <h4 id="end-user"><i class="fas fa-user"></i> Submitter</h4>
             <p>Submitters are the Slack team members who upload documents. Once a submitter uploads a document to the
                 DocFlow app, they will be prompted to choose from the list of approval flows
                 created by the team's DocFlow administrator(s).</p>
 
-            <h4 id="reviewer">Reviewer</h4>
+            <h4 id="reviewer"><i class="fas fa-user-check"></i> Reviewer</h4>
             <p>Reviewers are the Slack team members who are assigned to review documents. There is no limit to the
             number of reviewers your team can have. Reviewers can be named individuals assigned when the administrator
             creates an approval flow. Or a reviewer can self-select, choosing to claim a document that has been sent
             to a channel they they are a member of.
 
-            <h4 id="owner">Owner</h4>
+            <h4 id="owner"><i class="fas fa-user-shield"></i> Owner</h4>
             <p>The owner is the Slack team member who is responsible for providing payment details if your team chooses to
                 upgrade to a paid plan. There is no need to upgrade if your team runs fewer than 20 approval flows each month.
                 Refer to the <a href="docflow/pricing">DocFlow Pricing</a> page for more information on plans and prices.
@@ -414,11 +414,11 @@
                 <p>Get help for using DocFlow. Directs the user to this Web page.</p>
             </div>
 
-            <div>
+            <!-- div>
                 <h4 class="command">DocFlow Feedback</h4>
                 <code>/docflow feedback</code>
                 <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
-            </div>
+            </div -->
 
             <div style="margin-top:30px;"><i>* This command is only available to the DocFlow "administrator".</i></div>
             <div><i>** This command is only available to the DocFlow "owner".</i></div>
