@@ -247,6 +247,7 @@
             <p>The owner is the Slack team member who is responsible for providing payment details if your team chooses to
                 upgrade to a paid plan. There is no need to upgrade if your team runs fewer than 20 approval flows each month.
                 Refer to the <a href="docflow/pricing">DocFlow Pricing</a> page for more information on plans and prices.
+                The owner is responsible for adding and removing administrators.
             </p>
 
             <h2 id="faq" style="padding-top:80px;">FAQ</h2>
@@ -314,8 +315,9 @@
                     <h4>How many administrators can we have?</h4>
                     <p> The free trial version allows one administrator. This individual must have access to the Box.com
                         directories where the documents will reside during and after the review process. Administrators are
-                        prompted to grant access to Box.com upon installation of the DocFlow app. They can then design and configure
-                        approval flows as needed. Administrators can add additional approval flows (up to 5 total)
+                        prompted to grant access to Box.com so that DocFlow may copy files and assign tasks on their
+                        behalf. They can then design and configure
+                        approval flows as needed. Administrators can create approval flows for their team to use (up to 5 total)
                         by issuing the slash command, <code>/docflow create</code>.
                     </p>
 
@@ -392,7 +394,8 @@
                 <h4 class="command">Create Approval Flow*</h4>
                 <code>/docflow create</code>
                 <p>Design a new approval flow for your team. If no approval flows have been created, this also serves to begin the
-                    Box.com authorization process, which will make the user the "official DocFlow administrator" for the team.</p>
+                    Box.com authorization process, which will make the user the "official DocFlow administrator" for the team.
+                For paid accounts, the owner assigns which team members (up to 3) can serve as administrators.</p>
             </div>
             <div>
                 <h4 class="command">Reset Approval Flows*</h4>
@@ -401,11 +404,25 @@
                     Issue this command if you no longer wish to serve as the DocFlow administrator for your team.</p>
             </div>
             <div>
-                <h4 class="command">Manage Payment**</h4>
+                <h4 class="command">Manage Payment</h4>
                 <code>/docflow billing</code>
                 <p>DocFlow is free to use and grants a limited set of free flows each month. If you need to run at scale,
-                    a member of your team (the DocFlow "owner") can choose to provide payment information. The owner can also
-                    use this slash command to see team usage, change subscription plans, and update payment information.
+                    a member of your team (the DocFlow owner) can choose to provide payment information. The owner can also
+                    use this slash command to change subscription details and update payment information.
+                </p>
+            </div>
+            <div>
+                <h4 class="command">Add Administrator**</h4>
+                <code>/docflow add</code>
+                <p>When billing is enabled, the team member responsible for payment (the owner) can add up to three
+                    administrators using this command.
+                </p>
+            </div>
+            <div>
+                <h4 class="command">Remove Administrator**</h4>
+                <code>/docflow rem</code>
+                <p>When billing is enabled, the team member responsible for payment (the owner) can remove an
+                    administrator using this command.
                 </p>
             </div>
             <div>
@@ -420,8 +437,8 @@
                 <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
             </div -->
 
-            <div style="margin-top:30px;"><i>* This command is only available to the DocFlow "administrator".</i></div>
-            <div><i>** This command is only available to the DocFlow "owner".</i></div>
+            <div style="margin-top:30px;"><i>*This command is only available to DocFlow administrators.</i></div>
+            <div><i>**This command is only available to the DocFlow owner.</i></div>
 
 
             <h2 id="actions" style="margin-top:40px;padding-top:40px">Other Activities</h2>
