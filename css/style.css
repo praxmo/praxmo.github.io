@@ -274,21 +274,6 @@ a:hover {
     background-image: url(/img/wave_blue.png);
 }
 
-.wave2 {
-    position: relative;
-    height: 80px;
-    width: 100%;
-    top: 0px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    background-image: url(/img/wave2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 20% 20% 50% 50% / 50%;
-    z-index: -1;
-    background-position: center center;
-}
-
 .fh5co-advantages-outer .span-perfect {
     color: #03A9F4;
     text-transform: uppercase;
@@ -1966,7 +1951,7 @@ span.policy-detail {
 
 @media screen and (max-width: 800px) {
     
-    .wave, .wave2 {
+    .wave {
         display: none;
     }
     

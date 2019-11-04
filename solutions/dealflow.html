@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Intwixt DocFlow | User Guide</title>
+    <title>Intwixt DealFlow | User Guide</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Run Box.com approval flows in Slack"/>
     <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
@@ -65,14 +65,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-items-right ml-auto mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq" onclick="$('#faq').goTo('faq');">DocFlow FAQ</a>
+                        <a class="nav-link" href="#faq" onclick="$('#faq').goTo('faq');">DealFlow FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#commands" onclick="$('#commands').goTo('commands');">DocFlow Commands</a>
+                        <a class="nav-link" href="#commands" onclick="$('#commands').goTo('commands');">DealFlow Commands</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="docflow/pricing">
-                            DocFlow Pricing
+                        <a class="nav-link" href="dealflow/pricing">
+                            DealFlow Pricing
                         </a>
                     </li>
                 </ul>
@@ -88,9 +88,9 @@
     <div id="solutions" class="examples-outer">
         <div class="container solution">
 
-            <img src="/img/docflow.png" align="left" class="logo">
+            <img src="/img/dealflow.png" align="left" class="logo">
 
-            <h1 class="title">Intwixt DocFlow</h1>
+            <h1 class="title">Intwixt DealFlow</h1>
 
             <p class="button-bar">
                 <a target="_new"
@@ -104,20 +104,20 @@
             </p>
 
             <p>
-                <b>DocFlow</b> delivers sophisticated Box.com approval flows directly in Slack. We begin by asking you
+                <b>DealFlow</b> delivers sophisticated Box.com approval flows directly in Slack. We begin by asking you
                 a few questions about your workflow needs, including the number of review steps and whether to send
                 documents to a channels or users for review.
             </p>
             <p>
-                Team members can then submit documents directly in Slack, where <b>DocFlow</b> orchestrates the process.
+                Team members can then submit documents directly in Slack, where <b>DealFlow</b> orchestrates the process.
                 We send real-time status updates as the document moves through each approval step and instruct
                 submitters to fix rejected documents—all in Slack. Once the process concludes, documents are stored at
                 Box.com, along with a full audit history of the process, including all document versions, approval steps
                 and comments.
             </p>
             <p>
-                DocFlow is intuitive and focused, but it’s definitely not static! Built using Intwixt’s Conversational
-                Automation Platform (CAP), DocFlow can be extended to meet even the most demanding customer
+                DealFlow is intuitive and focused, but it’s definitely not static! Built using Intwixt’s Conversational
+                Automation Platform (CAP), DealFlow can be extended to meet even the most demanding customer
                 requirements. And given our no-code, visual approach, even business users can customize to meet exacting
                 needs. Top it all off with AI, ML and NLP (natural language processing) baked-in, and it’s easy to see
                 why Intwixt’s conversational approach keeps your users productive and happy.
@@ -128,7 +128,7 @@
                 <div class="col-sm-8 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
                     <h1 class="small-factor">Watch the Demo</h1>
                     <div class="solution-emulator">
-                        <my-solution-emulator id="docflow" v-cloak></my-solution-emulator>
+                        <my-solution-emulator id="dealflow" v-cloak></my-solution-emulator>
                     </div>
                 </div>
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
@@ -150,12 +150,12 @@
 
 
             <h2 id="getting_started" style="margin-top:60px;padding-top:80px;">Getting Started</h2>
-            <p>DocFlow organizes users according to the following 5 roles: <b>Installer, Administrator, Submitter, Reviewer and Owner.</b></p>
+            <p>DealFlow organizes users according to the following 5 roles: <b>Installer, Administrator, Submitter, Reviewer and Owner.</b></p>
 
             <h4 id="installer"><i class="fas fa-user-cog"></i> Installer</h4>
-            <p>The installer is the individual who installs DocFlow to the Slack workspace. This must be a team member
-                who is authorized to install Slack apps. DocFlow will send notifications to this individual on two
-                occasions. First, if the Slack workspace is configured to NOT share email addresses, DocFlow cannot resolve user
+            <p>The installer is the individual who installs DealFlow to the Slack workspace. This must be a team member
+                who is authorized to install Slack apps. DealFlow will send notifications to this individual on two
+                occasions. First, if the Slack workspace is configured to NOT share email addresses, DealFlow cannot resolve user
                 identities in Box.com. This is required to assign tasks, so the installer will receive a message, explaining
                 how to <a href="https://slack.com/help/articles/228020667-make-email-addresses-private">enable this setting</a>.
                 Second, if the team uses up all 20 approval flows that are granted to trial accounts each month, a message will
@@ -175,7 +175,7 @@
 
             <h4 id="administrator"><i class="fas fa-user-edit"></i> Administrator</h4>
             <p>Administrators are responsible for creating approval flows. This requires that the administrator
-                authorize DocFlow to access Box.com on their behalf. Once authorization is granted, DocFlow monitors the
+                authorize DealFlow to access Box.com on their behalf. Once authorization is granted, DealFlow monitors the
                 <code>TASK_ASSIGNMENT.UPDATED</code> event and calls the following
                 <a href="https://developer.box.com/reference">Box.com APIs</a> to perform each orchestration.</p>
             <ul style="margin-left: 20px;">
@@ -190,7 +190,7 @@
                 <li>Create Collaboration</li>
                 <li>Delete Collaboration</li>
             </ul>
-            <p>Administrators create new approval flows by sending the slash command, <code>/docflow create</code>.
+            <p>Administrators create new approval flows by sending the slash command, <code>/dealflow create</code>.
                 They'll then be walked through a wizard-like series of steps directly in Slack. The most complex part of this
                 process is choosing which folders at Box.com will be used for storing documents as they move through
                 each step in the approval process. In total, three folders must be configured for each step in an
@@ -204,38 +204,38 @@
             <div>
                 <label>Initial state</label>
                 <br>
-                <img src="/img/docflow/level0.png" style="width:100%;max-width:500px;">
+                <img src="/img/dealflow/level0.png" style="width:100%;max-width:500px;">
             </div>
             <div>
                 <label>Drill down</label>
                 <br>
-                <img src="/img/docflow/level1.png" style="width:100%;max-width:500px;">
+                <img src="/img/dealflow/level1.png" style="width:100%;max-width:500px;">
             </div>
             <div>
                 <label>Drill down further, etc.</label>
                 <br>
-                <img src="/img/docflow/level2.png" style="width:100%;max-width:500px;">
+                <img src="/img/dealflow/level2.png" style="width:100%;max-width:500px;">
             </div>
             <div style="margin-top:20px;margin-bottom: 20px;">
                 <label>Choose the desired folder</label>
                 <br>
-                <img src="/img/docflow/choose.png" style="width:100%;max-width:500px;">
+                <img src="/img/dealflow/choose.png" style="width:100%;max-width:500px;">
             </div>
 
-            <p>Administrators can send the <code>/docflow reset</code> slash command if they no longer wish to serve
-                as the DocFlow administrator for the team. This will remove all authorizations and workflows they created,
+            <p>Administrators can send the <code>/dealflow reset</code> slash command if they no longer wish to serve
+                as the DealFlow administrator for the team. This will remove all authorizations and workflows they created,
                 and allows another team member to serve in this capacity.
-                Free plans may only have one administrator. Entering <code>/docflow create</code>
+                Free plans may only have one administrator. Entering <code>/dealflow create</code>
                 when no administrator exists will serve to make the issuing team member an administrator. For paid
                 plans, the owner responsible for billing is also responsible for assigning administrators.</p>
 
-            <p><b>And remember, administrators can also be end-users. They can use DocFlow to upload their own
+            <p><b>And remember, administrators can also be end-users. They can use DealFlow to upload their own
                 documents for review at any time.</b></p>
 
             <h4 id="end-user"><i class="fas fa-user"></i> Submitter</h4>
             <p>Submitters are the Slack team members who upload documents. Once a submitter uploads a document to the
-                DocFlow app, they will be prompted to choose from the list of approval flows
-                created by the team's DocFlow administrator(s).</p>
+                DealFlow app, they will be prompted to choose from the list of approval flows
+                created by the team's DealFlow administrator(s).</p>
 
             <h4 id="reviewer"><i class="fas fa-user-check"></i> Reviewer</h4>
             <p>Reviewers are the Slack team members who are assigned to review documents. There is no limit to the
@@ -246,7 +246,7 @@
             <h4 id="owner"><i class="fas fa-user-shield"></i> Owner</h4>
             <p>The owner is the Slack team member who is responsible for providing payment details if your team chooses to
                 upgrade to a paid plan. There is no need to upgrade if your team runs fewer than 20 approval flows each month.
-                Refer to the <a href="docflow/pricing">DocFlow Pricing</a> page for more information on plans and prices.
+                Refer to the <a href="dealflow/pricing">DealFlow Pricing</a> page for more information on plans and prices.
                 The owner is responsible for adding and removing administrators.
             </p>
 
@@ -257,23 +257,22 @@
                      data-wow-delay="0.36s">
 
                     <h4> What is the maximum document size allowed?</h4>
-                    <p> Free accounts support uploads up to 5MB. Paid accounts start at 20MB and can be configured for more if
+                    <p> We support uploads up to 5MB. Paid accounts start at 20MB and can be configured for more if
                         you choose an Enterprise license.
                     </p>
 
 
                     <h4> How many approvals can I run each month?</h4>
-                    <p> Slack teams that use the free plan may run up to 20 free approval flows each month for the entire team.
-                        An approval flow includes all review steps as well as all
+                    <p> Your team can run up to 20 free approval flows each month. An approval flow includes all review steps as well as all
                         necessary document resubmissions for rejected documents. If a submitter needs to fix and resubmit their
                         document 10 times, that’s OK! (We'll feel sorry for them, but we'll still only count the
-                        interaction as a single approval flow.) Submitters who belong to a paid plan may initiate <i>unlimited</i>
+                        interaction as a single approval flow.) Submitters who belong to a paid plan may run unlimited
                         document approvals.
                     </p>
 
 
                     <h4>Can we configure multiple approval flow types?</h4>
-                    <p> The DocFlow administrator for your team can design up to 5 document approval flows. For example, the
+                    <p> The DealFlow administrator for your team can design up to 5 document approval flows. For example, the
                         administrator may create a “timesheet approval” flow, an “RFP approval” flow, etc.
                         It’s up to the administrator to choose which approval flows would be useful for their team.
                     </p>
@@ -285,8 +284,8 @@
                     </p>
 
                     <h4>Can review tasks be assigned to both channels and users?</h4>
-                    <p> Yes. As the DocFlow administrator, if you choose to assign the review step to a channel, you must
-                        invite <b>DocFlow</b> to the channel, so we can post messages to channel members, alerting them to claim and
+                    <p> Yes. As the DealFlow administrator, if you choose to assign the review step to a channel, you must
+                        invite <b>DealFlow</b> to the channel, so we can post messages to channel members, alerting them to claim and
                         review submitted documents. If you choose to assign the review step to a user, we will prompt you to choose a named
                         user on your team. Consider an Enterprise license if you'd like further refinements to the
                         assignment process (e.g, routing to users based upon relationships in your company's employee directory).
@@ -300,7 +299,7 @@
                         The paid <b>Standard Plan</b> is priced according to the number of named submitters your team needs. Each
                         submitter belonging to a paid plan can upload as many documents as they wish each and every month.
                         If you need custom pricing or wish to know more, please refer to the
-                        <a href="docflow/pricing">DocFlow Pricing</a>. There is no limit to the number of reviewers for
+                        <a href="dealflow/pricing">DealFlow Pricing</a>. There is no limit to the number of reviewers for
                         both free and paid plans.
                     </p>
 
@@ -316,10 +315,10 @@
                     <h4>How many administrators can we have?</h4>
                     <p> The free trial version allows one administrator. This individual must have access to the Box.com
                         directories where the documents will reside during and after the review process. Administrators are
-                        prompted to grant access to Box.com so that DocFlow may copy files and assign tasks on their
+                        prompted to grant access to Box.com so that DealFlow may copy files and assign tasks on their
                         behalf. They can then design and configure
                         approval flows as needed. Administrators can create approval flows for their team to use (up to 5 total)
-                        by issuing the slash command, <code>/docflow create</code>.
+                        by issuing the slash command, <code>/dealflow create</code>.
                     </p>
 
 
@@ -331,16 +330,16 @@
                     <h4> How much does it cost to upgrade if I need more resources?
                     </h4>
                     <p>
-                        Teams are assigned to the free <b>Intro Plan</b> when DocFlow is first installed to their Slack
+                        Teams are assigned to the free <b>Intro Plan</b> when DealFlow is first installed to their Slack
                         workspace. This grants 20 free approval flows each month. If you need to run more flows,
                         consider upgrading to one of our paid plans. The <b>Standard Plan</b> is priced according to the
                         number of Slack team members who will need to submit documents (submitters). Check out our
                         <b>Enterprise Plan</b> if you're interested in your own customized instance, volume pricing, or require
-                        specific support options. Refer to the <a href="docflow/pricing">DocFlow Pricing</a> page for
+                        specific support options. Refer to the <a href="dealflow/pricing">DealFlow Pricing</a> page for
                         more detail.
                     </p>
                     <p><i>If you're the individual responsible for
-                        software subscriptions in your organization, enter the <code>/docflow billing</code>  slash command
+                        software subscriptions in your organization, enter the <code>/dealflow billing</code>  slash command
                         to initiate the payment process or update an existing subscription.</i></p>
 
                     <h4>How do you compare to Box Relay?</h4>
@@ -350,17 +349,17 @@
                         Slack is a natural fit for role-based workflows and it’s hard to overlook just how efficient the
                         approval process can be when paired with Slack channels and real-time, interactive messages.
                     </p>
-                    <p> DocFlow is based upon the same <i>user-first</i> design philosophy that makes Relay approachable to
+                    <p> DealFlow is based upon the same <i>user-first</i> design philosophy that makes Relay approachable to
                         business users. It's possible for users to configure
                         and execute sophisticated approval flows with little technical know-how.
                         Where we differ is our Slack-centric approach. This provides additional features like
                         timeouts, exception handling, and group-based task assignment that
-                        leverage Slack channels. Importantly, any approval flow orchestrated by DocFlow can trigger a
-                        Relay workflow. Please ask us how DocFlow can help you get the most from your Relay investment.
+                        leverage Slack channels. Importantly, any approval flow orchestrated by DealFlow can trigger a
+                        Relay workflow. Please ask us how DealFlow can help you get the most from your Relay investment.
                     </p>
 
                     <h4> What private information do you keep on your servers?</h4>
-                    <p> We save your Slack Team ID and the Slack user ID for the DocFlow administrator and the DocFlow installer
+                    <p> We save your Slack Team ID and the Slack user ID for the DealFlow administrator and the DealFlow installer
                         for your team. We also track the number of approval flows run each month in aggregate by your team.
                         As an orchestration platform, we temporarily store the data that is transported through our system;
                         however, all data is fully scrubbed from our servers within 30 minutes of the approval flow
@@ -373,14 +372,14 @@
                     <p> No, never, and not at all. It’s our intent to efficiently move your documents from Slack to Box,
                         call the necessary task assignment APIs, and then delete all traces of the transaction from our
                         servers once the process completes. Our company (Intwixt) designs business process apps that run atop Slack.
-                        We built DocFlow to showcase our abilities as a general orchestration platform. We hope you love DocFlow, but
+                        We built DealFlow to showcase our abilities as a general orchestration platform. We hope you love DealFlow, but
                         we really hope you love Intwixt!
                     </p>
 
 
-                    <h4> How do I uninstall DocFlow?</h4>
-                    <p>DocFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
-                        Once you uninstall the DocFlow app according to Slack's instructions, we will fully
+                    <h4> How do I uninstall DealFlow?</h4>
+                    <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                        Once you uninstall the DealFlow app according to Slack's instructions, we will fully
                         remove all information associated with your team and workspace, including your authorization to
                         copy files from Slack to Box.com and assign tasks to reviewers.
                     </p>
@@ -393,60 +392,60 @@
             <h2 id="commands" style="padding-top:80px">Slash Commands</h2>
             <div>
                 <h4 class="command">Create Approval Flow*</h4>
-                <code>/docflow create</code>
+                <code>/dealflow create</code>
                 <p>Design a new approval flow for your team. If no approval flows have been created, this also serves to begin the
-                    Box.com authorization process, which will make the user the "official DocFlow administrator" for the team.
+                    Box.com authorization process, which will make the user the "official DealFlow administrator" for the team.
                 For paid accounts, the owner assigns which team members (up to 3) can serve as administrators.</p>
             </div>
             <div>
                 <h4 class="command">Reset Approval Flows*</h4>
-                <code>/docflow reset</code>
+                <code>/dealflow reset</code>
                 <p>Remove the Box.com authorization along with all approval flows created by the current administrator.
-                    Issue this command if you no longer wish to serve as the DocFlow administrator for your team.</p>
+                    Issue this command if you no longer wish to serve as the DealFlow administrator for your team.</p>
             </div>
             <div>
                 <h4 class="command">Manage Payment</h4>
-                <code>/docflow billing</code>
-                <p>DocFlow is free to use and grants a limited set of free flows each month. If you need to run at scale,
-                    a member of your team (the DocFlow owner) can choose to provide payment information. The owner can also
+                <code>/dealflow billing</code>
+                <p>DealFlow is free to use and grants a limited set of free flows each month. If you need to run at scale,
+                    a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
                     use this slash command to change subscription details and update payment information.
                 </p>
             </div>
             <div>
                 <h4 class="command">Add Administrator**</h4>
-                <code>/docflow add</code>
+                <code>/dealflow add</code>
                 <p>When billing is enabled, the team member responsible for payment (the owner) can add up to three
                     administrators using this command.
                 </p>
             </div>
             <div>
                 <h4 class="command">Remove Administrator**</h4>
-                <code>/docflow rem</code>
+                <code>/dealflow rem</code>
                 <p>When billing is enabled, the team member responsible for payment (the owner) can remove an
                     administrator using this command.
                 </p>
             </div>
             <div>
-                <h4 class="command">DocFlow Help</h4>
-                <code>/docflow help</code>
-                <p>Get help for using DocFlow. Directs the user to this Web page.</p>
+                <h4 class="command">DealFlow Help</h4>
+                <code>/dealflow help</code>
+                <p>Get help for using DealFlow. Directs the user to this Web page.</p>
             </div>
 
             <!-- div>
-                <h4 class="command">DocFlow Feedback</h4>
-                <code>/docflow feedback</code>
+                <h4 class="command">DealFlow Feedback</h4>
+                <code>/dealflow feedback</code>
                 <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
             </div -->
 
-            <div style="margin-top:30px;"><i>*This command is only available to DocFlow administrators.</i></div>
-            <div><i>**This command is only available to the DocFlow owner.</i></div>
+            <div style="margin-top:30px;"><i>*This command is only available to DealFlow administrators.</i></div>
+            <div><i>**This command is only available to the DealFlow owner.</i></div>
 
 
             <h2 id="actions" style="margin-top:40px;padding-top:40px">Other Activities</h2>
             <div>
                 <h4 class="command" id="submit">Start Approval Flow (Submit Document)</h4>
-                <p>Starting a new approval flow is as easy as uploading a document to the DocFlow app. We'll show you
-                    a list of all approval flows that your DocFlow administrator has configured to kick off the
+                <p>Starting a new approval flow is as easy as uploading a document to the DealFlow app. We'll show you
+                    a list of all approval flows that your DealFlow administrator has configured to kick off the
                     process. </p>
                 <h4 class="command" id="resubmit">Resume Approval Flow (Resubmit Document)</h4>
                 <p>If you're resubmitting a rejected document, make sure to upload the document to the <i>same
@@ -456,13 +455,13 @@
                 person in line rejects the document, it will be kicked back to step 1 once you
                 resubmit the document.</p>
                 <div style='text-align: left;'>
-                    <img style='width:100%;max-width:600px;' src='/img/docflow/resubmit.png'>
+                    <img style='width:100%;max-width:600px;' src='/img/dealflow/resubmit.png'>
                 </div>
             </div>
             <div>
-                <h4 class="command">Uninstall DocFlow</h4>
-                <p>DocFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
-                    Once you uninstall the DocFlow app according to Slack's instructions, we will fully
+                <h4 class="command">Uninstall DealFlow</h4>
+                <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                    Once you uninstall the DealFlow app according to Slack's instructions, we will fully
                     remove all information associated with your team and workspace, including your authorization to
                     copy files from Slack to Box.com and assign tasks to reviewers.</p>
             </div>
@@ -518,12 +517,12 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/wow.min.js"></script>
-<script src="/emulator/stories/docflow.js"></script>
+<script src="/emulator/stories/dealflow.js"></script>
 <script src="/emulator/js/emulator.js"></script>
 <script src="/emulator/js/canvas.js"></script>
 <script src="/js/main.js"></script>
 <script>
-  emulate("docflow", "#docflow", docflow);
+  emulate("dealflow", "#dealflow", dealflow);
 </script>
 </body>
 </html>
