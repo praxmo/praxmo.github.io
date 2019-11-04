@@ -1518,6 +1518,46 @@ span.policy-detail {
 
 
 /* ==========================================================================================================
+								        DEALFLOW
+   ========================================================================================================== */
+
+.solution.dealflow {
+    margin-top:140px;
+}
+
+.solution.dealflow .quoted {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    z-index: 5;
+    text-align: left;
+    margin: 0;
+    max-width: initial;
+    min-height: 160px;
+}
+
+.solution.dealflow .quoted li {
+    font-size: 1.35em;
+    padding: 1em 0;
+    border-radius: 0.25em;
+    color: #8c8c8c;
+}
+
+.solution.dealflow .quoted span {
+    display: block;
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 1em;
+    font-size: 75%;
+    font-style: italic;
+    color: #999999;
+}
+
+.solution.dealflow .button-bar {
+    margin: 30px 0;
+}
+
+/* ==========================================================================================================
 								        PLANS DOCFLOW
    ========================================================================================================== */
 
