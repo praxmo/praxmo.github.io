@@ -1926,6 +1926,12 @@ span.policy-detail {
         text-align: center;
     }
 
+
+    .fh5co-hero-inner .features-btn-first {
+        display: none;
+    }
+
+
     .remainder {
         display: inline-block;
     }
@@ -2044,10 +2050,6 @@ span.policy-detail {
         font-weight: bold;
         margin: 0 15px;
         padding: 2px 6px;
-    }
-
-    .fh5co-hero-inner .features-btn-first {
-        display: none;
     }
 
     .remainder {
@@ -2252,7 +2254,7 @@ span.policy-detail {
     }
 
     .fh5co-hero-inner > h1 {
-        font-size: 38px;
+        font-size: 40px;
         text-align: center;
     }
 
