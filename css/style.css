@@ -1569,14 +1569,15 @@ span.policy-detail {
 }
 
 .solution.dealflow .quoted {
+    float: right;
     position: relative;
     list-style-type: none;
     padding: 0;
     z-index: 5;
-    text-align: left;
+    text-align: center;
     margin: 0;
     max-width: initial;
-    min-height: 160px;
+    width: 500px;
 }
 
 .solution.dealflow .quoted li {
