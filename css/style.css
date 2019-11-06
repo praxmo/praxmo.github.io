@@ -828,13 +828,52 @@ span.policy-detail {
     white-space:nowrap;
 }
 
+.examples-outer .col-sm-4 .circles .toggle2 {
+    position: relative;
+}
+
+.examples-outer .col-sm-4 .circles .toggle2 > * {
+    position: absolute;
+}
+
+.examples-outer .col-sm-4 .circles .wrapped {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    min-height: 80px;
+    min-width: 50px;
+    background: white;
+    animation-name: show-hide;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+}
+
+
+@keyframes show-hide {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .examples-outer .col-sm-4 .circle {
     color: #2196F3;
     border: 1px solid #ededed;
     background: #fff;
     padding: 4px;
     display: inline-block;
-    /* line-height: 22px; */
     width: 30px;
     height: 30px;
     text-align: center;
@@ -1265,6 +1304,10 @@ span.policy-detail {
 
 .slide.x2 img {
     width: 160px;
+}
+
+.slide.x06 img {
+    width: 60px;
 }
 
 .slide.o5 img {
@@ -2209,7 +2252,7 @@ span.policy-detail {
     }
 
     .fh5co-hero-inner > h1 {
-        font-size: 40px;
+        font-size: 38px;
         text-align: center;
     }
 
@@ -2292,7 +2335,7 @@ span.policy-detail {
 }
 
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 414px) {
 
     .printout {
         display:none !important;
