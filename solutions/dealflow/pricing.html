@@ -127,7 +127,7 @@
                         </div>
                         <div class="card-body">
                             <div>
-                                <h1 class="card-title plans-card-title" style="font-size: 2em;">$5 / Mo / User</h1>
+                                <h1 class="card-title plans-card-title" style="font-size: 2em;">$50 / Mo / User</h1>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>Unlimited Approvals / Mo / User</li>
                                     <li>Unlimited Reviewers</li>
@@ -151,7 +151,7 @@
                                     Annually for a
                                     20% discount</label>
                                 <hr>
-                                <div id="total">Total: $5.00 / Month</div>
+                                <div id="total">Total: $50.00 / Month</div>
                                 <div class="button-wrap">
                                     <button type="button"
                                             id="submit"
@@ -318,7 +318,7 @@
    * a purchase is made
    */
   function calculate() {
-    var unit_price = 5;
+    var unit_price = 50;
     var annual_discount_rate = .8;
     quantity = qty.val();
     if (isNaN(quantity)) {
@@ -387,7 +387,7 @@
     var cycle = is_annual ? "annually" : "monthly";
     if (!(quantity && profile && profile.user_id && profile.team_id && profile.session_id)) {
       // 1) resolve the user's Slack identity, so we can link their payment to the slack team's workspace
-      base_url = "https://intwixt-0.apis.intwixt.com/api/v2/slack/authorization/target";
+      base_url = "https://acmesales-0.apis.intwixt.com/api/v2/slack/authorization/target";
       var qs = "?quantity=" + quantity + "&cycle=" + cycle;
       $.get(base_url + qs).done(function (data) {
         console.log("success!!");
@@ -401,7 +401,7 @@
       });
     } else {
       // 2) generate a 'session_id' by providing the user's identity to the intwixt checkout_session service
-      base_url = "https://intwixt-0.apis.intwixt.com/api/v2/checkout_session";
+      base_url = "https://acmesales-0.apis.intwixt.com/api/v2/checkout_session";
       var data = {
         quantity: quantity,
         cycle: cycle,
