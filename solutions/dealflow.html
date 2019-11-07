@@ -317,14 +317,29 @@
             <h2 id="commands" style="padding-top:80px">Slash Commands</h2>
             <div>
                 <h4 class="command">Configure DealFlow*</h4>
-                <code>/dealflow config</code>
+                <code>/dealflow-admin setup</code>
                 <p>Authorize access to HubSpot and Intercom. Choose Slack directories for managers and reps. Configure
                     new lead escalation times.
                 </p>
             </div>
+
+            <div>
+                <h4 class="command">Add DealFlow Admin*</h4>
+                <code>/dealflow-admin add-admin</code>
+                <p>Add the DealFlow administrator
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Remove DealFlow Admin*</h4>
+                <code>/dealflow-admin remove-admin</code>
+                <p>Remove the DealFlow administrator
+                </p>
+            </div>
+
             <div>
                 <h4 class="command">Manage Payment**</h4>
-                <code>/dealflow billing</code>
+                <code>/dealflow-admin billing</code>
                 <p>DealFlow is free to use and grants a limited set of free deal flows each month. If you need to run at scale,
                     a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
                     use this slash command to change subscription details (e.g, the number of users) and update payment
@@ -338,7 +353,14 @@
                 <p>Get help for using DealFlow. Directs the user to this Web page.</p>
             </div>
 
-            <div style="margin-top:30px;"><i>*This command is only available to DealFlow administrators.</i></div>
+
+            <div>
+                <h4 class="command">DealFlow Feedback</h4>
+                <code>/dealflow feedback</code>
+                <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
+            </div>
+
+            <div style="margin-top:30px;"><i>*This command is only available to DealFlow installer (or "owner" if this is a paid account).</i></div>
             <div><i>**This command is only available to the DealFlow owner.</i></div>
 
 
