@@ -334,27 +334,27 @@
 
   // the pricing page is typically opened from Slack, and includes encoded profile information about the user's identity
   // (if not present, check the cookie for a cached instance)
-  var slack_profile, session_profile, is_redirect;
+  var dealflow_slack_profile, session_profile, is_redirect;
   if (window.location.hash) {
     //when a profile is passed, it is coming directly from Slack OR is the final leg of a Slack authorization flow
     is_redirect = true;
-    slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
+    dealflow_slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
     window.location.hash = "";
     var noHashURL = window.location.href.replace(/#.*$/, '');
     window.history.replaceState('', document.title, noHashURL);
   } else {
-    slack_profile = getCookie("slack_profile");
+    dealflow_slack_profile = getCookie("dealflow_slack_profile");
   }
-  console.log(slack_profile);
-  if (slack_profile && slack_profile.indexOf("{") === 0) {
-    session_profile = JSON.parse(slack_profile);
+  console.log(dealflow_slack_profile);
+  if (dealflow_slack_profile && dealflow_slack_profile.indexOf("{") === 0) {
+    session_profile = JSON.parse(dealflow_slack_profile);
     if(session_profile && session_profile.user_id && session_profile.team_id && session_profile.session_id) {
-      setCookie("slack_profile", slack_profile, 365);
+      setCookie("dealflow_slack_profile", dealflow_slack_profile, 365);
     }
     //verify that this is a full redirect to the billing page (only happens when quantity and cycle are present)
     is_redirect = is_redirect && session_profile && session_profile.quantity && session_profile.cycle;
-  } else if (slack_profile) {
-    eraseCookie("slack_profile");
+  } else if (dealflow_slack_profile) {
+    eraseCookie("dealflow_slack_profile");
   }
   if(is_redirect) {
     create_checkout_session(session_profile.quantity, session_profile.cycle === "annually", session_profile);
