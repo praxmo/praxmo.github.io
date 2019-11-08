@@ -337,9 +337,16 @@
 
             <div>
                 <h4 class="command">Reset DealFlow*</h4>
-                <code>/dealflow-admin setup</code>
+                <code>/dealflow-admin reset</code>
                 <p>Remove all configuration including authorization grants to access third-party systems,
                     including HubSpot and Intercom.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Set Escalation Timeout*</h4>
+                <code>/dealflow-admin set-timeout</code>
+                <p>Sets how long to wait before escalating unclaimed leads to the sales manager Slack channel.
                 </p>
             </div>
 
@@ -358,16 +365,6 @@
             </div>
 
             <div>
-                <h4 class="command">Manage Payment**</h4>
-                <code>/dealflow-admin billing</code>
-                <p>DealFlow is free to use and grants a limited set of free deal flows each month. If you need to run at scale,
-                    a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
-                    use this slash command to change subscription details (e.g, the number of users) and update payment
-                    information (e.g., update card details).
-                </p>
-            </div>
-
-            <div>
                 <h4 class="command">DealFlow Help</h4>
                 <code>/dealflow help</code>
                 <p>Get help for using DealFlow. Directs the user to this Web page.</p>
@@ -378,6 +375,24 @@
                 <code>/dealflow feedback</code>
                 <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
             </div>
+
+            <div>
+                <h4 class="command">List DealFlow Admins</h4>
+                <code>/dealflow list-admins</code>
+                <p>Show the list of team members allowed to configure and setup DealFlow. Anyone belonging to this
+                list may add and remove other administrators.</p>
+            </div>
+
+            <div>
+                <h4 class="command">Manage Payment**</h4>
+                <code>/dealflow-admin billing</code>
+                <p>DealFlow is free to use and grants a limited set of free deal flows each month. If you need to run at scale,
+                    a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
+                    use this slash command to change subscription details (e.g, the number of users) and update payment
+                    information (e.g., update card details).
+                </p>
+            </div>
+
 
             <div style="margin-top:30px;"><i>*This command is only available to DealFlow administrators.</i></div>
             <div><i>**This command is only available to the DealFlow owner.</i></div>
