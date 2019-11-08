@@ -184,27 +184,29 @@
             </p>
 
             <h4 id="administrator"><i class="fas fa-user-edit"></i> Administrator</h4>
-            <p>The administrator is responsible for configuring DealFlow when it is first installed and are often the
-                same individual who installed it. If your team decides to upgrade to a paid version with
-                unlimited deal tracking, the person responsible for payment will become the official administrator for the team's
-                DealFlow app.
+            <p>The administrator is responsible for configuring DealFlow when it is first installed and is often the
+                same individual who installed it. Administrators can add and remove other administrators.
             </p>
 
             <p>A key aspect of the administrator role is granting access to the team's HubSpot and Intercom (optional)
-                accounts. Upon installation, the administrator will be prompted to authorize DealFlow to
-                listen for events and make updates on their behalf. They are also responsible for designating which
-                Slack channels should be used for sales reps and sales managers when routing incoming leads.
+                accounts, allowing DealFlow to monitor key events and make updates on their behalf.
+                Administrators are also responsible for designating which Slack channels should be used for sales
+                reps and sales managers when routing incoming leads.
             </p>
 
             <h4 id="end-user"><i class="fas fa-user"></i> Sales Reps</h4>
             <p>Sales reps are those team members responsible for claiming new leads. They must belong to the Slack
-            channel designated by the administrator. Each time a new lead is generated in HubSpot, sales reps are
-            prompted to claim it. Unclaimed leads are escalated to sales managers.</p>
+                channel designated by the administrator for handling new leads.
+                Each time a new lead is generated in HubSpot, sales reps are
+                prompted to claim it. Unclaimed leads are escalated to sales managers after the specified time frame
+                has been exceeded.
+            </p>
 
             <h4 id="reviewer"><i class="fas fa-user-check"></i> Sales Managers</h4>
             <p>
                 Sales managers are responsible for triaging unclaimed leads. They must belong to the Slack
-                channel designated by the administrator. Each time a lead is unclaimed, DealFlow's
+                channel designated by the administrator for managing unclaimed leads.
+                Each time a lead is unclaimed, DealFlow's
                 AI-backed engine will analyze past deals and make an initial prediction, recommending the sales
                 rep most likely to close the deal. Sales managers may assign the lead to this individual or may
                 override this decision, further training the AI to make better predictions in the future.
@@ -286,12 +288,20 @@
                         to initiate the payment process or update an existing subscription.</i></p>
 
                     <h4> What private information do you keep on your servers?</h4>
-                    <p> We save your Slack Team ID and the Slack user ID for the DealFlow administrator and the DealFlow installer
-                        for your team. We also track the number of approval flows run each month in aggregate by your team.
-                        For paid accounts we track the Slack ID for all users approved to use DealFlow.
-                        As an orchestration platform, we temporarily store the data that is transported through our system;
-                        however, all data is fully scrubbed from our servers within 30 minutes of a deal
-                        completing.
+                    <p> We save the Slack Team ID and the Slack user ID for the DealFlow administrator(s) and the DealFlow
+                        installer. We also track the number of approval flows run each month in aggregate by your team.
+                        For paid accounts we track the Slack ID for the owner along with the Slack ID for all
+                        users approved to use DealFlow. As an orchestration platform, we temporarily store the data
+                        that is transported through our system; however, all process data is fully scrubbed
+                        from our servers within 30 minutes of a new lead being claimed or assigned.
+                    </p>
+
+                    <p>
+                        Our integrated AI service (used to predict which sales rep will most likely close a deal)
+                        is trained each time a deal successfully closes. Training includes facets such as industry,
+                        vertical, company size, etc. The more facets used to train the AI,
+                        the more accurate the prediction. These facets are determined in part by what is provided by
+                        your team's instance of HubSpot.
                     </p>
 
 
@@ -318,22 +328,30 @@
             <div>
                 <h4 class="command">Configure DealFlow*</h4>
                 <code>/dealflow-admin setup</code>
-                <p>Authorize access to HubSpot and Intercom. Choose Slack directories for managers and reps. Configure
-                    new lead escalation times.
+                <p>Authorize access to HubSpot and Intercom (optional). Choose Slack directories for sales managers and sales reps.
+                    Configure new lead escalation times.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Reset DealFlow*</h4>
+                <code>/dealflow-admin setup</code>
+                <p>Remove all configuration including authorization grants to access third-party systems,
+                    including HubSpot and Intercom.
                 </p>
             </div>
 
             <div>
                 <h4 class="command">Add DealFlow Admin*</h4>
                 <code>/dealflow-admin add-admin</code>
-                <p>Add the DealFlow administrator
+                <p>Add a DealFlow administrator.
                 </p>
             </div>
 
             <div>
                 <h4 class="command">Remove DealFlow Admin*</h4>
                 <code>/dealflow-admin remove-admin</code>
-                <p>Remove the DealFlow administrator
+                <p>Remove a DealFlow administrator.
                 </p>
             </div>
 
@@ -353,14 +371,13 @@
                 <p>Get help for using DealFlow. Directs the user to this Web page.</p>
             </div>
 
-
             <div>
                 <h4 class="command">DealFlow Feedback</h4>
                 <code>/dealflow feedback</code>
                 <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
             </div>
 
-            <div style="margin-top:30px;"><i>*This command is only available to DealFlow installer (or "owner" if this is a paid account).</i></div>
+            <div style="margin-top:30px;"><i>*This command is only available to DealFlow administrators.</i></div>
             <div><i>**This command is only available to the DealFlow owner.</i></div>
 
 
