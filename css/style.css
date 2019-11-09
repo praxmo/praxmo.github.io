@@ -1576,8 +1576,8 @@ span.policy-detail {
     z-index: 5;
     text-align: center;
     margin: 0;
-    max-width: initial;
     width: 500px;
+    max-width:100%;
 }
 
 .solution.dealflow .quoted li {
