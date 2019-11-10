@@ -415,7 +415,9 @@
       }).fail(function (data) {
         console.log("fail!!");
         console.log(data);
-        //todo: alert user of the issue!
+        if(Number(data.status) === 501) {
+          alert("Your team already has a paid subscription to DealFlow. Modifications can be made from within Slack by entering the `/dealflow billing` slash command.")
+        }
       });
     }
   }
