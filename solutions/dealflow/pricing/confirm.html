@@ -101,7 +101,7 @@
                 <table class="order-details mt-5">
                     <tr>
                         <td style="width:200px;">Plan</td>
-                        <td><b id="plan"></b></td>
+                        <td><b id="plan">Standard</b></td>
                     </tr>
                     <tr>
                         <td>Billing Cycle</td>
@@ -248,16 +248,20 @@
       var base_url = "https://acmesales-0.apis.intwixt.com/api/v2/checkout_session/";
       $.get(base_url + checkout_session_id).done(function (data) {
         console.log(data);
-        $("#cycle_adjective").html(cycles.lower[data.checkout_session.cycle]);
-        $("#cycle_noun").html(cycles.title[data.checkout_session.cycle]);
-        $("#quantity").html(data.checkout_session.quantity);
-        var amount;
-        if(data.checkout_session.cycle === "monthly") {
-          amount = unit_price * data.checkout_session.quantity;
+        if(data.checkout_session) {
+          $("#cycle_adjective").html(cycles.lower[data.checkout_session.cycle]);
+          $("#cycle_noun").html(cycles.title[data.checkout_session.cycle]);
+          $("#quantity").html(data.checkout_session.quantity);
+          var amount;
+          if (data.checkout_session.cycle === "monthly") {
+            amount = unit_price * data.checkout_session.quantity;
+          } else {
+            amount = unit_price * annual_discount_rate * data.checkout_session.quantity * 12;
+          }
+          $("#amount").html("$" + amount.toLocaleString('en') + ".00 USD");
         } else {
-          amount = unit_price * annual_discount_rate * data.checkout_session.quantity * 12;
+          window.location.href = window.location.href.replace("/confirm","");
         }
-        $("#amount").html("$" + amount.toLocaleString('en') + ".00 USD");
       }).fail(function (data) {
         console.log("fail!!");
         console.log(data);
