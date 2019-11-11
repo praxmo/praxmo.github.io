@@ -420,6 +420,7 @@
           alert("Your team already has a paid subscription to DealFlow. Modifications can be made by entering the `/dealflow billing` slash command within Slack.");
         } else if(Number(data.status) === 404) {
           alert("Your team has not yet installed DealFlow. Please click the `Add to Slack` button on the DealFlow home page.");
+          window.location.href = "/solutions/dealflow";
         }
       });
     }
