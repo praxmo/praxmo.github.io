@@ -269,7 +269,7 @@ var hubble = {
             "iterable": true
           },
           "activity_3": {
-            "title": "Get Deal Details",
+            "title": "Get Lead Details",
             "star": "HubSpot.1",
             "definition": "activity-getdeal",
             "verb": "get",
@@ -314,7 +314,7 @@ var hubble = {
             "iterable": true
           },
           "activity_7": {
-            "title": "Assign Deal",
+            "title": "Assign Lead",
             "star": "HubSpot.1",
             "definition": "activity-updatedeal",
             "verb": "put",
@@ -455,7 +455,7 @@ var hubble = {
             "async": true
           },
           "activity_17": {
-            "title": "Deal Closed | Get Deal Info",
+            "title": "Deal Closed | Get Info",
             "star": "HubSpot.1",
             "definition": "activity-getdeal",
             "verb": "get",
@@ -727,7 +727,7 @@ var hubble = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "are notified when new leads aren't claimed in time. An <b>AI service</b> can augment the interaction to help expedite deal flow. In this case, the AI service recommends a sales rep based upon deal size, industry, and other factors. The more data, the more accurate the prediction."
+          "text": "are notified when new leads aren't claimed in time. An <b>AI service</b> can augment the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
         },
         "pause": 2500
       },
@@ -741,7 +741,7 @@ var hubble = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to close this deal.",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to own the lead.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
@@ -807,7 +807,7 @@ var hubble = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:50 AM",
-            "text": "<a href='#'>Intel, Inc</a> deal status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
+            "text": "<a href='#'>Intel, Inc</a> status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
             "actions": {
               "review": {
                 "id": "review",
@@ -861,7 +861,7 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to close this deal."
+          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to own the lead."
         },
         "pause": 3500
       },
@@ -874,7 +874,7 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "are trained each time a deal successfully closes, incorporating information about the company, deal and sales rep. The more data provided to the AI service, the more accurate the predictions."
+          "text": "are trained each time a deal successfully closes, incorporating information about the company and sales rep. The more data provided to the AI service, the more accurate the predictions."
         },
         "pause": 6500
       },

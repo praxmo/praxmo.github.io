@@ -128,7 +128,7 @@
                 Built using Intwixt’s <b>Conversational Automation Platform (CAP)</b>, DealFlow accelerates lead
                 qualification using a combination of AI and NLP (Natural Language Processing).
                 By continually learning from each closed deal, DealFlow makes increasingly accurate predictions,
-                recommending the Sales rep most likely to close incoming leads.
+                recommending which sales rep should be assigned to an incoming lead.
             </p>
 
             <p>Every organization is unique. Those enterprises needing even greater customization
@@ -167,10 +167,8 @@
 
             <h4 id="installer"><i class="fas fa-user-cog"></i> Installer</h4>
             <p>The installer is the individual who installs DealFlow to the Slack workspace. This must be a team member
-                who is authorized to install Slack apps. DealFlow will notify this individual if the team
-                uses up the 20 free deal flow events that are granted to trial accounts each month. The message will
-                encourage the installer to upgrade their team to a paid account. Click the
-            <b>Add to Slack</b> button to get started.</p>
+                who is authorized to install Slack apps. Click the
+            <b>Add to Slack</b> button if you wish to serve in this role.</p>
 
             <p class="button-bar">
                 <a target="_new"
@@ -207,14 +205,14 @@
                 Sales managers are responsible for triaging unclaimed leads. They must belong to the Slack
                 channel designated by the administrator for managing unclaimed leads.
                 Each time a lead is unclaimed, DealFlow's
-                AI-backed engine will analyze past deals and make an initial prediction, recommending the sales
-                rep most likely to close the deal. Sales managers may assign the lead to this individual or may
+                AI-backed engine will analyze past interactions and make an initial prediction, recommending the sales
+                rep best suited to manage the lead. Sales managers may assign the lead to this individual or may
                 override this decision, further training the AI to make better predictions in the future.
             </p>
 
             <h4 id="owner"><i class="fas fa-user-shield"></i> Owner</h4>
             <p>The owner is the Slack team member who is responsible for providing payment details if your team chooses to
-                upgrade to a paid plan. There is no need to upgrade if your team runs fewer than 20 deal flows each month.
+                upgrade to a paid plan. There is no need to upgrade if your team receives fewer than 20 new leads each month.
                 Refer to the <a href="dealflow/pricing">DealFlow Pricing</a> page for more information on plans and prices.
             </p>
 
@@ -224,22 +222,51 @@
                 <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInLeft"
                      data-wow-delay="0.36s">
 
-                    <h4>How many deals can I run each month?</h4>
-                    <p> Your team can run up to 20 free deal flows each month. A "deal flow" includes the initial "new lead"
-                        event which gets routed to the sales rep Slack channel. Sales reps may augment the deal directly in Slack,
+                    <h4>How many new leads can I process each month in Slack?</h4>
+                    <p> Your team can process up to 20 new leads each month using DealFlow's free tier. This includes the initial "new lead"
+                        event which gets routed to the <b>sales rep Slack channel</b>. Sales reps may augment the lead directly in Slack,
                         gathering additional information from Intercom if configured. If the lead is not claimed within
-                        the specified time period, it will be escalated to the sales manager Slack channel, where managers
-                        can likewise augment the deal with additional details and review the AI recommendation. Sales
-                        managers can then assign the deal to a named rep, further training the AI for better future
-                        predictions. This entire sequence represents a single "deal flow".
+                        the specified time period, it will be escalated to the <b>sales manager Slack channel</b>, where managers
+                        can likewise augment the lead with additional details and review the AI recommendation. Sales
+                        managers can then assign the lead to a named rep, further training the AI for better future
+                        predictions. This entire sequence counts as a single interaction.
                     </p>
 
+                    <h4> How much does it cost to upgrade if I need more resources?</h4>
+                    <p>
+                        Teams are assigned to the free <b>Intro Plan</b> when DealFlow is first installed to their Slack
+                        workspace. If you need to run more flows than the 20 granted each month,
+                        you can upgrade to one of our paid plans. The <b>Standard Plan</b> is priced according to the
+                        number of Slack team members who will need access to DealFlow. Check out our
+                        <b>Enterprise Plan</b> if you're interested in your own customized instance, volume pricing, or require
+                        specific support options. Refer to the <a href="dealflow/pricing">DealFlow Pricing</a> page for
+                        more detail.
+                    </p>
+                    <p><i>If you're the individual responsible for
+                        software subscriptions in your organization, enter the <code>/dealflow billing</code>  slash command
+                        to initiate the payment process or update an existing subscription.</i></p>
+
+                    <h4> How many sales reps and sales managers can we have?</h4>
+                    <p> The free <b>Intro Plan</b> allows unlimited reps and managers. We limit usage
+                        on the Intro Plan by limiting the total number of new leads that can be processed by
+                        your team in any given month (20).
+                    </p>
+                    <p>
+                        The paid <b>Standard Plan</b> is priced according to the number of sales reps and sales managers
+                        you'd like to use DealFlow. If you'd like to have 8 reps and 2 managers, then you'll be billed
+                        for 10 total users. There is no limit to the number of new leads you can process each month once
+                        you upgrade to a paid plan. If you need custom pricing or wish to know more, please refer to the
+                        <a href="dealflow/pricing">DealFlow Pricing</a> page.
+                    </p>
 
                     <h4>Is HubSpot required to use DealFlow?</h4>
                     <p> DealFlow is built atop Intwixt, a modular, no-code process automation platform. Please reach
                         out to contact@intwixt.com, and let us help you design a solution that includes your particular CRM.
                     </p>
 
+                </div>
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
+                     data-wow-delay="0.36s">
 
                     <h4>Is Intercom required to use DealFlow?</h4>
                     <p> When DealFlow is first installed, we prompt you to choose whether or not to include Intercom.
@@ -249,46 +276,6 @@
                         need additional customization, please reach out to contact@intwixt.com, and let us help you
                         design a solution that matches how you work.
                     </p>
-
-                    <h4> How many sales reps and sales managers can we have?</h4>
-                    <p> The free <b>Intro Plan</b> allows unlimited reps and managers. We limit usage
-                        on the Intro Plan by limiting the total number of deal flows that can be run by
-                        your team in any given month (20).
-                    </p>
-
-                    <p>
-                        The paid <b>Standard Plan</b> is priced according to the number of sales reps and sales managers
-                        you'd like to use DealFlow. If you'd like to have 8 reps and 2 managers, then you'll be billed
-                        for 10 total users. There is no limit to the number of deal flows you can run each month once
-                        you upgrade to a paid plan. If you need custom pricing or wish to know more, please refer to the
-                        <a href="dealflow/pricing">DealFlow Pricing</a> page.
-                    </p>
-
-                    <h4> How do I uninstall DealFlow?</h4>
-                    <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
-                        Once you uninstall the DealFlow app according to Slack's instructions, we will fully
-                        remove all information associated with your team and workspace, including your authorization to
-                        access HubSpot and Intercom on your behalf.
-                    </p>
-
-                </div>
-                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
-                     data-wow-delay="0.36s">
-
-                    <h4> How much does it cost to upgrade if I need more resources?
-                    </h4>
-                    <p>
-                        Teams are assigned to the free <b>Intro Plan</b> when DealFlow is first installed to their Slack
-                        workspace. This grants 20 free deal flows each month. If you need to run more flows,
-                        consider upgrading to one of our paid plans. The <b>Standard Plan</b> is priced according to the
-                        number of Slack team members who will need access to DealFlow. Check out our
-                        <b>Enterprise Plan</b> if you're interested in your own customized instance, volume pricing, or require
-                        specific support options. Refer to the <a href="dealflow/pricing">DealFlow Pricing</a> page for
-                        more detail.
-                    </p>
-                    <p><i>If you're the individual responsible for
-                        software subscriptions in your organization, enter the <code>/dealflow billing</code>  slash command
-                        to initiate the payment process or update an existing subscription.</i></p>
 
                     <h4> What private information do you keep on your servers?</h4>
                     <p> We save the Slack Team ID and the Slack user ID for the DealFlow administrator(s) and the DealFlow
@@ -300,13 +287,12 @@
                     </p>
 
                     <p>
-                        Our integrated AI service (used to predict which sales rep will most likely close a deal)
+                        Our integrated AI service (used to predict which sales rep is the best match to own a new lead)
                         is trained each time a deal successfully closes. Training includes facets such as industry,
-                        vertical, company size, etc. The more facets used to train the AI,
+                        region, company size, etc. The more facets used to train the AI,
                         the more accurate the prediction. These facets are determined in part by what is provided by
                         your team's instance of HubSpot.
                     </p>
-
 
                     <h4> Do you share information with outside parties?</h4>
                     <p> No, never, and not at all. It’s our intent to efficiently orchestrate incoming leads,
@@ -316,7 +302,12 @@
                         we really hope you love Intwixt!
                     </p>
 
-
+                    <h4> How do I uninstall DealFlow?</h4>
+                    <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                        Once you uninstall the DealFlow app according to Slack's instructions, we will fully
+                        remove all information associated with your team and workspace, including your authorization to
+                        access HubSpot and Intercom on your behalf.
+                    </p>
 
 
                 </div>
@@ -382,7 +373,7 @@
             <div>
                 <h4 class="command">Manage Payment**</h4>
                 <code>/dealflow-admin billing</code>
-                <p>DealFlow is free to use and grants a limited set of free deal flows each month. If you need to run at scale,
+                <p>DealFlow is free to use and grants a limited set of free resources each month. If you need to run at scale,
                     a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
                     use this slash command to change subscription details (e.g, the number of users) and update payment
                     information (e.g., update card details).
