@@ -741,7 +741,7 @@ var dealflow = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service recommends <b>Sandy</b> as the best Sales Rep to own the lead.",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service predicts <b>Sandy</b> is the best rep to own the lead.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
