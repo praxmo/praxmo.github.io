@@ -1568,6 +1568,15 @@ span.policy-detail {
     margin-top:140px;
 }
 
+.solution.dealflow .infographic {
+    max-width: 100%;
+    width: 500px;
+    margin-bottom:30px;
+}
+.solution.dealflow .primary-button-bar {
+    margin-bottom:70px;
+}
+
 .solution.dealflow .quoted {
     float: right;
     position: relative;
@@ -1664,6 +1673,16 @@ span.policy-detail {
 
     .solution.dealflow .quoted {
         display: none;
+    }
+
+    .solution.dealflow .primary-button-bar {
+        margin:10px 0 20px 0;
+    }
+
+    .solution.dealflow .infographic {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom:20px;
     }
 
 }
