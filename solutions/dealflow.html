@@ -186,14 +186,15 @@
             </p>
 
             <h4 id="administrator"><i class="fas fa-user-edit"></i> Administrator</h4>
-            <p>The administrator is responsible for configuring DealFlow when it is first installed and is often the
-                same individual who installed it. Administrators can add and remove other administrators.
+            <p>
+                Administrators are responsible for configuring DealFlow. Administrators can add and remove other administrators.
             </p>
 
-            <p>A key aspect of the administrator role is granting access to the team's HubSpot and Intercom (optional)
+            <p>
+                A key aspect of the administrator role is granting access to the team's HubSpot and Intercom (optional)
                 accounts, allowing DealFlow to monitor key events and make updates on their behalf.
                 Administrators are also responsible for designating which Slack channels should be used for sales
-                reps and sales managers when routing incoming leads.
+                reps and sales managers when routing incoming leads and escalating unclaimed leads.
             </p>
 
             <h4 id="end-user"><i class="fas fa-user"></i> Sales Reps</h4>
@@ -387,6 +388,38 @@
 
             <div style="margin-top:30px;"><i>*This command is only available to DealFlow administrators.</i></div>
             <div><i>**This command is only available to the DealFlow owner.</i></div>
+
+
+            <h2 id="phrases" style="padding-top:80px">NLP (Plain Text) Commands</h2>
+            <p>Ask questions about HubSpot customers and leads directly in Slack.<!--  Optionally organize queries by region. --></p>
+
+            <div class="nlp_group">
+                <h4>
+                    Audit new leads:
+                </h4>
+                <code>How many new leads came in {today | this week | this month | this quarter}?</code>
+                <!-- br>
+                <code>How many new leads came in from {EMEA} {today | this week | this month | this quarter}?</code>
+
+            </div>
+
+            <div class="nlp_group">
+                <h4>
+                    Audit untouched leads:
+                </h4>
+                <code>Which leads have not been touched {today | this week | this month | this quarter}?</code>
+                <br>
+                <code>Which {US} leads have not been touched {today | this week | this month | this quarter}?</code>
+            </div>
+
+
+            <div class="nlp_group">
+                <h4>
+                    Audit activity for a specific customer:
+                </h4>
+                <code>When was the last activity with {INTEL}?</code>
+            </div -->
+
 
 
             <h2 id="actions" style="margin-top:40px;padding-top:40px">Other Activities</h2>

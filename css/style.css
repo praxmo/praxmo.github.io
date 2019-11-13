@@ -1606,6 +1606,10 @@ span.policy-detail {
     color: #999999;
 }
 
+.solution.dealflow .nlp_group {
+    margin-top:30px;
+}
+
 .plans.dealflow {
     margin-top:140px;
 }
