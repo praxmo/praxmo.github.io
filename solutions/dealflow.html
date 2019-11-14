@@ -118,13 +118,14 @@
             </a>
 
             <p>
-                Each time a new lead is registered in <b>HubSpot</b>, DealFlow orchestrates the
+                Each time a new lead is registered in a CRM system like <b>HubSpot</b>, DealFlow orchestrates the
                 process, showing relevant CRM data and the option to enrich it with
                 data from other systems like <b>Intercom</b>.
             </p>
-            <p>Integrating system data directly in Slack facilitates
-                quick lead qualification and uptake. Sales reps claim leads and take ownership, while sales
-                managers stay informed. Importantly, managers are alerted to take action, and can intervene
+            <p>Integrating sales and marketing data directly in Slack facilitates
+                quick lead qualification and uptake. Sales reps claim leads and take ownership instantly, while sales
+                managers stay up-to-date through their respective sales channels.
+                Importantly, managers are alerted to take action, and can intervene
                 when self-selection isn't made within the designated time frame.
             </p>
 
@@ -132,7 +133,7 @@
                 Built using Intwixt’s <b>Conversational Automation Platform (CAP)</b>, DealFlow accelerates lead
                 qualification using a combination of AI and NLP (Natural Language Processing).
                 By continually learning from each closed deal, DealFlow makes increasingly accurate predictions,
-                recommending which sales rep should be assigned to an incoming lead.
+                recommending the best-suited sales rep to take ownership of incoming leads.
             </p>
 
             <p>Every organization is unique. Those enterprises needing even greater customization
@@ -150,10 +151,10 @@
                 </div>
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1 class="large-factor">Watch the Demo</h1>
-                    <p> Deliver <b>AI-enabled</b> customer journeys that keep your sales teams  productive and your sales
-                        managers informed. Merge customer information directly in Slack from CRM systems like HubSpot and
-                        Intercom. With <b>machine learning</b> baked-in, gain insight into people and processes you might
-                        otherwise overlook.</p>
+                    <p> Deliver <b>AI-enabled</b> customer journeys that keep your sales teams productive and your sales
+                        managers informed. Merge sales information directly in Slack from CRM systems like HubSpot and
+                        data enrichment systems like Intercom. With <b>machine learning</b> baked-in,
+                        gain insight into people and processes you might otherwise overlook.</p>
                     <div class="circles">
                         <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
                         <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
@@ -191,28 +192,28 @@
             </p>
 
             <p>
-                A key aspect of the administrator role is granting access to the team's HubSpot and Intercom (optional)
+                A key aspect of the administrator role is granting access to the team's CRM and data enrichment
                 accounts, allowing DealFlow to monitor key events and make updates on their behalf.
                 Administrators are also responsible for designating which Slack channels should be used for sales
                 reps and sales managers when routing incoming leads and escalating unclaimed leads.
             </p>
 
             <h4 id="end-user"><i class="fas fa-user"></i> Sales Reps</h4>
-            <p>Sales reps are those team members responsible for claiming new leads. They must belong to the Slack
-                channel designated by the administrator for handling new leads.
-                Each time a new lead is generated in HubSpot, sales reps are
-                prompted to claim it. Unclaimed leads are escalated to sales managers after the specified time frame
+            <p>Sales reps are those team members responsible for claiming and taking ownership of new leads.
+                They must belong to the Slack channel designated by the administrator for handling new leads.
+                Each time a new lead is generated without ownership, sales reps are
+                notified to claim it. Unclaimed leads are escalated to sales managers after the specified time frame
                 has been exceeded.
             </p>
 
             <h4 id="reviewer"><i class="fas fa-user-check"></i> Sales Managers</h4>
             <p>
                 Sales managers are responsible for triaging unclaimed leads. They must belong to the Slack
-                channel designated by the administrator for managing unclaimed leads.
-                Each time a lead is unclaimed, DealFlow's
-                AI-backed engine will analyze past interactions and make an initial prediction, recommending the sales
-                rep best suited to manage the lead. Sales managers may assign the lead to this individual or may
-                override this decision, further training the AI to make better predictions in the future.
+                channel designated by the administrator for managing unclaimed leads. Each time a lead is unclaimed,
+                DealFlow's AI-backed engine will analyze past interactions and make an initial prediction,
+                recommending the sales rep best suited to take ownership of the new lead. Sales managers may
+                assign the lead to the recommended individual or may override the AI-based recommendation,
+                further training the AI engine to make better predictions in the future.
             </p>
 
             <h4 id="owner"><i class="fas fa-user-shield"></i> Owner</h4>
@@ -230,7 +231,7 @@
                     <h4>How many new leads can I process each month in Slack?</h4>
                     <p> Your team can process up to 20 new leads each month using DealFlow's free tier. This includes the initial "new lead"
                         event which gets routed to the <b>sales rep Slack channel</b>. Sales reps may augment the lead directly in Slack,
-                        gathering additional information from Intercom if configured. If the lead is not claimed within
+                        gathering additional information from data enrichment systems like Intercom (if configured). If the lead is not claimed within
                         the specified time period, it will be escalated to the <b>sales manager Slack channel</b>, where managers
                         can likewise augment the lead with additional details and review the AI recommendation. Sales
                         managers can then assign the lead to a named rep, further training the AI for better future
@@ -265,7 +266,9 @@
                     </p>
 
                     <h4>Is HubSpot required to use DealFlow?</h4>
-                    <p> DealFlow is built atop Intwixt, a modular, no-code process automation platform. Please reach
+                    <p> DealFlow is built atop Intwixt, a modular, no-code process automation platform. While DealFlow
+                        is configured by default to connect with the CRM system, HubSpot, it can be connected to any
+                        CRM system. Please reach
                         out to contact@intwixt.com, and let us help you design a solution that includes your particular CRM.
                     </p>
 
@@ -296,7 +299,7 @@
                         is trained each time a deal successfully closes. Training includes facets such as industry,
                         region, company size, etc. The more facets used to train the AI,
                         the more accurate the prediction. These facets are determined in part by what is provided by
-                        your team's instance of HubSpot.
+                        your team's connected CRM account.
                     </p>
 
                     <h4> Do you share information with outside parties?</h4>
@@ -311,7 +314,7 @@
                     <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
                         Once you uninstall the DealFlow app according to Slack's instructions, we will fully
                         remove all information associated with your team and workspace, including your authorization to
-                        access HubSpot and Intercom on your behalf.
+                        access your CRM and data enrichment accounts like HubSpot and Intercom.
                     </p>
 
 
