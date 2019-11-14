@@ -253,7 +253,7 @@
                         to initiate the payment process or update an existing subscription.</i></p>
 
                     <h4> How many sales reps and sales managers can we have?</h4>
-                    <p> The free <b>Intro Plan</b> allows unlimited reps and managers. We limit usage
+                    <p> DealFlow's free <b>Intro Plan</b> allows unlimited reps and managers. We limit usage
                         on the Intro Plan by limiting the total number of new leads that can be processed by
                         your team in any given month (20).
                     </p>
@@ -265,24 +265,24 @@
                         <a href="dealflow/pricing">DealFlow Pricing</a> page.
                     </p>
 
-                    <h4>Is HubSpot required to use DealFlow?</h4>
+                    <h4>Is a HubSpot account required to use DealFlow?</h4>
                     <p> DealFlow is built atop Intwixt, a modular, no-code process automation platform. While DealFlow
                         is configured by default to connect with the CRM system, HubSpot, it can be connected to any
-                        CRM system. Please reach
-                        out to contact@intwixt.com, and let us help you design a solution that includes your particular CRM.
+                        CRM system. Please reach out to contact@intwixt.com, and let us help you design a solution that
+                        includes your particular CRM.
                     </p>
 
                 </div>
                 <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
                      data-wow-delay="0.36s">
 
-                    <h4>Is Intercom required to use DealFlow?</h4>
-                    <p> When DealFlow is first installed, we prompt you to choose whether or not to include Intercom.
-                        If available, we'll add an additional field to each incoming lead, enabling you to enrich its
-                        content with information from Intercom. If you don't use Intercom, this field will be hidden
-                        from view and all data enrichment brought into Slack will come solely from HubSpot. If you
-                        need additional customization, please reach out to contact@intwixt.com, and let us help you
-                        design a solution that matches how you work.
+                    <h4>Is an Intercom account required to use DealFlow?</h4>
+                    <p> When DealFlow is first installed, we prompt you to choose whether or not to include a data
+                        enrichment system (Intercom). If you enable this setting, we'll add an additional field to
+                        each incoming lead, enabling you to enrich its content. If you choose to suppress this setting,
+                        this feature will be hidden from view and all data enrichment brought into Slack will come solely
+                        from HubSpot. If you need additional customization, please reach out to contact@intwixt.com,
+                        and let us help you design a solution that matches how you work.
                     </p>
 
                     <h4> What private information do you keep on your servers?</h4>
@@ -304,7 +304,7 @@
 
                     <h4> Do you share information with outside parties?</h4>
                     <p> No, never, and not at all. It’s our intent to efficiently orchestrate incoming leads,
-                        call the necessary HubSpot and Intercom APIs, and then delete all traces of the transaction from our
+                        call the necessary CRM and other system APIs, and then delete all traces of the transaction from our
                         servers once the process completes. Our company (Intwixt) designs business process apps that run atop Slack.
                         We built DealFlow to showcase our abilities as a general orchestration platform. We hope you love DealFlow, but
                         we really hope you love Intwixt!
@@ -314,9 +314,8 @@
                     <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
                         Once you uninstall the DealFlow app according to Slack's instructions, we will fully
                         remove all information associated with your team and workspace, including your authorization to
-                        access your CRM and data enrichment accounts like HubSpot and Intercom.
+                        access your CRM system (HubSpot) and data enrichment system (Intercom).
                     </p>
-
 
                 </div>
             </div>
@@ -325,16 +324,16 @@
             <div>
                 <h4 class="command">Configure DealFlow*</h4>
                 <code>/dealflow-admin setup</code>
-                <p>Authorize access to HubSpot and Intercom (optional). Choose Slack directories for sales managers and sales reps.
-                    Configure new lead escalation times.
+                <p>Authorize access to the target CRM (HubSpot) and optional data enrichment system (Intercom);
+                    choose Slack directories for sales managers and sales reps; and configure new lead escalation times.
                 </p>
             </div>
 
             <div>
                 <h4 class="command">Reset DealFlow*</h4>
                 <code>/dealflow-admin reset</code>
-                <p>Remove all configuration including authorization grants to access third-party systems,
-                    including HubSpot and Intercom.
+                <p>Remove all configuration including authorization grants to access third-party systems. These system
+                    include the target CRM (HubSpot) and supporting data enrichment system if enabled (Intercom).
                 </p>
             </div>
 
@@ -360,6 +359,16 @@
             </div>
 
             <div>
+                <h4 class="command">Manage Payment**</h4>
+                <code>/dealflow-admin billing</code>
+                <p>DealFlow is free to use and grants a limited set of free resources each month. If you need to run at scale,
+                    a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
+                    use this slash command to change subscription details (e.g, the number of users) and update payment
+                    information (e.g., update card details).
+                </p>
+            </div>
+
+            <div>
                 <h4 class="command">DealFlow Help</h4>
                 <code>/dealflow help</code>
                 <p>Get help for using DealFlow. Directs the user to this Web page.</p>
@@ -376,16 +385,6 @@
                 <code>/dealflow list-admins</code>
                 <p>Show the list of team members allowed to configure and setup DealFlow. Anyone belonging to this
                 list may add and remove other administrators.</p>
-            </div>
-
-            <div>
-                <h4 class="command">Manage Payment**</h4>
-                <code>/dealflow-admin billing</code>
-                <p>DealFlow is free to use and grants a limited set of free resources each month. If you need to run at scale,
-                    a member of your team (the DealFlow owner) can choose to provide payment information. The owner can also
-                    use this slash command to change subscription details (e.g, the number of users) and update payment
-                    information (e.g., update card details).
-                </p>
             </div>
 
 
@@ -430,8 +429,7 @@
                 <h4 class="command">Uninstall DealFlow</h4>
                 <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
                     Once you uninstall the DealFlow app according to Slack's instructions, we will fully
-                    remove all information associated with your team and workspace, including your authorization to
-                    copy files from Slack to Box.com and assign tasks to reviewers.</p>
+                    remove all information associated with your team and workspace</p>
             </div>
 
             <p class="button-bar" style="text-align: center;margin:60px 0;">
