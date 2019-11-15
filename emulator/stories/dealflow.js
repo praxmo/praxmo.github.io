@@ -556,9 +556,9 @@ var dealflow = {
           "id": "p4"
         },
         "annotation": {
-          "user": "a0",
-          "role": "Intwixt",
-          "text": "turns Slack into a <b>business process engine</b>, optimizing the customer journey directly in Slack."
+          "user": "dealflow",
+          "role": "Intwixt DealFlow",
+          "text": "optimizes new lead capture, escalation and ownership, optimizing the customer journey directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
         "pause": 6000 //6000
@@ -613,7 +613,7 @@ var dealflow = {
         "annotation": {
           "user": "u2",
           "role": "Sales Reps",
-          "text": "are notified when new leads are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
+          "text": "are notified when new leads are created in CRM systems like <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from data enrichment systems like <b>Intercom</b>."
         },
         "pause": 6000,
         "step_next": false
@@ -724,12 +724,8 @@ var dealflow = {
           "type": "channel.activate",
           "id": "c1"
         },
-        "annotation": {
-          "user": "u1",
-          "role": "Sales Managers",
-          "text": "are notified when new leads aren't claimed in time. An <b>AI service</b> can augment the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
-        },
-        "pause": 2500
+        "pause": 1500,
+        "step_next": true
       },
 
       //send a message
@@ -765,8 +761,12 @@ var dealflow = {
             }
           }
         },
-        "pause": 3500,
-        "step_next": false
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "are notified when new leads aren't claimed in time. An <b>AI service</b> can augment the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
+        },
+        "pause": 3500
       },
 
       {
@@ -837,19 +837,7 @@ var dealflow = {
           "type": "panel.activate",
           "id": "p2"
         },
-        "annotation": {
-          "user": "a0",
-          "role": "Intwixt Developers",
-          "text": "use the visual designer to configure workflows. This 'no-code' approach makes it possible for even business users to define rules. This particular workflow is triggered when a new lead times out and is escalated to managers."
-        },
-        "pause": 7500
-      },
-
-      {
-        "action": {
-          "type": "annotation.hide"
-        },
-        "pause": 750,
+        "pause": 1500,
         "step_next": true
       },
 
@@ -863,8 +851,18 @@ var dealflow = {
           "role": "AI Services",
           "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to own the lead."
         },
-        "pause": 3500
+        "pause": 4500,
+        "step_next": false
       },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 100,
+        "step_next": true
+      },
+
 
       {
         "action": {
@@ -877,32 +875,6 @@ var dealflow = {
           "text": "are trained each time a deal successfully closes, incorporating information about the company and sales rep. The more data provided to the AI service, the more accurate the predictions."
         },
         "pause": 6500
-      },
-
-      {
-        "action": {
-          "type": "panel.activate",
-          "id": "p5"
-        },
-        "annotation": {
-          "user": "a2",
-          "role": "Aito.ai",
-          "text": "is a fully managed database with machine learning abilities. It provides sophisticated insights, but setup can keep its power out-of-reach for the average business user."
-        },
-        "pause": 5000
-      },
-
-      {
-        "action": {
-          "type": "panel.activate",
-          "id": "p6"
-        },
-        "annotation": {
-          "user": "a0",
-          "role": "Intwixt",
-          "text": "exposes Aito's functionality using the same conversational style used for integrating people and services. If you've got an idea, we provide the tools to help you realize it."
-        },
-        "pause": 5000
       },
 
       {
