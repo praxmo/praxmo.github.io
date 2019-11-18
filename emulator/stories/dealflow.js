@@ -588,7 +588,7 @@ var dealflow = {
             "id": "c3m1",
             "author": "dealflow",
             "timestamp": "8:20 AM",
-            "text": "A new lead was added to HubSpot at 8:20 AM. If you feel this is a good match, please claim it within the hour.",
+            "text": "🔥 A new lead was added to HubSpot. Please claim if it's a match.",
             "fields": [
               {title: "<b>Company</b>"},
               {title: "Intel, Inc."},
@@ -599,13 +599,13 @@ var dealflow = {
               {title: "...", full_width:true}
             ],
             "actions": {
-              "review": {
-                "id": "review",
-                "title": "Check Intercom"
-              },
               "claim": {
                 "id": "claim",
                 "title": "Claim Lead"
+              },
+              "review": {
+                "id": "review",
+                "title": "Check Intercom"
               }
             }
           }
@@ -636,7 +636,7 @@ var dealflow = {
             "id": "c3m1",
             "author": "dealflow",
             "timestamp": "8:30 AM",
-            "text": "New lead (added to HubSpot at 8:20 AM)",
+            "text": "🔥 A new lead was added to HubSpot. Please claim if it's a match.",
             "fields": [
               {title: "<b><a href='#'>HUBSPOT PROFILE</a></b>", full_width:true},
               {title: "<b>Company</b>"},
@@ -652,10 +652,6 @@ var dealflow = {
               "claim": {
                 "id": "claim",
                 "title": "Claim Lead"
-              },
-              "refresh": {
-                "id": "refresh",
-                "title": "Refresh Lead Details"
               }
             }
           }
@@ -683,12 +679,18 @@ var dealflow = {
           "message": {
             "id": "c3m1",
             "author": "dealflow",
-            "timestamp": "9:20 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
+            "timestamp": "8:30 AM",
+            "text": "🔥 A new lead was added to HubSpot. Please claim if it's a match.",
             "fields": [
-              {title: "&nbsp;", full_width:true},
-              {title: "&nbsp;", full_width:true},
-              {title: "&nbsp;", full_width:true}
+              {title: "<b><a href='#'>HUBSPOT PROFILE</a></b>", full_width:true},
+              {title: "<b>Company</b>"},
+              {title: "Intel, Inc."},
+              {title: "<b><a href='#'>INTERCOM PROFILE</a></b>", full_width:true},
+              {title: "<b>Web Sessions</b>"},
+              {title: "22"},
+              {title: "<b>Last Visit</b>"},
+              {title: "Oct 2, 2019"},
+              {title: "❗ This lead was not claimed in time and has been escalated to the sales management team.", full_width:true}
             ]
           }
         },
@@ -745,10 +747,6 @@ var dealflow = {
               {title: "110,000"}
             ],
             "actions": {
-              "review": {
-                "id": "review",
-                "title": "View Lead"
-              },
               "assign": {
                 "id": "assign",
                 "title": "Assign to Sandy"
@@ -784,7 +782,7 @@ var dealflow = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "can view lead details directly in Slack and can optionally choose a different sales rep. The AI service augments the interaction, while <b>managers make the final call</b>."
+          "text": "can choose to assign the lead to the suggested sales rep or they can override the suggestion. Their choice is used to further train the AI service leading to better future predictions."
         },
         "pause": 3500
       },
@@ -806,14 +804,15 @@ var dealflow = {
           "message": {
             "id": "c1m1",
             "author": "dealflow",
-            "timestamp": "9:50 AM",
-            "text": "<a href='#'>Intel, Inc</a> status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
-            "actions": {
-              "review": {
-                "id": "review",
-                "title": "View in HubSpot"
-              }
-            }
+            "timestamp": "9:21 AM",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service suggests <b>Sandy</b> is the best rep to own the lead.",
+            "fields": [
+              {title: "Company"},
+              {title: "Intel, Inc."},
+              {title: "Employees"},
+              {title: "110,000"},
+              {title: "✔ Assigned to <b>Sandy Newsom</b>", full_width:true}
+            ]
           }
         },
         "annotation": {
