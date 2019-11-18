@@ -737,7 +737,7 @@ var dealflow = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service predicts <b>Sandy</b> is the best rep to own the lead.",
+            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service suggests <b>Sandy</b> is the best rep to own the lead.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
@@ -764,7 +764,7 @@ var dealflow = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "are notified when new leads aren't claimed in time. An <b>AI service</b> can augment the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
+          "text": "are notified when new leads aren't claimed in time. The integrated <b>AI service</b> augments the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
         },
         "pause": 3500
       },
