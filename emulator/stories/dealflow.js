@@ -558,7 +558,7 @@ var dealflow = {
         "annotation": {
           "user": "dealflow",
           "role": "Intwixt DealFlow",
-          "text": "optimizes new lead capture, escalation and ownership, optimizing the customer journey directly in Slack."
+          "text": "optimizes new lead qualification, escalation and ownership, optimizing the customer journey directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
         "pause": 6000 //6000
@@ -688,8 +688,7 @@ var dealflow = {
               {title: "<b><a href='#'>INTERCOM PROFILE</a></b>", full_width:true},
               {title: "<b>Web Sessions</b>"},
               {title: "22"},
-              {title: "<b>Last Visit</b>"},
-              {title: "Oct 2, 2019"},
+              {title: "...", full_width:true},
               {title: "❗ This lead was not claimed in time and has been escalated to the sales management team.", full_width:true}
             ]
           }
@@ -739,12 +738,13 @@ var dealflow = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service suggests <b>Sandy</b> is the best rep to own the lead.",
+            "text": "🔥 A new lead was created in HubSpot but was not claimed in time.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
               {title: "Employees"},
-              {title: "110,000"}
+              {title: "110,000"},
+              {title: "🤖 The AI service suggests <b>Sandy</b> is the best rep to own it.", full_width:true}
             ],
             "actions": {
               "assign": {
@@ -782,7 +782,7 @@ var dealflow = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "can choose to assign the lead to the suggested sales rep or they can override the suggestion. Their choice is used to further train the AI service leading to better future predictions."
+          "text": "can choose to assign the lead to the suggested sales rep or they can override the suggestion. Their choice is used to further train the AI service, leading to better future predictions."
         },
         "pause": 3500
       },
@@ -805,13 +805,14 @@ var dealflow = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service suggests <b>Sandy</b> is the best rep to own the lead.",
+            "text": "🔥 A new lead was created in HubSpot but was not claimed in time.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
               {title: "Employees"},
               {title: "110,000"},
-              {title: "✔ Assigned to <b>Sandy Newsom</b>", full_width:true}
+              {title: "🤖 The AI service suggests <b>Sandy</b> is the best rep to own it.", full_width:true},
+              {title: "✔  Assigned to <b>Sandy Newsom</b>", full_width:true}
             ]
           }
         },
@@ -848,32 +849,32 @@ var dealflow = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to own the lead."
+          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. This particular process drives the <b>sales manager</b> interactions shown on the previous panel."
         },
-        "pause": 4500,
+        "pause": 3500,
         "step_next": false
       },
+
 
       {
         "action": {
           "type": "annotation.hide"
         },
-        "pause": 100,
+        "pause": 500,
         "step_next": true
       },
 
 
       {
         "action": {
-          "type": "panel.activate",
-          "id": "p3"
+          "type": "annotation.show"
         },
         "annotation": {
-          "user": "a2",
-          "role": "AI Services",
-          "text": "are trained each time a deal successfully closes, incorporating information about the company and sales rep. The more data provided to the AI service, the more accurate the predictions."
+          "user": "dealflow",
+          "role": "Intwixt DealFlow",
+          "text": "is designed using Intwixt's modular, no-code platform. Please ask us about an enterprise license for a fully customized experience that matches how your organization manages the entire customer journey from qualification to close."
         },
-        "pause": 6500
+        "pause": 3500
       },
 
       {
