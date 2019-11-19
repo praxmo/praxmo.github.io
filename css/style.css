@@ -1572,6 +1572,7 @@ span.policy-detail {
     max-width: 100%;
     width: 500px;
     margin-bottom:30px;
+    margin-left:30px;
 }
 .solution.dealflow .primary-button-bar {
     margin-bottom:70px;
@@ -1687,6 +1688,7 @@ span.policy-detail {
         max-width: 100%;
         width: 100%;
         margin-bottom:20px;
+        margin-left:0;
     }
 
 }
