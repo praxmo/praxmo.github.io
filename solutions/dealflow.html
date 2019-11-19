@@ -271,7 +271,7 @@
                         more detail.
                     </p>
                     <p><i>If you're the individual responsible for
-                        software subscriptions in your organization, enter the <code>/dealflow billing</code>  slash command
+                        software subscriptions in your organization, enter the <code>/dealflow-admin billing</code>  slash command
                         to initiate the payment process or update an existing subscription.</i></p>
 
                     <h4> How many sales reps and sales managers can we have?</h4>
@@ -287,16 +287,6 @@
                         <a href="dealflow/pricing">DealFlow Pricing</a> page.
                     </p>
 
-                    <h4>Is a HubSpot account required to use DealFlow?</h4>
-                    <p> DealFlow is built atop Intwixt, a modular, no-code process automation platform. While DealFlow
-                        is configured by default to connect with the CRM system, HubSpot, it can be connected to any
-                        CRM system. Please reach out to contact@intwixt.com, and let us help you design a solution that
-                        includes your particular CRM.
-                    </p>
-
-                </div>
-                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
-                     data-wow-delay="0.36s">
 
                     <h4>Is an Intercom account required to use DealFlow?</h4>
                     <p> When DealFlow is first installed, we prompt you to choose whether or not to include a data
@@ -305,6 +295,61 @@
                         this feature will be hidden from view and all data enrichment brought into Slack will come solely
                         from HubSpot. If you need additional customization, please reach out to contact@intwixt.com,
                         and let us help you design a solution that matches how you work.
+                    </p>
+
+                    <h4>Is a HubSpot account required to use DealFlow?</h4>
+                    <p> DealFlow is built atop Intwixt, a modular, no-code process automation platform. While DealFlow
+                        is configured by default to connect with the CRM system, HubSpot, it can be connected to any
+                        CRM system. Please reach out to contact@intwixt.com, and let us help you design a solution that
+                        includes your particular CRM.
+                    </p>
+
+
+                    <h4> How do I uninstall DealFlow?</h4>
+                    <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                        Once you uninstall the DealFlow app according to Slack's instructions, we will fully
+                        remove all information associated with your team and workspace, including your authorization to
+                        access your CRM system (HubSpot) and data enrichment system (Intercom).
+                    </p>
+
+                </div>
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
+                     data-wow-delay="0.36s">
+
+                    <h4>Does HubSpot require additional configuration to work with DealFlow?</h4>
+                    <p> DealFlow requires your authorization to connect your team's HubSpot instance and will
+                        prompt you to grant access when first installed. Once authorization
+                        is granted, DealFlow can listen to key events and take action as necessary on your behalf.
+                        This is typically all that is required to handle all interactions from Slack.
+                        Here are a few recommendations we also find useful.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Contacts Need a Company</b> |
+                        DealFlow is designed to show detailed company
+                        information when it routes new, unclaimed leads to Slack. To ensure your leads expose the necessary
+                        information, remember to enable the setting, <b>Automatically create and associate companies
+                        with contacts</b>. This setting is located under the HubSpot settings category,
+                        <b>Contacts & Companies</b>, and helps lead qualification by providing detailed profile
+                        information directly in Slack.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Ownership Drives the Process</b> |
+                        DealFlow will only route new leads to Slack if they do not
+                        have an owner. This is also true for existing leads. If an existing lead does not have an owner
+                        and the <b>Lifecycle Stage</b> is changed, it too will be routed to Slack.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Duplicates Sometimes Happen</b> |
+                        DealFlow automatically routes unclaimed HubSpot leads to Slack. Unfortunately, HubSpot can
+                        sometimes send duplicate events resulting in the same lead being listed multiple times in Slack.
+                        Although it helps to first de-dupe data before bulk uploading to HubSpot, it's sometimes
+                        unavoidable. DealFlow will do its best to handle these situations by alerting you when sales
+                        reps claim a message that already has an owner or when managers assign a lead that likewise
+                        has an owner. As a matter of policy, DealFlow will never change the owner
+                        for a lead that already has an owner.
                     </p>
 
                     <h4> What private information do you keep on your servers?</h4>
@@ -332,12 +377,6 @@
                         we really hope you love Intwixt!
                     </p>
 
-                    <h4> How do I uninstall DealFlow?</h4>
-                    <p>DealFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
-                        Once you uninstall the DealFlow app according to Slack's instructions, we will fully
-                        remove all information associated with your team and workspace, including your authorization to
-                        access your CRM system (HubSpot) and data enrichment system (Intercom).
-                    </p>
 
                 </div>
             </div>
