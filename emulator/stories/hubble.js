@@ -536,10 +536,14 @@ var hubble = {
     "state": "idling",
 
     //1, 2, 3 (binary add) (1) use slack app, (2) own slack app, (4) contact us
-    "cta": 4,
+    "cta": 7,
 
     "href": {
-      "try":"",
+      //direct user to the app home landing page to 'try' it; if there is no app home landing,the 'add to slack' link can be used instead
+      "try":"https://www.intwixt.com/solutions/dealflow",
+
+      //todo: when the `/setup` suffix is added to the above link (this will serve the developer landing page), point developers there to 'own' the intiwxt app
+      //todo: enable cookie xfer from my.intwixt.com domain to www.intwixt.com domain; can now safely share, since we host both
       "own":"javascript:alert('Please contact us to get started. We will copy the source files to your Intwixt account and give you tips for extending to make it your own.');"
     },
 
@@ -588,7 +592,7 @@ var hubble = {
             "id": "c3m1",
             "author": "dealflow",
             "timestamp": "8:20 AM",
-            "text": "A new contact was added to HubSpot at 8:20 AM. If you feel this is a good match, please claim the lead within the hour.",
+            "text": "🔥 A new lead was added to HubSpot. Please claim if it's a match.",
             "fields": [
               {title: "<b>Company</b>"},
               {title: "Intel, Inc."},
@@ -599,13 +603,13 @@ var hubble = {
               {title: "...", full_width:true}
             ],
             "actions": {
-              "review": {
-                "id": "review",
-                "title": "Check Intercom"
-              },
               "claim": {
                 "id": "claim",
                 "title": "Claim Lead"
+              },
+              "review": {
+                "id": "review",
+                "title": "Check Intercom"
               }
             }
           }
@@ -613,7 +617,7 @@ var hubble = {
         "annotation": {
           "user": "u2",
           "role": "Sales Reps",
-          "text": "are notified when new contacts are created in <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from systems like <b>Intercom</b>."
+          "text": "are notified when new leads are created in CRM systems like <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from data enrichment systems like <b>Intercom</b>."
         },
         "pause": 6000,
         "step_next": false
@@ -636,7 +640,7 @@ var hubble = {
             "id": "c3m1",
             "author": "dealflow",
             "timestamp": "8:30 AM",
-            "text": "New contact (added to HubSpot at 8:20 AM)",
+            "text": "🔥 A new lead was added to HubSpot. Please claim if it's a match.",
             "fields": [
               {title: "<b><a href='#'>HUBSPOT PROFILE</a></b>", full_width:true},
               {title: "<b>Company</b>"},
@@ -652,10 +656,6 @@ var hubble = {
               "claim": {
                 "id": "claim",
                 "title": "Claim Lead"
-              },
-              "refresh": {
-                "id": "refresh",
-                "title": "Refresh Lead Details"
               }
             }
           }
@@ -683,12 +683,17 @@ var hubble = {
           "message": {
             "id": "c3m1",
             "author": "dealflow",
-            "timestamp": "9:20 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>I've escalated the issue with the sales management team, and you'll be notified individually if you're matched.",
+            "timestamp": "8:30 AM",
+            "text": "🔥 A new lead was added to HubSpot. Please claim if it's a match.",
             "fields": [
-              {title: "&nbsp;", full_width:true},
-              {title: "&nbsp;", full_width:true},
-              {title: "&nbsp;", full_width:true}
+              {title: "<b><a href='#'>HUBSPOT PROFILE</a></b>", full_width:true},
+              {title: "<b>Company</b>"},
+              {title: "Intel, Inc."},
+              {title: "<b><a href='#'>INTERCOM PROFILE</a></b>", full_width:true},
+              {title: "<b>Web Sessions</b>"},
+              {title: "22"},
+              {title: "...", full_width:true},
+              {title: "❗ This lead was not claimed in time and has been escalated to the sales management team.", full_width:true}
             ]
           }
         },
@@ -724,12 +729,8 @@ var hubble = {
           "type": "channel.activate",
           "id": "c1"
         },
-        "annotation": {
-          "user": "u1",
-          "role": "Sales Managers",
-          "text": "are notified when new leads aren't claimed in time. An <b>AI service</b> can augment the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
-        },
-        "pause": 2500
+        "pause": 1500,
+        "step_next": true
       },
 
       //send a message
@@ -741,18 +742,15 @@ var hubble = {
             "id": "c1m1",
             "author": "dealflow",
             "timestamp": "9:21 AM",
-            "text": "❗The <a href='#'>Intel</a> lead wasn't claimed in time.<br>🤖 The AI service predicts <b>Sandy</b> is the best rep to own the lead.",
+            "text": "🔥 A new lead was created in HubSpot but was not claimed in time.",
             "fields": [
               {title: "Company"},
               {title: "Intel, Inc."},
               {title: "Employees"},
-              {title: "110,000"}
+              {title: "110,000"},
+              {title: "🤖 The AI service suggests <b>Sandy</b> is the best rep to own it.", full_width:true}
             ],
             "actions": {
-              "review": {
-                "id": "review",
-                "title": "View Lead"
-              },
               "assign": {
                 "id": "assign",
                 "title": "Assign to Sandy"
@@ -765,8 +763,12 @@ var hubble = {
             }
           }
         },
-        "pause": 3500,
-        "step_next": false
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "are notified when new leads aren't claimed in time. The integrated <b>AI service</b> augments the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
+        },
+        "pause": 3500
       },
 
       {
@@ -784,7 +786,7 @@ var hubble = {
         "annotation": {
           "user": "u1",
           "role": "Sales Managers",
-          "text": "can view lead details directly in Slack and can optionally choose a different sales rep. The AI service augments the interaction, while <b>managers make the final call</b>."
+          "text": "can choose to assign the lead to the suggested sales rep or they can override the suggestion. Their choice is used to further train the AI service, leading to better future predictions."
         },
         "pause": 3500
       },
@@ -806,14 +808,16 @@ var hubble = {
           "message": {
             "id": "c1m1",
             "author": "dealflow",
-            "timestamp": "9:50 AM",
-            "text": "<a href='#'>Intel, Inc</a> status:<br><b>✔ CREATED</b> at 08:20 AM<br><br><b>✔ TIMEOUT</b> 09:21 AM<br><b>✔ ASSIGNED</b> to Sandy at 09:50 AM",
-            "actions": {
-              "review": {
-                "id": "review",
-                "title": "View in HubSpot"
-              }
-            }
+            "timestamp": "9:21 AM",
+            "text": "🔥 A new lead was created in HubSpot but was not claimed in time.",
+            "fields": [
+              {title: "Company"},
+              {title: "Intel, Inc."},
+              {title: "Employees"},
+              {title: "110,000"},
+              {title: "🤖 The AI service suggests <b>Sandy</b> is the best rep to own it.", full_width:true},
+              {title: "✔  Assigned to <b>Sandy Newsom</b>", full_width:true}
+            ]
           }
         },
         "annotation": {
@@ -837,19 +841,7 @@ var hubble = {
           "type": "panel.activate",
           "id": "p2"
         },
-        "annotation": {
-          "user": "a0",
-          "role": "Intwixt Developers",
-          "text": "use the visual designer to configure workflows. This 'no-code' approach makes it possible for even business users to define rules. This particular workflow is triggered when a new lead times out and is escalated to managers."
-        },
-        "pause": 7500
-      },
-
-      {
-        "action": {
-          "type": "annotation.hide"
-        },
-        "pause": 750,
+        "pause": 1500,
         "step_next": true
       },
 
@@ -861,9 +853,10 @@ var hubble = {
         "annotation": {
           "user": "a2",
           "role": "AI Services",
-          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. In this case, the AI service is asked to identify the sales rep best suited to own the lead."
+          "text": "can be integrated into any process to make predictions that end users might otherwise overlook. This particular process drives the <b>sales manager</b> interactions shown on the previous panel."
         },
-        "pause": 3500
+        "pause": 3500,
+        "step_next": false
       },
 
       {
