@@ -215,9 +215,9 @@
             <h4 id="end-user"><i class="fas fa-user"></i> Sales Reps</h4>
             <p>Sales reps are those team members responsible for claiming and taking ownership of new leads.
                 They must belong to the Slack channel designated by the administrator for handling new leads.
-                Each time a new lead is generated without ownership, sales reps are
-                notified to claim it. Unclaimed leads are escalated to sales managers after the specified time frame
-                has been exceeded.
+                When new leads are generated without ownership and with association to a company, sales reps
+                are notified to claim them in Slack. Unclaimed leads are escalated to sales managers after
+                the specified time frame has been exceeded.
             </p>
 
             <h4 id="reviewer"><i class="fas fa-user-check"></i> Sales Managers</h4>
@@ -346,9 +346,9 @@
                         <b style="font-variant: small-caps;font-style: italic;">Duplicates Sometimes Happen</b> |
                         DealFlow automatically routes unclaimed HubSpot leads to Slack. Unfortunately, HubSpot can
                         sometimes send duplicate events resulting in the same lead being listed multiple times in Slack.
-                        Although it helps to first de-dupe data before bulk uploading to HubSpot, it's sometimes
-                        unavoidable. DealFlow will do its best to handle these situations by alerting you when sales
-                        reps claim a message that already has an owner or when managers assign a lead that likewise
+                        We find it helps to de-dupe data before bulk uploading to HubSpot, but duplicates can still
+                        happen. DealFlow will do its best to handle these situations by alerting you when sales
+                        reps claim a lead that already has an owner or when managers assign a lead that likewise
                         has an owner. As a matter of policy, DealFlow will never change the owner
                         for a lead that already has an owner.
                     </p>
