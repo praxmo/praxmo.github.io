@@ -513,7 +513,7 @@ var dealflow_dev = {
     },
 
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
-    "index": 15,
+    "index": 20,
 
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
@@ -884,7 +884,7 @@ var dealflow_dev = {
           "role": "Sales Managers",
           "text": "can query DealFlow using natural language to get insight into new leads."
         },
-        "pause": 1500,
+        "pause": 2500,
         "step_next": true
       },
 
@@ -911,21 +911,8 @@ var dealflow_dev = {
           "channel": "dealflow",
           "message":  "How many leads came in this month?"
         },
-        "pause": 1500,
+        "pause": 2500,
         "step_next":true
-      },
-
-      {
-        "action": {
-          "type": "annotation.show"
-        },
-        "annotation": {
-          "user": "dealflow",
-          "role": "DealFlow",
-          "text": "responds with real-time information about leads. Managers can query by day, week, month, and quarter."
-        },
-        "pause": 1500,
-        "step_next": true
       },
 
       //send a response message from the bot

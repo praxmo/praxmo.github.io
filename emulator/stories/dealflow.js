@@ -913,7 +913,7 @@ var dealflow = {
           "channel": "dealflow",
           "message":  "How many leads came in this month?"
         },
-        "pause": 1500,
+        "pause": 2500,
         "step_next":true
       },
 

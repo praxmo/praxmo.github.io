@@ -422,7 +422,7 @@ function emulate(id, selector, story, config) {
               }
               setTimeout(function() {
                 my.play(null, !!panel_id);
-              }, this.story_board.step ? 0 : pause);
+              }, (this.story_board.step && !panel_id) ? 0 : pause);
             }
           }
         }
