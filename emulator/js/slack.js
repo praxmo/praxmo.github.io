@@ -421,7 +421,7 @@ function emulate(id, selector, story, config) {
                 my.send_message(panel_id);
               }
               setTimeout(function() {
-                my.play();
+                my.play(null, !!panel_id);
               }, this.story_board.step ? 0 : pause);
             }
           }
