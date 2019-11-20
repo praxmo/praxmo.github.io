@@ -1,4 +1,4 @@
-var dealflow = {
+var dealflow_dev = {
 
   //top-level annotation; declare these fields (empty strings are fine)
   "annotation": {
@@ -513,7 +513,7 @@ var dealflow = {
     },
 
     //this is the index for which event to start at; it is possible to update this during testing to bypass prior steps
-    "index": 0,
+    "index": 15,
 
     //these are the events for the story; each event has a `type` that further defines the inputs needed
     "events": [
@@ -824,7 +824,6 @@ var dealflow = {
         "step_next": false
       },
 
-
       {
         "action": {
           "type": "annotation.hide"
@@ -832,7 +831,6 @@ var dealflow = {
         "pause": 500,
         "step_next": true
       },
-
 
       {
         "action": {

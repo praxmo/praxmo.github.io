@@ -97,6 +97,10 @@ function emulate(id, selector, story, config) {
                 this.set_active_panel(action.id);
               } else if (action.type === 'channel.activate') {
                 this.set_active_channel(this.activePanelId, action.id);
+              } else if (action.type === 'message.type') {
+                this.typing(this.panels[this.activePanelId], "input", action.message, 0, 150, event.pause, this.activePanelId);
+                this.story_board.index = this.story_board.index + 1;
+                return;
               } else if (action.type === 'message.send') {
                 target = this.panels[this.activePanelId].channels[this.panels[this.activePanelId].activeChannelId].messages;
                 this.send_formatted_message(target, action.message.id, this.clone(action.message));
@@ -401,16 +405,21 @@ function emulate(id, selector, story, config) {
           },
 
           //simulate typing text in real-time (like filling in a text field)
-          typing: function (target, attribute, message, index, delay, pause) {
+          typing: function (target, attribute, message, index, delay, pause, panel_id) {
             var my = this;
             if (index < message.length) {
               index++;
               var _message = message.substr(0, index);
+              //
               this.$set(target, attribute, _message);
               setTimeout(function() {
-                my.typing(target, attribute, message, index, delay, pause);
+                my.typing(target, attribute, message, index, delay, pause, panel_id);
               }, parseInt(delay * Math.random()));
             } else {
+              //if panel_id target is provided; send what was typed to the message window
+              if(panel_id) {
+                my.send_message(panel_id);
+              }
               setTimeout(function() {
                 my.play();
               }, this.story_board.step ? 0 : pause);
