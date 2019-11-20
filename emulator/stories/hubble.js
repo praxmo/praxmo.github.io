@@ -906,6 +906,92 @@ var hubble = {
         "step_next": true
       },
 
+      //re-activate the sales manager workspace
+      {
+        "action": {
+          "type": "panel.activate",
+          "id": "p1"
+        },
+        "pause": 1500,
+        "step_next": true
+      },
+
+      //activate the direct message channel with the bot
+      {
+        "action": {
+          "type": "channel.activate",
+          "id": "dealflow"
+        },
+        "pause": 1500,
+        "step_next": true
+      },
+
+      //type a message to query the bot using NLP; it will be bound to the active user (sent by)
+      {
+        "action": {
+          "type": "message.type",
+          "channel": "dealflow",
+          "message":  "How many leads came in today?"
+        },
+        "annotation": {
+          "user": "u1",
+          "role": "Sales Managers",
+          "text": "can query DealFlow using natural language to get insight into new leads."
+        },
+        "pause": 2500,
+        "step_next": true
+      },
+
+      //send a response message from the bot
+      {
+        "action": {
+          "type": "message.send",
+          "channel": "dealflow",
+          "message": {
+            "id": "dealflowm2",
+            "author": "dealflow",
+            "timestamp": "9:30 AM",
+            "text": "So far, you've had 11 new leads come in today."
+          }
+        },
+        "pause": 2500,
+        "step_next": true
+      },
+
+      //type a message to query the bot using NLP; it will be bound to the active user (sent by)
+      {
+        "action": {
+          "type": "message.type",
+          "channel": "dealflow",
+          "message":  "How many leads came in this month?"
+        },
+        "pause": 2500,
+        "step_next":true
+      },
+
+      //send a response message from the bot
+      {
+        "action": {
+          "type": "message.send",
+          "channel": "dealflow",
+          "message": {
+            "id": "dealflowm4",
+            "author": "dealflow",
+            "timestamp": "9:30 AM",
+            "text": "So far, you've had 423 new leads come in this month."
+          }
+        },
+        "pause": 3500
+      },
+
+      {
+        "action": {
+          "type": "annotation.hide"
+        },
+        "pause": 1500,
+        "step_next": true
+      },
+
       {
         "action": {
           "type": "panel.activate",
