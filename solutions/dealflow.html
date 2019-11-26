@@ -441,6 +441,19 @@
             </div>
 
             <div>
+                <h4 class="command">Get Recent Unassigned Leads</h4>
+                <code>/dealflow leads</code>
+                <p>DealFlow routes new, unclaimed leads directly to Slack, keeping sales reps and sales managers notified
+                    in real-time. This <i>push-based</i> approach works well most of the time. But there are times when
+                    users need to <i>pull</i> the latest information. When a stream of new leads are sent to Slack
+                    when the sales rep is out-of-pocket, it can be difficult to get a clear accounting of the most
+                    recent leads. Members of the sales rep or sales manager Slack channels may issue this command to
+                    view a paginated list of the most recent leads. Reps may claim leads while managers may assign them.
+                </p>
+                <img style='width:100%;max-width:600px;' src='/img/dealflow/pull_based.png'>
+            </div>
+
+            <div>
                 <h4 class="command">DealFlow Help</h4>
                 <code>/dealflow help</code>
                 <p>Get help for using DealFlow. Directs the user to this Web page.</p>
@@ -472,6 +485,10 @@
                     Audit new leads:
                 </h4>
                 <code>How many new leads came in {today | this week | this month<!--  | this quarter -->}?</code>
+                <h4>
+                    Get recent unassigned leads:
+                </h4>
+                <code>Show unassigned leads.</code>
                 <!-- br>
                 <code>How many new leads came in from {EMEA} {today | this week | this month | this quarter}?</code>
 
