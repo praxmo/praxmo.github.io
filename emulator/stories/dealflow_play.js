@@ -1,4 +1,4 @@
-var dealflow_dev = {
+var dealflow_play = {
 
   //top-level annotation; declare these fields (empty strings are fine)
   "annotation": {
@@ -502,7 +502,7 @@ var dealflow_dev = {
 
   //this is the story board. this is used to tell the story; it starts in an `idling` state (important!!)
   "story_board": {
-    "state": "idling",
+    "state": "playing",
 
     //1, 2, 3 (binary add) (1) use slack app, (2) own slack app, (4) contact us
     "cta": 4,
@@ -530,7 +530,7 @@ var dealflow_dev = {
           "text": "optimizes new lead qualification, escalation and ownership, optimizing the customer journey directly in Slack."
         },
         //when the user clicks 'play all' this defines how long to wait before running the next step
-        "pause": 6000 //6000
+        "pause": 27500 //6000
       },
 
       //activate a channel
@@ -544,7 +544,7 @@ var dealflow_dev = {
           "role": "",
           "text": ""
         },
-        "pause": 1000,
+        "pause": 1500,
         "step_next": true
       },
 
@@ -584,7 +584,7 @@ var dealflow_dev = {
           "role": "Sales Reps",
           "text": "are notified when new leads are created in CRM systems like <b>HubSpot</b>. They can view merged details directly in-channel, including content sourced from data enrichment systems like <b>Intercom</b>."
         },
-        "pause": 6000,
+        "pause": 10500,
         "step_next": false
       },
 
@@ -592,7 +592,7 @@ var dealflow_dev = {
         "action": {
           "type": "annotation.hide"
         },
-        "pause": 250,
+        "pause": 1000,
         "step_next": true
       },
 
@@ -630,14 +630,14 @@ var dealflow_dev = {
           "role": "Sales Reps",
           "text": "work together in the same Slack channel. This keeps the information flowing regardless of who's online or away from their desk."
         },
-        "pause": 6000
+        "pause": 10500
       },
 
       {
         "action": {
           "type": "annotation.hide"
         },
-        "pause": 250,
+        "pause": 1000,
         "step_next": true
       },
 
@@ -667,7 +667,7 @@ var dealflow_dev = {
           "role": "Sales Reps",
           "text": "are notified directly in-channel whenever the lead is updated. In this case, no one claimed the lead in time, causing the issue to escalate. Timeouts and exception handling are critical components of a well-designed business process."
         },
-        "pause": 3500
+        "pause": 12500
       },
 
       {
@@ -733,14 +733,14 @@ var dealflow_dev = {
           "role": "Sales Managers",
           "text": "are notified when new leads aren't claimed in time. The integrated <b>AI service</b> augments the interaction to help expedite the process. In this case, the AI service recommends a sales rep based upon company size, industry, and other factors. The more data, the more accurate the prediction."
         },
-        "pause": 3500
+        "pause": 14500
       },
 
       {
         "action": {
           "type": "annotation.hide"
         },
-        "pause": 750,
+        "pause": 1000,
         "step_next": true
       },
 
@@ -753,14 +753,14 @@ var dealflow_dev = {
           "role": "Sales Managers",
           "text": "can choose to assign the lead to the suggested sales rep or they can override the suggestion. Their choice is used to further train the AI service, leading to better future predictions."
         },
-        "pause": 3500
+        "pause": 10500
       },
 
       {
         "action": {
           "type": "annotation.hide"
         },
-        "pause": 250,
+        "pause": 1000,
         "step_next": true
       },
 
@@ -790,7 +790,7 @@ var dealflow_dev = {
           "role": "Sales Managers",
           "text": "see the lead update directly in Slack. Real-time updates to interactive messages are critical to conversational usability, helping avoid confusion on shared channels."
         },
-        "pause": 3500
+        "pause": 10500
       },
 
       {
@@ -820,17 +820,19 @@ var dealflow_dev = {
           "role": "AI Services",
           "text": "can be integrated into any process to make predictions that end users might otherwise overlook. This particular process drives the <b>sales manager</b> interactions shown on the previous panel."
         },
-        "pause": 3500,
+        "pause": 12500,
         "step_next": false
       },
+
 
       {
         "action": {
           "type": "annotation.hide"
         },
-        "pause": 500,
+        "pause": 1500,
         "step_next": true
       },
+
 
       {
         "action": {
@@ -839,9 +841,9 @@ var dealflow_dev = {
         "annotation": {
           "user": "dealflow",
           "role": "Intwixt DealFlow",
-          "text": "is designed using Intwixt's modular, no-code platform. Please ask us about an enterprise license for a fully customized experience that matches how your organization manages the entire customer journey from qualification to close."
+          "text": "is designed using Intwixt's modular, no-code platform. Please ask about an enterprise license for a fully customized experience that matches how your organization manages the entire customer journey from qualification to close."
         },
-        "pause": 3500
+        "pause": 13500
       },
 
       {

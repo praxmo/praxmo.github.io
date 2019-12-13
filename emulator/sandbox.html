@@ -27,21 +27,21 @@
     <link rel="stylesheet" href="/emulator/css/slack.css">
 </head>
 
-<body class="container full-width">
+<body style="background-color:#ffffff !important;padding:10px;margin:0;">
 
 
 <!-- don't put position:relative in the containing div...breaks the layout -->
-<div style="margin-top:40px;min-height:500px;">
-    <my-solution-emulator id="dealflow_dev" v-cloak></my-solution-emulator>
+<div style="min-height:500px;">
+    <my-solution-emulator id="dealflow_play" v-cloak></my-solution-emulator>
 </div>
 
-<div style="margin-top:40px;">
+<!-- div style="margin-top:40px;">
     <my-solution-emulator id="hubble" v-cloak></my-solution-emulator>
-</div>
+</div -->
 
 
 <script type="text/x-template" id="solution-emulator">
-    <div class="emulator interactive">
+    <div class="emulator interactive" style="width:990px !important;">
 
         <div v-bind:class="['stepper', { active: story_board.state === 'playing' && story_board.step_next}]"
              title="Show next step"
@@ -50,7 +50,7 @@
         </div>
 
         <!-- runs the emulators -->
-        <div class="runner">
+        <div class="runner" style="box-shadow:none !important;border:solid 1px #4a184b;">
 
             <!-- message overlay to show when in 'idling' state -->
             <div v-bind:class="['alert', { active: alert}]">
@@ -299,12 +299,12 @@
 <script src="/js/owl.carousel.js"></script>
 <script src="/js/wow.min.js"></script>
 <script src="/js/main.js"></script>
-<script src="/emulator/stories/dealflow_dev.js"></script>
+<script src="/emulator/stories/dealflow_play.js"></script>
 <script src="/emulator/stories/hubble.js"></script>
 <script src="/emulator/js/slack.js"></script>
 <script src="/emulator/js/canvas.js"></script>
 <script>
-  emulate("dealflow_dev", "#dealflow_dev", dealflow_dev);
-  emulate("hubble", "#hubble", hubble);
+  emulate("dealflow_play", "#dealflow_play", dealflow_play);
+  //emulate("hubble", "#hubble", hubble);
 </script>
 </body>
