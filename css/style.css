@@ -1696,6 +1696,275 @@ span.policy-detail {
 
 
 /* ==========================================================================================================
+								        SCOREFLOW
+   ========================================================================================================== */
+
+.solution.scoreflow {
+    margin-top:140px;
+}
+
+.solution.scoreflow .infographic {
+    max-width: 100%;
+    width: 500px;
+    margin-bottom:30px;
+    margin-left:30px;
+}
+.solution.scoreflow .primary-button-bar {
+    margin-bottom:70px;
+}
+
+.solution.scoreflow .quoted {
+    float: right;
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    z-index: 5;
+    text-align: center;
+    margin: 0;
+    width: 500px;
+    max-width:100%;
+}
+
+.solution.scoreflow .quoted li {
+    font-size: 1.35em;
+    padding: 1em 0;
+    border-radius: 0.25em;
+    color: #8c8c8c;
+}
+
+.solution.scoreflow .quoted span {
+    display: block;
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 1em;
+    font-size: 75%;
+    font-style: italic;
+    color: #999999;
+}
+
+.solution.scoreflow .nlp_group {
+    margin-top:30px;
+}
+
+.plans.scoreflow {
+    margin-top:140px;
+}
+
+.plans.scoreflow .card-header {
+    background-color: transparent;
+    color:#03A9F4;
+    border-bottom-color:#03A9F438;
+}
+
+.plans.scoreflow .card {
+    border-color: #03A9F4;
+}
+
+.plans.scoreflow .calculate .close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: #03A9F4;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.plans.scoreflow .calculate.semi-transparent {
+    opacity: .85;
+}
+
+.plans.scoreflow .calculate label {
+    display:block;
+}
+
+.plans.scoreflow .calculate #total {
+    font-weight: 900;
+}
+
+.plans.scoreflow .calculate #quantity {
+    text-align: center;
+    display: inline-block;
+    max-width:240px;
+}
+
+.plans.scoreflow .calculate .annually {
+    margin-top:10px;
+    margin-bottom:0;
+}
+
+.plans.scoreflow .calculate {
+    top: -400px;
+    transition: top 2s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #ffffff;
+    left: 0;
+    padding: 20px;
+}
+
+.plans.scoreflow .calculate.active {
+    top:0;
+}
+
+
+
+@media (max-width: 991px) {
+
+    .solution.scoreflow .quoted {
+        display: none;
+    }
+
+    .solution.scoreflow .primary-button-bar {
+        margin:10px 0 20px 0;
+    }
+
+    .solution.scoreflow .infographic {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom:20px;
+        margin-left:0;
+    }
+
+}
+
+
+
+/* ==========================================================================================================
+								        SUPPORTFLOW
+   ========================================================================================================== */
+
+.solution.supportflow {
+    margin-top:140px;
+}
+
+.solution.supportflow .infographic {
+    max-width: 100%;
+    width: 500px;
+    margin-bottom:30px;
+    margin-left:30px;
+}
+.solution.supportflow .primary-button-bar {
+    margin-bottom:70px;
+}
+
+.solution.supportflow .quoted {
+    float: right;
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    z-index: 5;
+    text-align: center;
+    margin: 0;
+    width: 500px;
+    max-width:100%;
+}
+
+.solution.supportflow .quoted li {
+    font-size: 1.35em;
+    padding: 1em 0;
+    border-radius: 0.25em;
+    color: #8c8c8c;
+}
+
+.solution.supportflow .quoted span {
+    display: block;
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 1em;
+    font-size: 75%;
+    font-style: italic;
+    color: #999999;
+}
+
+.solution.supportflow .nlp_group {
+    margin-top:30px;
+}
+
+.plans.supportflow {
+    margin-top:140px;
+}
+
+.plans.supportflow .card-header {
+    background-color: transparent;
+    color:#03A9F4;
+    border-bottom-color:#03A9F438;
+}
+
+.plans.supportflow .card {
+    border-color: #03A9F4;
+}
+
+.plans.supportflow .calculate .close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    color: #03A9F4;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.plans.supportflow .calculate.semi-transparent {
+    opacity: .85;
+}
+
+.plans.supportflow .calculate label {
+    display:block;
+}
+
+.plans.supportflow .calculate #total {
+    font-weight: 900;
+}
+
+.plans.supportflow .calculate #quantity {
+    text-align: center;
+    display: inline-block;
+    max-width:240px;
+}
+
+.plans.supportflow .calculate .annually {
+    margin-top:10px;
+    margin-bottom:0;
+}
+
+.plans.supportflow .calculate {
+    top: -400px;
+    transition: top 2s;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #ffffff;
+    left: 0;
+    padding: 20px;
+}
+
+.plans.supportflow .calculate.active {
+    top:0;
+}
+
+
+
+@media (max-width: 991px) {
+
+    .solution.supportflow .quoted {
+        display: none;
+    }
+
+    .solution.supportflow .primary-button-bar {
+        margin:10px 0 20px 0;
+    }
+
+    .solution.supportflow .infographic {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom:20px;
+        margin-left:0;
+    }
+
+}
+
+
+/* ==========================================================================================================
 								        PLANS DOCFLOW
    ========================================================================================================== */
 

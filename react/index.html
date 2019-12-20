@@ -40,6 +40,16 @@
             console.log(this.state);
           };
 
+          handleChange = (e) => {
+            this.setState({
+              name: e.target.value
+            })
+          };
+
+          handleSubmit = (e) => {
+            e.preventDefault();
+          };
+
           render() {
             return (
               <div className="app-content">
@@ -48,6 +58,13 @@
                   <button onClick={this.handleClick}>Click Me</button>
                   <button onMouseOver={this.handleHover}>Hover Me</button>
                   <p onCopy={this.handleCopy}>Now is the time for the quick brown fox.</p>
+                  <form onSubmit={this.handleSubmit}>
+                      <label htmlFor="change-name">
+                        <span>Change the Name</span>
+                      <input id="change-name" type="text" onChange={this.handleChange}/>
+                      </label>
+                      <button>Submit</button>
+                  </form>
               </div>
             )
           };
