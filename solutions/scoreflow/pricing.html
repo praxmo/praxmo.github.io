@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Intwixt Scoreflow | Pricing</title>
+    <title>Intwixt ScoreFlow | Pricing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Run Box.com approval flows in Slack"/>
     <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
@@ -63,10 +63,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-items-right ml-auto mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/solutions/scoreflow">Scoreflow Home</a>
+                        <a class="nav-link" href="/solutions/scoreflow">ScoreFlow Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/solutions/scoreflow#faq">Scoreflow FAQ</a>
+                        <a class="nav-link" href="/solutions/scoreflow#faq">ScoreFlow FAQ</a>
                     </li>
                 </ul>
             </div>
@@ -83,14 +83,14 @@
 
             <img src="/img/scoreflow.png" align="left" class="logo">
 
-            <h1 class="title">Scoreflow Pricing</h1>
+            <h1 class="title">ScoreFlow Pricing</h1>
 
             <p class="pb-2">
-                Teams are assigned to the free <b>Intro Plan</b> when Scoreflow is first
+                Teams are assigned to the free <b>Intro Plan</b> when ScoreFlow is first
                 installed to their Slack workspace. Upgrade to a paid plan to run at scale.
             </p><p>
                 The <b>Standard Plan</b> is priced according to the total number of Sales Reps and Sales
-                Managers who will use Scoreflow within Slack. Ask us about our <b>Enterprise Plan</b> if you're
+                Managers who will use ScoreFlow within Slack. Ask us about our <b>Enterprise Plan</b> if you're
                 interested in your own customized instance, volume pricing, or require specific support options.
                 Or simply procure your own <a href="https://www.intwixt.com/plans">Intwixt platform license</a>
                 with unlimited possibilities to modify and/or create your own solutions.
@@ -189,9 +189,9 @@
                 <!-- img align="left"
                      class="modular fadeInLeft animated" data-wow-delay="0.66s"
                      src='/img/scoreflow/modularity.png' -->
-                <p>*Scoreflow is easy to configure. But every organization is unique, sometimes requiring
+                <p>*ScoreFlow is easy to configure. But every organization is unique, sometimes requiring
                     functionality beyond what is offered out-of-the-box.
-                    Fortunately, Scoreflow built using Intwixt’s <b>Conversational Automation Platform</b> (CAP).
+                    Fortunately, ScoreFlow built using Intwixt’s <b>Conversational Automation Platform</b> (CAP).
                     Our no-code, visual approach delivers unmatched modularity. Tell us about your specific needs and
                     we can design a custom solution to match.</p>
             </div>
@@ -419,9 +419,9 @@
         console.log("fail!!");
         console.log(data);
         if(Number(data.status) === 501) {
-          alert("Your team already has a paid subscription to Scoreflow. Modifications can be made by entering `/scoreflow-admin billing` within Slack.");
+          alert("Your team already has a paid subscription to ScoreFlow. Modifications can be made by entering `/scoreflow-admin billing` within Slack.");
         } else if(Number(data.status) === 404) {
-          alert("Your team has not yet installed Scoreflow. Please click the `Add to Slack` button on the Scoreflow home page.");
+          alert("Your team has not yet installed ScoreFlow. Please click the `Add to Slack` button on the ScoreFlow home page.");
           window.location.href = "/solutions/scoreflow";
         }
       });

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!-- copyright 2019 Intwixt, Inc. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intwixt ScoreFlow | User Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="High-speed lead qualification with HubSpot and Intercom"/>
+    <meta name="keywords" content="HubSpot, Intercom, CRM, AI, ML, Slack"/>
+    <meta name="author" content="contact@intwixt.com"/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Orbit.css -->
+    <link rel="stylesheet" href="/css/orbit.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="/emulator/css/slack.css">
+
+    <!-- Analytics -->
+    <script>(function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-72994520-1', 'auto');
+    ga('send', 'pageview');</script>
+    <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
+</head>
+<body id="home">
+
+<div id="page-wrap">
+
+
+    <!-- ==========================================================================================================
+                                                       HERO
+         ========================================================================================================== -->
+
+    <div id="fh5co-hero-wrapper" style="height:auto;margin-bottom:100px;">
+        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top" xstyle="background-color: #db6700 !important;">
+            <a class="navbar-brand" href="/">Intwixt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq" onclick="$('#faq').goTo('faq');">ScoreFlow FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#commands" onclick="$('#commands').goTo('commands');">ScoreFlow Commands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="scoreflow/pricing">
+                            ScoreFlow Pricing
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> <!-- first section wrapper -->
+
+
+    <!-- ==========================================================================================================
+                                 USE CASE / EXAMPLE
+         ========================================================================================================== -->
+
+    <div id="solutions" class="examples-outer">
+        <div class="container solution scoreflow wow animated fadeIn" data-wow-delay="0.22s">
+
+            <img src="/img/scoreflow.png" align="left" class="logo">
+
+            <ul class="quoted">
+                <li> &ldquo;50% of sales go to the vendors that respond first. The average response time for all leads is <b>42 hours</b>. &rdquo;
+                    <span>- Harvard Business Review -</span>
+                </li>
+            </ul>
+
+            <h1 class="title">Intwixt ScoreFlow</h1>
+
+            <p class="button-bar primary-button-bar">
+                <a target="_new"
+                   href="https://slack.com/oauth/authorize?client_id=397209179749.774464799541&scope=bot%20commands%20channels%3Aread%20chat%3Awrite%3Abot%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX19tIZuyXON%2BMJpJx4f%2BeECgDD2YQJnlidvvEami5N1duqXqZLxW743puaiC7aN0KN9NjNOLzThVv%2BxJqK5LXIeoKRHcisTnY5VvmOdqiZ64TBQuAdsjSDlwHk7XUtTFFMzun6U7yaaMI2X1wraw49hMv%2FeNCXBzRUg%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">
+                    <img alt="add to slack"
+                         height="40"
+                         width="139"
+                         src="https://platform.slack-edge.com/img/add_to_slack.png"
+                         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+                </a>
+            </p>
+
+            <p>
+                <b>ScoreFlow</b> delivers high-speed lead qualification directly in Slack helping you take advantage of
+                the <a target="_new" href="http://www.leadresponsemanagement.org/lrm_study">5-minute window</a>.
+            </p>
+            <a target="_new" href="https://www.slideshare.net/ShellBlack/best-practices-for-managing-inside-sales-with-salesforcecom/5">
+            <img src="/img/scoreflow/infographic.png" align="right" class="infographic">
+            </a>
+
+            <p>
+                Each time a new lead is registered in your CRM system, ScoreFlow orchestrates the
+                process, showing relevant CRM data and the option to enrich it with
+                data from other systems.
+            </p>
+            <p>Integrating sales and marketing data directly in Slack facilitates
+                quick lead qualification and uptake. Sales reps claim leads and take ownership instantly, while sales
+                managers stay up-to-date through their respective sales channels.
+                Importantly, managers are alerted to take action, and can intervene
+                when self-selection isn't made within the designated time frame.
+            </p>
+
+            <p>
+                Built using Intwixt’s <b>Conversational Automation Platform (CAP)</b>, ScoreFlow accelerates lead
+                qualification using a combination of AI and NLP (Natural Language Processing).
+                By continually learning from each closed deal, ScoreFlow makes increasingly accurate predictions,
+                recommending the best-suited sales rep to take ownership of incoming leads.
+            </p>
+
+            <p>Every organization is unique. Those enterprises needing even greater customization
+                can leverage Intwixt's modular, pluggable platform to re-configure ScoreFlow to match their
+                specific company needs. With our model-driven, no-code, visual approach, even business users can customize
+                the experience to meet exacting needs.
+            </p>
+
+            <p class="mt-5">
+                <i>
+                    <i class="fas fa-info-circle"></i> This version of ScoreFlow is configured for HubSpot CRM
+                    and the data enrichment and engagement system, Intercom (optional). Please contact
+                    us to discuss other options.
+                <span style="display: inline-block;padding-left:30px;">
+                     <a href="mailto:contact@intwixt.com"><i class="far fa-envelope"></i> contact@intwixt.com</a>
+                    </span>
+                <span style="display: inline-block;padding-left:30px;">
+                     <a href="tel:650-209-4216"><i class="fas fa-phone"></i> 650-209-4216</a>
+                    </span>
+                </i>
+            </p>
+
+            <div id="emulator" class="row examples-grid-columns" style="padding-top:120px;">
+                <div class="col-sm-8 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
+                    <h1 class="small-factor">Watch the Demo</h1>
+                    <div class="solution-emulator">
+                        <my-solution-emulator id="scoreflow" v-cloak></my-solution-emulator>
+                    </div>
+                </div>
+                <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
+                    <h1 class="large-factor">Watch the Demo</h1>
+                    <p> Deliver <b>AI-enabled</b> customer journeys that keep your sales teams productive and your sales
+                        managers informed. Merge sales information directly in Slack from CRM systems like HubSpot and
+                        data enrichment systems like Intercom. With <b>artificial intelligence (AI)</b> baked-in,
+                        gain insight into people and processes you might otherwise overlook.</p>
+                    <div class="circles">
+                        <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
+                        <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
+                        <span class="circle" data-name="(Ben)" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
+                        <!-- span class="circle" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span -->
+                        <span class="circle" title="Intercom"><img src="/img/connectors/Intercom_96.png"></span>
+                        <span class="circle" data-name="(AI / ML)" title="Aito.ai"><img src="https://my.intwixt.com/stars/Aito.1/image_96"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 id="getting_started" style="margin-top:60px;padding-top:80px;">Getting Started</h2>
+            <p>ScoreFlow organizes users according to the following 5 roles: <b>Installer, Administrator, Sales Rep, Sales Manager and Owner.</b></p>
+
+            <h4 id="installer"><i class="fas fa-user-cog"></i> Installer</h4>
+            <p>The installer is the individual who installs ScoreFlow to the Slack workspace. This must be a team member
+                who is authorized to install Slack apps. Click the
+            <b>Add to Slack</b> button if you wish to serve in this role.</p>
+
+            <p class="button-bar">
+                <a target="_new"
+                   href="https://slack.com/oauth/authorize?client_id=397209179749.774464799541&scope=bot%20commands%20channels%3Aread%20chat%3Awrite%3Abot%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX19tIZuyXON%2BMJpJx4f%2BeECgDD2YQJnlidvvEami5N1duqXqZLxW743puaiC7aN0KN9NjNOLzThVv%2BxJqK5LXIeoKRHcisTnY5VvmOdqiZ64TBQuAdsjSDlwHk7XUtTFFMzun6U7yaaMI2X1wraw49hMv%2FeNCXBzRUg%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">
+                    <img alt="add to slack"
+                         height="40"
+                         width="139"
+                         src="https://platform.slack-edge.com/img/add_to_slack.png"
+                         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+                </a>
+            </p>
+
+            <h4 id="administrator"><i class="fas fa-user-edit"></i> Administrator</h4>
+            <p>
+                Administrators are responsible for configuring ScoreFlow. Administrators can add and remove other administrators.
+            </p>
+
+            <p>
+                A key aspect of the administrator role is granting access to the team's CRM and data enrichment
+                accounts, allowing ScoreFlow to monitor key events and make updates on their behalf.
+                Administrators are also responsible for designating which Slack channels should be used for sales
+                reps and sales managers when routing incoming leads and escalating unclaimed leads.
+            </p>
+
+            <h4 id="end-user"><i class="fas fa-user"></i> Sales Reps</h4>
+            <p>Sales reps are those team members responsible for claiming and taking ownership of new leads.
+                They must belong to the Slack channel designated by the administrator for handling new leads.
+                When new leads are generated without ownership and with association to a company, sales reps
+                are notified to claim them in Slack. Unclaimed leads are escalated to sales managers after
+                the specified time frame has been exceeded.
+            </p>
+
+            <h4 id="reviewer"><i class="fas fa-user-check"></i> Sales Managers</h4>
+            <p>
+                Sales managers are responsible for triaging unclaimed leads. They must belong to the Slack
+                channel designated by the administrator for managing unclaimed leads. Each time a lead is unclaimed,
+                ScoreFlow's AI-backed engine will analyze past interactions and make an initial prediction,
+                recommending the sales rep best suited to take ownership of the new lead. Sales managers may
+                assign the lead to the recommended individual or may override the AI-based recommendation,
+                further training the AI engine to make better predictions in the future.
+            </p>
+
+            <h4 id="owner"><i class="fas fa-user-shield"></i> Owner</h4>
+            <p>The owner is the Slack team member who is responsible for providing payment details if your team chooses to
+                upgrade to a paid plan. There is no need to upgrade if your team receives fewer than 20 new leads each month.
+                Refer to the <a href="scoreflow/pricing">ScoreFlow Pricing</a> page for more information on plans and prices.
+            </p>
+
+            <h2 id="faq" style="padding-top:80px;">FAQ</h2>
+
+            <div class="row content">
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInLeft"
+                     data-wow-delay="0.36s">
+
+                    <h4>How many new leads can I process each month in Slack?</h4>
+                    <p> Your team can process up to 20 new leads each month using ScoreFlow's free
+                        tier. This includes the initial "new lead" event which gets routed to the sales rep
+                        Slack channel. Sales reps may augment the lead directly in Slack, gathering
+                        additional information from data enrichment systems like Intercom (if configured).
+                        To run at scale beyond 20 new leads each month, please visit the
+                        <a href="scoreflow/pricing">ScoreFlow Pricing</a> page or contact us directly.
+                    </p>
+                    <p>
+                        <span style="display: inline-block;">
+                            <a href="mailto:contact@intwixt.com"><i class="far fa-envelope"></i> contact@intwixt.com</a>
+                        </span>
+                        &nbsp;|&nbsp;
+                        <span style="display: inline-block;">
+                            <a href="tel:650-209-4216"><i class="fas fa-phone"></i> 650-209-4216</a>
+                        </span>
+                    </p>
+
+                    <h4> How much does it cost to upgrade if I need more resources?</h4>
+                    <p>
+                        Teams are assigned to the free <b>Intro Plan</b> when ScoreFlow is first installed to their Slack
+                        workspace. If you need to run more flows than the 20 granted each month,
+                        you can upgrade to one of our paid plans. The <b>Standard Plan</b> is priced according to the
+                        number of Slack team members who will need access to ScoreFlow. Check out our
+                        <b>Enterprise Plan</b> if you're interested in your own customized instance, volume pricing, or require
+                        specific support options. Refer to the <a href="scoreflow/pricing">ScoreFlow Pricing</a> page for
+                        more detail.
+                    </p>
+                    <p><i>If you're the individual responsible for
+                        software subscriptions in your organization, enter the <code>/scoreflow-admin billing</code>  slash command
+                        to initiate the payment process or update an existing subscription.</i></p>
+
+                    <h4> How many sales reps and sales managers can we have?</h4>
+                    <p> ScoreFlow's free <b>Intro Plan</b> allows unlimited reps and managers. We limit usage
+                        on the Intro Plan by limiting the total number of new leads that can be processed by
+                        your team in any given month (20).
+                    </p>
+                    <p>
+                        The paid <b>Standard Plan</b> is priced according to the number of sales reps and sales managers
+                        you'd like to use ScoreFlow. If you'd like to have 8 reps and 2 managers, then you'll be billed
+                        for 10 total users. There is no limit to the number of new leads you can process each month once
+                        you upgrade to a paid plan. If you need custom pricing or wish to know more, please refer to the
+                        <a href="scoreflow/pricing">ScoreFlow Pricing</a> page.
+                    </p>
+
+
+                    <h4>Is an Intercom account required to use ScoreFlow?</h4>
+                    <p> When ScoreFlow is first installed, we prompt you to choose whether or not to include a data
+                        enrichment system (Intercom). If you enable this setting, we'll add an additional field to
+                        each incoming lead, enabling you to enrich its content. If you choose to suppress this setting,
+                        this feature will be hidden from view and all data enrichment brought into Slack will come solely
+                        from HubSpot. If you need additional customization, please reach out to contact@intwixt.com,
+                        and let us help you design a solution that matches how you work.
+                    </p>
+
+                    <h4>Is a HubSpot account required to use ScoreFlow?</h4>
+                    <p> ScoreFlow is built atop Intwixt, a modular, no-code process automation platform. While ScoreFlow
+                        is configured by default to connect with the CRM system, HubSpot, it can be connected to any
+                        CRM system. Please reach out to contact@intwixt.com, and let us help you design a solution that
+                        includes your particular CRM.
+                    </p>
+
+
+                    <h4> Do you share information with outside parties?</h4>
+                    <p> No, never, and not at all. It’s our intent to efficiently orchestrate incoming leads,
+                        call the necessary CRM and other system APIs, and then delete all traces of the transaction from our
+                        servers once the process completes. Our company (Intwixt) designs business process apps that run atop Slack.
+                        We built ScoreFlow to showcase our abilities as a general orchestration platform. We hope you love ScoreFlow, but
+                        we really hope you love Intwixt!
+                    </p>
+
+                </div>
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
+                     data-wow-delay="0.36s">
+
+                    <h4>Does HubSpot require additional configuration to work with ScoreFlow?</h4>
+                    <p> ScoreFlow requires your authorization to connect your team's HubSpot instance and will
+                        prompt you to grant access when first installed. Once authorization
+                        is granted, ScoreFlow can listen to key events and take action as necessary on your behalf.
+                        This is typically all that is required to handle all interactions from Slack.
+                        Here are a few recommendations we also find useful.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Contacts Need a Company</b> |
+                        ScoreFlow is designed to show detailed company
+                        information when it routes new, unclaimed leads to Slack. To ensure your leads expose the necessary
+                        information, remember to enable the setting, <b>Automatically create and associate companies
+                        with contacts</b>. This setting is located under the HubSpot settings category,
+                        <b>Contacts & Companies</b>, and helps lead qualification by providing detailed profile
+                        information directly in Slack.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Ownership Drives the Process</b> |
+                        ScoreFlow will only route new leads to Slack if they do not
+                        have an owner and can be associated with a company.
+                        This is also true for existing leads. If an existing lead does not have an owner
+                        and the <b>Lifecycle Stage</b> is changed, it too will be routed to Slack.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Duplicates Sometimes Happen</b> |
+                        ScoreFlow automatically routes unclaimed HubSpot leads to Slack. Unfortunately, HubSpot can
+                        sometimes send duplicate events resulting in the same lead being listed multiple times in Slack.
+                        We find it helps to de-dupe data before bulk uploading to HubSpot, but duplicates can still
+                        happen. ScoreFlow will do its best to handle these situations by alerting you when sales
+                        reps claim a lead that already has an owner or when managers assign a lead that likewise
+                        has an owner. As a matter of policy, ScoreFlow will never change the owner
+                        for a lead that already has an owner.
+                    </p>
+
+                    <p>
+                        <b style="font-variant: small-caps;font-style: italic;">Channel Membership Drives Assignments</b> |
+                        When sales managers attempt to assign an unclaimed lead, the list of possible sales reps who
+                        may be assigned is driven solely by who is a member of the Slack sales rep channel. <i>Only those
+                        Slack team members who are a member of the sales rep channel can be assigned a lead.</i> Further,
+                        even if a user is a member of the sales rep Slack channel, the assignment may still fail if the
+                        user's HubSpot email does not match their Slack email. When this happens, ScoreFlow will alert
+                        both the sales manager and the sales rep to update the HubSpot email to match the one used
+                        by Slack.
+                    </p>
+
+                    <h4> What private information do you keep on your servers?</h4>
+                    <p> We save the Slack Team ID and the Slack user ID for the ScoreFlow administrator(s) and the ScoreFlow
+                        installer. We also track the number of approval flows run each month in aggregate by your team.
+                        For paid accounts we track the Slack ID for the owner along with the Slack ID for all
+                        users approved to use ScoreFlow. As an orchestration platform, we temporarily store the data
+                        that is transported through our system; however, all process data is fully scrubbed
+                        from our servers within 30 minutes of a new lead being claimed or assigned.
+                    </p>
+
+                    <p>
+                        Our integrated AI service (used to predict which sales rep is the best match to own a new lead)
+                        is trained each time a deal successfully closes. Training includes facets such as industry,
+                        region, company size, etc. The more facets used to train the AI,
+                        the more accurate the prediction. These facets are determined in part by what is provided by
+                        your team's connected CRM account.
+                    </p>
+
+                    <h4> How do I uninstall ScoreFlow?</h4>
+                    <p>ScoreFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                        Once you uninstall the ScoreFlow app according to Slack's instructions, we will fully
+                        remove all information associated with your team and workspace, including your authorization to
+                        access your CRM system (HubSpot) and data enrichment system (Intercom).
+                    </p>
+
+                </div>
+            </div>
+
+            <h2 id="commands" style="padding-top:80px">Slash Commands</h2>
+            <div>
+                <h4 class="command">Configure ScoreFlow*</h4>
+                <code>/scoreflow-admin setup</code>
+                <p>Authorize access to the target CRM (HubSpot) and optional data enrichment system (Intercom);
+                    choose Slack directories for sales managers and sales reps; and configure new lead escalation times.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Reset ScoreFlow*</h4>
+                <code>/scoreflow-admin reset</code>
+                <p>Remove all configuration including authorization grants to access third-party systems. These system
+                    include the target CRM (HubSpot) and supporting data enrichment system if enabled (Intercom).
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Set Escalation Timeout*</h4>
+                <code>/scoreflow-admin set-timeout</code>
+                <p>Sets how long to wait before escalating unclaimed leads to the sales manager Slack channel.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Add ScoreFlow Admin*</h4>
+                <code>/scoreflow-admin add-admin</code>
+                <p>Add a ScoreFlow administrator.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Remove ScoreFlow Admin*</h4>
+                <code>/scoreflow-admin remove-admin</code>
+                <p>Remove a ScoreFlow administrator.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Manage Payment**</h4>
+                <code>/scoreflow-admin billing</code>
+                <p>ScoreFlow is free to use and grants a limited set of free resources each month. If you need to run at scale,
+                    a member of your team (the ScoreFlow owner) can choose to provide payment information. The owner can also
+                    use this slash command to change subscription details (e.g, the number of users) and update payment
+                    information (e.g., update card details).
+                </p>
+            </div>
+
+            <div>
+                <h4 class="command">Get Recent Unassigned Leads</h4>
+                <code>/scoreflow leads</code>
+                <p>ScoreFlow routes new, unclaimed leads directly to Slack, keeping sales reps and sales managers notified
+                    in real-time. This <i>push-based</i> approach works well most of the time. But there are times when
+                    users need to <i>pull</i> the latest information. When a stream of new leads are sent to Slack
+                    when the sales rep is out-of-pocket, it can be difficult to get a clear accounting of the most
+                    recent leads. Members of the sales rep or sales manager Slack channels may issue this command to
+                    view a paginated list of the most recent leads. Reps may claim leads while managers may assign them.
+                </p>
+                <img style='width:100%;max-width:600px;' src='/img/scoreflow/pull_based.png'>
+            </div>
+
+            <div>
+                <h4 class="command">ScoreFlow Help</h4>
+                <code>/scoreflow help</code>
+                <p>Get help for using ScoreFlow. Directs the user to this Web page.</p>
+            </div>
+
+            <div>
+                <h4 class="command">ScoreFlow Feedback</h4>
+                <code>/scoreflow feedback</code>
+                <p>Share your thoughts and tell us about the features you'd like to see in future releases.</p>
+            </div>
+
+            <div>
+                <h4 class="command">List ScoreFlow Admins</h4>
+                <code>/scoreflow list-admins</code>
+                <p>Show the list of team members allowed to configure and setup ScoreFlow. Anyone belonging to this
+                list may add and remove other administrators.</p>
+            </div>
+
+
+            <div style="margin-top:30px;"><i>*This command is only available to ScoreFlow administrators.</i></div>
+            <div><i>**This command is only available to the ScoreFlow owner.</i></div>
+
+
+            <h2 id="phrases" style="padding-top:80px">NLP (Plain Text) Commands</h2>
+            <p>Ask questions about HubSpot customers and leads directly in Slack.<!--  Optionally organize queries by region. --></p>
+
+            <div class="nlp_group">
+                <h4>
+                    Audit new leads:
+                </h4>
+                <code>How many new leads came in {today | this week | this month<!--  | this quarter -->}?</code>
+                <h4>
+                    Get recent unassigned leads:
+                </h4>
+                <code>Show unassigned leads.</code>
+                <!-- br>
+                <code>How many new leads came in from {EMEA} {today | this week | this month | this quarter}?</code>
+
+            </div>
+
+            <div class="nlp_group">
+                <h4>
+                    Audit untouched leads:
+                </h4>
+                <code>Which leads have not been touched {today | this week | this month | this quarter}?</code>
+                <br>
+                <code>Which {US} leads have not been touched {today | this week | this month | this quarter}?</code>
+            </div>
+
+
+            <div class="nlp_group">
+                <h4>
+                    Audit activity for a specific customer:
+                </h4>
+                <code>When was the last activity with {INTEL}?</code>
+            </div -->
+
+
+
+            <h2 id="actions" style="margin-top:40px;padding-top:40px">Other Activities</h2>
+            <div>
+                <h4 class="command">Uninstall ScoreFlow</h4>
+                <p>ScoreFlow subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                    Once you uninstall the ScoreFlow app according to Slack's instructions, we will fully
+                    remove all information associated with your team and workspace</p>
+            </div>
+
+            <p class="button-bar" style="text-align: center;margin:60px 0;">
+
+                <a target="_new"
+                   href="https://slack.com/oauth/authorize?client_id=397209179749.774464799541&scope=bot%20commands%20channels%3Aread%20chat%3Awrite%3Abot%20users%3Aread%20users%3Aread.email&state=U2FsdGVkX19tIZuyXON%2BMJpJx4f%2BeECgDD2YQJnlidvvEami5N1duqXqZLxW743puaiC7aN0KN9NjNOLzThVv%2BxJqK5LXIeoKRHcisTnY5VvmOdqiZ64TBQuAdsjSDlwHk7XUtTFFMzun6U7yaaMI2X1wraw49hMv%2FeNCXBzRUg%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">
+                    <img alt="add to slack"
+                         height="80"
+                         width="278"
+                         src="https://platform.slack-edge.com/img/add_to_slack.png"
+                         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+                </a>
+            </p>
+
+
+
+        </div>
+    </div> <!-- end example -->
+
+
+    <!-- ==========================================================================================================
+                                               SECTION 7 - SUB FOOTER
+    ========================================================================================================== -->
+
+    <footer class="footer-outer">
+        <div class="container footer-inner">
+            <span class="border-bottom-footer"></span>
+            <div>
+                <nav class="footer-nav">
+                    <ul class="nav-items secondary-nav wow fadeIn animated" data-wow-delay="0.66s">
+                        <a href="https://intwixt.readme.io/discuss">
+                            <li>Forums</li>
+                        </a>
+                        <a href="/privacy">
+                            <li>Privacy Policy</li>
+                        </a>
+                        <a href="/terms">
+                            <li>Terms and Conditions</li>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+            <p class="copyright">&copy; 2019 Intwixt, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+</div> <!-- main page wrapper end content -->
+
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/emulator/stories/scoreflow.js"></script>
+<script src="/emulator/js/emulator.js"></script>
+<script src="/emulator/js/canvas.js"></script>
+<script src="/js/main.js"></script>
+<script>
+  emulate("scoreflow", "#scoreflow", scoreflow);
+</script>
+</body>
+</html>
