@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- copyright 2019 Intwixt, Inc. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intwixt Scoreflow | Pricing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Run Box.com approval flows in Slack"/>
+    <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
+    <meta name="author" content="contact@intwixt.com"/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="/emulator/css/slack.css">
+
+    <!-- Analytics -->
+    <script>(function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-72994520-1', 'auto');
+    ga('send', 'pageview');</script>
+    <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
+</head>
+<body id="home">
+
+<div id="page-wrap">
+
+
+    <!-- ==========================================================================================================
+                                                       HERO
+         ========================================================================================================== -->
+
+    <div id="fh5co-hero-wrapper" style="height:auto;margin-bottom:100px;">
+        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top">
+            <a class="navbar-brand" href="/">Intwixt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/solutions/scoreflow">Scoreflow Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/solutions/scoreflow#faq">Scoreflow FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> <!-- first section wrapper -->
+
+
+    <!-- ==========================================================================================================
+                                 PRICING / ORDERING
+         ========================================================================================================== -->
+
+    <div id="solutions" class="examples-outer">
+        <div class="container solution plans scoreflow">
+
+            <img src="/img/scoreflow.png" align="left" class="logo">
+
+            <h1 class="title">Scoreflow Pricing</h1>
+
+            <p class="pb-2">
+                Teams are assigned to the free <b>Intro Plan</b> when Scoreflow is first
+                installed to their Slack workspace. Upgrade to a paid plan to run at scale.
+            </p><p>
+                The <b>Standard Plan</b> is priced according to the total number of Sales Reps and Sales
+                Managers who will use Scoreflow within Slack. Ask us about our <b>Enterprise Plan</b> if you're
+                interested in your own customized instance, volume pricing, or require specific support options.
+                Or simply procure your own <a href="https://www.intwixt.com/plans">Intwixt platform license</a>
+                with unlimited possibilities to modify and/or create your own solutions.
+            </p>
+
+            <!---- PLANS GROUP OF 3 -->
+
+            <div class="container">
+                <div class="card-deck mt-5 mb-3 text-center">
+                    <div class="card mb-5 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Intro Plan</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title plans-card-title" style="font-size: 1.75em;">Free</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>20 Deals / Month / Team</li>
+                                <li>1 Admin</li>
+                                <li>Public Support Forums</li>
+                            </ul>
+                            <div class="button-wrap">
+                                <button type="button"
+                                        disabled="disabled"
+                                        id="default"
+                                        class="btn btn-lg btn-block btn-outline-primary">Default
+                                </button>
+                            </div>
+                            <div class="calculate semi-transparent"></div>
+                        </div>
+                    </div>
+                    <div class="card mb-5 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Standard Plan</h4>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <h1 class="card-title plans-card-title" style="font-size: 1.75em;">$5 / Month / User</h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>Unlimited Deals / Month / User</li>
+                                    <li>Unlimited Admins</li>
+                                    <li>Public Support Forums</li>
+                                </ul>
+                                <div class="button-wrap">
+                                    <button type="button"
+                                            onclick="$('.calculate').addClass('active');calculate();"
+                                            class="btn btn-lg btn-block btn-primary">Calculate Price
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="calculate" class="calculate">
+                                <div class="close" onclick="$('.calculate').removeClass('active');">x</div>
+                                <h3>Calculate Price</h3>
+                                <label for="quantity">Number of reps and managers</label>
+                                <input id="quantity" class="form-control" value="1" placeholder="Enter Quantity">
+                                <label for="annually" class="annually"><input id="annually" type="checkbox"> Pay
+                                    Annually for a
+                                    20% discount</label>
+                                <hr>
+                                <div id="total">Total: $5.00 / Month</div>
+                                <div class="button-wrap">
+                                    <button type="button"
+                                            id="submit"
+                                            class="btn btn-lg btn-block btn-primary">Purchase
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-5 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Enterprise</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title plans-card-title" style="font-size: 1.75em;">Call Us</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Unlimited Deals / Month / User</li>
+                                <li>Unlimited Admins</li>
+                                <li>ELA Support Options</li>
+                                <li><b>Custom modifications*</b></li>
+                            </ul>
+                            <div class="button-wrap">
+                                <button type="button"
+                                        onclick="$('#contact').goTo('contact');return false;"
+                                        class="btn btn-lg btn-block btn-primary">Contact us
+                                </button>
+                            </div>
+                            <div class="calculate semi-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mt-5">
+                <hr>
+                <!-- img align="left"
+                     class="modular fadeInLeft animated" data-wow-delay="0.66s"
+                     src='/img/scoreflow/modularity.png' -->
+                <p>*Scoreflow is easy to configure. But every organization is unique, sometimes requiring
+                    functionality beyond what is offered out-of-the-box.
+                    Fortunately, Scoreflow built using Intwixt’s <b>Conversational Automation Platform</b> (CAP).
+                    Our no-code, visual approach delivers unmatched modularity. Tell us about your specific needs and
+                    we can design a custom solution to match.</p>
+            </div>
+        </div>
+
+
+    </div> <!-- end example -->
+
+
+    <!-- ==========================================================================================================
+                                                 CALL TO ACTION
+    ========================================================================================================== -->
+
+    <div id="contact" class="fh5co-bottom-outer">
+        <div class="overlay">
+            <div class="container fh5co-bottom-inner">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-7 call-to-action">
+                        <h1>Want to learn more?</h1>
+                        <p>Run conversational business processes backed by our AI-enabled process engine.</p>
+                        <div class="links">
+                            <div>
+                                <i class="far fa-envelope"></i> <a
+                                    href="mailto:contact@intwixt.com">contact@intwixt.com</a>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i> <a href="tel:650-209-4216">650-209-4216</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-5">
+                        <div class="benefits">
+                            <div class="rotate anim1">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/efficiency.png"
+                                             alt="Efficient">
+                                        <div>Efficiency</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rotate anim2">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/transparency.png"
+                                             alt="Transparent">
+                                        <div>Transparency</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rotate anim3">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/usability.png"
+                                             alt="Usable">
+                                        <div>Usability</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rotate anim4">
+                                <div class="counterrotate">
+                                    <div class="inner">
+                                        <img class="icon-filter-white" src="/img/benefits/extensibility.png"
+                                             alt="Extensible">
+                                        <div>Extensibility</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================================================
+                                               SECTION 7 - SUB FOOTER
+    ========================================================================================================== -->
+
+    <footer class="footer-outer">
+        <div class="container footer-inner">
+            <span class="border-bottom-footer"></span>
+            <div>
+                <nav class="footer-nav">
+                    <ul class="nav-items secondary-nav wow fadeIn animated" data-wow-delay="0.66s">
+                        <a href="https://intwixt.readme.io/discuss">
+                            <li>Forums</li>
+                        </a>
+                        <a href="/privacy">
+                            <li>Privacy Policy</li>
+                        </a>
+                        <a href="/terms">
+                            <li>Terms and Conditions</li>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+            <p class="copyright">&copy; 2019 Intwixt, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+</div> <!-- main page wrapper end content -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+
+  //price calculator
+  var qty = $("#quantity");
+  var ann = $("#annually");
+  var quantity, is_annual;
+
+  /**
+   * called when the price calculator fields are modified by the user; stores/renders the latest values to use when
+   * a purchase is made
+   */
+  function calculate() {
+    var unit_price = 5;
+    var annual_discount_rate = .8;
+    quantity = qty.val();
+    if (isNaN(quantity)) {
+      quantity = 1;
+      qty.val(quantity);
+    }
+    is_annual = ann.is(':checked');
+    var amount = is_annual ? (unit_price * annual_discount_rate * quantity * 12) : unit_price * quantity;
+    $("#total").html("Total: $" + Math.abs(amount).toLocaleString('en') + ".00" + (is_annual ? " / Year" : " / Month"));
+  }
+
+  //bind on-change events to form controls
+  qty.on("change keyup paste", function () {
+    calculate();
+  });
+  ann.change(function () {
+    calculate();
+  });
+
+
+  // the pricing page is typically opened from Slack, and includes encoded profile information about the user's identity
+  // (if not present, check the cookie for a cached instance)
+  var dealflow_slack_profile, session_profile, is_redirect;
+  if (window.location.hash) {
+    //when a profile is passed, it is coming directly from Slack OR is the final leg of a Slack authorization flow
+    is_redirect = true;
+    dealflow_slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
+    window.location.hash = "";
+    var noHashURL = window.location.href.replace(/#.*$/, '');
+    window.history.replaceState('', document.title, noHashURL);
+  } else {
+    //disabled for now...don't get the cached cookie; force a login every time
+    dealflow_slack_profile = "";//getCookie("dealflow_slack_profile");
+  }
+  console.log(dealflow_slack_profile);
+  if (dealflow_slack_profile && dealflow_slack_profile.indexOf("{") === 0) {
+    session_profile = JSON.parse(dealflow_slack_profile);
+    if(session_profile && session_profile.user_id && session_profile.team_id && session_profile.session_id) {
+      setCookie("dealflow_slack_profile", dealflow_slack_profile, 365);
+    }
+    //verify that this is a full redirect to the billing page (only happens when quantity and cycle are present)
+    is_redirect = is_redirect && session_profile && session_profile.quantity && session_profile.cycle;
+  } else if (dealflow_slack_profile) {
+    eraseCookie("dealflow_slack_profile");
+  }
+  if(is_redirect) {
+    create_checkout_session(session_profile.quantity, session_profile.cycle === "annually", session_profile);
+  } else {
+    $("#submit").on("click", function () {
+      create_checkout_session(quantity, is_annual, session_profile);
+    });
+  }
+
+
+
+  /**
+   * create the checkout session (make call to ixt process providing the user's slack identity)
+   * @param quantity {number} number of seats (submitters)
+   * @param is_annual {boolean} if cycle is boolean
+   * @param profile {object|null} user Slack profile returned/cached during last login
+   * @param [profile.user_id] {string}
+   * @param [profile.team_id] {string}
+   * @param [profile.session_id] {string}
+   */
+  function create_checkout_session(quantity, is_annual, profile) {
+    var base_url;
+    var cycle = is_annual ? "annually" : "monthly";
+    if (!(quantity && profile && profile.user_id && profile.team_id && profile.session_id)) {
+      // 1) resolve the user's Slack identity, so we can link their payment to the slack team's workspace
+      base_url = "https://acmesales-0.apis.intwixt.com/api/v2/slack/authorization/target";
+      var qs = "?quantity=" + quantity + "&cycle=" + cycle;
+      $.get(base_url + qs).done(function (data) {
+        console.log("success!!");
+        console.log(data);
+        //begin the oauth flow; when it completes, the user will be redirected to this page, along with identity details
+        window.location.href = data.url;
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        //note: should only occur if a server failure/system error (redirect never occurs without user authorization)
+      });
+    } else {
+      // 2) generate a 'session_id' by providing the user's identity to the intwixt checkout_session service
+      base_url = "https://acmesales-0.apis.intwixt.com/api/v2/checkout_session";
+      var data = {
+        quantity: quantity,
+        cycle: cycle,
+        user_id: profile.user_id,
+        team_id: profile.team_id,
+        session_id: profile.session_id
+      };
+      $.post(base_url, data).done(function (data) {
+        console.log("session_id: " + data.id);
+        // 3) redirect to stripe, passing the session_id;
+        // when the process completes successfully, stripe will redirect the user to the confirmation page
+        Stripe(data.stripe_public_key).redirectToCheckout({
+          sessionId: data.id
+        }).then(function (result) {
+          console.log(result);
+          console.log(result.error);
+        });
+      }).fail(function (data) {
+        console.log("fail!!");
+        console.log(data);
+        if(Number(data.status) === 501) {
+          alert("Your team already has a paid subscription to Scoreflow. Modifications can be made by entering `/scoreflow-admin billing` within Slack.");
+        } else if(Number(data.status) === 404) {
+          alert("Your team has not yet installed Scoreflow. Please click the `Add to Slack` button on the Scoreflow home page.");
+          window.location.href = "/solutions/scoreflow";
+        }
+      });
+    }
+  }
+
+</script>
+</body>
+</html>

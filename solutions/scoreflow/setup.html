@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- copyright 2019 Intwixt, Inc. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intwixt Scoreflow | Setup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Run Box.com approval flows in Slack"/>
+    <meta name="keywords" content="Update Credit Card Info"/>
+    <meta name="author" content="contact@intwixt.com"/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="/emulator/css/slack.css">
+</head>
+<body id="home">
+
+<div id="page-wrap">
+
+
+    <!-- ==========================================================================================================
+                                                       HERO
+         ========================================================================================================== -->
+
+    <div id="fh5co-hero-wrapper" style="height:auto;margin-bottom:100px;">
+        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top">
+            <a class="navbar-brand" href="/">Intwixt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/solutions/scoreflow">Scoreflow Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/solutions/scoreflow#faq">Scoreflow FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> <!-- first section wrapper -->
+
+    <div id="solutions" class="examples-outer">
+        <div class="container solution plans scoreflow">
+
+            <div class="pt-1" style="clear: both;min-height: 50vh;">
+                <p style="text-align: center;">
+                    Redirecting to Stripe...please wait.
+                </p>
+                <p></p>
+            </div>
+        </div>
+
+
+    </div> <!-- end example -->
+</div> <!-- main page wrapper end content -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+
+  // the pricing page is typically opened from Slack, and includes encoded profile information about the user's identity
+  // (if not present, check the cookie for a cached instance)
+  var dealflow_slack_profile, session_profile;
+  if (window.location.hash) {
+    //when a profile is passed, it is coming directly from Slack OR is the final leg of a Slack authorization flow
+    dealflow_slack_profile = window.decodeURIComponent(window.location.hash.substr(1));
+    window.location.hash = "";
+    var noHashURL = window.location.href.replace(/#.*$/, '');
+    window.history.replaceState('', document.title, noHashURL);
+  } else {
+    window.location.href = "/solutions/scoreflow";
+  }
+  console.log(dealflow_slack_profile);
+  if (dealflow_slack_profile && dealflow_slack_profile.indexOf("{") === 0) {
+    try {
+      session_profile = JSON.parse(dealflow_slack_profile);
+    } catch(e) {
+      console.log("Error parsing checkout session hash:");
+      console.log(e);
+      window.location.href = "/solutions/scoreflow";
+    }
+    //if valid profile, redirect to slack to collect credit card info
+    if(session_profile.stripe_public_key && session_profile.session_id) {
+      Stripe(session_profile.stripe_public_key).redirectToCheckout({
+        sessionId: session_profile.session_id
+      }).then(function (result) {
+        console.log(result);
+        console.log(result.error);
+      });
+    } else {
+      window.location.href = "/solutions/scoreflow";
+    }
+  }
+
+
+</script>
+</body>
+</html>
