@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!-- copyright 2019 Intwixt, Inc. All rights reserved. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intwixt CleverSheets | User Guide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Run Box.com approval flows in Slack"/>
+    <meta name="keywords" content="Box.com, document workflow, approval flows, Slack"/>
+    <meta name="author" content="contact@intwixt.com"/>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.css">
+    <!-- Orbit.css -->
+    <link rel="stylesheet" href="/css/orbit.css">
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Slack Emulator styles  -->
+    <link rel="stylesheet" href="/emulator/css/slack.css">
+
+    <!-- Analytics -->
+    <script>(function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-72994520-1', 'auto');
+    ga('send', 'pageview');</script>
+    <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
+</head>
+<body id="home">
+
+<div id="page-wrap">
+
+
+    <!-- ==========================================================================================================
+                                                       HERO
+         ========================================================================================================== -->
+
+    <div id="fh5co-hero-wrapper" style="height:auto;margin-bottom:100px;">
+        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top" xstyle="background-color: #db6700 !important;">
+            <a class="navbar-brand" href="/">Intwixt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq" onclick="$('#faq').goTo('faq');">CleverSheets FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#commands" onclick="$('#commands').goTo('commands');">CleverSheets Commands</a>
+                    </li>
+                    <!-- li class="nav-item">
+                        <a class="nav-link" href="cleversheets/pricing">
+                            CleverSheets Pricing
+                        </a>
+                    </li -->
+                </ul>
+            </div>
+        </nav>
+    </div> <!-- first section wrapper -->
+
+
+    <!-- ==========================================================================================================
+                                 USE CASE / EXAMPLE
+         ========================================================================================================== -->
+
+    <div id="solutions" class="examples-outer">
+        <div class="container solution">
+
+            <img src="/img/cleversheets.png" align="left" class="logo">
+
+            <h1 class="title">Intwixt CleverSheets</h1>
+
+            <p class="button-bar">
+                <a target="_new"
+                   href="https://slack.com/oauth/authorize?client_id=397209179749.966442490595&scope=chat%3Awrite%3Abot%2C%20groups%3Ahistory%2C%20groups%3Awrite%2C%20bot%2C%20im%3Awrite%2C%20commands%2C%20users%3Aread%2C%20users%3Aread.email%2C%20users.profile%3Aread&state=U2FsdGVkX1%2Fx5UAz4ceXZGnGvZ0U5lAUETxMgRfAVyy5FryK7OiiSkHQGjSHownqfnggZyVQ3TxTRah2lDwayeDjL3W0TcgkXtKPgoaveF%2FG%2FfOaFozGa7rsSAMa040Av5cKeZWN45D9yWiGb5NO%2F9brF2DCevI6GFFN64nar%2F4%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">
+                    <img alt="add to slack"
+                         height="40"
+                         width="139"
+                         src="https://platform.slack-edge.com/img/add_to_slack.png"
+                         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+                </a>
+            </p>
+
+            <p>
+                <b>CleverSheets</b> adds the power of AI to any spreadsheet, helping you resolve missing data,
+                efficiently and accurately. Get started by installing the Slack app and uploading a Google Sheets
+                document. (<i>Excel is soon to follow!</i>)
+            </p>
+            <p>
+                Once we receive your spreadsheet, we'll ask you a few questions,
+                including which worksheet to target and which columns to scan for missing values. If we find an
+                empty cell, we'll use our AI-backed service to predict the most likely value based upon existing
+                spreadsheet data. <i>The larger your spreadsheet, the more accurate the prediction.</i>
+            </p>
+            <p>
+                You can configure the confidence level for the AI engine, establishing a minimum
+                threshold for making a predictions and inserting values. In cases where
+                we're unsure, we'll Slack you a message, asking you to provide a value or leave it empty.
+                Importantly, each time you respond, we'll train our AI engine,
+                ensuring increasingly-accurate future predictions.
+            </p>
+            <p>
+                Experience the power of AI without costly setup or training!
+            </p>
+
+
+            <div id="emulator" class="row examples-grid-columns" style="padding-top:120px;">
+                <div class="col-sm-8 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
+                    <h1 class="small-factor">How it works</h1>
+                    <!-- div class="solution-emulator">
+                        <my-solution-emulator id="cleversheets" v-cloak></my-solution-emulator>
+                    </div -->
+                </div>
+                <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
+                    <h1 class="large-factor">How it works</h1>
+                    <p> CleverSheets delivers the power of AI without complicated or costly setup. Upload a
+                    spreadsheet, configure settings, and answer questions as prompted. We take care of the rest, giving
+                    you instant insight into your data.</p>
+                    <!-- div class="circles">
+                        <span class="circle" title="Slack"><img src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
+                        <span class="circle" title="Box"><img src="https://my.intwixt.com/stars/Box.1/image_96"></span>
+                        <span class="circle" data-name="(Ben)" title="Submitter"><img class="avatar" src="/img/avatars/u1.png"></span>
+                        <span class="circle" data-name="(Sandy)" title="Reviewer 1"><img class="avatar" src="/img/avatars/u2.png"></span>
+                        <span class="circle" data-name="(Radhika)" title="Reviewer 2"><img class="avatar" src="/img/avatars/u3.png"></span>
+                    </div -->
+                </div>
+            </div>
+
+
+            <h2 id="getting_started" style="margin-top:60px;padding-top:80px;">Getting Started</h2>
+            <p>CleverSheets organizes users according to the following 2 roles: <b>Installer and Submitter</b></p>
+
+            <h4 id="installer"><i class="fas fa-user-cog"></i> Installer</h4>
+            <p>The installer is the individual who installs CleverSheets to the Slack workspace. This must be a team member
+                who is authorized to install Slack apps.</p>
+
+            <p class="button-bar">
+                <a target="_new"
+                   href="https://slack.com/oauth/authorize?client_id=397209179749.966442490595&scope=chat%3Awrite%3Abot%2C%20groups%3Ahistory%2C%20groups%3Awrite%2C%20bot%2C%20im%3Awrite%2C%20commands%2C%20users%3Aread%2C%20users%3Aread.email%2C%20users.profile%3Aread&state=U2FsdGVkX1%2Fx5UAz4ceXZGnGvZ0U5lAUETxMgRfAVyy5FryK7OiiSkHQGjSHownqfnggZyVQ3TxTRah2lDwayeDjL3W0TcgkXtKPgoaveF%2FG%2FfOaFozGa7rsSAMa040Av5cKeZWN45D9yWiGb5NO%2F9brF2DCevI6GFFN64nar%2F4%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">
+                    <img alt="add to slack"
+                         height="40"
+                         width="139"
+                         src="https://platform.slack-edge.com/img/add_to_slack.png"
+                         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+                </a>
+            </p>
+
+            <h4 id="end-user"><i class="fas fa-user"></i> Submitter</h4>
+            <p>Submitters are the Slack team members who upload a spreadsheet. Once a submitter uploads a document to the
+                CleverSheets app, they will be prompted to configure some basic information about the spreadsheet,
+            including how confident the AI engine should be when predicting and inserting missing values. We always
+            clone your spreadsheet before making modifications, allowing you to tune, adjust, and re-run predictions.</p>
+
+            <h2 id="faq" style="padding-top:80px;">FAQ</h2>
+
+            <div class="row content">
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInLeft"
+                     data-wow-delay="0.36s">
+
+                    <h4> What is the maximum document size allowed?</h4>
+                    <p> Spreadsheets must be less than 1MB, have no more than 50 columns, and nor more than 100,000 rows.
+                        Please reach out to contact@intwixt.com if you require higher limits.
+                    </p>
+
+                    <h4>How many spreadsheets may I submit?</h4>
+                    <p> CleverSheets is free to use at this time. We do not limit the number of spreadsheets you
+                        may submit and analyze.
+                    </p>
+
+                    <h4>Will you modify my original spreadsheet?</h4>
+                    <p> Any time you upload a spreadsheet, we'll prompt you to specify which worksheet to target. We then
+                        clone the worksheet, leaving the original sheet untouched. As we analyze each row, we update
+                        empty cells in the cloned sheet and leave all other sheets untouched.
+                        At the conclusion of the analysis, your spreadsheet will include one new, cloned sheet
+                        along with all predicted values.
+                    </p>
+
+                    <h4> Can I re-submit a spreadsheet?</h4>
+                    <p> The power of AI is the power to learn. When you go to your Slack app dashboard for CleverSheets,
+                        you'll see a list of spreadsheets you've uploaded in the past. Choose which one to re-run and
+                        optionally update the configuration (e.g., change the confidence level for the AI
+                        prediction engine). We'll clone the source sheet once again and generate a new set of
+                        augmented results. If you added rows or columns to the spreadsheet since it was last parsed,
+                        the AI engine will take advantage of the extra data and provide even better predictions.
+                    </p>
+
+                </div>
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
+                     data-wow-delay="0.36s">
+
+
+                    <h4>Can I limit which columns are modified?</h4>
+                    <p> Yes. Once you upload a spreadsheet and choose the worksheet to target, we clone the
+                        target sheet and perform an initial analysis of its columns. We then show you a Slack
+                        modal with all columns in your cloned worksheet. You can choose to ignore any column listed.
+                        Only those columns you authorize will be updated with predicted values.
+                    </p>
+
+                    <h4> Can I set a minimum confidence threshold?</h4>
+                    <p> You can set a minimum confidence level for the AI engine when it parses your data. For
+                        example, you can specify that the AI engine be at least 80% confident in its prediction before
+                        automatically inserting a value. In situations where it fails to meet the confidence threshold,
+                        you can configure the AI engine to prompt you via Slack to confirm (and even modify) the
+                        predicted value. It will then insert the value and retrain using the new value, leading to better
+                        future predictions.
+                    </p>
+
+                    <h4>How can I tell predicted and existing values apart?</h4>
+                    <p> Each time we insert a value into a cloned sheet, we use different background colors to denote
+                        supplemental information about the value. If it is blue, it means you chose to override
+                        the predicted value. If it is green, the AI was very confident in its answer. Red if not.
+                        Colors that fall between red and green denote a somewhat-confident prediction.
+                    </p>
+
+                </div>
+            </div>
+
+            <h2 id="commands" style="padding-top:80px">Slash Commands</h2>
+            <div>
+                <h4 class="command">Reset Approval Flows*</h4>
+                <code>/cleversheets reset</code>
+                <p>The authorization grant to read and update spreadsheets will be removed. All user account
+                information will be deleted. No other team member will be affected by this command</p>
+            </div>
+
+            <div>
+                <h4 class="command">CleverSheets Help</h4>
+                <code>/cleversheets help</code>
+                <p>Get help for using CleverSheets. Directs the user to this Web page.</p>
+            </div>
+
+            <h2 id="actions" style="margin-top:40px;padding-top:40px">Other Activities</h2>
+            <div>
+                <h4 class="command" id="submit">Submit Document</h4>
+                <p>Upload a google sheet to slack by clicking the paperclip icon near the bottom of the message
+                window. We'll prompt you to choose a spreadsheet and then guide you through the document setup
+                process. Once we get your final input, we'll start predicting values, prompting you as necessary
+                if we aren't confident enough.</p>
+                <h4 class="command" id="resubmit">Resubmit Document</h4>
+                <p>Visit the application dashbaord for CleverSheets for a full list of all spreadsheets you've parsed
+                before. Choose any you wish to reparse. If you've added columns and rows, that's great. Hopefully,
+                the predictions will be even better this time around!</p>
+                <!-- div style='text-align: left;'>
+                    <img style='width:100%;max-width:600px;' src='/img/cleversheets/resubmit.png'>
+                </div -->
+            </div>
+            <div>
+                <h4 class="command">Uninstall CleverSheets</h4>
+                <p>CleverSheets subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                    Once you uninstall the CleverSheets app according to Slack's instructions, we will fully
+                    remove all information associated with your team and workspace.</p>
+            </div>
+
+            <p class="button-bar" style="text-align: center;margin:60px 0;">
+
+                <a target="_new"
+                   href="https://slack.com/oauth/authorize?client_id=397209179749.966442490595&scope=chat%3Awrite%3Abot%2C%20groups%3Ahistory%2C%20groups%3Awrite%2C%20bot%2C%20im%3Awrite%2C%20commands%2C%20users%3Aread%2C%20users%3Aread.email%2C%20users.profile%3Aread&state=U2FsdGVkX1%2Fx5UAz4ceXZGnGvZ0U5lAUETxMgRfAVyy5FryK7OiiSkHQGjSHownqfnggZyVQ3TxTRah2lDwayeDjL3W0TcgkXtKPgoaveF%2FG%2FfOaFozGa7rsSAMa040Av5cKeZWN45D9yWiGb5NO%2F9brF2DCevI6GFFN64nar%2F4%3D&redirect_uri=https%3A%2F%2Fcon1.intwixt.com%3A3006%2Fslack%2Finstall%2Fapp%2Foauth2callback">
+                    <img alt="add to slack"
+                         height="80"
+                         width="278"
+                         src="https://platform.slack-edge.com/img/add_to_slack.png"
+                         srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+                </a>
+            </p>
+
+
+
+        </div>
+    </div> <!-- end example -->
+
+
+    <!-- ==========================================================================================================
+                                               SECTION 7 - SUB FOOTER
+    ========================================================================================================== -->
+
+    <footer class="footer-outer">
+        <div class="container footer-inner">
+            <span class="border-bottom-footer"></span>
+            <div>
+                <nav class="footer-nav">
+                    <ul class="nav-items secondary-nav wow fadeIn animated" data-wow-delay="0.66s">
+                        <a href="https://intwixt.readme.io/discuss">
+                            <li>Forums</li>
+                        </a>
+                        <a href="/privacy">
+                            <li>Privacy Policy</li>
+                        </a>
+                        <a href="/terms">
+                            <li>Terms and Conditions</li>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+            <p class="copyright">&copy; 2019 Intwixt, Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+</div> <!-- main page wrapper end content -->
+
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/emulator/stories/cleversheets.js"></script>
+<script src="/emulator/js/emulator.js"></script>
+<script src="/emulator/js/canvas.js"></script>
+<script src="/js/main.js"></script>
+<script>
+  emulate("cleversheets", "#cleversheets", cleversheets);
+</script>
+</body>
+</html>
