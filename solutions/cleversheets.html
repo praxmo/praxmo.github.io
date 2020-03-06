@@ -134,7 +134,10 @@
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1 class="large-factor">Upload any Spreadsheet</h1>
                     <p> CleverSheets delivers the power of AI without complicated or costly setup. If you have
-                        a spreadsheet with missing data, upload it to the CleverSheets Slack app to get started.</p>
+                        a spreadsheet with missing data, upload it to the CleverSheets Slack app to get started. We'll
+                        augment your data using <a href="https://aito.ai">Aito.ai</a>, an AutoML technology
+                        company.
+                    </p>
                 </div>
             </div>
 
@@ -158,7 +161,7 @@
                 </div>
                 <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1 class="large-factor">Review and Approve</h1>
-                    <p> If the AI engine isn't confident enough, you can configure it to leave the value
+                    <p> If the AI engine isn't confident enough, you can configure it to leave the missing value
                     empty or prompt you to jump in. It's up to you to set the confidence
                     level and what to do when the prediction is too uncertain.</p>
                 </div>
@@ -237,17 +240,6 @@
                         the AI engine will take advantage of the extra data and provide even better predictions.
                     </p>
 
-                </div>
-                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
-                     data-wow-delay="0.36s">
-
-
-                    <h4>Can I limit which columns are modified?</h4>
-                    <p> Yes. Once you upload a spreadsheet and choose the worksheet to target, we clone the
-                        target sheet and perform an initial analysis of its columns. We then show you a Slack
-                        modal with all columns in your cloned worksheet. You can choose to ignore any column listed.
-                        Only those columns you authorize will be updated with predicted values.
-                    </p>
 
                     <h4> Can I set a minimum confidence threshold?</h4>
                     <p> You can set a minimum confidence level for the AI engine when it parses your data. For
@@ -258,12 +250,46 @@
                         future predictions.
                     </p>
 
+                </div>
+                <div class="col-12 col-lg-6 fh5co-advantages-grid-columns wow animated fadeInRight"
+                     data-wow-delay="0.36s">
+
+                    <h4>Can I limit which columns are modified?</h4>
+                    <p> Yes. Once you upload a spreadsheet and choose the worksheet to target, we clone the
+                        target sheet and perform an initial analysis of its columns. We then show you a Slack
+                        modal with all columns in your cloned worksheet. You can choose to ignore any column listed.
+                        Only those columns you authorize will be updated with predicted values.
+                    </p>
                     <h4>How can I tell predicted and existing values apart?</h4>
                     <p> Each time we insert a value into a cloned sheet, we use different background colors to denote
                         supplemental information about the value. If it is blue, it means you chose to override
                         the predicted value. If it is green, the AI was very confident in its answer. Red if not.
                         Colors that fall between red and green denote a somewhat-confident prediction.
                     </p>
+
+                    <h4> What private information do you keep on your servers?</h4>
+                    <p> We save your Slack Team ID and the Slack user ID for the CleverSheets installer
+                        for your team. We also track the number of spreadsheets converted by team members.
+                        Prediction support is provided by <a href="https://aito.ai">Aito.ai</a>, an AutoML technology company based in Europe.
+                        Please visit them for more information about they range of AI services they offer.
+                    </p>
+
+                    <h4> Do you share information with outside parties?</h4>
+                    <p> No, never, and not at all. It’s our intent to efficiently parse your Spreadsheet,
+                        call the necessary prediction APIs, and then delete all traces of the transaction from our
+                        servers once the process completes. Our company (Intwixt) designs business process apps that
+                        run atop Slack. We built CleverSheets to showcase our abilities as a general orchestration
+                        platform. We hope you love DocFlow, but we really hope you love Intwixt!
+                    </p>
+
+                    <h4> How do I uninstall CleverSheets?</h4>
+                    <p>CleverSheets subscribes to the <a href="https://api.slack.com/events/app_uninstalled">App Uninstalled</a> event.
+                        Once you uninstall the CleverSheets app according to Slack's instructions, we will fully
+                        remove all information associated with your team and workspace, including your authorization to
+                        copy files from Slack to Box.com and assign tasks to reviewers.
+                    </p>
+
+
 
                 </div>
             </div>
