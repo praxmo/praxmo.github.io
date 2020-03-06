@@ -1398,6 +1398,16 @@ span.policy-detail {
     border-radius:12px;
 }
 
+@media screen and (max-width: 800px) {
+    .container > h1.title {
+        font-size: 45px;
+    }
+    .container .logo {
+        max-width: 100px;
+        margin: 5px 10px 10px 10px;
+    }
+}
+
 @media screen and (max-width: 520px) {
     .container > h1.title {
         font-size: 40px;
@@ -1413,15 +1423,6 @@ span.policy-detail {
     }
 
 }
-    @media screen and (max-width: 800px) {
-        .container > h1.title {
-            font-size: 45px;
-        }
-        .container .logo {
-            max-width: 100px;
-            margin: 5px 10px 10px 10px;
-        }
-    }
 
 .container.solution b, .container.solution label  {
     font-weight: 900;
