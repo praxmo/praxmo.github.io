@@ -109,13 +109,13 @@
                 document. (<i>Excel is soon to follow!</i>)
             </p>
             <p>
-                Once we receive your spreadsheet, we'll ask you a few questions,
-                including which worksheet to target and which columns to scan for missing values. If we find an
-                empty cell, we'll use our ML-backed service to predict the most likely value based upon existing
-                spreadsheet data. <i>The larger your spreadsheet, the more accurate the prediction.</i>
+                When you share a spreadsheet, we'll start by asking you a few questions, including which worksheet to
+                target and which columns to scan for missing values. If we find an empty cell, we'll use our
+                ML-backed service to predict the most likely value based upon existing spreadsheet data.
+                <i>The larger your spreadsheet, the more accurate the prediction.</i>
             </p>
             <p>
-                You can configure the confidence level for the AI engine, establishing a minimum
+                You can configure the confidence level for the service, establishing a minimum
                 threshold for making predictions and inserting values. In cases where
                 we're too unsure, we'll leave it empty.
                 <!-- Importantly, each time you respond, we'll train our AI engine,
@@ -133,7 +133,7 @@
                 </div>
                 <div class="col-lg-4 in-order-2 tight sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
                     <h1 class="large-factor">Upload any Spreadsheet</h1>
-                    <p> Clever Sheets delivers the power of AI without complicated or costly setup. If you have
+                    <p> Clever Sheets delivers the power of AI/ML without complicated or costly setup. If you have
                         a spreadsheet with missing data, upload it to the Clever Sheets Slack app to get started. We'll
                         augment your data using <a href="https://aito.ai">Aito.ai</a>, a technology
                         company focused on approachable AI solutions.
@@ -296,9 +296,9 @@
             <h2 id="commands" style="padding-top:80px">Slash Commands</h2>
             <div>
                 <h4 class="command">Reset Approval Flows*</h4>
-                <code>/cleversheets reset</code>
-                <p>The authorization grant to read and update spreadsheets will be removed. All user account
-                information will be deleted. No other team member will be affected by this command</p>
+                <code>/cleversheets revoke</code>
+                <p>The authorization grant to read and update Google Sheets will be removed. All user account
+                information will be deleted. No other team member will be affected by this command.</p>
             </div>
 
             <div>
