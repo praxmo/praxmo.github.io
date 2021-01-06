@@ -1,574 +1,141 @@
+
 <!DOCTYPE html>
-<!-- copyright 2019 Intwixt, Inc. All rights reserved. -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Intwixt | Run AI-enabled workflows</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Run AI-enabled workflows directly in Slack"/>
-    <meta name="keywords" content="BPM, Slack, Workflow, Business Process"/>
-    <meta name="author" content="info@intwixt.com"/>
+    <title>404 | Intwixt</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Orbit.css -->
-    <link rel="stylesheet" href="css/orbit.css">
-    <!-- Fonts -->
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box
+        }
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
-    <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Slack Emulator styles  -->
-    <link rel="stylesheet" href="emulator/css/slack.css">
+        body {
+            font-family: montserrat, sans-serif;
+            padding: 0;
+            margin: 0
+        }
 
-    <!-- Analytics -->
-    <script>(function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-72994520-1', 'auto');
-    ga('send', 'pageview');</script>
-    <script>ga('create', 'UA-72994520-1', 'auto', {'name': 'custom'});</script>
+        #notfound {
+            position: relative;
+            height: 100vh
+        }
+
+        #notfound .notfound {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%)
+        }
+
+        .notfound {
+            max-width: 520px;
+            width: 100%;
+            line-height: 1.4;
+            text-align: center
+        }
+
+        .notfound .notfound-404 {
+            position: relative;
+            height: 200px;
+            margin: 0 auto 20px;
+            z-index: -1
+        }
+
+        .notfound .notfound-404 h1 {
+            font-family: montserrat, sans-serif;
+            font-size: 236px;
+            font-weight: 200;
+            margin: 0;
+            color: #211b19;
+            text-transform: uppercase;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%)
+        }
+
+        .notfound .notfound-404 h2 {
+            font-family: montserrat, sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #211b19;
+            background: #fff;
+            padding: 10px 5px;
+            margin: auto;
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0
+        }
+
+        .notfound a {
+            display: inline-block;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+            text-transform: uppercase;
+            padding: 13px 23px;
+            background: #03A9F4;
+            font-size: 18px;
+            transition: .2s all;
+            border-radius:4px;
+        }
+
+        .notfound a:hover {
+            color: #03A9F4;
+            background: #ffffff
+        }
+
+        .blurb {
+            margin-top: 100px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .notfound .notfound-404 h1 {
+                font-size: 148px
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .notfound .notfound-404 {
+                height: 148px;
+                margin: 0 auto 10px
+            }
+
+            .notfound .notfound-404 h1 {
+                font-size: 86px
+            }
+
+            .notfound .notfound-404 h2 {
+                font-size: 16px
+            }
+
+            .notfound a {
+                padding: 7px 15px;
+                font-size: 14px
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
 </head>
-<body id="home">
-
-<div id="page-wrap">
-
-
-    <!-- ==========================================================================================================
-                                                       HERO
-         ========================================================================================================== -->
-
-    <div id="fh5co-hero-wrapper">
-        <nav class="navbar navbar-expand-lg main-navbar-nav navbar-dark fixed-top">
-            <a class="navbar-brand" href="/">Intwixt</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-items-right ml-auto mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#examples" onclick="$('#examples').goTo('examples');">Use Cases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/plans">Plans</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact" onclick="$('#contact').goTo('contact');return false;">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-btn btn-md btn" href="https://my.intwixt.com/"><i class="fas fa-sign-in-alt"></i>
-                            Sign In</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <div class="container fh5co-hero-inner">
-            <h1 class="animated">Run AI-Enabled Workflows On Slack</h1>
-            <p class="printout">
-                Design and run <span class="special">conversational</span> business processes on your favorite messaging app.
-            </p>
-            <div class="btn-bar">
-                <button class="btn btn-md features-btn-first"
-                        onclick="$('#examples').goTo('examples');return false;">Show Me
-                </button>
-            </div>
-            <ul class="quotes">
-                <li>"By 2025, channels will replace email as the primary means of communication. Slack will be leveraged
-                    for new revenue opportunities and efficiency gains, while leveraging existing investments in
-                    business processes and rules."
-                    <span>- VP of Product, Slack -</span>
-                </li>
-                <li>"The distinction between workflow and business process becomes very important when trying to achieve
-                    a specific goal - like improving efficiency."
-                    <span>- Founder, TallyFly -</span>
-                </li>
-                <li>"Slack has the potential to morph from being solely a workchat and collaboration
-                    tool to being a new type of business process management platform."
-                    <span>- Mark Boyd, The New Stack -</span>
-                </li>
-                <li>"AI-powered solutions for business process automation orchestrate work to produce business outcomes
-                    that go far beyond typical process performance results."
-                    <span> - BPMOnline, AI for BPM - </span>
-                </li>
-                <li>"AI-models make predictions around business processes to accelerate transformation."
-                    <span>- Gartner -</span>
-                </li>
-                <li>"Business process management involves designing
-                    processes, executing them across systems and people, managing tasks and workflows, and optimizing it all
-                    continually."
-                    <span>- Founder, TallyFly -</span>
-                </li>
-                <li>"Model-driven development allows users to program on a higher abstraction level and captures domain
-                    knowledge and bridges the gap between business and IT."
-                    <span>- The Enterprise Architect, Building an Agile Enterprise -</span>
-                </li>
-                <li>"Slack is where and how work gets done. Messaging apps like Slack are becoming the de-facto standard
-                    for the enterprise."
-                    <span>- VP of Product, Slack -</span>
-                </li>
-                <div class="selectors">
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                    <span class="selector"></span>
-                </div>
-            </ul>
-
-
-
-            <div class="fh5co-hero-smartphone">
-
-                <div class="orbit">
-                    <ul class="orbit-wrap">
-                        <li class="orbit-center icon-filter"></li>
-                        <li>
-                            <ul class="ring ring-0">
-                                <li><i class="orbit-icon user1"></i></li>
-                                <li><i class="orbit-icon luis"></i></li>
-                                <li><i class="orbit-icon sqs"></i></li>
-                                <li><i class="orbit-icon uipath"></i></li>
-                                <li><i class="orbit-icon messenger"></i></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul class="ring ring-1">
-                                <li><i class="orbit-icon user2"></i></li>
-                                <li><i class="orbit-icon maps"></i></li>
-                                <li><i class="orbit-icon gcf"></i></li>
-                                <li><i class="orbit-icon firebase"></i></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul class="ring ring-2">
-                                <li><i class="orbit-icon intercom"></i></li>
-                                <li><i class="orbit-icon slack"></i></li>
-                                <li><i class="orbit-icon dialogflow"></i></li>
-                                <li><i class="orbit-icon hubspot"></i></li>
-                                <li><i class="orbit-icon user3"></i></li>
-                                <li><i class="orbit-icon cloudwatch"></i></li>
-                                <li><i class="orbit-icon aito"></i></li>
-                                <li><i class="orbit-icon lambda"></i></li>
-                                <li><i class="orbit-icon twilio"></i></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul class="ring ring-3">
-                                <li><i class="orbit-icon alexa"></i></li>
-                                <li><i class="orbit-icon s3"></i></li>
-                                <li><i class="orbit-icon stepfunctions"></i></li>
-                                <li><i class="orbit-icon user4"></i></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- NOTE: step 1 of 2) uncomment the following to use the playa emulator -->
-                <!-- div class="phone_canvas_container">
-                    <my-solution-emulator id="playa" class="mobile" v-cloak></my-solution-emulator>
-                </div -->
-                <!-- NOTE: step 2 of 2) comment out the following static image when using the playa emulator -->
-                <div class="fh5co-hero-smartphone_static"></div>
-
-                <div class="intwixt-cog"></div>
-
-            </div> <!-- fh5co-hero-smartphone -->
-
-
-        </div> <!-- fh5co-hero-inner -->
-    </div> <!-- first section wrapper -->
-
-
-    <div class="wave wave_blue"></div>
-
-    <!-- ==========================================================================================================
-                                                     DIFFERENTIATORS
-         ========================================================================================================== -->
-
-    <div id="fh5co-differentiators" class="fh5co-advantages-outer">
-        <div class="container">
-            <h1 class="second-title">Intelligent Business Process Automation</h1>
-            <div class="second-tagline">with Intwixt's <b>Conversational Automation Platform</b></div>
-
-            <div class="row fh5co-advantages-grid-columns wow animated fadeIn" data-wow-delay="0.36s">
-                <div class="col-sm-6 differentiator">
-                    <img class="grid-image icon-filter" src="img/multi_user.png" alt="Multi-user">
-                    <h2 class="grid-title">Conversational</h2>
-
-
-                    <input type="checkbox" class="read-more-state" id="post-1"/>
-                    <p class="grid-desc read-more-wrap">Our conversation platform combines people and
-                        systems in hybrid solutions that reflect real-world business processes.
-                        <span class="read-more-target">
-                            People can be unpredictable, sending unanticipated
-                            phrases (or nothing at all). We react and learn to keep the process flowing.
-                            We enable more than just task management and workflow integration. Our ability to turn any
-                            messaging app into a business process engine means no more switching between
-                            applications. Slack, Alexa, Messenger and more...we keep you productive, all in one place.
-                        </span>
-                        <label for="post-1" class="read-more-trigger"></label>
-                    </p>
-
-                </div>
-
-                <div class="col-sm-6 differentiator">
-                    <img class="grid-image icon-filter" src="img/ai_enabled.png" alt="Long-running">
-                    <h2 class="grid-title">Cognitive</h2>
-
-                    <input type="checkbox" class="read-more-state" id="post-2"/>
-                    <p class="grid-desc read-more-wrap">We seamlessly integrate AI
-                        to sense, respond, predict, and learn to further refine business process automation.
-                        <span class="read-more-target">
-                            AI enhances our rule-based workflows and business processes, making end-user interactions more
-                            fluid and flexible. The insights don't replace human interaction; they make it better.
-                            By taking previous experiences into consideration, AI  ultimately improves and
-                            accelerates process execution. Leveraging AI to transform
-                            business processes is an essential part of effective Digital Transformation.
-                        </span>
-                        <label for="post-2" class="read-more-trigger"></label>
-                    </p>
-
-                </div>
-
-                <div class="col-sm-6 differentiator">
-                    <img class="grid-image icon-filter" src="img/long_running.png" alt="AI-enabled">
-                    <h2 class="grid-title">Stateful</h2>
-
-                    <input type="checkbox" class="read-more-state" id="post-3"/>
-                    <p class="grid-desc read-more-wrap">Our stateful engine enables long-running
-                        solutions that reflect how people interact with systems over time.
-                        <span class="read-more-target">
-                        Stateful processes are intended to support business scenarios that involve people and
-                            therefore have different demands, requiring complex, long-running logic. Stateful
-                            processes often have specific reliability and recovery requirements that simply can’t
-                            be modeled by stateless solutions. For example, a process that sends a question to a
-                            person and awaits a response must be stateful, because the act of waiting and being able to
-                            recover and continue execution will always take an indeterminate amount of time.</span>
-                        <label for="post-3" class="read-more-trigger"></label>
-                    </p>
-                </div>
-
-                <div class="col-sm-6 differentiator">
-                    <img class="grid-image icon-filter" src="img/model.png" alt="Model-driven">
-                    <h2 class="grid-title">Model-driven</h2>
-
-                    <input type="checkbox" class="read-more-state" id="post-4"/>
-                    <p class="grid-desc read-more-wrap">Our model-based approach is capable of executing
-                        mission critical processes, yet intuitive enough for business users to grasp.
-                        <span class="read-more-target">
-                             Manage software complexity, improve quality, and reduce development cost in a
-                        high-productivity Platform-as-a-Service environment. Our declarative application construction
-                            and highly-scalable environment integrate and enhance your workflows and business processes.
-                        </span>
-                        <label for="post-4" class="read-more-trigger"></label>
-                    </p>
-                </div>
-            </div>
-
+<body>
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Oops!</h1>
+            <h2>404 - Intwixt Not Found*</h2>
         </div>
+        <div class="blurb"><small>*Intwixt ceased operations on Dec 31, 2020. Thanks to our partners and customers over the years who made this such a great journey!</small></div>
     </div>
-
-
-
-
-    <!-- ==========================================================================================================
-                                 USE CASES / EXAMPLE DOMAIN SOLUTIONS
-         ========================================================================================================== -->
-
-    <div class="examples-outer">
-        <div class="container">
-            <h1 id="examples" class="second-title" style="padding-top:120px;margin-top:0px;margin-bottom: 40px;">Unify your Business Processes in Slack</h1>
-            <div class="second-tagline">Sample Use Cases Built with Intwixt</div>
-
-
-            <!-- ==========================================================================================================
-                                    USE CASE 1:  BOX, MULTI-USER DOCUMENT APPROVAL
-           ========================================================================================================== -->
-
-            <div id="documentapproval" style="margin-top:40px;" class="row examples-grid-columns">
-                <div class="col-sm-8 in-order-1 wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <a href="/solutions/docflow"><h1 class="small-factor">Intwixt DocFlow</h1></a>
-                    <div class="solution-emulator">
-                        <my-solution-emulator id="docflow_dev" v-cloak></my-solution-emulator>
-                    </div>
-                </div>
-                <div class="col-sm-4 in-order-2 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
-                    <a href="/solutions/docflow"><h1 class="large-factor">Intwixt DocFlow</h1></a>
-                    <p> Deliver document workflows that move beyond simple approvals. Handle rejections, exceptions,
-                        timeouts and more&mdash;all with unmatched transparency.
-                        As the document moves through workflow all users are updated in real time
-                        in Slack, while Box versioning, task assignment, and
-                        access controls provide secure and auditable document access.
-                    </p>
-                    <div class="circles">
-                        <span class="circle" data-name="(Ben)" title="Submitter"><img class="avatar" src="/img/avatars/u1.png"></span>
-                        <span class="circle" title="Box"><img src="https://my.intwixt.com/stars/Box.1/image_96"></span>
-                        <span class="circle" data-name="(Sandy)" title="Reviewer 1"><img class="avatar" src="/img/avatars/u2.png"></span>
-                        <span class="circle" data-name="(Radhika)" title="Reviewer 2"><img class="avatar" src="/img/avatars/u3.png"></span>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- ==========================================================================================================
-                                 USE CASE 2:  HUBSPOT, AI-ENABLED OPTIMIZATIONS AND MULTI-USER FLOWS
-           ========================================================================================================== -->
-
-            <div class="line-bg-div container"></div>
-
-            <div id="customerjourney" class="row examples-grid-columns">
-                <div class="col-sm-4 in-order-3 sm-4-content wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <a href="/solutions/dealflow"><h1 class="large-factor">Intwixt DealFlow</h1></a>
-                    <p> Deliver <b>AI-enabled</b> customer journeys that keep your sales teams productive and your sales
-                        managers informed. Merge sales information directly in Slack from CRM systems like HubSpot and
-                        data enrichment systems like Intercom. With <b>artificial intelligence (AI)</b> baked-in,
-                        gain insight into people and processes you might otherwise overlook. </p>
-                    <div class="circles">
-                        <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
-                        <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
-                        <span class="circle" data-name="(Ben)" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
-                        <!-- span class="circle" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span -->
-                        <span class="circle" title="Intercom"><img src="/img/connectors/Intercom_96.png"></span>
-                        <span class="circle" data-name="(AI / ML)" title="Aito.ai"><img src="https://my.intwixt.com/stars/Aito.1/image_96"></span>
-                    </div>
-                </div>
-                <div class="col-sm-8 in-order-4 wow animated fadeInRight" data-wow-delay="0.22s">
-                    <a href="/solutions/dealflow"><h1 class="small-factor">Intwixt DealFlow</h1></a>
-                    <div class="solution-emulator">
-                        <my-solution-emulator id="hubble" class="right-aligned" v-cloak></my-solution-emulator>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- ==========================================================================================================
-                                 USE CASE 3:  MULTI-CHANNEL
-           ========================================================================================================== -->
-
-            <div class="line-bg-div container"></div>
-
-            <div class="row examples-grid-columns">
-                <div class="col-sm-8 in-order-5 wow animated fadeInLeft" data-wow-delay="0.22s">
-                    <h1 class="small-factor">More Than Just Slack</h1>
-                    <div class="solution-emulator">
-                        <my-solution-emulator id="omni" v-cloak></my-solution-emulator>
-                    </div>
-                </div>
-                <div class="col-sm-4 in-order-3 sm-4-content wow animated fadeInRight" data-wow-delay="0.22s">
-                    <h1 class="large-factor">More than Just Slack</h1>
-                    <p>Slack's expansive APIs and rich interactive messages make it our favorite choice
-                        for deploying conversational apps. But nothing is more important than reaching your audience.
-                        Deploy multi-channel solutions on the channels your teams already know and use, including
-                        Alexa, SMS, Messenger and more.</p>
-                    <div class="circles">
-                        <span class="circle" title="HubSpot"><img src="/img/connectors/HubSpot_96.png"></span>
-                        <span class="circle" data-name="(Ben)" title="Sales Mgr"><img class="avatar" src="/img/avatars/u1.png"></span>
-                        <span class="circle" data-name="(Sandy)" title="Sales Rep"><img class="avatar" src="/img/avatars/u2.png"></span>
-                        <span class="circle" data-name="(SMS)" title="Twilio"><img src="https://my.intwixt.com/stars/Twilio.1/image_96"></span>
-                        <span class="circle" title="Slack"><img src="https://my.intwixt.com/stars/Slack.1/image_96"></span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> <!-- end examples section -->
-
-
-    <!-- ==========================================================================================================
-                                                      LOGOS
-         ========================================================================================================== -->
-
-    <div id="logos" class="logos-outer">
-        <h1 class="second-title">Some of Our Partners / Customers</h1>
-        <div class="container">
-            <section class="customer-logos slider">
-                <div class="slide o5 x06 animated fadeIn wow" data-wow-delay="0.65s"><a
-                        href="https://www.box.com"><img src="img/logos/box.png"></a></div>
-                <div class="slide o5 animated fadeIn wow" data-wow-delay="0.5s"><a
-                        href="https://regentstreetonline.com"><img src="img/logos/regent.png"></a></div>
-                <div class="slide animated fadeIn wow" data-wow-delay="0.15s"><a href="https://aito.ai"><img
-                        src="img/logos/aito.png"></a></div>
-                <div class="slide animated fadeIn wow" data-wow-delay="0.25s"><a href="https://aws.amazon.com"><img
-                        src="img/logos/aws_pn.png"></a></div>
-                <div class="slide o5 x2 animated fadeIn wow" data-wow-delay="0.35s"><a
-                        href="https://thecommunicationsstore.co.uk"><img src="img/logos/tcs.png"></a></div>
-                <div class="slide animated fadeIn wow" data-wow-delay="0.45s"><a href="http://uipath.com"><img
-                        src="img/logos/uipath.png"></a></div>
-                <div class="slide animated fadeIn wow" data-wow-delay="0.55s"><a
-                        href="https://www.automationanywhere.com/"><img src="img/logos/aa.png"></a></div>
-                <div class="slide animated fadeIn wow" data-wow-delay="0.6s"><a
-                        href="https://www.hubspot.com/"><img src="img/logos/hubspot.png"></a></div>
-                <div class="slide animated fadeIn wow" data-wow-delay="0.65s"><a
-                        href="https://intwixtqa.slack.com/apps/AFZ68L1NC-cofounder-eq"><img
-                        src="img/logos/cfeq.png"></a></div>
-            </section>
-        </div>
-    </div>
-
-
-    <!-- ==========================================================================================================
-                                                 CALL TO ACTION
-    ========================================================================================================== -->
-
-
-    <div id="contact" class="fh5co-bottom-outer">
-        <div class="overlay">
-            <div class="container fh5co-bottom-inner">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-7 call-to-action">
-                        <h1>Want to learn more?</h1>
-                        <p>Run conversational business processes backed by our AI-enabled process engine.</p>
-                        <div class="links">
-                            <div>
-                                <i class="far fa-envelope"></i> <a href="mailto:contact@intwixt.com">contact@intwixt.com</a>
-                            </div>
-                            <div>
-                                <i class="fas fa-phone"></i> <a href="tel:415-570-8502">415-570-8502</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-5">
-                        <div class="benefits">
-                            <div class="rotate anim1">
-                                <div class="counterrotate">
-                                    <div class="inner">
-                                        <img class="icon-filter-white" src="img/benefits/efficiency.png" alt="Efficient">
-                                        <div>Efficiency</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rotate anim2">
-                                <div class="counterrotate">
-                                    <div class="inner">
-                                        <img class="icon-filter-white" src="img/benefits/transparency.png" alt="Transparent">
-                                        <div>Transparency</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rotate anim3">
-                                <div class="counterrotate">
-                                    <div class="inner">
-                                        <img class="icon-filter-white" src="img/benefits/usability.png" alt="Usable">
-                                        <div>Usability</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rotate anim4">
-                                <div class="counterrotate">
-                                    <div class="inner">
-                                        <img class="icon-filter-white" src="img/benefits/extensibility.png" alt="Extensible">
-                                        <div>Extensibility</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ==========================================================================================================
-                                               SECTION 7 - SUB FOOTER
-    ========================================================================================================== -->
-
-    <footer class="footer-outer">
-        <div class="container footer-inner">
-            <div class="footer-three-grid wow fadeIn animated" data-wow-delay="0.66s">
-                <div>
-                    <nav class="footer-nav">
-                        <ul class="nav-items">
-                            <a href="#home" onclick="$('#home').goTo('home');">
-                                <li><i class="fas fa-arrow-up"></i> TOP</li>
-                            </a>
-                            <a href="https://intwixt.readme.io">
-                                <li>User Guide</li>
-                            </a>
-                            <a href="https://intwixt.readme.io/discuss">
-                                <li>Forums</li>
-                            </a>
-                            <a href="/blog">
-                                <li>Blog</li>
-                            </a>
-                            <a href="https://www.linkedin.com/company/intwixt-inc-/">
-                                <li><i class="fab fa-linkedin"></i></li>
-                            </a>
-                            <a href="https://www.twitter.com/intwixt">
-                                <li><i class="fab fa-twitter"></i></li>
-                            </a>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <span class="border-bottom-footer"></span>
-
-            <div>
-                <nav class="footer-nav">
-                    <ul class="nav-items secondary-nav wow fadeIn animated" data-wow-delay="0.66s">
-                        <a href="/privacy-policy/">
-                            <li>Privacy Policy</li>
-                        </a>
-                        <a href="/terms">
-                            <li>Terms and Conditions</li>
-                        </a>
-                        <a href="/solutions/docflow" style="display: none;">
-                            <li>Intwixt DocFlow</li>
-                        </a>
-                    </ul>
-                </nav>
-            </div>
-
-            <p class="copyright">&copy; 2019 Intwixt, Inc. All rights reserved.</p>
-        </div>
-    </footer>
-
-
-</div> <!-- main page wrapper end content -->
-
-<script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="/emulator/stories/playa.js"></script>
-<script src="/emulator/stories/docflow_dev.js"></script>
-<script src="/emulator/stories/hubble.js"></script>
-<script src="/emulator/stories/omni.js"></script>
-<script src="/emulator/js/emulator.js"></script>
-<script src="/emulator/js/canvas.js"></script>
-<script src="js/main.js"></script>
-<script>
-  //emulate("playa", "#playa", playa, {autoplay:true});
-  emulate("docflow_dev", "#docflow_dev", docflow_dev);
-  emulate("hubble", "#hubble", hubble);
-  emulate("omni", "#omni", omni);
-</script>
+</div>
 </body>
 </html>
